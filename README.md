@@ -2,11 +2,15 @@
 GameLink
 
 # Integrantes del equipo de desarrollo: 
-Andrea Patricia Acuña Padrón
-Carlos Fuentes Díaz
-Jhostin Davis Ortiz Moreno
-Mani Víctor Patel Bentz
-Juan Luis Rico Rus
+<table>
+ 
+<tr> Andrea Patricia Acuña Padrón </tr>
+<tr> Carlos Fuentes Díaz </tr>
+<tr> Jhostin Davis Ortiz Moreno </tr>
+<tr> Mani Víctor Patel Bentz </tr>
+<tr> Juan Luis Rico Rus </tr>
+ 
+</table>
 
 # Herramienta de organización para el equipo:
 Link Trello:
