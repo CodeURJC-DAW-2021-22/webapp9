@@ -1,4 +1,4 @@
-#Nombre de la aplicación web: 
+## Nombre de la aplicación web: 
 GameLink
 
 Integrantes del equipo de desarrollo: 
