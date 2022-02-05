@@ -1,32 +1,33 @@
-## Nombre de la aplicación web: 
+# Nombre de la aplicación web: 
 GameLink
 
-## Integrantes del equipo de desarrollo: 
+# Integrantes del equipo de desarrollo: 
 Andrea Patricia Acuña Padrón
 Carlos Fuentes Díaz
 Jhostin Davis Ortiz Moreno
 Mani Víctor Patel Bentz
 Juan Luis Rico Rus
 
-## Herramienta de organización para el equipo:
+# Herramienta de organización para el equipo:
 Link Trello:
 
-## Aspectos principales de la aplicación web:
+# Aspectos principales de la aplicación web:
 
-1.ENTIDADES
+## 1.ENTIDADES
 
 La web consta de 4 entidades:
 (A pesar de no ser necesario mencionar los atributos en la Fase 0, se van a mencionar los atributos que, a priori, se han pensado)
-Usuario:
+
+#### Usuario:
 Nombre, apellidos, foto perfil, correo electrónico, ID, juegos comprados, noticias leídas.
 
-Videojuego:
+#### Videojuego:
 Nombre, descripción, puntuación, carátula, empresa, precio general, género.
 
-Noticias:
+#### Noticias:
 Título, descripción, foto(opcional), autor.
 
-CódigoCompra:
+#### CódigoCompra:
 CódigoID, nombre videojuego, precio plataforma.
 
 Relaciones de las entidades:
@@ -38,20 +39,20 @@ Un usuario registrado compra de cero a infinitos videojuegos.
 Un usuario puede visualizar noticias y videojuegos.
 
 
-2.PERMISOS DE LOS USUARIOS
+## 2.PERMISOS DE LOS USUARIOS
 
 (la Web tiene que estar diseñada para que ciertos usuarios sean dueños de ciertos datos, importante para implementar correctamente los mecanismos de seguridad adecuados)
 Para exponer los permisos de los usuarios se expondrán los tipos de usuario que se contemplan en la web y la funcionalidad que cumplen en la misma. 
 
-Cliente anónimo: 
+#### Cliente anónimo: 
 Usuario que no necesita de credenciales para acceder a la web. Podrá visualizar las noticias y los videojuegos más populares (más visitados y mejor valorados), debido a que no tiene preferencias. 
 Además, no tendrá posibilidad de realizar compras
 
-Cliente registrado:
+#### Cliente registrado:
 Usuario que necesita credenciales para acceder a la web. Podrá visualizar noticias y videojuegos en base a sus preferencias (compras y visualizaciones anteriores). También tendrá posibilidad de realizar compras en la web.
 Además, tendrá la opción de modificar sus credenciales (Nombre, Tarjeta, Foto de perfil, correo electrónico).
 
-Administrador:
-	Usuario que necesita credenciales para acceder a la web.
-	Podrá crear nuevas noticias y subir nuevos videojuegos (con su código 		asociado) para el consumo posterior de los usuarios cliente. 
-	Además, tendrá la opción de eliminar y/o modificar las noticias y los 		videojuegos previamente publicados.
+####  Administrador:
+Usuario que necesita credenciales para acceder a la web. Podrá crear nuevas noticias y subir nuevos videojuegos (con su código 	asociado) para el consumo posterior de los usuarios cliente. 
+Además, tendrá la opción de eliminar y/o modificar las noticias y los videojuegos previamente publicados.
+
