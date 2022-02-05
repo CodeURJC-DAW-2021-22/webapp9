@@ -59,7 +59,7 @@ Además, tendrá la opción de modificar sus credenciales (Nombre, Tarjeta, Foto
 Usuario que necesita credenciales para acceder a la web. Podrá crear nuevas noticias y subir nuevos videojuegos (con su código 	asociado) para el consumo posterior de los usuarios cliente. 
 Además, tendrá la opción de eliminar y/o modificar las noticias y los videojuegos previamente publicados.
 
-## 3.Imágenes
+## 3.IMÁGENES
 
 Debido a que se trata de una página con 3 tipos de usuarios (usuario no registrado, registrado y administrador) es necesario determinar las posibilidades que tiene cada usuario de poder actualizar y subir fotografías.
 
