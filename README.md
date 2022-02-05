@@ -2,15 +2,14 @@
 GameLink
 
 # Integrantes del equipo de desarrollo: 
-<table>
- 
-<tr> Andrea Patricia Acuña Padrón </tr>
-<tr> Carlos Fuentes Díaz </tr>
-<tr> Jhostin Davis Ortiz Moreno </tr>
-<tr> Mani Víctor Patel Bentz </tr>
-<tr> Juan Luis Rico Rus </tr>
- 
-</table>
+| Nombre | Correo | Usuario GutHub |
+| --- | --- | --- |
+| Andrea Patricia Acuña Padrón | ap.acuna.2019@alumnos.urjc.es | andrecupa |
+| Carlos Fuentes Díaz | c.fuentesd.2019@alumnos.urjc.es | Xarlifue360 |
+| Jhostin Davis Ortiz Moreno | jd.ortiz.2019@alumnos.urjc.es | JhostinD | 
+| Mani Víctor Patel Bentz | mv.patel.2019@alumnos.urjc.es | ultramani |
+| Juan Luis Rico Rus | jl.rico.2019@alumnos.urjc.es | JLRR2019 |
+
 
 # Herramienta de organización para el equipo:
 Link Trello:
