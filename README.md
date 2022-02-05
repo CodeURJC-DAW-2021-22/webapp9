@@ -82,3 +82,12 @@ La página web contará con un gráfico de barras, el cual medirá el número de
 También contará con un gráfico de sectores, que medirá los géneros de videojuegos más vendidos a lo largo del mes.
 
 ![](imagenes/grafico2.png)
+
+## 6. ALGORITMO O CONSULTA AVANZADA
+
+Principalmente existirán dos funcionalidades que implementan un algoritmo basado cada uno en diferentes datos de las entidades:
+* Se implementará un sistema que ofrezca a los usuarios registrados videojuegos que puedan interesarles basados en su historial de compra. La decisión sobre qué juegos se muestran se hará en base al género de los videojuegos adquiridos por el usuario (atributo juegos comprados del usuario correspondiente).
+* Se implementará un sistema que muestre una lista de los juegos más “populares”, lista que será actualizada semanalmente. Dicha “popularidad” se medirá en función de dos factores que se reflejarán en dos listas diferenciadas:
+ * Número de ventas totales del juego en cuestión.
+ * Valoración global del juego.
+Cabe destacar que las valoraciones deben de tener en cuenta el número de valoraciones que tenga el videojuego (no puede haber un juego con una valoración de 5 estrellas por encima de uno con miles de valoraciones con media de 4,5 estrellas).
