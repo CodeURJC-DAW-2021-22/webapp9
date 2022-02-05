@@ -12,7 +12,8 @@ GameLink
 
 
 # Herramienta de organización para el equipo:
-Link Trello:
+Link Trello: 
+* [Trello] (https://trello.com/b/LKtXzdMY/organizaci%C3%B3n)
 
 # Aspectos principales de la aplicación web:
 
