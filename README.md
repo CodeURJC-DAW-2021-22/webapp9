@@ -76,8 +76,8 @@ el usuario administrador podrá cambiar cualquier imágen de la página. Esto in
 
 La página web contará con un gráfico de barras, el cual medirá el número de ventas de un videojuego a lo largo de los últimos meses. Tendrá un desplegable para seleccionar el videojuego deseado y ver sus ventas correspondientes, así como las ventas generales de todos los videojuegos de la web.
 
-<img src="E:\Universidad\3ºAÑO\2º Cuatrimestre\Desarrollo de Aplicaciones Web (DAW)\Practica\grafico1.png" alt="Grafico1"/>
+<img src="E:/Universidad/3ºAÑO/2º Cuatrimestre/Desarrollo de Aplicaciones Web (DAW)/Practica/grafico1.png" alt="Grafico1"/>
 
 También contará con un gráfico de sectores, que medirá los géneros de videojuegos más vendidos a lo largo del mes.
 
-<img src="E:\Universidad\3ºAÑO\2º Cuatrimestre\Desarrollo de Aplicaciones Web (DAW)\Practica\grafico2.png" alt="Grafico2"/>
+<img src="E:/Universidad/3ºAÑO/2º Cuatrimestre/Desarrollo de Aplicaciones Web (DAW)/Practica/grafico2.png" alt="Grafico2"/>
