@@ -1,17 +1,17 @@
 ## Nombre de la aplicación web: 
 GameLink
 
-Integrantes del equipo de desarrollo: 
+## Integrantes del equipo de desarrollo: 
 Andrea Patricia Acuña Padrón
 Carlos Fuentes Díaz
 Jhostin Davis Ortiz Moreno
 Mani Víctor Patel Bentz
 Juan Luis Rico Rus
 
-Herramienta de organización para el equipo:
+## Herramienta de organización para el equipo:
 Link Trello:
 
-Aspectos principales de la aplicación web:
+## Aspectos principales de la aplicación web:
 
 1.ENTIDADES
 
