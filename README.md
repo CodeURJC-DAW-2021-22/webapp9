@@ -93,7 +93,7 @@ También contará con un gráfico de sectores, que medirá los géneros de video
 ## 6. ALGORITMO O CONSULTA AVANZADA
 
 Principalmente existirán dos funcionalidades que implementan un algoritmo basado cada uno en diferentes datos de las entidades:
-* Se implementará un sistema que ofrezca a los usuarios registrados videojuegos que puedan interesarles basados en su historial de compra. La decisión sobre qué juegos se muestran se hará en base al género de los videojuegos adquiridos por el usuario (atributo juegos comprados del usuario correspondiente).
+* Se implementará un sistema que ofrezca a los usuarios registrados videojuegos que puedan interesarles basados en su historial de compra. La decisión sobre qué juegos se muestran se hará en base a compras realizadas por usuarios con un historial de compras similar.
 * Se implementará un sistema que muestre una lista de los juegos más “populares”, lista que será actualizada semanalmente. Dicha “popularidad” se medirá en función de dos factores que se reflejarán en dos listas diferenciadas:
     * Número de ventas totales del juego en cuestión.
     * Valoración global del juego.  
