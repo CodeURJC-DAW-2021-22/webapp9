@@ -85,17 +85,9 @@ También contará con un gráfico de sectores, que medirá los géneros de video
 
 ## 5. TECNOLOGÍA COMPLEMENTARIA
 
-1-PHPMailer
-* Usamos PHPMailer para automáticamente mandar correos a los usuarios para verificar cada compra.
-* [Link](https://github.com/PHPMailer/PHPMailer)
-
-2-PSPDFKit API
+1-PSPDFKit API (Por ejemplo, posteriormente se verá que tecnología usar concretamente)
 * Usamos PSPDFKit para generar PDF conteniendo información relacionada con la compra de un usuario.
 * [Link](https://pspdfkit.com/api/pdf-generator-api/?utm_source=google&utm_medium=paid_search&utm_campaign=api&utm_content=pdf-generation&utm_term=pdf%20generator%20api&gclid=CjwKCAiAl-6PBhBCEiwAc2GOVNUbRp1KtnHSWTmey5pwUE1ecnjAEe6iSfzhM2rQBNkAWvy9hXq_ShoC-LgQAvD_BwE)
-
-3-PAYPAL Rest API
-* Usamos como intermediario para los pagos de las compras los servicios de PayPal.
-* [Link](https://developer.paypal.com/api/rest/)
 
 
 ## 6. ALGORITMO O CONSULTA AVANZADA
