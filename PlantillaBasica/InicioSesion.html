@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Administrador - GameLink</title>
+        <title>Inicio Sesión - GameLink</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -48,52 +48,42 @@
             <section class="bg-light py-5">
                 <div class="container px-5 my-5">
                     <div class="text-center mb-5">
-                        <h1 class="fw-bolder">Bienvenido Administrador</h1>
-                        <p class="lead fw-normal text-muted mb-0">Seleccione la acción deseada</p>
+                        <h1 class="fw-bolder">Inicio de sesión</h1>
+                        <p class="lead fw-normal text-muted mb-0">Bienvenido cliente, ¡te estábamos esperando!</p>
                     </div>
                     <div class="row gx-10 justify-content-center">
                         <!-- modificar ofertas-->
                         <div class="col-lg-12">
                             <div class="card mb-5 mb-xl-0">
                                 <div class="card-body p-5">
-                                    <div class="h2 fw-bolder">Modificar y/o eliminar noticias</div>
-                                    <ul class="list-unstyled mb-4">
-                                        <li class="mb-2">
-                                            <strong>Opciones disponibles</strong>
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Modificar cualquier noticia previamente publicada
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Eliminar cualquier noticia previamente publicada
-                                        </li>
-                                    </ul>
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Elegir opción</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- modificar videojuegos-->
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body p-5">
-                                    <div class="h2 fw-bolder">Modificar y/o eliminar videojuegos</div>
-                                    <ul class="list-unstyled mb-4">
-                                        <li class="mb-2">
-                                            <strong>Opciones disponibles</strong>
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Modificar cualquier videojuego previamente publicado
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="bi bi-check text-primary"></i>
-                                            Eliminar cualquier videojuego previamente publicado
-                                        </li>
-                                    </ul>
-                                    <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Elegir opción</a></div>
+                                    <div class="global-container">
+                                        <div class="card login-form">
+                                        <div class="card-body">
+                                            <h3 class="card-title text-center">Login</h3>
+                                            <div class="card-text">
+                                                <!--
+                                                <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+                                                <form>
+                                                    <!-- to error: add class "has-danger" -->
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Correo electrónico</label>
+                                                        <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">Contraseña</label>
+                                                        <a href="#" style="float:right;font-size:12px;">¿Olvidaste tu contraseña?</a>
+                                                        <input type="password" class="form-control form-control-sm" id="exampleInputPassword1">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                                                    
+                                                    <div class="sign-up">
+                                                        ¿No tienes cuenta? <a href="#">¡Créate una!</a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
