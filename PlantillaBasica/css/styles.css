@@ -76,6 +76,28 @@
   }
 }
 
+#fotosCarouselNoticias{
+
+}
+
+#marcoCarousel{
+
+}
+
+#tituloNoticias{
+  
+}
+
+#Tarjetas{
+  transform: scale(1); /* you need a scale here to allow it to transition in both directions */
+  transition: 1s all ease;
+}
+
+#Tarjetas:hover {
+  transform: scale(1.05);
+}
+
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
