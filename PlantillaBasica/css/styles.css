@@ -78,26 +78,22 @@
 }
 
 /**modificaciones juan (tambien hay de background color creo)*/
-#fotosCarouselNoticias{
 
-}
 
-#marcoCarousel{
-
-}
-
-#tituloNoticias{
-  
-}
-
-#Tarjetas{
+.col-lg-4.mb-5{
   transform: scale(1); /* you need a scale here to allow it to transition in both directions */
   transition: 1s all ease;
 }
 
-#Tarjetas:hover {
+.col-lg-4.mb-5:hover {
   transform: scale(1.05);
 }
+
+.carousel-inner{
+  max-width:100%;
+  max-height: 100% !important;
+} 
+
 /**fin*/
 
 
