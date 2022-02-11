@@ -11393,3 +11393,13 @@ form{
 	font-size: 13px;
 	margin-top:20px;
 }
+
+/* Banner style */
+
+.MoreInfo{
+  background-color: var(--bs-gray-400) !important;
+}
+
+.tab1{
+  margin-left: 10%;
+}
