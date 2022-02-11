@@ -11393,3 +11393,181 @@ form{
 	font-size: 13px;
 	margin-top:20px;
 }
+
+/* Para el primer gráfico de barras*/
+.chart-wrap {
+  --chart-width:420px;
+  --grid-color:#aaa;
+  --bar-color:#30B0D5;
+  --bar-thickness:40px;
+  --bar-rounded: 3px;
+  --bar-spacing:10px;
+
+  font-family:sans-serif;
+  width:var(--chart-width);
+}
+
+.chart-wrap .title{
+  font-weight:bold;
+  padding:1.8em 0;
+  text-align:center;
+  white-space:nowrap;
+}
+
+/* cuando definimos el gráfico en horizontal, lo giramos 90 grados */
+.chart-wrap.horizontal .grid{
+  transform:rotate(-90deg);
+}
+
+.chart-wrap.horizontal .bar::after{
+  /* giramos las letras para horizontal*/
+  transform: rotate(45deg);
+  padding-top:0px;
+  display: block;
+}
+
+.chart-wrap .grid{
+  margin-left:50px;
+  position:relative;
+  padding:5px 0 5px 0;
+  height:100%;
+  width:100%;
+  border-left:2px solid var(--grid-color);
+}
+
+/* posicionamos el % del gráfico*/
+.chart-wrap .grid::before{
+  font-size:0.8em;
+  font-weight:bold;
+  content:'0%';
+  position:absolute;
+  left:-0.5em;
+  top:-1.5em;
+}
+.chart-wrap .grid::after{
+  font-size:0.8em;
+  font-weight:bold;
+  content:'100%';
+  position:absolute;
+  right:-1.5em;
+  top:-1.5em;
+}
+
+/* giramos las valores de 0% y 100% para horizontal */
+.chart-wrap.horizontal .grid::before, .chart-wrap.horizontal .grid::after {
+  transform: rotate(90deg);
+}
+
+.chart-wrap .bar {
+  width: var(--bar-value);
+  height:var(--bar-thickness);
+  margin:var(--bar-spacing) 0;
+  background-color:var(--bar-color);
+  border-radius:0 var(--bar-rounded) var(--bar-rounded) 0;
+}
+
+.chart-wrap .bar:hover{
+  opacity:0.7;
+}
+
+.chart-wrap .bar::after{
+  content:attr(data-name);
+  margin-left:100%;
+  padding:10px;
+  display:inline-block;
+  white-space:nowrap;
+}
+
+/*Para el gráfico circular*/
+* {
+  box-sizing: border-box;    
+}
+.grafico {
+  height: 400px;
+  margin: 1rem auto;
+  position: relative;
+  width: 400px;
+    } 
+.recorte {
+  border-radius: 50%;
+  clip: rect(0px, 400px, 400px, 200px);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+   }
+.quesito {
+  border-radius: 50%;
+  clip: rect(0px, 200px, 400px, 0px);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  font-family: monospace;
+  font-size: 1.5rem;
+   }
+.sombra {
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+  border: 5px solid #000;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+   }
+
+#porcion1 {
+  transform: rotate(0deg);
+   }
+
+#porcion1 .quesito {
+  background-color: rgba(0,0,255,.7);
+  transform: rotate(70deg);
+   }
+#porcion2 {
+  transform: rotate(70deg);
+   }
+#porcion2 .quesito {
+  background-color: rgba(255,255,0,.7);
+  transform: rotate(120deg);
+   }
+#porcion3 {
+  transform: rotate(-170deg);
+   }
+#porcion3 .quesito {
+  background-color: rgba(0,128,0,.7);
+  transform: rotate(25deg);
+   }
+#porcionFin {
+  transform:rotate(-145deg);
+   }
+#porcionFin .quesito {
+  background-color: rgba(255,0,0,.7);
+  transform: rotate(145deg);
+   }
+#porcion1 .quesito:after {
+  content: attr(data-rel);
+  left: 25%;
+  line-height: 5;
+  position: absolute;
+  top: 0;
+  transform: rotate(-70deg);
+}
+#porcion2 .quesito:after {
+  content: attr(data-rel);
+  left: 15%;
+  position: absolute;
+  top: 30%;
+  transform: rotate(-190deg);
+}
+#porcion3 .quesito:after {
+  content: attr(data-rel);
+  left: 35%;
+  position: absolute;
+  top: 4%;
+  transform: rotate(70deg);
+}
+#porcionFin .quesito:after {
+ content: attr(data-rel);
+ left: 10%;
+ position: absolute;
+ top: 30%;
+}
