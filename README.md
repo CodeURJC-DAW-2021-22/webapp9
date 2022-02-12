@@ -101,7 +101,7 @@ Cabe destacar que las valoraciones deben de tener en cuenta el número de valora
 
 ## Descripción de cada una de las pantallas (FASE 1).
 Destacamos que en la barra de navegación "Administrador" sólo será visible para el administrador tras acceder como tal.
-1. Registro: la pantalla de registro ofrecerá la posibilidad, a los usuarios no registrados, de registrarse. Esto permitirá acceder a todas las funcionalidades de la página.
+1. Registro: la pantalla de registro ofrecerá la posibilidad, a los usuarios no registrados, de registrarse. Esto permitirá acceder a todas las funcionalidades personalizadas de la página: videojuegos y noticias por preferencias y comprar videojuegos.
 ![](CapturasPantallasWEB/Registro.png)
 2. Inicio de sesión: permite a los usuarios previamente registrados acceder a la página web con usuario.
 ![](CapturasPantallasWEB/InicioSesion.png)
