@@ -11394,6 +11394,7 @@ form{
 	margin-top:20px;
 }
 
+
 /* Para el primer gráfico de barras*/
 .chart-wrap {
   --chart-width:420px;
@@ -11571,3 +11572,14 @@ form{
  position: absolute;
  top: 30%;
 }
+
+/* Banner style */
+
+.MoreInfo{
+  background-color: var(--bs-gray-400) !important;
+}
+
+.tab1{
+  margin-left: 10%;
+}
+
