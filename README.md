@@ -124,4 +124,4 @@ Cabe destacar que las valoraciones deben de tener en cuenta el número de valora
 
 ## Diagrama de navegación (FASE 1)
 
-![](CapturasPantallasWEB/Diagrama Pantallas.png)
+![](CapturasPantallasWEB/DiagramaPantallas.png)
