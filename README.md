@@ -99,7 +99,7 @@ Principalmente existirán dos funcionalidades que implementan un algoritmo basad
     * Valoración global del juego.  
 Cabe destacar que las valoraciones deben de tener en cuenta el número de valoraciones que tenga el videojuego (no puede haber un juego con una valoración de 5 estrellas por encima de uno con miles de valoraciones con media de 4,5 estrellas).
 
-##Descripción de cada una de las pantallas.
+## Descripción de cada una de las pantallas.
 
 1. Registro: la pantalla de registro permitirá a los usuarios no registrados registrarse. Esto permitirá acceder a todas las funcionalidades de la página.
 2. Inicio de sesión: permite a los usuarios previamente registrados acceder a la página web con usuario.
@@ -112,4 +112,6 @@ Cabe destacar que las valoraciones deben de tener en cuenta el número de valora
 9. Admin es la pantalla utilizada por los usuarios administradores para actualizar las noticias y videojuegos del catálogo.
 10. VerNoticia es la pantalla donde los usuarios podrá leer todo el contenido de una noticia.
 
-##Diagrama de navegación
+## Diagrama de navegación
+
+![](imagenes)
