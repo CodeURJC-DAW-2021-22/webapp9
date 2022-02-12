@@ -98,3 +98,18 @@ Principalmente existirán dos funcionalidades que implementan un algoritmo basad
     * Número de ventas totales del juego en cuestión.
     * Valoración global del juego.  
 Cabe destacar que las valoraciones deben de tener en cuenta el número de valoraciones que tenga el videojuego (no puede haber un juego con una valoración de 5 estrellas por encima de uno con miles de valoraciones con media de 4,5 estrellas).
+
+##Descripción de cada una de las pantallas.
+
+1. Registro: la pantalla de registro permitirá a los usuarios no registrados registrarse. Esto permitirá acceder a todas las funcionalidades de la página.
+2. Inicio de sesión: permite a los usuarios previamente registrados acceder a la página web con usuario.
+3. MenuHome: esta pantalla es principalmente la pantalla de bienvenida, con información general sobre noticias, compras y nuestro equipo, sin ahondar mucho en los detalles
+4. VerVideojuego es la pantalla que muestra en detalle la información de un videojuego y permite a los usuarios adquirir dicho videojuego por dinero. Además se le muestran * * *  videojuegos similares. (usuario anónimo) y recomendados (usuario registrado).
+5. About es la pantalla donde se muestra la información relacionada al euqipo de desarrollo de la página web GameLink.
+6. Videojuegos: en ella se muestra la lista de videojuegos disponibles en la página web. Si se pincha en un videojuego se redirigirá a la pantalla VerVideojuego.
+7. Noticias: pantalla que permite ver las noticias más destacadas del día, así como la opción de poder acceder a ellas para ver cada noticia en detalle si optamos por pinchar en ellas.
+8. EstadísticaVideojuegos es la pantalla que muestra las gráficas con datos relativos al número de unidades vendidas y géneros más populares.
+9. Admin es la pantalla utilizada por los usuarios administradores para actualizar las noticias y videojuegos del catálogo.
+10. VerNoticia es la pantalla donde los usuarios podrá leer todo el contenido de una noticia.
+
+##Diagrama de navegación
