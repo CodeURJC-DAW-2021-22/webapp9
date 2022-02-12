@@ -107,7 +107,7 @@ Destacamos que en la barra de navegación "Administrador" sólo será visible pa
 ![](CapturasPantallasWEB/InicioSesion.png)
 3. MenuHome: esta pantalla es principalmente la pantalla de bienvenida, con información general sobre noticias, compras y nuestro equipo, sin ahondar mucho en los detalles
 ![](CapturasPantallasWEB/InicioPantalla.png)
-4. VerVideojuego es la pantalla que muestra en detalle la información de un videojuego y permite a los usuarios adquirir dicho videojuego por dinero. Además se le muestran * * *  videojuegos similares. (usuario anónimo) y recomendados (usuario registrado).
+4. VerVideojuego es la pantalla que muestra en detalle la información de un videojuego y permite a los usuarios adquirir dicho videojuego por dinero.
 ![](CapturasPantallasWEB/VideojuegoEspecifico.png)
 5. About es la pantalla donde se muestra la información relacionada al euqipo de desarrollo de la página web GameLink.
 ![](CapturasPantallasWEB/About.png)
