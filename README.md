@@ -100,7 +100,7 @@ Principalmente existirán dos funcionalidades que implementan un algoritmo basad
 Cabe destacar que las valoraciones deben de tener en cuenta el número de valoraciones que tenga el videojuego (no puede haber un juego con una valoración de 5 estrellas por encima de uno con miles de valoraciones con media de 4,5 estrellas).
 
 ## Descripción de cada una de las pantallas (FASE 1).
-
+Destacamos que en la barra de navegación "Administrador" sólo será visible para el administrador tras acceder como tal.
 1. Registro: la pantalla de registro permitirá a los usuarios no registrados registrarse. Esto permitirá acceder a todas las funcionalidades de la página.
 ![](CapturasPantallasWEB/Registro.png)
 2. Inicio de sesión: permite a los usuarios previamente registrados acceder a la página web con usuario.
