@@ -111,7 +111,7 @@ Destacamos que en la barra de navegación "Administrador" sólo será visible pa
 ![](CapturasPantallasWEB/VideojuegoEspecifico.png)
 5. About es la pantalla donde se muestra la información relacionada al euqipo de desarrollo de la página web GameLink.
 ![](CapturasPantallasWEB/About.png)
-6. Videojuegos: en ella se muestra la lista de videojuegos disponibles en la página web. Si se pincha en un videojuego se redirigirá a la pantalla VerVideojuego.
+6. Videojuegos: en ella se muestra la lista de videojuegos disponibles en la página web: los más populares para usuarios no registrados y una lista personalizada para usuarios registrados. Si se pincha en un videojuego se redirigirá a la pantalla VerVideojuego.
 ![](CapturasPantallasWEB/Videojuegos-Descubrir.png)
 7. Noticias: pantalla que permite ver las noticias más destacadas del día, así como la opción de poder acceder a ellas para ver cada noticia en detalle si optamos por pinchar en ellas.
 ![](CapturasPantallasWEB/Noticias.png)
