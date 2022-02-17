@@ -5,3 +5,14 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
+function verificarRegistro() {
+    //aqui habria que buscar en la BBDD el usuario y mirar si esta registrado
+    var registro = true;
+    
+    if (registro === true) {
+        location.href = 'ConfirmarCompra.html';
+    } else {
+        alert("Debe estar registrado para poder realizar esta opción");
+    }
+}

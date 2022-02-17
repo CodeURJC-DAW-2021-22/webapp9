@@ -77,6 +77,18 @@
   }
 }
 
+/*confirmarCompra.html*/
+#confirmarCompraCaja1 {
+  background-color: var(--bs-gray-800);
+  color: var(--bs-white);
+}
+
+#confirmarCompraCaja2 {
+  background-color: var(--bs-gray-200);
+  color: var(--bs-body-color);
+}
+
+
 /**css imagenes juegos mis compras*/
 .contenedorImagenes{
     width: 500px;
