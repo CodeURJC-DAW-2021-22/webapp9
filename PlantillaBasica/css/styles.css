@@ -83,9 +83,15 @@
   color: var(--bs-white);
 }
 
-#confirmarCompraCaja2 {
-  background-color: var(--bs-gray-200);
+#confirmarCompraCaja2y3 {
+  background-color: var(--bs-gray-100);
   color: var(--bs-body-color);
+}
+
+#confirmarCompraBotonFinal {
+  background-color: var(--bs-gray-100);
+  color: var(--bs-body-color);
+  padding: 1em;
 }
 
 
