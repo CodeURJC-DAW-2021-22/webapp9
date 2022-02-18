@@ -78,22 +78,8 @@
 }
 
 /**css imagenes juegos mis compras*/
-.contenedorImagenes{
-    width: 500px;
-    height: 1000px;
-}
-
-.fotoJuegosComprados{
-    width: 75px;
-    height: 75px;
-}
 
 
-ul li div div p{
-    position: absolute;
-    right: 15%;
-
-}
 
 /*fin*
 
