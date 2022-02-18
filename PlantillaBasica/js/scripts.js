@@ -8,7 +8,7 @@
 
 function verificarRegistro() {
     //aqui habria que buscar en la BBDD el usuario y mirar si esta registrado
-    var registro = false;
+    var registro = true;
     
     if (registro === true) {
         location.href = 'ConfirmarCompra.html';
