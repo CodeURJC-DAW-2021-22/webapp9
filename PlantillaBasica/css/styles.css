@@ -88,12 +88,25 @@
   color: var(--bs-body-color);
 }
 
+#confirmarCompraCaja4y5 {
+  background-color: var(--bs-gray-300);
+  color: var(--bs-body-color);
+}
+
 #confirmarCompraBotonFinal {
-  background-color: var(--bs-gray-100);
+  background-color: var(--bs-gray-300);
   color: var(--bs-body-color);
   padding: 1em;
 }
 
+#botonConfirmarCompra {
+  background-color: var(--bs-gray-800);
+  color: white;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
 
 /**css imagenes juegos mis compras*/
 .contenedorImagenes{
