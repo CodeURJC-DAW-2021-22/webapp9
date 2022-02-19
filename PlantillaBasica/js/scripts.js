@@ -5,3 +5,12 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
+
+function cambiaDatos(){
+    let input = getElementById("celdilla1");
+    var x = input.placeholder;
+    input.placeholder = x;
+}
+
+<button onclick = "nuevoValor()"> Cambiar datos</button>
