@@ -77,6 +77,61 @@
   }
 }
 
+/*confirmarCompra.html*/
+#confirmarCompraCaja1 {
+  background-color: var(--bs-gray-800);
+  color: var(--bs-white);
+}
+
+#confirmarCompraCaja2y3 {
+  background-color: var(--bs-gray-100);
+  color: var(--bs-body-color);
+}
+
+#confirmarCompraCaja4y5 {
+  background-color: var(--bs-gray-300);
+  color: var(--bs-body-color);
+}
+
+#confirmarCompraBotonFinal {
+  background-color: var(--bs-gray-300);
+  color: var(--bs-body-color);
+  padding: 1em;
+}
+
+#botonConfirmarCompra {
+  background-color: var(--bs-gray-800);
+  color: white;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+/**css imagenes juegos mis compras*/
+
+.tab_item.focus {
+  background: -webkit-linear-gradient( left, #c6e6f8 5%,#95bcd3 95%);
+  background: linear-gradient( to right, #c6e6f8 5%,#95bcd3 95%);
+  margin-right: -14px;
+  padding-right: 14px;
+}
+
+.tab_item {
+  position: relative;
+  display: block;
+  background: #202d39;
+  background: rgba( 0, 0, 0, 0.2 );
+  height: 69px;
+  margin-bottom: 5px;
+  padding-left: 198px;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+}
+
+
+/*fin*
+
 /**modificaciones juan (tambien hay de background color creo)*/
 
 
@@ -95,6 +150,55 @@
 } 
 
 /**fin*/
+
+/**Css perfil de usuario*/
+
+body {
+  background: rgb(99, 39, 120)
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #BA68C8
+}
+
+.profile-button {
+  background: rgb(99, 39, 120);
+  box-shadow: none;
+  border: none
+}
+
+.profile-button:hover {
+  background: #682773
+}
+
+.profile-button:focus {
+  background: #682773;
+  box-shadow: none
+}
+
+.profile-button:active {
+  background: #682773;
+  box-shadow: none
+}
+
+.back:hover {
+  color: #682773;
+  cursor: pointer
+}
+
+.labels {
+  font-size: 11px
+}
+
+.add-experience:hover {
+  background: #BA68C8;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #BA68C8
+}
+
+/**fin css perfil de usuario*/
 
 
 body {
