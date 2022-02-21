@@ -13,4 +13,6 @@ function cambiaDatos(){
     input.placeholder = x;
 }
 
-<button onclick = "nuevoValor()"> Cambiar datos</button>
+function alertaDatosCambiados(){
+    alert("Los datos de usuario se han guardado")
+}
