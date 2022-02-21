@@ -109,21 +109,26 @@
 }
 
 /**css imagenes juegos mis compras*/
-.contenedorImagenes{
-    width: 500px;
-    height: 1000px;
+
+.tab_item.focus {
+  background: -webkit-linear-gradient( left, #c6e6f8 5%,#95bcd3 95%);
+  background: linear-gradient( to right, #c6e6f8 5%,#95bcd3 95%);
+  margin-right: -14px;
+  padding-right: 14px;
 }
 
-.fotoJuegosComprados{
-    width: 75px;
-    height: 75px;
+.tab_item {
+  position: relative;
+  display: block;
+  background: #202d39;
+  background: rgba( 0, 0, 0, 0.2 );
+  height: 69px;
+  margin-bottom: 5px;
+  padding-left: 198px;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
 }
 
-ul li div div p{
-    position: absolute;
-    right: 2%;
-
-}
 
 /*fin*
 

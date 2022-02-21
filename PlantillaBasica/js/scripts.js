@@ -25,3 +25,13 @@ function comprarProducto() {
         document.getElementById("botonCompra").innerHTML = "ADQUIRIDO";
     }
 }
+
+function cambiaDatos(){
+    let input = getElementById("celdilla1");
+    var x = input.placeholder;
+    input.placeholder = x;
+}
+
+function alertaDatosCambiados(){
+    alert("Los datos de usuario se han guardado")
+}
