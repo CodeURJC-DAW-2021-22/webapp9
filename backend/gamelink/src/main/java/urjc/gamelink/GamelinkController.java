@@ -13,13 +13,13 @@ public class GamelinkController {
 
         model.addAttribute("game_name" , "Battlefield 2042");
 
-        return "Videojuegos";
+        return "videogame";
     }
 
     @GetMapping("/")
     public String inicio(Model model) {
 
-        return "MenuHome";
+        return "home";
     }
 
 }
