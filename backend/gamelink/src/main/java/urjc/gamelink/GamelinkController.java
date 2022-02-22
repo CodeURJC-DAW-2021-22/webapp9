@@ -29,4 +29,11 @@ public class GamelinkController {
 
     }
 
+    @GetMapping("/noticias")
+    public String noticias(Model model){
+        
+        return "Noticias";
+
+    }
+
 }
