@@ -15,4 +15,18 @@ public class GamelinkController {
         return "Videojuegos";
     }
 
+    @GetMapping("/inicio")
+    public String inicio(Model model){
+
+        return "MenuHome";
+
+    }
+
+    @GetMapping("/perfil")
+    public String perfilusuario(Model model){
+
+        return "PerfilUsuario";
+
+    }
+
 }
