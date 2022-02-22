@@ -59,7 +59,7 @@ public class GamelinkController {
     @GetMapping("/news")
     public String news(Model model){
         
-        return "news";
+        return "Noticias";
 
     }
 
