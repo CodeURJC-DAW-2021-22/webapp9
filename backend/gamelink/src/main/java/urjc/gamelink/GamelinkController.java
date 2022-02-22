@@ -22,4 +22,10 @@ public class GamelinkController {
         return "home";
     }
 
+    @GetMapping("/errorMessage")
+    public String errorMessage(Model model) {
+
+        return "errorMessage";
+    }
+
 }
