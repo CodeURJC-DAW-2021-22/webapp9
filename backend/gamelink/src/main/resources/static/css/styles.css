@@ -77,29 +77,29 @@
   }
 }
 
-/*confirmarCompra.html*/
-#confirmarCompraCaja1 {
+/*paymentConfirmation.html*/
+#confirmPaymentBox1 {
   background-color: var(--bs-gray-800);
   color: var(--bs-white);
 }
 
-#confirmarCompraCaja2y3 {
+#confirmPaymentBox2y3 {
   background-color: var(--bs-gray-100);
   color: var(--bs-body-color);
 }
 
-#confirmarCompraCaja4y5 {
+#confirmaPaymentBox4y5 {
   background-color: var(--bs-gray-300);
   color: var(--bs-body-color);
 }
 
-#confirmarCompraBotonFinal {
+#confirmPaymentFinalBox {
   background-color: var(--bs-gray-300);
   color: var(--bs-body-color);
   padding: 1em;
 }
 
-#botonConfirmarCompra {
+#confirmPaymentButton {
   background-color: var(--bs-gray-800);
   color: white;
   width: 40%;
@@ -108,7 +108,7 @@
   border-radius: 10px;
 }
 
-/**css imagenes juegos mis compras*/
+/**css meine kromprens*/
 
 .tab_item.focus {
   background: -webkit-linear-gradient( left, #c6e6f8 5%,#95bcd3 95%);
@@ -132,7 +132,7 @@
 
 /*fin*
 
-/**modificaciones juan (tambien hay de background color creo)*/
+/**modification juan (there is also for background color)*/
 
 
 .col-lg-4.mb-5{
