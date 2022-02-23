@@ -31,7 +31,7 @@ public class dbInit {
     @PostConstruct
 	public void init() throws IOException, URISyntaxException {
         News new1 = new News("Apex","klk klk klk","Manoplo","12/10/2022","3 minutes","incoming"); 
-        setNewImage(new1,"/static/Fotos/AvatarAndrea.PNG");
+        setNewImage(new1,"/static/Photos/AndreasAvatar.PNG");
         ns.save(new1);
     }
     

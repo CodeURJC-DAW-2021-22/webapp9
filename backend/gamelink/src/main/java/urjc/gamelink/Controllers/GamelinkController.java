@@ -23,7 +23,7 @@ public class GamelinkController {
 
         model.addAttribute("new", ns.findAll());
         
-        return "MenuHome";
+        return "home";
 
     }
 
