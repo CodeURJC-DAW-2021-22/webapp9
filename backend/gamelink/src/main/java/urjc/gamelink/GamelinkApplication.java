@@ -10,4 +10,5 @@ public class GamelinkApplication {
 		SpringApplication.run(GamelinkApplication.class, args);
 	}
 
+
 }
