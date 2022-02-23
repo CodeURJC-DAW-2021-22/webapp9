@@ -33,7 +33,7 @@ public class GamelinkController {
         
         return "about";
 
-    }
+    }º
 
     @GetMapping("/admin")
     public String admin(Model model){
