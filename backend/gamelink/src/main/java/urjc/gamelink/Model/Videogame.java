@@ -13,7 +13,7 @@ import javax.persistence.ManyToMany;
 
 import org.springframework.lang.NonNull;
 
-@Entity(name = "VideogameTable")
+@Entity(name = "tbl_videogame")
 public class Videogame {
 
     @Id
