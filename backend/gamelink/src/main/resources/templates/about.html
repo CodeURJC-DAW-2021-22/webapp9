@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{>header}}
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            {{>navBar}}
+            <!-- Header-->
+            <div class="py-5">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-xxl-6">
+                            <div class="text-center my-5">
+                                <h1 class="fw-bolder mb-3">¡Nosotros nos encargamos de informarte!</h1>
+                                <p class="lead fw-normal text-muted mb-4">Nuestro objetivo es mantenerte dentro del mundo de los videojuegos con un solo click.</p>
+                                <a class="btn btn-primary btn-lg" href="#scroll-target">Lee nuestra historia</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- About section one-->
+            <section class="py-5 bg-light" id="scroll-target">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="Photos/AllAvatar.png" alt="..." /></div>
+                        <div class="col-lg-6">
+                            <h2 class="fw-bolder" style="color: azure;">¿Quienes somos?</h2>
+                            <p class="lead fw-normal text-muted mb-0">Somos un pequeño grupo de desarrollo software apasionados por los videojuegos. Al igual que todos nuestros lectores necesitábamos un sitio donde informarnos sobre videojuegos pero también poder comprarlos, y con las mejores ofertas...como no lo encontramos, ¡lo hicimos!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About section two-->
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="Photos/rocketPhoto.png" alt="..." /></div>
+                        <div class="col-lg-6">
+                            <h2 class="fw-bolder">Crecimiento &amp; Desarrollo</h2>
+                            <p class="lead fw-normal text-muted mb-0">Poco a poco hemos ido creciendo y con vuestra ayuda ya somos más de ¡10.000! usuarios. Gracias a esto hemos ido desarrollandonos desde una pequeña Web para visualizar noticias hasta ser los primeros en traer exclusivas noticias y jugosos descuentos. ¡GRACIAS!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Team members section-->
+            <section class="py-5 bg-light">
+                <div class="container px-5 my-5">
+                    <div class="text-center">
+                        <h2 class="fw-bolder" style="color: azure;">Nuestro equipo</h2>
+                        <p class="lead fw-normal text-muted mb-5">Dedicados a la calidad y el éxito</p>
+                    </div>
+                    <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+                        <div class="col mb-5 mb-5 mb-xl-0">
+                            <div class="text-center"> <!-- FALTAN LAS CARICATURAS DE-->
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="Fotos/Andrea'sAvatar.PNG" alt="..." />
+                                <h5 class="fw-bolder" style="color: azure;">Andrea Acuña</h5>
+                                <div class="fst-italic text-muted">Desarrolladora &amp; CEO</div>
+                            </div>
+                        </div>
+                        <div class="col mb-5 mb-5 mb-xl-0">
+                            <div class="text-center">
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="Fotos/Jhostin'sAvatar.PNG" alt="..." />
+                                <h5 class="fw-bolder" style="color: azure;">Jhostin Davis</h5>
+                                <div class="fst-italic text-muted">Desarrollador &amp; CFO</div>
+                            </div>
+                        </div>
+                        <div class="col mb-5 mb-5 mb-sm-0">
+                            <div class="text-center">
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="Fotos/Mani'sAvatar.png" alt="..." />
+                                <h5 class="fw-bolder" style="color: azure;">Mani Patel</h5>
+                                <div class="fst-italic text-muted">Desarrollador &amp; Manager</div>
+                            </div>
+                        </div>
+                        <div class="col mb-5 mb-5 mb-sm-0">
+                            <div class="text-center">
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="Fotos/Juan'sAvatar.PNG" alt="..." />
+                                <h5 class="fw-bolder" style="color: azure;">Juan Rico</h5>
+                                <div class="fst-italic text-muted">Desarrollador &amp; Operations Manager</div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="text-center">
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="Fotos/Carlos'sAvatar.PNG" alt="..." />
+                                <h5 class="fw-bolder" style="color: azure;">Carlos Fuentes</h5>
+                                <div class="fst-italic text-muted">Desarrollador &amp; CTO</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        {{>footer}}
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
