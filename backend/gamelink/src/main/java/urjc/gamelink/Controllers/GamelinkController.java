@@ -1,11 +1,32 @@
-package urjc.gamelink;
+package urjc.gamelink.Controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import urjc.gamelink.Service.NewsService;
+import urjc.gamelink.Service.VideogameService;
+
 @Controller
 public class GamelinkController {
+
+    @Autowired
+    private NewsService ns;
+
+    @Autowired
+    private VideogameService vs;
+    
+
+    @GetMapping("/")
+    public String home(Model model){
+
+        model.addAttribute("new", ns.findAll());
+        
+        return "home";
+
+    }
+
 
     @GetMapping("/about")
     public String about(Model model){
@@ -49,13 +70,6 @@ public class GamelinkController {
 
     }
 
-    @GetMapping("/home")
-    public String home(Model model){
-        
-        return "home";
-
-    }
-
     @GetMapping("/news")
     public String news(Model model){
         
@@ -94,10 +108,11 @@ public class GamelinkController {
     @GetMapping("/videogame")
     public String videogame(Model model) {
 
-
         model.addAttribute("game_name" , "Battlefield 2042");
 
         return "videogame";
     }
+
+
 
 }

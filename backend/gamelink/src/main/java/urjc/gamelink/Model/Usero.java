@@ -14,8 +14,8 @@ import javax.persistence.ManyToMany;
 
 
 
-@Entity(name = "UserTable")
-public class User {
+@Entity(name = "tbl_user")
+public class Usero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,10 +43,10 @@ public class User {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
 
-    public User() {
+    public Usero() {
     }
 
-    public User(String name, String encodedPassword, String... roles) {
+    public Usero(String name, String encodedPassword, String... roles) {
         this.name = name;
         this.encodedPassword = encodedPassword;
         this.roles = List.of(roles);
