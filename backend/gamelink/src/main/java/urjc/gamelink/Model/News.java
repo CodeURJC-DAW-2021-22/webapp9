@@ -1,5 +1,6 @@
 package urjc.gamelink.Model;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -15,22 +16,53 @@ public class News {
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+=======
+import java.sql.Blob;
+import java.util.List;
+
+import javax.persistence.Column;
+//import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+//import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+
+@Entity(name = "VideogameTable")
+public class News {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+>>>>>>> 159fd74109c92898ec25c4fbd5197004af544a21
 
     private String title;
 
     @Column(columnDefinition = "TEXT")
+<<<<<<< HEAD
 	private String description;
 
     private boolean image;
 
 	@Lob
 	private Blob imageFile;
+=======
+    private String description;
+
+    private boolean image;
+
+    @Lob
+    private Blob imageFile;
+>>>>>>> 159fd74109c92898ec25c4fbd5197004af544a21
 
     private String author;
 
     private String date;
 
     @ManyToMany
+<<<<<<< HEAD
  	private List<Videogame> videogamesRelated;
 
      public News() {
@@ -99,3 +131,73 @@ public class News {
 	}
 
 }
+=======
+     private List<Videogame> videogamesRelated;
+
+     public News() {
+    }
+
+    public News(String title, String author, String date) {
+        this.title = title;
+        this.author = author;
+        this.date = date;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Blob getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(Blob image) {
+        this.imageFile = imageFile;
+    }
+
+    public boolean getImage(){
+        return this.image;
+    }
+
+    public void setImage(boolean image){
+        this.image = image;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public List<Videogame> getVideogamesRelated() {
+        return videogamesRelated;
+    }
+
+    public void setVideogamesRelated(List<Videogame> videogamesRelated) {
+        this.videogamesRelated = videogamesRelated;
+    }
+
+}
+>>>>>>> 159fd74109c92898ec25c4fbd5197004af544a21

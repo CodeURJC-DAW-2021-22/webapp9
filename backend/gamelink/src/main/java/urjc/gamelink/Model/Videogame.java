@@ -11,128 +11,130 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
+import org.springframework.lang.NonNull;
+
 @Entity(name = "VideogameTable")
 public class Videogame {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id = null;
-	
-	@NotNull //ESTO NO ESTOY SEGURA
-	private String title;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id = null;
+    
+    @NonNull
+    private String title;
 
-	@NotNull
-    	private float price;
+    @NonNull
+    private float price;
 
-	private float rating;
+    private float rating;
 
-	@NotNull
-	private String genre;
+    @NonNull
+    private String genre;
 
-	private String company;
-	
-	@Column(columnDefinition = "TEXT")
-	private String description;
+    private String company;
+    
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
-	@Lob
-	private Blob imageFile;
+    @Lob
+    private Blob imageFile;
 
-	private boolean image;
+    private boolean image;
 
-	@ManyToMany
- 	private List<News> notices;
+    @ManyToMany
+     private List<News> notices;
 
-	public Videogame() {}
+    public Videogame() {}
 
-	public Videogame(String name, String description, float price) {
-		this.title = name;
-      	this.description = description;
-		this.price = price;
-	}
+    public Videogame(String name, String description, float price) {
+        this.title = name;
+          this.description = description;
+        this.price = price;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public float getPrice() {
-		return price;
-	}
+    public float getPrice() {
+        return price;
+    }
 
-	public void setPrice(Float price) {
-		this.price =price;
-	}
+    public void setPrice(Float price) {
+        this.price =price;
+    }
 
-	public float getRating() {
-		return rating;
-	}
+    public float getRating() {
+        return rating;
+    }
 
-	public void  setRating(Float rating) {
-		this.rating = rating;
-	}
+    public void  setRating(Float rating) {
+        this.rating = rating;
+    }
 
-	public String getGenre() {
-		return genre;
-	}
+    public String getGenre() {
+        return genre;
+    }
 
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 
-	public String getCompany() {
-		return company;
-	}
+    public String getCompany() {
+        return company;
+    }
 
-	public void setCompany(String company) {
-		this.company =company;
-	}
+    public void setCompany(String company) {
+        this.company =company;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public Blob getImageFile() {
-		return imageFile;
-	}
+    public Blob getImageFile() {
+        return imageFile;
+    }
 
-	public void setImageFile(Blob image) {
-		this.imageFile = image;
-	}
+    public void setImageFile(Blob image) {
+        this.imageFile = image;
+    }
 
-	public boolean getImage(){
-		return this.image;
-	}
+    public boolean getImage(){
+        return this.image;
+    }
 
-	public void setImage(boolean image){
-		this.image = image;
-	}
+    public void setImage(boolean image){
+        this.image = image;
+    }
 
-	public List<News> getNotices() {
-		return notices;
-	}
+    public List<News> getNotices() {
+        return notices;
+    }
 
-	public void setNotices(List<News>notices) {
-		this.notices = notices;
-	}
+    public void setNotices(List<News>notices) {
+        this.notices = notices;
+    }
 
-	@Override
-	public String toString() {
-		return "Videojuego [id=" + id + ", title=" + title + ", description=" + description + "Precio=" +price"]";
-	}
+    @Override
+    public String toString() {
+        return "Videojuego [id=" + id + ", title=" + title + ", description=" + description + "Precio=" +price+"]";
+    }
 
 }
