@@ -49,6 +49,10 @@ public class dbInit {
         setNewImage(new3,"/static/Photos/AndreasAvatar.PNG");
         ns.save(new3);
 
+        News new4 = new News("wow","en fin","mi abuela","12/11/2022","4 minutes","incoming"); 
+        setNewImage(new4,"/static/Photos/archeAge.jpg");
+        ns.save(new4);
+
         /* Inserción de Videojeugos en la BBDDD */
         float price = 24.99f;
         Videogame vg1 = new Videogame("Togue tower","klk klkl klklkdsadsakl",price);
@@ -65,29 +69,38 @@ public class dbInit {
         setVgImage(vg3,"/static/Photos/AndreasAvatar.PNG");
         vs.save(vg3);
 
+        price = 80.99f;
+        Videogame vg4 = new Videogame("wow","hjhjjhjhjhjh",price);
+        setVgImage(vg4,"/static/Photos/archeAge.jpg");
+        vs.save(vg4);
+
         /* Inserción de usuarios en la BBDDD */
 
-        Usero u1 = new Usero("Pabvlo","123corteingles","user");
+        Usero u1 = new Usero("Pabvlo","123corteingles","USER");
         setUsImage(u1,"/static/Photos/AndreasAvatar.PNG");
         us.save(u1);
 
-        Usero u2 = new Usero("Mato","123corteingles","admin");
-        setUsImage(u1,"/static/Photos/AndreasAvatar.PNG");
-        us.save(u1);
+        Usero u2 = new Usero("Mato","123corteingles","ADMIN");
+        setUsImage(u2,"/static/Photos/AndreasAvatar.PNG");
+        us.save(u2);
+
+        Usero u3 = new Usero("Juan","12345","USER");
+        setUsImage(u3,"/static/Photos/archeAge.jpg");
+        us.save(u3);
         
 
     }
     
-    private void setUsImage(Usero u1, String classpathResource) throws IOException {
-        u1.setImage(true);
+    private void setUsImage(Usero user, String classpathResource) throws IOException {
+        user.setImage(true);
         Resource image = new ClassPathResource(classpathResource);
-        u1.setImageFile(BlobProxy.generateProxy((image).getInputStream(), (image).contentLength()));
+        user.setImageFile(BlobProxy.generateProxy((image).getInputStream(), (image).contentLength()));
     }
 
-    private void setVgImage(Videogame vg1, String classpathResource) throws IOException {
-        vg1.setImage(true);
+    private void setVgImage(Videogame videogame, String classpathResource) throws IOException {
+        videogame.setImage(true);
         Resource image = new ClassPathResource(classpathResource);
-        vg1.setImageFile(BlobProxy.generateProxy((image).getInputStream(), (image).contentLength()));
+        videogame.setImageFile(BlobProxy.generateProxy((image).getInputStream(), (image).contentLength()));
     }
 
     public void setNewImage(News newx, String classpathResource) throws IOException {
