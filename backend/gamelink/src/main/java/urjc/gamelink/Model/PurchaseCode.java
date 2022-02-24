@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Entity(name="PurchaseCodeTable")
+@Entity(name="tbl_purchase_code")
 public class PurchaseCode {
     
     @Id

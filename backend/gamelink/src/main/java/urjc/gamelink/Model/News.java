@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
-@Entity(name = "VideogameTable")
+@Entity(name = "tbl_news")
 public class News {
     
     @Id
@@ -34,16 +34,41 @@ public class News {
 
     private String date;
 
+    private String readTime;
+
+    private String badge;
+
+
     @ManyToMany
      private List<Videogame> videogamesRelated;
 
      public News() {
     }
 
-    public News(String title, String author, String date) {
+    public News(String title,String description, String author, String date ,String readtime, String badge) {
         this.title = title;
+        this.description = description;
         this.author = author;
         this.date = date;
+        this.readTime = readtime;
+        this.badge = badge;
+    }
+
+    
+    public String getReadTime() {
+        return readTime;
+    }
+
+    public void setReadTime(String readTime) {
+        this.readTime = readTime;
+    }
+
+    public String getBadge() {
+        return badge;
+    }
+
+    public void setBadge(String badge) {
+        this.badge = badge;
     }
 
     public String getTitle() {

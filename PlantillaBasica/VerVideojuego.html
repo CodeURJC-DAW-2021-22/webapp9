@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>GameLink</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+ 
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+
+        
+    </head>
+    <body class="d-flex flex-column h-100" style="background-color:#f5f5f5;">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html">GameLink</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="MenuHome.html">Inicio</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Videojuegos</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="Videojuegos.html">Descubrir</a></li>
+                                    <li><a class="dropdown-item" href="EstadisticaVideojuego.html">Top Juegos</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="Noticias.html">Noticias</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sesión</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="InicioSesion.html">Iniciar sesión</a></li>
+                                    <li><a class="dropdown-item" href="Registro.html">Registrarse</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="Admin.html">Administrador</a></li>
+                            <li class="nav-item"><a class="nav-link" href="PerfilUsuario.html">Perfil</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Header-->
+            <header class="bg-dark py-5" style="background-color: #454546 !important;">
+                <div class="container px-5"  >
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-xl-4 col-xxl-5 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://image.api.playstation.com/vulcan/ap/rnd/202107/1612/0b0owDFqekJszSOQfD4vvTjy.png" alt="..." /></div>
+                        <div class="col-lg-6 col-xl-5 col-xxl-4">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-white mb-2">Elden Ring</h1>
+                                <p class="lead fw-normal text-white-50 mb-4" style="color: aliceblue !important;">Recorre las Tierras Intermedias, un nuevo mundo de fantasía ideado por Hidetaka Miyazaki, creador de la exitosa serie de videojuegos DARK SOULS, y por George R. R. Martin, autor de Canción de hielo y fuego, la serie de fantasía superventas según The New York Times. </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-xxl-3 d-none d-xl-block text-center">
+                            <p class="lead fw-normal text-white-50 mb-4" style="color: aliceblue !important; font-size: 2em !important;"> Precio: 49,99€</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+
+                                <p><a class="btn btn-primary btn-lg px-4 me-sm-3" id="botonCompra" onclick="verificarRegistro()">Comprar ya <span style="color: grey;">49,99€</span></a></p>
+                                <p><a class="btn btn-outline-light btn-lg px-4" href="">Plan de compra</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- MoreInfo-->
+            <section class="pt-0 MoreInfo" style="margin-left: 10%; margin-right: 10%; background-color: #FFFFFF !important;">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-auto">
+                            <h1 style="padding-bottom: 10px;">Descripciónd el producto</h1>
+                            <p class="">
+                                Elden Ring es un juego de rol de fantasía oscura desarrollado por FromSoftware y publicado gracias a Bandai Namco Entertainment. Es una aventura épica y desafiante creada por los desarrolladores de Demon's Souls en colaboración con el autor de la serie A Song of Ice and Fire - R. R. Martin. Descubre los secretos de las Tierras Intermedias y embárcate en la misión más heroica para descubrir el propósito del artefacto mágico y tu destino. El lanzamiento de Elden Ring está previsto para 2022.
+                            </p>
+                            <h2 class="tab1">Historia</h2>
+                            <p class="tab1">
+                                Crea un personaje y cuida cada elemento de la apariencia, el equipo y la personalidad. Conviértete en un intrépido guerrero o en un inteligente cazador de tesoros. El juego Elden Ring permite a los jugadores personalizar completamente a los héroes, lo que hace que el juego sea aún más único.
+
+Explora el impresionante mundo abierto a pie o a lomos de un caballo de confianza. Descubre los seis reinos de Lands Between para conocer retazos de la historia de este místico lugar. Al igual que en otros títulos de soulslike, nada está claro en este videojuego. Depende de ti reunir información y comprenderla.
+
+Enfréntate a enemigos sedientos de sangre y a poderosos jefes. Utiliza armas y hechizos, pero no subestimes a tus oponentes. Cada uno de ellos es una criatura independiente, equipada con su estilo de lucha y habilidades únicas. Para derrotar al enemigo, tienes que ser rápido, inteligente y capaz de todo. Prepara tus ataques y podrás salir con vida del combate.
+
+El videojuego Elden Ring, al igual que Dark Souls, ofrece la posibilidad de jugar en solitario o en línea en cooperación con hasta cuatro jugadores. No tienes que derrotar a los jefes más poderosos solo: ¡invoca a otros jugadores y luchad juntos por la vida! También puedes explorar los siguientes capítulos de la historia mientras unes tus fuerzas en las futuras batallas cooperativas online de tu leyenda única. ¿Te convertirás en el que descubra el poder del Anillo de los Edenes?
+                            </p>
+                        </div>
+                    </div>
+            <!--Requsisitos-->           
+                    <div class="row gx-5 justify-content-center" style="margin-top: 5%;">
+                        <div class="col-auto">
+                            <h1 style="padding-bottom: 10px;">Requisitos Recomendados</h1>
+                            <ul><li><strong>Procesador o CPU:</strong> Intel Core i7-4770K / AMD Ryzen 5 1500X</li><li><strong>Memoria RAM:</strong> 12 GB</li><li><strong>Sistema operativo:</strong> Windows 10</li><li><strong>Tarjeta gráfica:</strong> Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB</li><li><strong>Espacio disponible en disco:</strong> 150 GB</li><li><strong>Memoria RAM de vídeo dedicada o VRAM:</strong> 3072 MB</li></ul>
+                        </div>
+                                     
+                        <div class="col-auto">
+                            <h1 style="padding-bottom: 10px;">Requisitos Minimos</h1>
+                            <ul><li><strong>Procesador o CPU:</strong> Intel Core i5-2500K / AMD FX-6300</li><li><strong>Memoria RAM:</strong> 8 GB</li><li><strong>Sistema operativo:</strong> Windows 7 SP1</li><li><strong>Tarjeta gráfica:</strong> Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280</li><li><strong>Espacio disponible en disco:</strong> 150 GB</li><li><strong>Memoria RAM de vídeo dedicada o VRAM:</strong> 2048 MB</li></ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Noticias Relacionadas-->
+            <section class="pt-0 MoreInfo" style="margin-left: 10%; margin-right: 10%; background-color: inherit !important; text-align: center;">
+                <h1 style="padding-bottom: 10px;">Noticias destacadas sobre este Titulo.</h1>
+                <div class="container px-5 my-5" style="margin-bottom: 0px !important ;">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-auto">                          
+                            <div class="row gx-5">
+                                <div class="col-lg-4 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img class="card-img-top" src="https://www.muycomputer.com/wp-content/uploads/2022/02/Elden-Ring-requisitos-minimos-PC.jpg" alt="..." />
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">Proximamente</div>
+                                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3" style="color: black;">Lost Ark en el horizonte proximo.</h5></a>
+                                            <p class="card-text mb-0">Elden Ring revela dos nuevas clases: así son el bandido y el astrólogo</p>
+                                        </div>
+                                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                            <div class="d-flex align-items-end justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                                    <div class="small">
+                                                        <div class="fw-bold">Kelly Rowan</div>
+                                                        <div class="text-muted">March 12, 2021 &middot; 6 min read</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img class="card-img-top" src="https://www.latercera.com/resizer/nd_6JLcFGFbjDlQys_P4vNfo9Lo=/arc-anglerfish-arc2-prod-copesa/public/L2I2DYBOVZDIRGOTAQIFJLWFUU.jpg" alt="..." />
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">Actualización</div>
+                                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3" style="color: black;">Parche 12.4</h5></a>
+                                            <p class="card-text mb-0">Elden Ring – Requisitos mínimos (Core i5-8400 + GeForce GTX 1060)</p>
+                                        </div>
+                                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                            <div class="d-flex align-items-end justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                                    <div class="small">
+                                                        <div class="fw-bold">Josiah Barclay</div>
+                                                        <div class="text-muted">March 23, 2021 &middot; 4 min read</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img class="card-img-top" src="https://sm.ign.com/ign_es/news/e/elden-ring/elden-ring-producer-promises-difficult-optional-bosses-hidde_5ezh.jpg" alt="..." />
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">Noticias</div>
+                                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3" style="color: black;">Nueva información sobre Streets of Tarkov</h5></a>
+                                            <p class="card-text mb-0">Elden Ring ya asoma la patita en las tiendas, brutal el Steelbook</p>
+                                        </div>
+                                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                            <div class="d-flex align-items-end justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                                    <div class="small">
+                                                        <div class="fw-bold">Evelyn Martinez</div>
+                                                        <div class="text-muted">April 2, 2021 &middot; 10 min read</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-center">
+                    <p><a class="btn btn-primary btn-lg px-4 me-sm-3"  href="">Cargar Más</a></p>
+                </div>
+            </section>  
+        </main>
+        
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; GameLink 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
