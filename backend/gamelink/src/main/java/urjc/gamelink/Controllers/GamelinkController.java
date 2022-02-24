@@ -20,9 +20,7 @@ public class GamelinkController {
 
     @GetMapping("/")
     public String home(Model model){
-
-        model.addAttribute("new", ns.findAll());
-        
+              
         return "home";
 
     }
