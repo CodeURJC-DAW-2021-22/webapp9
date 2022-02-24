@@ -45,10 +45,11 @@ public class Videogame {
      private List<News> notices;
 
     public Videogame() {}
+    
 
     public Videogame(String name, String description, float price) {
         this.title = name;
-          this.description = description;
+        this.description = description;
         this.price = price;
     }
 
