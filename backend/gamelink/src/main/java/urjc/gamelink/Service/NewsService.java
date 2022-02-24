@@ -27,8 +27,8 @@ public class NewsService {
 		return repository.findAll();
 	}
 
-	public void save(News book) {
-		repository.save(book);
+	public void save(News n) {
+		repository.save(n);
 	}
 
 	public void delete(long id) {
