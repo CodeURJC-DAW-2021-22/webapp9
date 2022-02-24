@@ -66,8 +66,8 @@ public class News {
         return imageFile;
     }
 
-    public void setImageFile(Blob image) {
-       // this.imageFile = imageFile;
+    public void setImageFile(Blob imageFile) {
+        this.imageFile = imageFile;
     }
 
     public boolean getImage(){
