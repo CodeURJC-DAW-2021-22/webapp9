@@ -6,16 +6,17 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import urjc.gamelink.Model.Videogame;
-import urjc.gamelink.Repositories.VideogameRepository;
+import urjc.gamelink.Model.Usero;
+import urjc.gamelink.Repositories.NewRepository;
+import urjc.gamelink.Repositories.UseroRepository;
 
 @Service
-public class VideogameService {
+public class UseroService {
     
 	@Autowired
-	private VideogameRepository repository;
+	private UseroRepository repository;
 
-	public Optional<Videogame> findById(long id) {
+	public Optional<Usero> findById(long id) {
 		return repository.findById(id);
 	}
 	
@@ -23,15 +24,16 @@ public class VideogameService {
 		return repository.existsById(id);
 	}
 
-	public List<Videogame> findAll() {
+	public List<Usero> findAll() {
 		return repository.findAll();
 	}
 
-	public void save(Videogame vg) {
-		repository.save(vg);
+	public void save(Usero u) {
+		repository.save(u);
 	}
 
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
 }
+
