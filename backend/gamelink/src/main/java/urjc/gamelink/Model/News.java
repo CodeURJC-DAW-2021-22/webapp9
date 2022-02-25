@@ -91,7 +91,7 @@ public class News {
         return imageFile;
     }
 
-    public void setImageFile(Blob image) {
+    public void setImageFile(Blob imageFile) {
         this.imageFile = imageFile;
     }
 
