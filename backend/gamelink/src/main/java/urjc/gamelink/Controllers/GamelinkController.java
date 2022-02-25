@@ -93,6 +93,13 @@ public class GamelinkController {
 
     }
 
+    @GetMapping("/loginError")
+    public String loginError(Model model){
+        
+        return "loginError";
+
+    }
+
     @GetMapping("/errorMessage")
     public String errorMessage(Model model){
         
