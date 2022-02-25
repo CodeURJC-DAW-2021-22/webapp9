@@ -32,9 +32,27 @@ public class GamelinkController {
     private VideogameService vs;
     
 
+	@GetMapping("/news/{id}/image")
+	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
+
+		Optional<News> news = ns.findById(id);
+		if (news.isPresent() && news.get().getImageFile() != null) {
+
+			Resource file = new InputStreamResource(news.get().getImageFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/PNG")
+					.contentLength(news.get().getImageFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
     @GetMapping("/")
     public String home(Model model){
-        
+
+        model.addAttribute("new", ns.findAll());
+              
         return "home";
 
     }
