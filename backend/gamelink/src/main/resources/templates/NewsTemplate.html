@@ -1,8 +1,8 @@
+{{#new}} <!--Playing as a For. Repeat the label for each element of the list, it is associated with a findAll, so it will take the 4 news that we have in the database-->
 <div class="col-lg-4 mb-5">
     <div class="card h-100 shadow border-0">
-        {{#new}}
-        {{#image}}
-        <img class="card-img-top" src="{{image}}" alt="..." />
+        {{#image}} <!--here is not playing as a for, is playing as a if i think-->
+        <img class="card-img-top" src="/news/{id}/image" alt="..." />
         {{/image}}
 
         {{^image}}
@@ -25,6 +25,6 @@
                 </div>
             </div>
         </div>
-        {{/new}}
     </div>
 </div>
+{{/new}}
