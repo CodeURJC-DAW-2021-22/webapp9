@@ -1,4 +1,4 @@
-package urjc.gamelink;
+package urjc.gamelink.Configuration;
 
 
 import java.security.SecureRandom;
