@@ -3,8 +3,8 @@ package urjc.gamelink.Service;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
+//import java.io.IOException;
+//import java.net.URISyntaxException;
 
 import javax.annotation.PostConstruct;
 
@@ -25,13 +25,13 @@ import urjc.gamelink.Repositories.VideogameRepository;
 public class dbInit {
 
     @Autowired
-    private NewRepository ns;
+    private NewRepository ns; //this is the repository of news of the dataBase
 
     @Autowired
-    private VideogameRepository vs;
+    private VideogameRepository vs; //this is the repository of videogames of the dataBase
 
     @Autowired
-    private UseroRepository us;
+    private UseroRepository us; //this is the repository of users of the dataBase
     
     
     @PostConstruct
@@ -49,6 +49,10 @@ public class dbInit {
         setNewImage(new3,"/static/Photos/AndreasAvatar.PNG");
         ns.save(new3);
 
+        News new4 = new News("Battlefront 2","bla bla bla bla","Pirulai","14/03/2022","2 minutes","update");
+        setNewImage(new4,"/static/Photos/csgo.png");
+        ns.save(new4);
+
         /* Inserción de Videojeugos en la BBDDD */
         float price = 24.99f;
         Videogame vg1 = new Videogame("Togue tower","klk klkl klklkdsadsakl",price);
@@ -65,16 +69,24 @@ public class dbInit {
         setVgImage(vg3,"/static/Photos/AndreasAvatar.PNG");
         vs.save(vg3);
 
+        price = 19.99f;
+        Videogame vg4 = new Videogame("Battlefront 2","the best game ever",price);
+        setVgImage(vg3,"/static/Photos/starWars_Grogu.jpeg");
+        vs.save(vg4);
+
         /* Inserción de usuarios en la BBDDD */
 
         Usero u1 = new Usero("Pabvlo","123corteingles","user");
         setUsImage(u1,"/static/Photos/AndreasAvatar.PNG");
         us.save(u1);
 
-        Usero u2 = new Usero("Mato","123corteingles","admin");
-        setUsImage(u1,"/static/Photos/AndreasAvatar.PNG");
-        us.save(u1);
+        Usero u2 = new Usero("Mato","123corteingles","ADMIN");
+        setUsImage(u2,"/static/Photos/AndreasAvatar.PNG");
+        us.save(u2);
         
+        Usero u3 = new Usero("Pabvloskhi","password","ADMIN");
+        setUsImage(u3, "/static/Photos/ManisAvatar.PNG");
+        us.save(u3);
 
     }
     
