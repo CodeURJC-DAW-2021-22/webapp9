@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="row gx-5">
-                    {{>NewsTemplate}}
+                    {{>nextPageTemplate}}
                 </div>
 
                 <div class="row gx-5">
@@ -200,7 +200,13 @@
                 <form method="post" action="/moreNews">
                     <div class="text-end mb-5 mb-xl-0">
                         <a class="text-decoration-none" href="#!">
-                            More stories
+                            {{#hasPrev}}
+	                            <a href="/?page={{prevPage}}">Prev</a>	
+	                        {{/hasPrev}}
+	
+	                        {{#hasNext}}
+	                            <a href="/?page={{nextPage}}">Next</a>
+	                        {{/hasNext}}
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>

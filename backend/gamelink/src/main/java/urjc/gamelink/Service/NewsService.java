@@ -44,7 +44,7 @@ public class NewsService {
 	}
 
 	public Page<News> findAll(PageRequest of) {
-		return null;
+		return repository.findAll(of);
 	}
 
 }

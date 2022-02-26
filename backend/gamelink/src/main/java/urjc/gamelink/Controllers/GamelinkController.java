@@ -117,46 +117,30 @@ public class GamelinkController {
     }
 
 	
-    /*@PostMapping("/moreNews") //recibira el post que tenga action="moreNews"
-    public String loadNewNews(Model model){
-
-        Page<News> a = ns.findAll(PageRequest.of(0, 3)); //cargamos 3 elementos de la página 0
-
-        model.addAttribute("nextPage", a);
-
-        return "nextPageTemplate";
-
-    }*/
-
-    /*@RequestMapping("/moreNews") //recibira el post que tenga action="moreNews"
-    public String loadNewNews(Model model, @RequestParam(required = false) Pageable page) {
-
-        Page<News> a = ns.findAll(PageRequest.of(0, 3)); //cargamos 3 elementos de la página 0
-
-        model.addAttribute("nextPage", a);
-
-        return "nextPageTemplate";
-    }*/
-
-    @GetMapping("/moreNews")
-    public Page<News> getNews(Model model, @RequestParam(required = false)  Pageable page) {
-        Page<News> a = ns.findAll(PageRequest.of(0, 3)); //cargamos 3 elementos de la página 0
-
-        model.addAttribute("nextPage", a);
-
-        return ns.findAll(PageRequest.of(0, 3)); //cargamos 3 elementos de la página 0
-    }
-    
-
-
-    @GetMapping("/news")
+    /*@GetMapping("/news")
     public String news(Model model){
 
         model.addAttribute("new", ns.findAll());
         
         return "news";
 
+    }*/
+
+    @GetMapping("/news")
+    public String getNews(Model model, HttpSession session) {
+
+        Page<News> news = ns.findAll(PageRequest.of(0, 1)); 
+
+        model.addAttribute("next", news);
+        
+        model.addAttribute("hasPrev", news.hasPrevious());
+        model.addAttribute("hasNext", news.hasNext());
+        model.addAttribute("nextPage", news.getNumber()+1);
+		model.addAttribute("prevPage", news.getNumber()-1);	
+
+        return "news";
     }
+    
 
     @GetMapping("/userProfile")
     public String userProfile(Model model){
