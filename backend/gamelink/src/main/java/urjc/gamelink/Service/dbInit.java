@@ -57,7 +57,7 @@ public class dbInit {
         setNewImage(new3,"/static/Photos/AndreasAvatar.PNG");
         ns.save(new3);
 
-        News new4 = new News("wow","en fin","mi abuela","12/11/2022","4 minutes","incoming"); 
+        News new4 = new News("wow","mi abuela","12/11/2022","4 minutes","incoming"); 
         setNewImage(new4,"/static/Photos/archeAge.jpg");
         ns.save(new4);
 
