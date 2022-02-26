@@ -1,7 +1,10 @@
 package urjc.gamelink.Controllers;
 
+import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +22,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import urjc.gamelink.Model.News;
+import urjc.gamelink.Model.Usero;
+import urjc.gamelink.Repositories.UseroRepository;
 import urjc.gamelink.Service.NewsService;
+import urjc.gamelink.Service.UseroService;
 import urjc.gamelink.Service.VideogameService;
 
 @Controller
@@ -30,6 +36,14 @@ public class GamelinkController {
 
     @Autowired
     private VideogameService vs;
+
+    @Autowired
+    private UseroService us;
+
+    @Autowired
+    private UseroRepository ur;
+
+
     
 
 	@GetMapping("/news/{id}/image")
@@ -47,6 +61,7 @@ public class GamelinkController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+
 
     @GetMapping("/")
     public String home(Model model){
@@ -115,15 +130,20 @@ public class GamelinkController {
     }
 
     @GetMapping("/userProfile")
-    public String userProfile(Model model){
-        
+    public String userProfile(Model model, HttpServletRequest request){
+
+        String name = request.getUserPrincipal().getName();
+        Usero user = ur.findByName(name).orElseThrow();
+        model.addAttribute("username", user.getName());
+        //model.addAttribute("admin", request.isUserInRole("ADMIN"));
+
         return "userProfile";
 
     }
 
     @GetMapping("/signin")
     public String signin(Model model){
-        
+
         return "signin";
 
     }
@@ -150,6 +170,21 @@ public class GamelinkController {
         return "videogame";
     }
 
+    @ModelAttribute
+	public void addAttributes(Model model, HttpServletRequest request) {
+
+		Principal principal = request.getUserPrincipal();
+
+		if (principal != null) {
+
+			model.addAttribute("logged", true);
+			model.addAttribute("userName", principal.getName());
+			model.addAttribute("admin", request.isUserInRole("ADMIN"));
+
+		} else {
+			model.addAttribute("logged", false);
+		}
+	}
 
 
 }

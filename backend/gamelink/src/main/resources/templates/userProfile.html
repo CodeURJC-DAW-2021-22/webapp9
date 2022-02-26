@@ -2,7 +2,6 @@
 <html lang="en">
 
 {{>header}}
-
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         <!-- Navigation-->
@@ -21,11 +20,11 @@
                 <div class="col-md-5 border-right">
                     <div class="p-3 py-5">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="text-right">Mi perfil</h4>
+                            <h4 class="text-right">Mi perfil: {{username}}</h4>
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-6"><label class="labels">Nombre</label><input type="text"
-                                    class="form-control" placeholder="Pedro" value=""></div>
+                                    class="form-control" value=""> </div>
                             <div class="col-md-6"><label class="labels">Apellidos</label><input type="text"
                                     class="form-control" value="" placeholder="Picapiedra"></div>
                         </div>
@@ -97,7 +96,6 @@
         </div>
         </div>
     </main>
-
     <!-- Footer-->
     {{>footer}}
     <!-- Bootstrap core JS-->

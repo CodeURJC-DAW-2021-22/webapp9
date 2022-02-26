@@ -28,6 +28,8 @@ public class Usero {
     private String email;
 
     private String encodedPassword;
+    
+    private String creditCard;
 
     private boolean image;
     
@@ -46,9 +48,11 @@ public class Usero {
     public Usero() {
     }
 
-    public Usero(String name, String encodedPassword, String... roles) {
+    public Usero(String name, String lastName, String encodedPassword, String email, String... roles) {
         this.name = name;
+        this.lastName = lastName;
         this.encodedPassword = encodedPassword;
+        this.email = email;
         this.roles = List.of(roles);
     }
 
@@ -98,6 +102,14 @@ public class Usero {
 
     public void setEncodedPassword(String encodedPassword) {
         this.encodedPassword = encodedPassword;
+    }
+
+    public String getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(String creditCard) {
+        this.creditCard = creditCard;
     }
 
     public List<String> getRoles() {
