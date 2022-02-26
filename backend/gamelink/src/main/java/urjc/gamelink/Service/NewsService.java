@@ -26,6 +26,11 @@ public class NewsService {
 		return repository.existsById(id);
 	}
 
+	
+	public Page<News> findAll(Pageable pageable) {
+		return repository.findAll(pageable);
+	}
+
 	public List<News> findAll() {
 		return repository.findAll();
 	}
@@ -36,6 +41,10 @@ public class NewsService {
 
 	public void delete(long id) {
 		repository.deleteById(id);
+	}
+
+	public Page<News> findAll(PageRequest of) {
+		return null;
 	}
 
 }

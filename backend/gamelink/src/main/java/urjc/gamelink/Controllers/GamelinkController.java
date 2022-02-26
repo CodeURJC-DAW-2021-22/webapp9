@@ -3,10 +3,15 @@ package urjc.gamelink.Controllers;
 import java.sql.SQLException;
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,10 +20,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import urjc.gamelink.Model.News;
+import urjc.gamelink.Repositories.NewRepository;
 import urjc.gamelink.Service.NewsService;
 import urjc.gamelink.Service.VideogameService;
 
@@ -30,6 +37,7 @@ public class GamelinkController {
 
     @Autowired
     private VideogameService vs;
+
     
     
     @GetMapping("/news/{id}/image")
@@ -47,6 +55,7 @@ public class GamelinkController {
 			return ResponseEntity.notFound().build();
 		}
     }
+
 
     @GetMapping("/")
     public String home(Model model){
@@ -108,6 +117,38 @@ public class GamelinkController {
     }
 
 	
+    /*@PostMapping("/moreNews") //recibira el post que tenga action="moreNews"
+    public String loadNewNews(Model model){
+
+        Page<News> a = ns.findAll(PageRequest.of(0, 3)); //cargamos 3 elementos de la página 0
+
+        model.addAttribute("nextPage", a);
+
+        return "nextPageTemplate";
+
+    }*/
+
+    /*@RequestMapping("/moreNews") //recibira el post que tenga action="moreNews"
+    public String loadNewNews(Model model, @RequestParam(required = false) Pageable page) {
+
+        Page<News> a = ns.findAll(PageRequest.of(0, 3)); //cargamos 3 elementos de la página 0
+
+        model.addAttribute("nextPage", a);
+
+        return "nextPageTemplate";
+    }*/
+
+    @GetMapping("/moreNews")
+    public Page<News> getNews(Model model, @RequestParam(required = false)  Pageable page) {
+        Page<News> a = ns.findAll(PageRequest.of(0, 3)); //cargamos 3 elementos de la página 0
+
+        model.addAttribute("nextPage", a);
+
+        return ns.findAll(PageRequest.of(0, 3)); //cargamos 3 elementos de la página 0
+    }
+    
+
+
     @GetMapping("/news")
     public String news(Model model){
 
