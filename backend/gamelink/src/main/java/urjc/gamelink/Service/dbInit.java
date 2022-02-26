@@ -83,19 +83,7 @@ public class dbInit {
         vs.save(vg4);
 
         /* Inserción de usuarios en la BBDDD */
-
-        Usero u1 = new Usero("Pabvlo","123corteingles","USER");
-        setUsImage(u1,"/static/Photos/AndreasAvatar.PNG");
-        us.save(u1); 
-
-        Usero u2 = new Usero("Mato","123corteingles","ADMIN");
-        setUsImage(u2,"/static/Photos/AndreasAvatar.PNG");
-        us.save(u2);
-
-        Usero u3 = new Usero("Juan","12345","USER");
-        setUsImage(u3,"/static/Photos/archeAge.jpg");
-        us.save(u3);
-        
+     
         us.save(new Usero("usuario", passwordEncoder.encode("pass"), "USERO"));
         us.save(new Usero("admin", passwordEncoder.encode("123"), "USERO", "ADMIN"));
 
