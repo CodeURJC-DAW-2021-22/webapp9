@@ -27,10 +27,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 //import antlr.collections.List;
 import urjc.gamelink.Model.News;
-import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Service.NewsService;
 //import urjc.gamelink.Service.VideogameService;
-import urjc.gamelink.Service.UseroService;
 
 @Controller
 public class GamelinkController {
@@ -41,9 +39,9 @@ public class GamelinkController {
 //    @Autowired
 //    private VideogameService vs;
 
+     //this will show admin mode (if the user is and admin) and userProfile (if user is registrated)
     @ModelAttribute
-	public void showAdminMode(Model model, HttpServletRequest request) { //this will show admin mode (if the user is and admin) and userProfile (if user is registrated)
-
+	public void showAdminMode(Model model, HttpServletRequest request) {
 		Principal principal = request.getUserPrincipal();
 
 		if (principal != null) {
