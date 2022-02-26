@@ -12,6 +12,7 @@ import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import urjc.gamelink.Model.News;
@@ -33,23 +34,30 @@ public class dbInit {
     @Autowired
     private UseroRepository us; //this is the repository of users of the dataBase
     
+    @Autowired
+	private PasswordEncoder passwordEncoder;
     
     @PostConstruct
 	public void init() throws IOException, URISyntaxException {
         /* Inserción de noticias en la BBDDD */
-        News new1 = new News("Apex","klk klk klk","Manoplo","12/10/2022","3 minutes","incoming"); 
-        setNewImage(new1,"/static/Photos/AndreasAvatar.PNG");
+        News new1 = new News("¿Cuántas horas dura Elden Ring? Hay juego para rato",
+                                "Hay MUY buenas noticias al respecto, y es que este título parece ser el más grande de toda la saga souls, traduciéndose eso en horas y horas de disfrute para los amantes de esta saga."
+                                ,"12/10/2022",
+                                "3 minutes",
+                                "incoming"); 
+
+        setNewImage(new1,"/static/Photos/eldenRing_2.jpg");
         ns.save(new1);
 
-        News new2 = new News("lol","klk klk klk","Sarandongo","12/10/2022","3 minutes","update"); 
+        News new2 = new News("lol","klk klk klk","12/10/2022","3 minutes","update"); 
         setNewImage(new2,"/static/Photos/AndreasAvatar.PNG");
         ns.save(new2);
 
-        News new3 = new News("lost ark","klk klk klk","TOtolo","12/10/2022","3 minutes","incoming"); 
+        News new3 = new News("lost ark","klk klk klk","12/10/2022","3 minutes","incoming"); 
         setNewImage(new3,"/static/Photos/AndreasAvatar.PNG");
         ns.save(new3);
 
-        News new4 = new News("Battlefront 2","bla bla bla bla","Pirulai","14/03/2022","2 minutes","update");
+        News new4 = new News("Battlefront 2","bla bla bla bla","14/03/2022","2 minutes","update");
         setNewImage(new4,"/static/Photos/csgo.png");
         ns.save(new4);
 
@@ -75,18 +83,9 @@ public class dbInit {
         vs.save(vg4);
 
         /* Inserción de usuarios en la BBDDD */
-
-        Usero u1 = new Usero("Pabvlo","123corteingles","user");
-        setUsImage(u1,"/static/Photos/AndreasAvatar.PNG");
-        us.save(u1);
-
-        Usero u2 = new Usero("Mato","123corteingles","ADMIN");
-        setUsImage(u2,"/static/Photos/AndreasAvatar.PNG");
-        us.save(u2);
-        
-        Usero u3 = new Usero("Pabvloskhi","password","ADMIN");
-        setUsImage(u3, "/static/Photos/ManisAvatar.PNG");
-        us.save(u3);
+     
+        us.save(new Usero("usuario", passwordEncoder.encode("pass"), "USERO"));
+        us.save(new Usero("admin", passwordEncoder.encode("123"), "USERO", "ADMIN"));
 
     }
     
