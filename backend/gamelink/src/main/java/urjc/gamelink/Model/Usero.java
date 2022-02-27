@@ -21,6 +21,8 @@ public class Usero {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String nick;
+
     private String name;
     
     private String lastName;
@@ -48,12 +50,21 @@ public class Usero {
     public Usero() {
     }
 
-    public Usero(String name, String lastName, String encodedPassword, String email, String... roles) {
+    public Usero(String name, String nick, String lastName, String encodedPassword, String email, String... roles) {
         this.name = name;
+        this.nick = nick;
         this.lastName = lastName;
         this.encodedPassword = encodedPassword;
         this.email = email;
         this.roles = List.of(roles);
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     public String getName() {
@@ -84,8 +95,8 @@ public class Usero {
         return imageFile;
     }
 
-    public void setImageFile(Blob image) {
-        this.imageFile = image;
+    public void setImageFile(Blob imageFile) {
+        this.imageFile = imageFile;
     }
 
     public boolean getImage(){
@@ -119,5 +130,16 @@ public class Usero {
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
+
+    public List<Videogame> getPurchaseVideogames() {
+        return purchaseVideogames;
+    }
+
+    public void setpurchaseVideogames(List<Videogame> purchaseVideogames) {
+       this.purchaseVideogames = purchaseVideogames;
+    }
+    //public void setpurchaseVideogames(Videogame purchaseVideogame) {
+    //   purchaseVideogames.add(purchaseVideogame);
+    //}
 
 }

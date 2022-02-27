@@ -12,43 +12,36 @@
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
                             class="rounded-circle mt-5" width="150px"
                             src="Photos/defaultProfilePhoto.jpg"><span
-                            class="font-weight-bold">gameLinkUser</span><span
-                            class="text-black-50">a@yahoo.com</span><span> </span>
+                            class="font-weight-bold"> {{nick}}</span><span
+                            class="text-black-50">{{email}}</span><span> </span>
                             <a class="btn btn-primary profile-button" onclick="alertDataChange()" href="userProfile">Cambiar datos</a>
                     </div>                      
                 </div>
                 <div class="col-md-5 border-right">
                     <div class="p-3 py-5">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="text-right">Mi perfil: {{username}}</h4>
+                            <h4 class="text-right">Mi perfil: {{nick}}</h4>
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-6"><label class="labels">Nombre</label><input type="text"
-                                    class="form-control" value=""> </div>
-                            <div class="col-md-6"><label class="labels">Apellidos</label><input type="text"
-                                    class="form-control" value="" placeholder="Picapiedra"></div>
+                                    class="form-control" placeholder="Rodrigo" value={{username}}> </div>
+                            <div class="col-md-6"><label class="labels">Apellido(s)</label><input type="text"
+                                    class="form-control" placeholder="Perez" value={{lastName}}></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Teléfono</label><input type="text"
-                                    class="form-control" placeholder="345634563456" value=""></div>
-                            <div class="col-md-12"><label class="labels">Dirección</label><input type="text"
-                                    class="form-control" placeholder="Calle de la victoria" value=""></div>
-                            <div class="col-md-12"><label class="labels">Número de tarjeta</label><input type="text"
-                                    class="form-control" placeholder="999999999999999" value=""></div>
                             <div class="col-md-12"><label class="labels">Nombre de usuario</label><input type="text"
-                                    class="form-control" placeholder="gameLinkUser" value=""></div>
-                            <div class="col-md-12"><label class="labels">Contraseña</label><input type="text"
-                                    class="form-control" placeholder="gamelink" value=""></div>
-                            <div class="col-md-12"><label class="labels">Código postal</label><input type="text"
-                                    class="form-control" placeholder="99999" value=""></div>
+                                class="form-control" placeholder="RodPerez" value={{nick}}></div>
                             <div class="col-md-12"><label class="labels">Email</label><input type="text"
-                                    class="form-control" placeholder="a@yahoo.com" value=""></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">Pais</label><input type="text"
-                                    class="form-control" placeholder="España" value=""></div>
-                            <div class="col-md-6"><label class="labels">Provincia</label><input type="text"
-                                    class="form-control" value="" placeholder="Madrid"></div>
+                                class="form-control" placeholder="RodPerez@gmail.com" value={{email}}></div>
+                            <div class="col-md-12"><label class="labels">Número de tarjeta</label>
+                                {{#creditCard}}
+                                <input type="text" class="form-control" placeholder="123456789A" value={{creditCard}}></div>
+                                {{/creditCard}}
+                                {{^creditCard}}
+                                <input type="text" class="form-control" placeholder="123456789A" value=""></div>
+                                {{/creditCard}}
+                            <div class="col-md-12"><label class="labels">Contraseña</label><input type="text"
+                                    class="form-control" placeholder="pass" value={{encodedPassword}}></div>
                         </div>
                         <div class="mt-5 text-center">
                             <!--<button class="btn btn-primary profile-button" type="button">Save Profile</button>-->
@@ -63,26 +56,18 @@
                         <h4 class="text-right">Mis compras</h4>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <ul>
+                                {{#Videogame}}
                                 <li>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <img class="img-fluid rounded-3 my-5" src="Photos/eldenRing.webp" alt="..."/>
+                                            <img class="img-fluid rounded-3 my-5" src={{imageFile}} alt="..."/>
                                         </div>
                                         <div class="col-md-8 align-self-center">
-                                            <p>Elden ring</p>
+                                            <p>{{title}}</p>
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <img class="img-fluid rounded-3 my-5" src="Photos/eldenRing.webp" alt="..."/>
-                                        </div>
-                                        <div class="col-md-8 align-self-center">
-                                            <p>Elden ring</p>
-                                        </div>
-                                    </div>
-                                </li>                               
+                                </li> 
+                                {{/Videogame}}                             
                             </ul>
                         </div>
                     </div>

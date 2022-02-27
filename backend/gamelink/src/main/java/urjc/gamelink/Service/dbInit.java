@@ -2,7 +2,7 @@ package urjc.gamelink.Service;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-
+import java.util.ArrayList;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -15,6 +15,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import antlr.collections.List;
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
@@ -74,9 +75,17 @@ public class dbInit {
         vs.save(vg3);
 
         /* inserting users into the database */
-     
-        us.save(new Usero("usuario", "Uno", passwordEncoder.encode("pass"), "usuario@gmail.com", "USERO"));
-        us.save(new Usero("admin","Uno", passwordEncoder.encode("123"), "admin@123.com", "USERO", "ADMIN"));
+        ArrayList<Videogame> vids = new ArrayList<>();
+        vids.add(vg1);
+        vids.add(vg2);
+
+        Usero kk = new Usero("usera", "useraPepe", "Uno", passwordEncoder.encode("passo"), "usuario@gmail.com", "USERO");
+        kk.setpurchaseVideogames(vids);
+        kk.setCreditCard("ABCFHU6");
+        us.save(kk);
+
+        us.save(new Usero("usuario", "usuarioPepe", "Uno", passwordEncoder.encode("pass"), "usuario@gmail.com", "USERO"));
+        us.save(new Usero("admin", "adminPepe", "Uno", passwordEncoder.encode("123"), "admin@123.com", "USERO", "ADMIN"));
 
     }
     

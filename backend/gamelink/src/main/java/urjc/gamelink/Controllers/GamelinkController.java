@@ -135,6 +135,12 @@ public class GamelinkController {
         String name = request.getUserPrincipal().getName();
         Usero user = ur.findByName(name).orElseThrow();
         model.addAttribute("username", user.getName());
+        model.addAttribute("nick", user.getNick());
+        model.addAttribute("encodedPassword", user.getEncodedPassword());
+        model.addAttribute("lastName", user.getLastName());
+        model.addAttribute("creditCard", user.getCreditCard());
+        model.addAttribute("email", user.getEmail());
+        model.addAttribute("Videogame", user.getPurchaseVideogames());
         //model.addAttribute("admin", request.isUserInRole("ADMIN"));
 
         return "userProfile";
