@@ -132,7 +132,7 @@ public class GamelinkController {
         Page<News> news = ns.findAll(PageRequest.of(0, 1)); 
 
         model.addAttribute("next", news);
-        
+
         model.addAttribute("hasPrev", news.hasPrevious());
         model.addAttribute("hasNext", news.hasNext());
         model.addAttribute("nextPage", news.getNumber()+1);

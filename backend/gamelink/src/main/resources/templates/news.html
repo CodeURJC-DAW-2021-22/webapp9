@@ -200,12 +200,12 @@
                 <form method="post" action="/moreNews">
                     <div class="text-end mb-5 mb-xl-0">
                         <a class="text-decoration-none" href="#!">
-                            {{#hasPrev}}
-	                            <a href="/?page={{prevPage}}">Prev</a>	
+                            {{#hasPrev}} <!--if exists previous new in the database...-->
+	                            <a input type="submit" href="/?page={{prevPage}}">Prev</a>	<!--will show prev-->
 	                        {{/hasPrev}}
 	
-	                        {{#hasNext}}
-	                            <a href="/?page={{nextPage}}">Next</a>
+	                        {{#hasNext}} <!--if exists another new in the database...-->
+	                            <a input type="submit" href="/?page={{nextPage}}">Next</a> <!--will show next-->
 	                        {{/hasNext}}
                             <i class="bi bi-arrow-right"></i>
                         </a>
