@@ -2,7 +2,7 @@ package urjc.gamelink.Service;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-
+import java.util.ArrayList;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -15,6 +15,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import antlr.collections.List;
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
@@ -39,7 +40,7 @@ public class dbInit {
     
     @PostConstruct
 	public void init() throws IOException, URISyntaxException {
-        /* Inserción de noticias en la BBDDD */
+        /* inserting news into the database */
         News new1 = new News("¿Cuántas horas dura Elden Ring? Hay juego para rato",
                                 "Hay MUY buenas noticias al respecto, y es que este título parece ser el más grande de toda la saga souls, traduciéndose eso en horas y horas de disfrute para los amantes de esta saga."
                                 ,"12/10/2022",
@@ -57,7 +58,7 @@ public class dbInit {
         setNewImage(new3,"/static/Photos/AndreasAvatar.PNG");
         ns.save(new3);
 
-        /* Inserción de Videojeugos en la BBDDD */
+        /* inserting videogames into the database*/
         float price = 24.99f;
         Videogame vg1 = new Videogame("Togue tower","klk klkl klklkdsadsakl",price);
         setVgImage(vg1,"/static/Photos/AndreasAvatar.PNG");
@@ -73,10 +74,18 @@ public class dbInit {
         setVgImage(vg3,"/static/Photos/AndreasAvatar.PNG");
         vs.save(vg3);
 
-        /* Inserción de usuarios en la BBDDD */
-     
-        us.save(new Usero("usuario", passwordEncoder.encode("pass"), "USERO"));
-        us.save(new Usero("admin", passwordEncoder.encode("123"), "USERO", "ADMIN"));
+        /* inserting users into the database */
+        ArrayList<Videogame> vids = new ArrayList<>();
+        vids.add(vg1);
+        vids.add(vg2);
+
+        Usero kk = new Usero("usera", "useraPepe", "Uno", passwordEncoder.encode("passo"), "usuario@gmail.com", "USERO");
+        kk.setpurchaseVideogames(vids);
+        kk.setCreditCard("ABCFHU6");
+        us.save(kk);
+
+        us.save(new Usero("usuario", "usuarioPepe", "Uno", passwordEncoder.encode("pass"), "usuario@gmail.com", "USERO"));
+        us.save(new Usero("admin", "adminPepe", "Uno", passwordEncoder.encode("123"), "admin@123.com", "USERO", "ADMIN"));
 
     }
     

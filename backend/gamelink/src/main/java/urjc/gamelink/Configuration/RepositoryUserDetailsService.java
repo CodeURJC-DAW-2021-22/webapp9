@@ -17,12 +17,12 @@ import urjc.gamelink.Repositories.UseroRepository;
 @Service
 public class RepositoryUserDetailsService implements UserDetailsService{
     @Autowired
-	private UseroRepository userRepository;
+	private UseroRepository UseroRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		Usero user = userRepository.findByName(username)
+		Usero user = UseroRepository.findByName(username)
 				.orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
 		List<GrantedAuthority> roles = new ArrayList<>();

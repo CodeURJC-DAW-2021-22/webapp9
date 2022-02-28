@@ -47,8 +47,8 @@ public class Videogame {
     public Videogame() {}
     
 
-    public Videogame(String name, String description, float price) {
-        this.title = name;
+    public Videogame(String title, String description, float price) {
+        this.title = title;
         this.description = description;
         this.price = price;
     }

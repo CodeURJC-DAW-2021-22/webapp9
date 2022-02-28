@@ -12,7 +12,6 @@ import urjc.gamelink.Repositories.UseroRepository;
 
 @Service
 public class UseroService {
-    
 	@Autowired
 	private UseroRepository repository;
 

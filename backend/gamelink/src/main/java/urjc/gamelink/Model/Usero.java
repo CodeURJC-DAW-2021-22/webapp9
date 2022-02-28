@@ -30,6 +30,8 @@ public class Usero {
     private String email;
 
     private String encodedPassword;
+    
+    private String creditCard;
 
     private boolean image;
     
@@ -48,8 +50,10 @@ public class Usero {
     public Usero() {
     }
 
-    public Usero(String name, String encodedPassword) {
+    public Usero(String name, String nick, String lastName, String encodedPassword, String email, String... roles) {
         this.name = name;
+        this.nick = nick;
+        this.lastName = lastName;
         this.encodedPassword = encodedPassword;
     }
 
@@ -89,8 +93,8 @@ public class Usero {
         return imageFile;
     }
 
-    public void setImageFile(Blob image) {
-        this.imageFile = image;
+    public void setImageFile(Blob imageFile) {
+        this.imageFile = imageFile;
     }
 
     public boolean getImage(){
@@ -109,6 +113,14 @@ public class Usero {
         this.encodedPassword = encodedPassword;
     }
 
+    public String getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(String creditCard) {
+        this.creditCard = creditCard;
+    }
+
     public List<String> getRoles() {
         return roles;
     }
@@ -116,5 +128,16 @@ public class Usero {
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
+
+    public List<Videogame> getPurchaseVideogames() {
+        return purchaseVideogames;
+    }
+
+    public void setpurchaseVideogames(List<Videogame> purchaseVideogames) {
+       this.purchaseVideogames = purchaseVideogames;
+    }
+    //public void setpurchaseVideogames(Videogame purchaseVideogame) {
+    //   purchaseVideogames.add(purchaseVideogame);
+    //}
 
 }
