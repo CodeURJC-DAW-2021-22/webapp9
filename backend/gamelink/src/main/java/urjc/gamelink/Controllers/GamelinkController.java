@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+//import javax.smartcardio.CardTerminals.State;
 
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -153,6 +154,7 @@ public class GamelinkController {
         return "signin";
 
     }
+
 
     @GetMapping("/showNews")
     public String showNews(Model model){
