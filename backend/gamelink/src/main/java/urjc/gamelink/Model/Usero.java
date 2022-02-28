@@ -50,11 +50,12 @@ public class Usero {
     public Usero() {
     }
 
-    public Usero(String name, String nick, String lastName, String encodedPassword, String email, String... roles) {
+    public Usero(String name, String nick, String lastName, String encodedPassword, String email) {
         this.name = name;
         this.nick = nick;
         this.lastName = lastName;
         this.encodedPassword = encodedPassword;
+        this.email = email;
     }
 
     public String getNick() {

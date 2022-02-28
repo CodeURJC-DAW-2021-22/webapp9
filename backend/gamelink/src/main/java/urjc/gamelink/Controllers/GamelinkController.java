@@ -151,14 +151,7 @@ public class GamelinkController {
     }
 
     @GetMapping("/signin")
-    public String signin(Model model, Usero user, @RequestParam String nick, @RequestParam String lastName,
-                         @RequestParam String email){
-        
-        user.setName(name);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        user.setEncodedPassword(encodedPassword);
-        user.setNick(nick);
+    public String signin(Model model, Usero user){
 
         ArrayList<String> lista = new ArrayList<>();
         lista.add("USERO");
