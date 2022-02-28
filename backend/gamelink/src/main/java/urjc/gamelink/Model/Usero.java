@@ -21,6 +21,8 @@ public class Usero {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String nick;
+
     private String name;
     
     private String lastName;
@@ -46,10 +48,17 @@ public class Usero {
     public Usero() {
     }
 
-    public Usero(String name, String encodedPassword, String... roles) {
+    public Usero(String name, String encodedPassword) {
         this.name = name;
         this.encodedPassword = encodedPassword;
-        this.roles = List.of(roles);
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     public String getName() {

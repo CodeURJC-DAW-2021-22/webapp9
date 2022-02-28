@@ -1,6 +1,8 @@
 package urjc.gamelink.Controllers;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -19,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import urjc.gamelink.Model.News;
+import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Service.NewsService;
+import urjc.gamelink.Service.UseroService;
 import urjc.gamelink.Service.VideogameService;
 
 @Controller
@@ -30,6 +34,9 @@ public class GamelinkController {
 
     @Autowired
     private VideogameService vs;
+
+    @Autowired
+    private UseroService us;
     
 
 	@GetMapping("/news/{id}/image")
@@ -122,8 +129,21 @@ public class GamelinkController {
     }
 
     @GetMapping("/signin")
-    public String signin(Model model){
+    public String signin(Model model, Usero user, @RequestParam String nick, @RequestParam String lastName,
+                         @RequestParam String email){
         
+        user.setName(name);
+        user.setLastName(lastName);
+        user.setEmail(email);
+        user.setEncodedPassword(encodedPassword);
+        user.setNick(nick);
+
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add("USERO");
+        user.setRoles(lista);
+
+        us.save(user);
+
         return "signin";
 
     }
