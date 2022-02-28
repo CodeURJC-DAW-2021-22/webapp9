@@ -47,7 +47,7 @@ public class GamelinkController {
 		if (principal != null) {
 
 			model.addAttribute("logged", true);
-			model.addAttribute("isAdmin", request.isUserInRole("ADMIN"));
+			model.addAttribute("isAdmin", request.isUserInRole("ADMIN")); //look for 'ADMIN' in the database of the user
 
 		} else {
 			model.addAttribute("logged", false);
