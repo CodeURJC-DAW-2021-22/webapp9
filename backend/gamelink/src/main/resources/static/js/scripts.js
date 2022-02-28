@@ -6,6 +6,36 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
+
+$('#getDataBtn').click(function () {
+
+    // On click, execute the ajax call.
+    $.ajax({
+        type: "GET",
+        url: "https://forbes400.herokuapp.com/api/forbes400?limit=400",
+        dataType: 'json',
+        beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+            $('#loader').removeClass('hidden')
+        },
+        success: function (data) {
+            // On Success, build our rich list up and append it to the #richList div.
+            if (data.length > 0) {
+                let richList = "<ol>";
+                for (let i = 0; i < data.length; i++) {
+                    console.log(data[i].uri);
+                    richList += "<li>" + data[i].uri + "</li>";
+                }
+                richList += "</ol>"
+                $('#richList').html(richList);
+            }
+        },
+        complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+            $('#loader').addClass('hidden')
+        },
+    });
+});
+
+
 function verifySignin() {
     //aqui habria que buscar en la BBDD el usuario y mirar si esta registrado
     var register = true;
