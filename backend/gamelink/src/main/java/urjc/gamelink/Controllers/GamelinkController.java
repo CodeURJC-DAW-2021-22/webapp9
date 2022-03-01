@@ -38,6 +38,9 @@ public class GamelinkController {
     @Autowired
     private VideogameService vs;
 
+    private int pagina = 0;
+    private int elementos = 1;
+
     
     
     @GetMapping("/news/{id}/image")
@@ -129,7 +132,8 @@ public class GamelinkController {
     @GetMapping("/news")
     public String getNews(Model model, HttpSession session) {
 
-        Page<News> news = ns.findAll(PageRequest.of(1, 2)); 
+
+        Page<News> news = ns.findAll(PageRequest.of(pagina, elementos)); 
     
 
         model.addAttribute("next", news);
@@ -139,9 +143,12 @@ public class GamelinkController {
         model.addAttribute("nextPage", news.getNumber()+1);
 		model.addAttribute("prevPage", news.getNumber()-1);	
 
+        pagina += 1;
+        elementos += 1;
+
         return "news";
     }
-    
+
 
     @GetMapping("/userProfile")
     public String userProfile(Model model){

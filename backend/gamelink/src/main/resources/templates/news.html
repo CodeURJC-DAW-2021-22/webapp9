@@ -200,16 +200,21 @@
                 <form method="post" action="/news">
                     <div class="text-end mb-5 mb-xl-0">
                         <a class="text-decoration-none" href="#!">
-                            <div class="lds-dual-ring"></div>
-                            <button id='getDataBtn' type="submit" href="/news">Get Data</button>
-                            <div id="richList"></div>
-                            <div id="loader" class="lds-dual-ring hidden overlay"></div>
                             {{#hasPrev}} <!--if exists previous new in the database...-->
-	                            <a input type="submit" href="/?page={{prevPage}}">Prev</a>	<!--will show prev-->
+	                            <a input type="submit" href="/?page={{nextPage}}">Prev</a>	<!--will show prev-->
+                                <div class="lds-dual-ring"></div>
+                                <button id='getDataBtn' type="submit" href="/news">Get Data</button>
+                                <div id="richList"></div>
+                                <div id="loader" class="lds-dual-ring hidden overlay"></div>
 	                        {{/hasPrev}}
 	
 	                        {{#hasNext}} <!--if exists another new in the database...-->
 	                            <a input type="submit" href="/?page={{nextPage}}">Next</a> <!--will show next-->
+                                <div class="lds-dual-ring">
+                                    <button id='getDataBtn' type="submit" href="/news">Get Data</button>
+                                    <div id="richList"></div>
+                                    <div id="loader" class="lds-dual-ring hidden overlay"></div>
+                                </div>
 	                        {{/hasNext}}
                             <i class="bi bi-arrow-right"></i>
                         </a>
