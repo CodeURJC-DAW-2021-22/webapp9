@@ -129,7 +129,8 @@ public class GamelinkController {
     @GetMapping("/news")
     public String getNews(Model model, HttpSession session) {
 
-        Page<News> news = ns.findAll(PageRequest.of(0, 2)); 
+        Page<News> news = ns.findAll(PageRequest.of(1, 2)); 
+    
 
         model.addAttribute("next", news);
 
