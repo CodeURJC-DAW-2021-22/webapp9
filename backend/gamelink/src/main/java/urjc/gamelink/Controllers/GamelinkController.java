@@ -7,11 +7,11 @@ import javax.servlet.http.HttpSession;
 
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -39,7 +39,6 @@ public class GamelinkController {
     private VideogameService vs;
 
     private int pagina = 0;
-    private int elementos = 1;
 
     
     
@@ -60,13 +59,32 @@ public class GamelinkController {
     }
 
 
-    @GetMapping("/")
+    /*@GetMapping("/")
     public String home(Model model){
 
         model.addAttribute("new", ns.findAll());
               
         return "home";
 
+    }*/
+
+
+    @GetMapping("/")
+    public String gethome2(Model model, HttpSession session, Pageable page) {
+
+
+        Page<News> news = ns.findAll(PageRequest.of(page.getPageNumber(), 3)); 
+    
+        model.addAttribute("next", news);
+
+        model.addAttribute("hasPrev", news.hasPrevious());
+        model.addAttribute("hasNext", news.hasNext());
+        model.addAttribute("nextPage", news.getNumber()+1);
+		model.addAttribute("prevPage", news.getNumber()-1);	
+
+        
+
+        return "home";
     }
 
 
@@ -133,7 +151,7 @@ public class GamelinkController {
     public String getNews(Model model, HttpSession session) {
 
 
-        Page<News> news = ns.findAll(PageRequest.of(pagina, elementos)); 
+        Page<News> news = ns.findAll(PageRequest.of(pagina, 3)); 
     
 
         model.addAttribute("next", news);
@@ -142,9 +160,6 @@ public class GamelinkController {
         model.addAttribute("hasNext", news.hasNext());
         model.addAttribute("nextPage", news.getNumber()+1);
 		model.addAttribute("prevPage", news.getNumber()-1);	
-
-        pagina += 1;
-        elementos += 1;
 
         return "news";
     }

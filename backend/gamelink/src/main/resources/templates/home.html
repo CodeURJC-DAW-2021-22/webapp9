@@ -171,7 +171,25 @@
                                 </div>
                             </div>
                         </div>
-                        {{>newsTemplate}}
+                        {{>nextPageTemplate}}
+                        <form method="post" action="/home">
+                            <div class="text-end mb-5 mb-xl-0">
+                                <a class="text-decoration-none" href="#!">
+                                    {{#hasPrev}} <!--if exists previous new in the database...-->
+                                        <a input type="submit" href="/?page={{prevPage}}">Prev</a>	<!--will show prev-->
+                                    {{/hasPrev}}
+            
+                                    {{#hasNext}} <!--if exists another new in the database...-->
+                                        <a input type="submit" href="/?page={{nextPage}}">Next</a> <!--will show next--> <!--page es una variable creada en el momento de ejecucion de la pagina y se asocia a nextPage, que aumenta su valor en 1 -->
+                                    {{/hasNext}}
+                                    <div class="lds-dual-ring"></div>
+                                    <button id='getDataBtn' type="submit" href="/news">Get Data</button>
+                                    <div id="richList"></div>
+                                    <div id="loader" class="lds-dual-ring hidden overlay"></div>
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </form>
                     </div>
                     <!-- Call to action-->
                     <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
