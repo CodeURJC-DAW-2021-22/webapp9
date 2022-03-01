@@ -13,6 +13,7 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
+import urjc.gamelink.Model.Videogame;
 import urjc.gamelink.Repositories.UseroRepository;
 import urjc.gamelink.Service.NewsService;
 import urjc.gamelink.Service.UseroService;
@@ -142,10 +144,34 @@ public class GamelinkController {
         model.addAttribute("creditCard", user.getCreditCard());
         model.addAttribute("email", user.getEmail());
         model.addAttribute("Videogame", user.getPurchaseVideogames());
-        //model.addAttribute("admin", request.isUserInRole("ADMIN"));
 
         return "userProfile";
 
+    }
+    
+    @PostMapping("/userProfile")
+    public String userProfile(Model model, HttpServletRequest request, @RequestParam String name,
+                                @RequestParam String lastName, @RequestParam String nick, @RequestParam String email,
+                                @RequestParam String creditCard){
+                                    
+        String useroName = request.getUserPrincipal().getName();
+        Usero user = ur.findByName(useroName).orElseThrow();                            
+        user.setName(name);
+        user.setLastName(lastName);
+        user.setNick(nick);
+        user.setEmail(email);                            
+        user.setCreditCard(creditCard);                            
+        us.save(user);
+
+        model.addAttribute("username", user.getName());
+        model.addAttribute("nick", user.getNick());
+        model.addAttribute("encodedPassword", user.getEncodedPassword());
+        model.addAttribute("lastName", user.getLastName());
+        model.addAttribute("creditCard", user.getCreditCard());
+        model.addAttribute("email", user.getEmail());
+        model.addAttribute("Videogame", user.getPurchaseVideogames());
+
+        return "userProfile";                            
     }
 
     @GetMapping("/signin")
@@ -193,6 +219,20 @@ public class GamelinkController {
 			model.addAttribute("logged", false);
 		}
 	}
+    @GetMapping("/usero/{id}/image")
+	public ResponseEntity<Object> downloadImageUsero(@PathVariable long id) throws SQLException {
 
+		Optional<Videogame> videogame = vs.findById(id);
+		if (videogame.isPresent() && videogame.get().getImageFile() != null) {
+
+			Resource file = new InputStreamResource(videogame.get().getImageFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/PNG")
+					.contentLength(videogame.get().getImageFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 
 }

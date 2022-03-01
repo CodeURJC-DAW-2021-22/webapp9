@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity(name = "tbl_user")
@@ -36,6 +38,7 @@ public class Usero {
     private boolean image;
     
     @Lob
+    @JsonIgnore
     private Blob imageFile;
 
     @ManyToMany
