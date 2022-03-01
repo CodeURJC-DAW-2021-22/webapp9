@@ -180,7 +180,9 @@
                                     {{/hasPrev}}
             
                                     {{#hasNext}} <!--if exists another new in the database...-->
-                                        <a input type="submit" href="/?page={{nextPage}}">Next</a> <!--will show next--> <!--page es una variable creada en el momento de ejecucion de la pagina y se asocia a nextPage, que aumenta su valor en 1 -->
+                                        <a input type="submit" href="/?page={{nextPage}}">Next</a> <!--will show next--> 
+                                        <!-- pone la variable creada en ejecucion ?page y la asocia a next page que es getNumber + 1 (es decir, sumamos 1)-->
+                                        <!--en request of ponemos(page, 3) y page sera igual a 1 por lo que acabo de explicar arriba, asi es como se hace-->
                                     {{/hasNext}}
                                     <div class="lds-dual-ring"></div>
                                     <button id='getDataBtn' type="submit" href="/news">Get Data</button>
