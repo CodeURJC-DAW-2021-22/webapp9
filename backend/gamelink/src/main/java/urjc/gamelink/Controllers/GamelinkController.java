@@ -15,6 +15,7 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,6 +46,9 @@ public class GamelinkController {
 
     @Autowired
     private UseroRepository ur;
+
+    @Autowired
+	private PasswordEncoder passwordEncoder;
 
 
     
@@ -151,15 +155,23 @@ public class GamelinkController {
     }
 
     @GetMapping("/signin")
-    public String signin(Model model, Usero user){
+    public String signin(Model model){
+
+        return "signin";
+    }
+
+    @PostMapping("/signin")
+    public String signin(Model model, Usero user, @RequestParam String password){
 
         ArrayList<String> lista = new ArrayList<>();
         lista.add("USERO");
         user.setRoles(lista);
+        user.setEncodedPassword(passwordEncoder.encode(password));
+        
 
         us.save(user);
 
-        return "signin";
+        return "home";
 
     }
 

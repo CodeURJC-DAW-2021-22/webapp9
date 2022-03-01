@@ -25,7 +25,7 @@
                                             <div class="card-text">
                                                 <!--
                                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
-                                                <form action="signin">
+                                                <form action="signin" method="post">
                                                     <!-- to error: add class "has-danger" -->
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Nick</label>
@@ -37,7 +37,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Apellidos</label>
-                                                        <input name="lastname" type="text" class="form-control form-control-sm" id="exampleInputEmail1">
+                                                        <input name="lastName" type="text" class="form-control form-control-sm" id="exampleInputEmail1">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Correo electrónico</label>
@@ -45,16 +45,24 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1">Contraseña</label>
-                                                        <input name="password" type="password" class="form-control form-control-sm" id="exampleInputPassword1">
+                                                        <input name="password" type="password" class="form-control form-control-sm" id="inputPassword1" onkeyup="check()">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1">Confirmación contraseña</label>
-                                                        <input type="password" class="form-control form-control-sm" id="exampleInputPassword1">
+                                                        <input type="password" class="form-control form-control-sm" id="inputPassword2" onkeyup="check()">
+                                                        <span id="passwordMessage"></span>
                                                     </div>
                                                     <button onclick="location.href='/'; return false;">Cancelar</button>
-                                                    <input type="submit" value="Crear">
+                                                    <input id="createUserBtn" type="submit" value="Crear">
                                                     <input type="hidden" name="_csrf" value="{{token}}"/>
                                                 </form>
+                                                <!-- Right after creating the button disable "Create User button"-->
+                                                <script>
+                                                    document.getElementById('createUserBtn').disabled = true;
+                                                    document.getElementById('createUserBtn').onclick = function (){
+                                                        alert('Usuario creado');
+                                                    }
+                                                </script>
                                             </div>
                                         </div>
                                     </div>

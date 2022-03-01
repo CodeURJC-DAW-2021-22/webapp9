@@ -79,13 +79,30 @@ public class dbInit {
         vids.add(vg1);
         vids.add(vg2);
 
-        Usero kk = new Usero("usera", "useraPepe", "Uno", passwordEncoder.encode("passo"), "usuario@gmail.com", "USERO");
-        kk.setpurchaseVideogames(vids);
-        kk.setCreditCard("ABCFHU6");
-        us.save(kk);
+        Usero usr = new Usero("usera", "useraPepe", "Uno", "usuario1@gmail.com");
+        usr.setEncodedPassword(passwordEncoder.encode("passo"));
+        ArrayList<String> roles1 = new ArrayList<>();
+        roles1.add("USERO");
+        usr.setRoles(roles1);
+        usr.setpurchaseVideogames(vids);
+        usr.setCreditCard("ABCFHU6");
+        us.save(usr);
 
-        us.save(new Usero("usuario", "usuarioPepe", "Uno", passwordEncoder.encode("pass"), "usuario@gmail.com", "USERO"));
-        us.save(new Usero("admin", "adminPepe", "Uno", passwordEncoder.encode("123"), "admin@123.com", "USERO", "ADMIN"));
+        Usero usr2 = new Usero("usuario", "usuarioPepe", "Uno", "usuario2@gmail.com");
+        usr2.setEncodedPassword(passwordEncoder.encode("pass"));
+        ArrayList<String> roles2 = new ArrayList<>();
+        roles2.add("USERO");
+        usr2.setRoles(roles2);
+
+        us.save(usr2);
+
+        Usero usr3 = new Usero("admin", "adminPepe", "Uno", "admin@123.com");
+        usr3.setEncodedPassword(passwordEncoder.encode("123"));
+        ArrayList<String> roles3 = new ArrayList<>();
+        roles3.add("USERO");
+        roles3.add("ADMIN");
+        usr3.setRoles(roles3);
+        us.save(usr3);
 
     }
     

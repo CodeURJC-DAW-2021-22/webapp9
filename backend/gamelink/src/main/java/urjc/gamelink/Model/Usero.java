@@ -50,11 +50,10 @@ public class Usero {
     public Usero() {
     }
 
-    public Usero(String name, String nick, String lastName, String encodedPassword, String email) {
+    public Usero(String name, String nick, String lastName, String email) {
         this.name = name;
         this.nick = nick;
         this.lastName = lastName;
-        this.encodedPassword = encodedPassword;
         this.email = email;
     }
 
