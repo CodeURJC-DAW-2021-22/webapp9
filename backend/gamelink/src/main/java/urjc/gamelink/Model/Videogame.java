@@ -32,24 +32,36 @@ public class Videogame {
     private String genre;
 
     private String company;
+
+    private String continent;
     
     @Column(columnDefinition = "TEXT")
     private String description;
+
+    @Column(columnDefinition = "TEXT")
+    private String requirements;
 
     @Lob
     private Blob imageFile;
 
     private boolean image;
 
+    private Blob imageCompanyFile;
+
+    private boolean imageCompany;
+
     @ManyToMany
      private List<News> notices;
 
     public Videogame() {}
-    
 
-    public Videogame(String name, String description, float price) {
+
+    public Videogame(String name, String company, String description, String continent, String requirements, float price) {
         this.title = name;
+        this.company = company;
+        this.continent = continent;
         this.description = description;
+        this.requirements = requirements;
         this.price = price;
     }
 
@@ -93,6 +105,14 @@ public class Videogame {
         this.company =company;
     }
 
+    public String getContinent() {
+        return continent;
+    }
+
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -123,6 +143,25 @@ public class Videogame {
 
     public void setImage(boolean image){
         this.image = image;
+    }
+
+    public Blob getImageCompanyFile() {
+        return imageCompanyFile;
+    }
+
+
+    public void setImageCompanyFile(Blob imageCompanyFile) {
+        this.imageCompanyFile = imageCompanyFile;
+    }
+
+
+    public boolean isImageCompany() {
+        return imageCompany;
+    }
+
+
+    public void setImageCompany(boolean imageCompany) {
+        this.imageCompany = imageCompany;
     }
 
     public List<News> getNotices() {
