@@ -34,4 +34,8 @@ public class VideogameService {
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
+
+    public List<Videogame> findByIds(List<Long> relatedGame) {
+        return repository.findAllById(relatedGame);
+    }
 }

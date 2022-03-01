@@ -38,4 +38,8 @@ public class NewsService {
 		repository.deleteById(id);
 	}
 
+    public List<News> findByIds(List<Long> notices) {
+        return repository.findAllById(notices);
+    }
+
 }

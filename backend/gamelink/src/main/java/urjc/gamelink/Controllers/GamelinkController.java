@@ -1,7 +1,11 @@
 package urjc.gamelink.Controllers;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
+import urjc.gamelink.Model.Videogame;
 import urjc.gamelink.Repositories.UseroRepository;
 import urjc.gamelink.Service.NewsService;
 import urjc.gamelink.Service.UseroService;
@@ -194,5 +199,59 @@ public class GamelinkController {
 		}
 	}
 
+    @GetMapping("/createNew")
+    public String createNew(Model model) {
+
+        model.addAttribute("videogames", vs.findAll());
+
+        return "createNew";
+    }
+
+    @PostMapping("/createNew")
+    public String createNewForm(Model model, News news, MultipartFile imageField, @RequestParam List<Long> relatedGame)
+            throws IOException {
+
+        if (!imageField.isEmpty()) {
+            news.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+            news.setImage(true);
+        }
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+        news.setDate(dtf.format(now));
+
+        if (!relatedGame.isEmpty()) {
+            news.setVideogamesRelated(vs.findByIds(relatedGame));
+        }
+
+        ns.save(news);
+
+        return "Admin";
+    }
+
+    @GetMapping("/createVideogame")
+    public String createVideogame(Model model) {
+
+        model.addAttribute("news", ns.findAll());
+
+        return "createVideogame";
+    }
+
+    @PostMapping("/createVideogame")
+    public String createVideogameForm(Model model, Videogame videogame, MultipartFile imageField, @RequestParam List<Long> notices) throws IOException {
+
+        if (!imageField.isEmpty()) {
+            videogame.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+            videogame.setImage(true);
+        }
+        
+        if (!notices.isEmpty()) {
+            videogame.setNotices(ns.findByIds(notices));
+        }
+
+        vs.save(videogame);
+
+        return "Admin";
+    }
 
 }
