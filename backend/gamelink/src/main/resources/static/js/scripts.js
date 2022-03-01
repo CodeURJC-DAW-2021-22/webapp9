@@ -14,7 +14,7 @@ $(document).ready(function () {
         // On click, execute the ajax call.
         $.ajax({
             type: "GET",
-            url: "https://forbes400.herokuapp.com/api/forbes400?limit=400",
+            url: "https://localhost:8080/",
             dataType: 'json',
             beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
                 $('#loader').removeClass('hidden')
