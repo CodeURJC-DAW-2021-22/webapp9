@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>header}}
+
+<body class="d-flex flex-column">
+  <main class="flex-shrink-0">{{>navBar}}
+
+<form action="/createNew" method="post" enctype="multipart/form-data">
+
+  <h2>New New Form</h2>
+
+  <div>
+    <label>Title: </label>
+    <input name="title" placeholder="title"/>
+  </div>
+
+  <div>
+    <label>New Content: </label>
+    <textarea name="description" placeholder="description"></textarea>
+  </div>
+
+  <div>
+    <label>Read Time: </label>
+    <textarea name="readTime" placeholder="readtime"></textarea>
+  </div>
+
+  <div>
+    <label>Badge: </label>
+    <textarea name="badge" placeholder="badge"></textarea>
+  </div>
+
+  <p>Related Games: </p>
+  <select name="relatedGame" multiple>
+    {{#videogames}}
+    <option value="{{ id }}">{{ title }}</option>
+    {{/videogames}}
+  </select>
+
+  <p>Image: </p>
+  <input type='file' name='imageField' accept=".jpg, .jpeg .png .svg" />
+
+  <input type="hidden" name="_csrf" value="{{token}}"/>
+
+ 
+  <p>
+    <button onclick="location.href='/'; return false;">Cancel</button> <!--Boton para cancelar la acción-->
+    <input type="submit" value="Save"/>  <!--Boton que ejecutara la función ajax-->
+  </p>
+
+  </form>
+  </main>
+        <!-- Footer-->
+        {{>footer}}
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+</body>
+</html>
