@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.lang.NonNull;
 
 @Entity(name = "tbl_videogame")
@@ -42,7 +44,7 @@ public class Videogame {
     private boolean image;
 
     @ManyToMany
-     private List<News> notices;
+    private List<News> notices;
 
     public Videogame() {}
     

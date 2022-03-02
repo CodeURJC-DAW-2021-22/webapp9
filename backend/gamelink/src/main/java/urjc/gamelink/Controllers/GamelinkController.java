@@ -2,6 +2,7 @@ package urjc.gamelink.Controllers;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.sql.Blob;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +20,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -161,15 +163,19 @@ public class GamelinkController {
     }
 
 
-    @GetMapping("/showNews")
-    public String showNews(Model model){
+    @GetMapping("/showNews/{id}")
+    public String showNews(Model model, @PathVariable long id){
         
+        model.addAttribute("videogame", vs.findById(id));
+
         return "showNews";
 
     }
 
-    @GetMapping("/showVideogame")
-    public String showVideogame(Model model){
+    @GetMapping("/showVideogame/{id}")
+    public String showVideogame(Model model, @PathVariable long id){
+
+        model.addAttribute("videogame", vs.findById(id));
         
         return "showVideogame";
 
@@ -252,6 +258,56 @@ public class GamelinkController {
         vs.save(videogame);
 
         return "Admin";
+    }
+
+    @GetMapping("/editVg/{id}")
+    public String editVideogame(Model model, @PathVariable long id){
+
+        Optional <Videogame> videogame = vs.findById(id);
+
+        if(videogame.isPresent()){
+            model.addAttribute("title", videogame.get().getTitle() );
+            model.addAttribute("description", videogame.get().getDescription() );
+            model.addAttribute("price", videogame.get().getPrice() );
+            model.addAttribute("genre", videogame.get().getGenre() );
+            model.addAttribute("company", videogame.get().getCompany() );
+        }
+
+        model.addAttribute("news", ns.findAll());
+        
+
+
+        return "editVideogame";
+    }
+
+    @PostMapping("/editVg/{id}")
+    public String editVideogameForm(Model model, Videogame videogame, @PathVariable long id, MultipartFile imageField, @RequestParam List<Long> notices) throws IOException{
+
+        if(!imageField.isEmpty()){
+            videogame.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+            videogame.setImage(true);
+        }
+        
+        if (!notices.isEmpty()) {
+            videogame.setNotices(ns.findByIds(notices));
+        }
+
+        videogame.setId(id);
+
+        vs.save(videogame);
+
+        return "redirect:/showVideogame/" + id;
+    }
+
+    @GetMapping("/deleteVg/{id}")
+    public String deleteVideogame(Model model, @PathVariable long id){
+   
+        Optional<Videogame> videogame = vs.findById(id);
+		if (videogame.isPresent()) {
+			vs.delete(id);
+		}
+
+        return "videogame";
     }
 
 }

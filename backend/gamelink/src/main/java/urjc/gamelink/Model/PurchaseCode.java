@@ -1,10 +1,13 @@
 package urjc.gamelink.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.OnDelete;
 
 @Entity(name="tbl_purchase_code")
 public class PurchaseCode {

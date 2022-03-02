@@ -1,0 +1,41 @@
+
+<form action="/editVg/{{id}}" method="post" enctype="multipart/form-data">
+
+    <h2>New Videogame Form</h2>
+  
+    <div>
+      <label>Title: </label>
+      <textarea name="title" placeholder="title">{{title}}</textarea>
+    </div>
+  
+    <div>
+      <label>New Content: </label>
+      <textarea name="description" placeholder="description">{{description}}</textarea>
+    </div>
+  
+    <div>
+      <label>Price: </label>
+      <input name="price" placeholder="price" type="number" value="{{price}}"></input>
+    </div>
+    
+    
+
+    <p>Related News: </p>
+    <select name="notices" multiple>
+      {{#news}}
+      <option value="{{ id }}">{{ title }}</option>
+      {{/news}}
+    </select>
+  
+    <p>Image: </p>
+    <input type='file' name='imageField' accept=".jpg, .jpeg .png .svg" />
+  
+    <input type="hidden" name="_csrf" value="{{token}}"/>
+  
+   
+    <p>
+      <button onclick="location.href='/'; return false;">Cancel</button> <!--Boton para cancelar la acción-->
+      <input type="submit" value="Save"/>  <!--Boton que ejecutara la función ajax-->
+    </p>
+  
+    </form>
