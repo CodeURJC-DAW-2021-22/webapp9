@@ -62,6 +62,14 @@ public class Usero {
         this.roles = List.of(roles);
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNick() {
         return nick;
     }

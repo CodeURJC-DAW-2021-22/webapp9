@@ -2,6 +2,7 @@
 <html lang="en">
 
 {{>header}}
+
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         <!-- Navigation-->
@@ -10,84 +11,99 @@
             <div class="row">
                 <div class="col-md-3 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
-                            class="rounded-circle mt-5" width="150px"
-                            src="Photos/defaultProfilePhoto.jpg"><span
-                            class="font-weight-bold"> {{nick}}</span><span
-                            class="text-black-50">{{email}}</span><span> </span>
-                            <!--<a class="btn btn-primary profile-button" onclick="alertDataChange()" href="userProfile">Cambiar datos</a>-->
-                            <input type="submit" onclick="alertDataChange()" value="Cambiar datos" form="editProfileForm" class="btn btn-primary profile-button">      
-                            <button onclick="location.href='/'; return false;" class="btn btn-primary profile-button">Cancelar</button>
-                    </div>                      
+                            class="rounded-circle mt-5" width="150px" src="/profile/{{id}}/image"><span
+                            class="font-weight-bold"> {{nick}}</span><span class="text-black-50">{{email}}</span><span>
+                        </span>
+                        <!--<a class="btn btn-primary profile-button" onclick="alertDataChange()" href="userProfile">Cambiar datos</a>-->
+                        <input type="submit" onclick="alertDataChange()" value="Cambiar datos" form="editProfileForm"
+                            class="btn btn-primary profile-button">
+                        <button onclick="location.href='/'; return false;"
+                            class="btn btn-primary profile-button">Cancelar</button>
+                    </div>
                 </div>
-                
-                    <div class="col-md-5 border-right">
-                        <div class="p-3 py-5">
-                        <form action="userProfile" method="post" id="editProfileForm">
-                            
+
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <form action="userProfile" method="post" id="editProfileForm" enctype="multipart/form-data">
+
 
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h4 class="text-right">Mi perfil: {{nick}}</h4>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-md-6"><label class="labels">Nombre</label>
-                                    <input name="name" type="text" class="form-control" placeholder="Rodrigo" value={{username}}> 
+                                    <input name="name" type="text" class="form-control" placeholder="Rodrigo"
+                                        value={{username}}>
                                 </div>
                                 <div class="col-md-6"><label class="labels">Apellido(s)</label>
-                                    <input name="lastName" type="text" class="form-control" placeholder="Perez" value={{lastName}}>
+                                    <input name="lastName" type="text" class="form-control" placeholder="Perez"
+                                        value={{lastName}}>
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels">Nombre de usuario</label>
-                                    <input name="nick" type="text" class="form-control" placeholder="RodPerez" value={{nick}}>
+                                    <input name="nick" type="text" class="form-control" placeholder="RodPerez"
+                                        value={{nick}}>
                                 </div>
                                 <div class="col-md-12"><label class="labels">Email</label>
-                                    <input name="email" type="email" class="form-control" placeholder="RodPerez@gmail.com" value={{email}}>
+                                    <input name="email" type="email" class="form-control"
+                                        placeholder="RodPerez@gmail.com" value={{email}}>
                                 </div>
                                 <div class="col-md-12"><label class="labels">Número de tarjeta</label>
                                     {{#creditCard}}
-                                    <input name="creditCard" type="text" class="form-control" placeholder="123456789A" value={{creditCard}}></div>
-                                    {{/creditCard}}
-                                    {{^creditCard}}
-                                    <input name="creditCard" type="text" class="form-control" placeholder="123456789A" value=""></div>
-                                    {{/creditCard}}
-                                <input type="hidden" name="_csrf" value="{{token}}"/>
-                            </form>
-                            </div>
-                        
-                            <div class="mt-5 text-center">
-                                <!--<button class="btn btn-primary profile-button" type="button">Save Profile</button>-->
-                                    <a class="btn btn-primary profile-button" href="about.html">Favoritos</a>
-                                    <!--<a class="btn btn-primary profile-button" href="about.html">Juegos comprados</a>-->
-                            </div>                                   
-                        </div>
-                
+                                    <input name="creditCard" type="text" class="form-control" placeholder="123456789A"
+                                        value={{creditCard}}>
+                                </div>
+                                {{/creditCard}}
+                                {{^creditCard}}
+                                <input name="creditCard" type="text" class="form-control" placeholder="123456789A"
+                                    value="">
+                                </div>
+                                {{/creditCard}}
+
+                                <div class="col-md-12">
+                                    <p>Imagen de perfil</p>
+                                    <input type='file' name='imageField' accept=".jpg, .jpeg, .png, .svg" />
+                                </div>
+
+                            <input type="hidden" name="_csrf" value="{{token}}" />
+                        </form>
+                    </div>
+
+                    <div class="mt-5 text-center">
+                        <!--<button class="btn btn-primary profile-button" type="button">Save Profile</button>-->
+                        <a class="btn btn-primary profile-button" href="about.html">Favoritos</a>
+                        <!--<a class="btn btn-primary profile-button" href="about.html">Juegos comprados</a>-->
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="p-3 py-5">
-                        <h4 class="text-right">Mis compras</h4>
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <ul>
-                                {{#Videogame}}
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <img class="img-fluid rounded-3 my-5" src="/usero/{{id}}/image" alt="..."/>
-                                        </div>
-                                        <div class="col-md-8 align-self-center">
-                                            <p>{{title}}</p>
-                                        </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 py-5">
+                    <h4 class="text-right">Mis compras</h4>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <ul>
+                            {{#Videogame}}
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img class="img-fluid rounded-3 my-5" src="/usero/{{id}}/image" alt="..." />
                                     </div>
-                                </li> 
-                                {{/Videogame}}                             
-                            </ul>
-                        </div>
+                                    <div class="col-md-8 align-self-center">
+                                        <p>{{title}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/Videogame}}
+                        </ul>
                     </div>
                 </div>
             </div>
-                <form action="/logout" method="post">
-                        <input type="submit" value="Cerrar sesión" class="btn btn-primary profile-button"/>
-                        <input type="hidden" name="_csrf" value="{{token}}" />
-                </form>
+        </div>
+        <form action="/logout" method="post">
+            <input type="submit" value="Cerrar sesión" class="btn btn-primary profile-button" />
+            <input type="hidden" name="_csrf" value="{{token}}" />
+        </form>
 
         </div>
         </div>

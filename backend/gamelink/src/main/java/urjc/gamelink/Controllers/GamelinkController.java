@@ -1,5 +1,6 @@
 package urjc.gamelink.Controllers;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -144,6 +145,7 @@ public class GamelinkController {
         model.addAttribute("creditCard", user.getCreditCard());
         model.addAttribute("email", user.getEmail());
         model.addAttribute("Videogame", user.getPurchaseVideogames());
+        model.addAttribute("id", user.getId());
 
         return "userProfile";
 
@@ -152,7 +154,7 @@ public class GamelinkController {
     @PostMapping("/userProfile")
     public String userProfile(Model model, HttpServletRequest request, @RequestParam String name,
                                 @RequestParam String lastName, @RequestParam String nick, @RequestParam String email,
-                                @RequestParam String creditCard){
+                                @RequestParam String creditCard, MultipartFile imageField) throws IOException{
                                     
         String useroName = request.getUserPrincipal().getName();
         Usero user = ur.findByName(useroName).orElseThrow();                            
@@ -160,18 +162,28 @@ public class GamelinkController {
         user.setLastName(lastName);
         user.setNick(nick);
         user.setEmail(email);                            
-        user.setCreditCard(creditCard);                            
+        user.setCreditCard(creditCard);
+
+        if(!imageField.isEmpty()){
+            user.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+            user.setImage(true);
+        }  
+
         us.save(user);
 
-        model.addAttribute("username", user.getName());
-        model.addAttribute("nick", user.getNick());
-        model.addAttribute("encodedPassword", user.getEncodedPassword());
-        model.addAttribute("lastName", user.getLastName());
-        model.addAttribute("creditCard", user.getCreditCard());
-        model.addAttribute("email", user.getEmail());
-        model.addAttribute("Videogame", user.getPurchaseVideogames());
 
-        return "userProfile";                            
+        // Esto no hace falta porque con le redirect te manda al get
+        // model.addAttribute("username", user.getName());
+        // model.addAttribute("nick", user.getNick());
+        // model.addAttribute("encodedPassword", user.getEncodedPassword());
+        // model.addAttribute("lastName", user.getLastName());
+        // model.addAttribute("creditCard", user.getCreditCard());
+        // model.addAttribute("email", user.getEmail());
+        // model.addAttribute("Videogame", user.getPurchaseVideogames());
+        // model.addAttribute("id", user.getId());
+
+
+        return "redirect:/userProfile";                            
     }
 
     @GetMapping("/signin")
@@ -219,6 +231,23 @@ public class GamelinkController {
 			model.addAttribute("logged", false);
 		}
 	}
+
+    @GetMapping("/profile/{id}/image")
+	public ResponseEntity<Object> downloadImageProfile(@PathVariable long id) throws SQLException {
+
+		Optional<Usero> user = us.findById(id);
+		if (user.isPresent() && user.get().getImageFile() != null) {
+
+			Resource file = new InputStreamResource(user.get().getImageFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/PNG")
+					.contentLength(user.get().getImageFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
     @GetMapping("/usero/{id}/image")
 	public ResponseEntity<Object> downloadImageUsero(@PathVariable long id) throws SQLException {
 

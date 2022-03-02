@@ -82,6 +82,7 @@ public class dbInit {
         Usero kk = new Usero("usera", "useraPepe", "Uno", passwordEncoder.encode("passo"), "usuario@gmail.com", "USERO");
         kk.setpurchaseVideogames(vids);
         kk.setCreditCard("ABCFHU6");
+        setUsImage(kk,"/static/Photos/AllAvatar.png");
         us.save(kk);
 
         us.save(new Usero("usuario", "usuarioPepe", "Uno", passwordEncoder.encode("pass"), "usuario@gmail.com", "USERO"));
