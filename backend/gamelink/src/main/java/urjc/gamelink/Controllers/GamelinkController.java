@@ -88,11 +88,16 @@ public class GamelinkController {
     }
 
     @GetMapping("/home/{id}/nuevasNoticias")
-    public String caca(Model model, HttpSession session, Pageable page) {
+    public String ajaxMoreLessNewsLoad(Model model, HttpSession session, Pageable page) {
 
         Page<News> news = ns.findAll(PageRequest.of(page.getPageNumber(), 3)); 
     
         model.addAttribute("next", news);
+
+        model.addAttribute("hasPrev", news.hasPrevious());
+        model.addAttribute("hasNext", news.hasNext());
+        model.addAttribute("nextPage", news.getNumber()+1);
+		model.addAttribute("prevPage", news.getNumber()-1);
         
         return "nextPageTemplate";
 

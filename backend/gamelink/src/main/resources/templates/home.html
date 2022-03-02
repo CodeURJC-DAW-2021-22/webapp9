@@ -171,11 +171,13 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div id="cargar">
 
                         </div>
+
                         {{>nextPageTemplate}}
-                        <form method="post" action="/home">
+                        <form method="post" action="/">
                             <div class="text-end mb-5 mb-xl-0">
                                 <a class="text-decoration-none" href="#!">
                                     {{#hasPrev}} <!--if exists previous new in the database...-->
@@ -184,7 +186,7 @@
                                             <i class="fa fa-eye"></i> Menos contenido
                                        </a>
                                     {{/hasPrev}}
-            
+                                       
                                     {{#hasNext}} <!--if exists another new in the database...-->                                 
                                         <a input type="submit" href="/?page={{nextPage}}">Next</a> <!--will show next--> 
                                         <!-- pone la variable creada en ejecucion ?page y la asocia a next page que es getNumber + 1 (es decir, sumamos 1)-->
