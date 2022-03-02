@@ -1,52 +1,32 @@
-{{#videogame}}
-<div class="col-lg-4 mb-5">
-    <div class="card h-100 shadow border-0">
-
-        {{#image}}
-        <img class="card-img-top" src="/news/{{id}}/image" alt="..." />
-        {{/image}}
-
-        {{^image}}
-        <img class="card-img-top" src="/images/not_foung.png" alt="..." />
-        {{/image}}
-
-        <div class="card-body p-4">
-            <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{badge}}</div>
-            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3" style="color: black;">{{title}}</h5></a>
-            <p class="card-text mb-0">{{description}}</p>
-        </div>
-        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-            <div class="d-flex align-items-end justify-content-between">
-                <div class="d-flex align-items-center">
-                    <div class="small">
-                        <div class="text-muted">{{date}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
+{{#games}}
 <div class="col-lg-4 mb-5">
     <div class="card h-100 shadow border-0">
         
-        {{#image}}
-        <img class="card-img-top" src="/videogame/{{id}}/image" alt="..." />
-        {{/image}}
+        {{#imageVg}}
+        <img class="card-img-top" src="/videogame/{{id}}/imageVg" alt="..." />
+        {{/imageVg}}
 
-        {{^image}}
-        <img class="card-img-top" src="/images/not_foung.png" alt="..." />
-        {{/image}}
+        {{^imageVg}}
+        <img class="card-img-top" src="/Photos/not_foung.png" alt="..." />
+        {{/imageVg}}
 
         <div class="card-body p-4">
-            <a class="text-decoration-none link-dark stretched-link" href="showVideogame"><div class="h5 card-title mb-3">{{name}}</div></a>
-            <p class="card-text mb-0">{{price}}</p>
+            <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{genre}}</div>
+            <a class="text-decoration-none link-dark stretched-link" href="/showVideogame/{id}"><div class="h5 card-title mb-3">{{title}}</div></a>
+            <p class="card-text mb-0">{{price}}€</p>
         </div>
         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
             <div class="d-flex align-items-end justify-content-between">
                 <div class="d-flex align-items-center">
+
+                    {{#imageCompany}}
                     <img class="rounded-circle me-3" src="/videogame/{{id}}/imageCompany" alt="..." height="40px" width="40px"/>
+                    {{/imageCompany}}
+
+                    {{^imageCompany}}
+                    <img class="card-img-top" src="/Photos/not_foung.png" alt="..." />
+                    {{/imageCompany}}
+
                     <div class="small">
                         <div class="fw-bold">{{company}}</div>
                         <div class="text-muted">{{continent}}</div>
@@ -56,4 +36,4 @@
         </div>
     </div>
 </div>
-{{/videogame}}
+{{/games}}

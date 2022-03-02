@@ -27,8 +27,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 //import antlr.collections.List;
 import urjc.gamelink.Model.News;
+import urjc.gamelink.Model.Videogame;
 import urjc.gamelink.Service.NewsService;
-//import urjc.gamelink.Service.VideogameService;
+import urjc.gamelink.Service.VideogameService;
 
 @Controller
 public class GamelinkController {
@@ -36,8 +37,8 @@ public class GamelinkController {
     @Autowired
     private NewsService ns;
 
-//    @Autowired
-//    private VideogameService vs;
+    @Autowired
+    private VideogameService vs;
 
      //this will show admin mode (if the user is and admin) and userProfile (if user is registrated)
     @ModelAttribute
@@ -71,6 +72,37 @@ public class GamelinkController {
 		}
 	}
 
+    @GetMapping("/videogame/{id}/imageVg") //this will download the videogame photo
+	public ResponseEntity<Object> downloadImageVideogame(@PathVariable long id) throws SQLException {
+
+		Optional<Videogame> videogame = vs.findById(id);
+		if (videogame.isPresent() && videogame.get().getImageFile() != null) {
+
+			Resource file = new InputStreamResource(videogame.get().getImageFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "imageVg/PNG")
+					.contentLength(videogame.get().getImageFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
+    @GetMapping("/videogame/{id}/imageCompany") //this will download the company photo (videogame)
+	public ResponseEntity<Object> downloadImageCompany(@PathVariable long id) throws SQLException {
+
+		Optional<Videogame> videogame = vs.findById(id);
+		if (videogame.isPresent() && videogame.get().getImageCompanyFile() != null) {
+
+			Resource file = new InputStreamResource(videogame.get().getImageCompanyFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "imageCompany/PNG")
+					.contentLength(videogame.get().getImageCompanyFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 
     @GetMapping("/")
     public String home(Model model){
@@ -169,7 +201,7 @@ public class GamelinkController {
     @GetMapping("/videogame")
     public String videogame(Model model) {
 
-        model.addAttribute("game_name" , "Battlefield 2042");
+        model.addAttribute("games", vs.findAll());
 
         return "videogame";
     }

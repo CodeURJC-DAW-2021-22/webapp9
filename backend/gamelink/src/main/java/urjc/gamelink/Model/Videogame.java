@@ -34,6 +34,8 @@ public class Videogame {
     private String company;
 
     private String continent;
+
+    //private String badge;
     
     @Column(columnDefinition = "TEXT")
     private String description;
@@ -44,8 +46,9 @@ public class Videogame {
     @Lob
     private Blob imageFile;
 
-    private boolean image;
+    private boolean imageVg;
 
+    @Lob
     private Blob imageCompanyFile;
 
     private boolean imageCompany;
@@ -56,12 +59,13 @@ public class Videogame {
     public Videogame() {}
 
 
-    public Videogame(String name, String company, String description, String continent, String requirements, float price) {
+    public Videogame(String name, String company, String continent, String description, String requirements, String genre, float price) {
         this.title = name;
         this.company = company;
         this.continent = continent;
         this.description = description;
         this.requirements = requirements;
+        this.genre = genre;
         this.price = price;
     }
 
@@ -138,11 +142,11 @@ public class Videogame {
     }
 
     public boolean getImage(){
-        return this.image;
+        return this.imageVg;
     }
 
     public void setImage(boolean image){
-        this.image = image;
+        this.imageVg = image;
     }
 
     public Blob getImageCompanyFile() {
