@@ -3,6 +3,7 @@ package urjc.gamelink.Model;
 import java.sql.Blob;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -45,6 +47,9 @@ public class Videogame {
 
     @ManyToMany
     private List<News> notices;
+
+    @OneToMany
+    private List<PurchaseCode> codes;
 
     public Videogame() {}
     

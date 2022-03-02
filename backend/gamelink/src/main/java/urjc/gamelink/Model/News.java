@@ -117,4 +117,8 @@ public class News {
         this.videogamesRelated = videogamesRelated;
     }
 
+    public void setId(long id2) {
+        this.id = id2;
+    }
+
 }

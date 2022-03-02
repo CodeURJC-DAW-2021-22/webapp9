@@ -1,0 +1,52 @@
+
+<form action="/editNew/{{id}}" method="post" enctype="multipart/form-data">
+
+    <h2>New Videogame Form</h2>
+  
+    <div>
+      <label>Title: </label>
+      <textarea name="title" placeholder="Title">{{title}}</textarea>
+    </div>
+  
+    <div>
+      <label>New Content: </label>
+      <textarea name="description" placeholder="Description">{{description}}</textarea>
+    </div>
+  
+    <div>
+      <label>Date: </label>
+      <textarea name="description" placeholder="Date">{{date}}</textarea>
+    </div>
+    
+
+    <div>
+      <label>Read time: </label>
+      <textarea name="description" placeholder="Read Time">{{readTime}}</textarea>
+    </div>
+    
+
+    <div>
+      <label>Badge: </label>
+      <textarea name="description" placeholder="Badge">{{badge}}</textarea>
+    </div>
+
+
+    <p>Related Videogames: </p>
+    <select name="videogames" multiple>
+      {{#videogame}}
+      <option value="{{ id }}">{{ title }}</option>
+      {{/videogame}}
+    </select>
+  
+    <p>Image: </p>
+    <input type='file' name='imageField' accept=".jpg, .jpeg .png .svg" />
+  
+    <input type="hidden" name="_csrf" value="{{token}}"/>
+  
+   
+    <p>
+      <button onclick="location.href='/'; return false;">Cancel</button> <!--Boton para cancelar la acción-->
+      <input type="submit" value="Save"/>  <!--Boton que ejecutara la función ajax-->
+    </p>
+  
+    </form>

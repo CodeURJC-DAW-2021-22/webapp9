@@ -310,4 +310,54 @@ public class GamelinkController {
         return "videogame";
     }
 
+    @GetMapping("/editNew/{id}")
+    public String editNew(Model model, @PathVariable long id){
+
+        Optional <News> newx = ns.findById(id);
+
+        if(newx.isPresent()){
+            model.addAttribute("title", newx.get().getTitle() );
+            model.addAttribute("description", newx.get().getDescription() );
+            model.addAttribute("date", newx.get().getDate() );
+            model.addAttribute("readTime", newx.get().getReadTime() );
+            model.addAttribute("badge", newx.get().getBadge() );
+        }
+
+        model.addAttribute("videogame", vs.findAll());
+        
+
+
+        return "editNew";
+    }
+
+    @PostMapping("/editNew/{id}")
+    public String editNewForm(Model model, News newx, @PathVariable long id, MultipartFile imageField, @RequestParam List<Long> videogames) throws IOException{
+
+        if(!imageField.isEmpty()){
+            newx.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+            newx.setImage(true);
+        }
+        
+        if (!videogames.isEmpty()) {
+            newx.setVideogamesRelated(vs.findByIds(videogames));
+        }
+
+        newx.setId(id);
+
+        ns.save(newx);
+
+        return "redirect:/showNews/" + id;
+    }
+
+    @GetMapping("/deleteNew/{id}")
+    public String deleteNew(Model model, @PathVariable long id){
+   
+        Optional<News> newx = ns.findById(id);
+		if (newx.isPresent()) {
+			ns.delete(id);
+		}
+
+        return "news";
+    }
+
 }
