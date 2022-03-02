@@ -13,8 +13,8 @@ $(document).ready(function() {
         $('#botonMasImagenes').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
  
         $.ajax({
-            type: "POST",
-            url: "/",
+            type: "GET", //era un get
+            url: "/home/{id}/nuevasNoticias",
             success: function(data) {
                 //Cargamos finalmente el contenido deseado
                 $('#botonMasImagenes').fadeIn(1000).html(data);

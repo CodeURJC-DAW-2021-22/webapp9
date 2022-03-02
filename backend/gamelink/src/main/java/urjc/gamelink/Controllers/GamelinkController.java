@@ -70,7 +70,7 @@ public class GamelinkController {
 
 
     @GetMapping("/")
-    public String gethome2(Model model, HttpSession session, Pageable page) {
+    public String home2(Model model, HttpSession session, Pageable page) {
 
 
         Page<News> news = ns.findAll(PageRequest.of(page.getPageNumber(), 3)); 
@@ -87,6 +87,16 @@ public class GamelinkController {
         return "home";
     }
 
+    @GetMapping("/home/{id}/nuevasNoticias")
+    public String caca(Model model, HttpSession session, Pageable page) {
+
+        Page<News> news = ns.findAll(PageRequest.of(page.getPageNumber(), 3)); 
+    
+        model.addAttribute("next", news);
+        
+        return "nextPageTemplate";
+
+    }
 
     @GetMapping("/about")
     public String about(Model model){
@@ -200,6 +210,7 @@ public class GamelinkController {
 
         return "videogame";
     }
+
 
 
 
