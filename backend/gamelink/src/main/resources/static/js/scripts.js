@@ -7,37 +7,22 @@
 // Use this file to add JavaScript to your project
 
 
-$(document).ready(function () {
-
-    $('#getDataBtn').click(function () {
-
-        // On click, execute the ajax call.
+$(document).ready(function() {    
+    $('.button').on('click', function(){
+        //Añadimos la imagen de carga en el contenedor
+        $('#botonMasImagenes').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+ 
         $.ajax({
-            type: "GET",
-            url: "https://localhost:8080/",
-            dataType: 'json',
-            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
-                $('#loader').removeClass('hidden')
-            },
-            success: function (data) {
-                // On Success, build our rich list up and append it to the #richList div.
-                if (data.length > 0) {
-                    let richList = "<ol>";
-                    for (let i = 0; i < data.length; i++) {
-                        console.log(data[i].uri);
-                        richList += "<li>" + data[i].uri + "</li>";
-                    }
-                    richList += "</ol>"
-                    $('#richList').html(richList);
-                }
-            },
-            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
-                $('#loader').addClass('hidden')
-            },
+            type: "POST",
+            url: "/",
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#botonMasImagenes').fadeIn(1000).html(data);
+            }
         });
-    });
-});
-
+        return false;
+    });              
+}); 
 
 function verifySignin() {
     //aqui habria que buscar en la BBDD el usuario y mirar si esta registrado

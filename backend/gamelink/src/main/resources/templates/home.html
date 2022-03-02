@@ -177,14 +177,18 @@
                                 <a class="text-decoration-none" href="#!">
                                     {{#hasPrev}} <!--if exists previous new in the database...-->
                                         <a input type="submit" href="/?page={{prevPage}}">Prev</a>	<!--will show prev-->
-                                        <button id='getDataBtn' type="submit" href="/?page={{prevPage}}">prev</button>
+                                        <a id="botonMasImagenes" href="/?page={{prevPage}}" class="btn btn-secondary button">
+                                            <i class="fa fa-eye"></i> Menos contenido
+                                       </a>
                                     {{/hasPrev}}
             
-                                    {{#hasNext}} <!--if exists another new in the database...-->
+                                    {{#hasNext}} <!--if exists another new in the database...-->                                 
                                         <a input type="submit" href="/?page={{nextPage}}">Next</a> <!--will show next--> 
                                         <!-- pone la variable creada en ejecucion ?page y la asocia a next page que es getNumber + 1 (es decir, sumamos 1)-->
                                         <!--en request of ponemos(page, 3) y page sera igual a 1 por lo que acabo de explicar arriba, asi es como se hace-->
-                                        <button id='getDataBtn' type="submit" href="/?page={{nextPage}}">next</button>
+                                        <a id="botonMasImagenes" href="/?page={{nextPage}}" class="btn btn-secondary button">
+                                            <i class="fa fa-eye"></i> Más contenido
+                                       </a>
                                     {{/hasNext}}
                                     <div class="lds-dual-ring"></div>
                                     <div id="richList"></div>
