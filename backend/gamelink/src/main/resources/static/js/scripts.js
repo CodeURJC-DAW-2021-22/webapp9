@@ -6,9 +6,30 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
+/*$(document).ready(function () {
+    $('#botonMasImagenes').click(function () {
+
+        $('#botonMasImagenes').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+        // On click, execute the ajax call.
+        $.ajax({
+            type: "GET",
+            url: "/home/{id}/nuevasNoticias",
+            dataType: 'json',
+            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('#botonMasImagenes').removeClass('hidden');
+            },
+            success: function (data) {
+                $("#masImagenes").fadeIn(1000).append(data);
+            },
+            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('#botonMasImagenes').addClass('hidden');
+            },
+        });
+    });
+});*/
 
 $(document).ready(function() {    
-    $('.button').on('click', function(){
+    $('#botonMasImagenes').on('click', function(){
         //Añadimos la imagen de carga en el contenedor
         $('#botonMasImagenes').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
  
@@ -17,13 +38,13 @@ $(document).ready(function() {
             url: "/home/{id}/nuevasNoticias",
             success: function(data) {
                 //Cargamos finalmente el contenido deseado
-                //$('#botonMasImagenes').fadeIn(1000).html(data);
-                $('#masImagenes').fadeIn(1000).html(data);
-            }
+                //$('#masImagenes').fadeIn(1000).html(data);
+                $("#masImagenes").fadeIn(1000).append(data);
+            },
         });
         return false;
     });              
-}); 
+});
 
 function verifySignin() {
     //aqui habria que buscar en la BBDD el usuario y mirar si esta registrado
