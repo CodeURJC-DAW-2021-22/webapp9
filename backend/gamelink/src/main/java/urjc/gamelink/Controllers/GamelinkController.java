@@ -172,17 +172,6 @@ public class GamelinkController {
         us.save(user);
 
 
-        // Esto no hace falta porque con le redirect te manda al get
-        // model.addAttribute("username", user.getName());
-        // model.addAttribute("nick", user.getNick());
-        // model.addAttribute("encodedPassword", user.getEncodedPassword());
-        // model.addAttribute("lastName", user.getLastName());
-        // model.addAttribute("creditCard", user.getCreditCard());
-        // model.addAttribute("email", user.getEmail());
-        // model.addAttribute("Videogame", user.getPurchaseVideogames());
-        // model.addAttribute("id", user.getId());
-
-
         return "redirect:/userProfile";                            
     }
 
