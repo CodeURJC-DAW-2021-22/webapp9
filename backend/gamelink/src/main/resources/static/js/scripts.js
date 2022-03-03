@@ -9,40 +9,48 @@
 /*$(document).ready(function () {
     $('#botonMasImagenes').click(function () {
 
-        $('#botonMasImagenes').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+        $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
         // On click, execute the ajax call.
         $.ajax({
             type: "GET",
             url: "/home/{id}/nuevasNoticias",
-            dataType: 'json',
+            //dataType: 'json',
             beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
-                $('#botonMasImagenes').removeClass('hidden');
+                $('#loader').removeClass('hidden');
             },
             success: function (data) {
                 $("#masImagenes").fadeIn(1000).append(data);
             },
             complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
-                $('#botonMasImagenes').addClass('hidden');
+                $('#loader').addClass('hidden');
             },
         });
     });
 });*/
 
+
+
 $(document).ready(function() {    
     $('#botonMasImagenes').on('click', function(){
         //Añadimos la imagen de carga en el contenedor
-        $('#botonMasImagenes').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
- 
+        $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
         $.ajax({
             type: "GET", //era un get
             url: "/home/{id}/nuevasNoticias",
+            contenType: "application/json",
+            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('#loader').removeClass('hidden');
+            },
             success: function(data) {
                 //Cargamos finalmente el contenido deseado
                 //$('#masImagenes').fadeIn(1000).html(data);
                 $("#masImagenes").fadeIn(1000).append(data);
             },
+            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('#loader').addClass('hidden');
+            },
         });
-        return false;
+        //return false;
     });              
 });
 
