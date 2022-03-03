@@ -32,24 +32,39 @@ public class Videogame {
     private String genre;
 
     private String company;
+
+    private String continent;
+
+    //private String badge;
     
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @Column(columnDefinition = "TEXT")
+    private String requirements;
+
     @Lob
     private Blob imageFile;
 
-    private boolean image;
+    private boolean imageVg;
+
+    @Lob
+    private Blob imageCompanyFile;
+
+    private boolean imageCompany;
 
     @ManyToMany
      private List<News> notices;
 
     public Videogame() {}
-    
 
-    public Videogame(String title, String description, float price) {
-        this.title = title;
+    public Videogame(String name, String company, String continent, String description, String requirements, String genre, float price) {
+        this.title = name;
+        this.company = company;
+        this.continent = continent;
         this.description = description;
+        this.requirements = requirements;
+        this.genre = genre;
         this.price = price;
     }
 
@@ -93,6 +108,14 @@ public class Videogame {
         this.company =company;
     }
 
+    public String getContinent() {
+        return continent;
+    }
+
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -118,11 +141,30 @@ public class Videogame {
     }
 
     public boolean getImage(){
-        return this.image;
+        return this.imageVg;
     }
 
     public void setImage(boolean image){
-        this.image = image;
+        this.imageVg = image;
+    }
+
+    public Blob getImageCompanyFile() {
+        return imageCompanyFile;
+    }
+
+
+    public void setImageCompanyFile(Blob imageCompanyFile) {
+        this.imageCompanyFile = imageCompanyFile;
+    }
+
+
+    public boolean isImageCompany() {
+        return imageCompany;
+    }
+
+
+    public void setImageCompany(boolean imageCompany) {
+        this.imageCompany = imageCompany;
     }
 
     public List<News> getNotices() {
