@@ -17,7 +17,8 @@ $(document).ready(function() {
             url: "/home/{id}/nuevasNoticias",
             success: function(data) {
                 //Cargamos finalmente el contenido deseado
-                $('#botonMasImagenes').fadeIn(1000).html(data);
+                //$('#botonMasImagenes').fadeIn(1000).html(data);
+                $('#masImagenes').fadeIn(1000).html(data);
             }
         });
         return false;
