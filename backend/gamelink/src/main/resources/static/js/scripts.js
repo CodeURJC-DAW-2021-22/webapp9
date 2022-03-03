@@ -6,14 +6,14 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
+
 function verifySignin() {
-    //aqui habria que buscar en la BBDD el usuario y mirar si esta registrado
-    var register = true;
+    principal = request.getUserPrincipal();
     
-    if (register === true) {
-        location.href = 'paymentConfirmation.html';
+    if (getUserPrincipal() === true) {
+        location.href = 'paymentConfirmation';
     } else {
-        location.href = 'errorMessage.html';
+        location.href = 'errorMessage';
     }
 }
 
