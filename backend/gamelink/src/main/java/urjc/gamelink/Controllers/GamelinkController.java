@@ -1,5 +1,6 @@
 package urjc.gamelink.Controllers;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
+import urjc.gamelink.Model.Videogame;
 import urjc.gamelink.Repositories.UseroRepository;
 import urjc.gamelink.Service.NewsService;
 import urjc.gamelink.Service.UseroService;
@@ -148,10 +151,34 @@ public class GamelinkController {
         model.addAttribute("creditCard", user.getCreditCard());
         model.addAttribute("email", user.getEmail());
         model.addAttribute("Videogame", user.getPurchaseVideogames());
-        //model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        model.addAttribute("id", user.getId());
 
         return "userProfile";
 
+    }
+    
+    @PostMapping("/userProfile")
+    public String userProfile(Model model, HttpServletRequest request, @RequestParam String name,
+                                @RequestParam String lastName, @RequestParam String nick, @RequestParam String email,
+                                @RequestParam String creditCard, MultipartFile imageField) throws IOException{
+                                    
+        String useroName = request.getUserPrincipal().getName();
+        Usero user = ur.findByName(useroName).orElseThrow();                            
+        user.setName(name);
+        user.setLastName(lastName);
+        user.setNick(nick);
+        user.setEmail(email);                            
+        user.setCreditCard(creditCard);
+
+        if(!imageField.isEmpty()){
+            user.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+            user.setImage(true);
+        }  
+
+        us.save(user);
+
+
+        return "redirect:/userProfile";                            
     }
 
     @GetMapping("/signin")
@@ -214,5 +241,36 @@ public class GamelinkController {
 		}
 	}
 
+    @GetMapping("/profile/{id}/image")
+	public ResponseEntity<Object> downloadImageProfile(@PathVariable long id) throws SQLException {
+
+		Optional<Usero> user = us.findById(id);
+		if (user.isPresent() && user.get().getImageFile() != null) {
+
+			Resource file = new InputStreamResource(user.get().getImageFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/PNG")
+					.contentLength(user.get().getImageFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
+    @GetMapping("/usero/{id}/image")
+	public ResponseEntity<Object> downloadImageUsero(@PathVariable long id) throws SQLException {
+
+		Optional<Videogame> videogame = vs.findById(id);
+		if (videogame.isPresent() && videogame.get().getImageFile() != null) {
+
+			Resource file = new InputStreamResource(videogame.get().getImageFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/PNG")
+					.contentLength(videogame.get().getImageFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 
 }
