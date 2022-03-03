@@ -2,52 +2,96 @@
 <html lang="en">
 {{>header}}
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column" style="background-color: #000000;">
   <main class="flex-shrink-0">{{>navBar}}
 
-<form action="/createNew" method="post" enctype="multipart/form-data">
+    <section >
 
-  <h2>New New Form</h2>
+      <form action="/createNew" method="post" enctype="multipart/form-data">
+    
+        <div class="container" style="background-color:#f5f5f5; margin-top: 2%;  padding-bottom: 1%; ">
+    
+          <div class="row">
+            <div class="col-12" style="padding-bottom: 5%;">
+              <h2 style="text-align: center; padding-top: 2%;">Create New Form</h2>
+            </div>
+          </div>
+          <div class="row" style="margin-left: 20%;">
+            <div class="col-6" >
+              <div>
+                <label>Title: </label>
+                <p><textarea name="title" placeholder="title" style="width: 50%;"></textarea></p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div>
+                <label>Date: </label>
+                <p><textarea name="date" placeholder="date" style="width: 50%;"></textarea></p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="row" style="margin-left: 20%;">
+            <div class="col-6" >
+              <div>
+                <label>Read Time: </label>
+                <p><textarea name="readTime" placeholder="readTime" style="width: 50%;"></textarea></p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div>
+                <label>Badge: </label>
+                <p><textarea name="badge" placeholder="badge" style="width: 50%;"></textarea></p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="row " style="margin-left: 20%;">
+            <div class="col-12 ">
+              <div>
+                <label style="text-align: left !important;">New Content: </label>
+                <p><textarea name="description" placeholder="description" rows="10"
+                    style="width: 75%;"></textarea></p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="row" style="margin-left: 20%;">
+            <div class="col-12">
+              <p>Related Videogames: </p>
+              <select name="videogames" multiple style="width: 75%;">
+                {{#videogame}}
+                <option value="{{ id }}">{{ title }}</option>
+                {{/videogame}}
+              </select>
+            </div>
+          </div>
+    
+    
+          <div class="row" style="margin-left: 20%;">
+            <div class="col-12 ">
+              <p>Image: </p>
+              <p>
+                <input type='file' name='imageField' accept=".jpg, .jpeg .png .svg" />
+                <input type="hidden" name="_csrf" value="{{token}}" />
+              </p>
+            </div>
+          </div>
+    
+          <p style="text-align: center;" >
+            <input class="btn btn-primary" type="submit" value="Save" />
+            <!--Boton que ejecutara la función ajax-->
+            <button class="btn btn-outline-light" style="color: black; border-color: black;"
+              onclick="location.href='/'; return false;">Cancel</button>
+            <!--Boton para cancelar la acción-->
+          </p>
+        </div>
+      </form>
+    </section>
+    
+    
 
-  <div>
-    <label>Title: </label>
-    <input name="title" placeholder="title"/>
-  </div>
 
-  <div>
-    <label>New Content: </label>
-    <textarea name="description" placeholder="description"></textarea>
-  </div>
-
-  <div>
-    <label>Read Time: </label>
-    <textarea name="readTime" placeholder="readtime"></textarea>
-  </div>
-
-  <div>
-    <label>Badge: </label>
-    <textarea name="badge" placeholder="badge"></textarea>
-  </div>
-
-  <p>Related Games: </p>
-  <select name="relatedGame" multiple>
-    {{#videogames}}
-    <option value="{{ id }}">{{ title }}</option>
-    {{/videogames}}
-  </select>
-
-  <p>Image: </p>
-  <input type='file' name='imageField' accept=".jpg, .jpeg .png .svg" />
-
-  <input type="hidden" name="_csrf" value="{{token}}"/>
-
- 
-  <p>
-    <button onclick="location.href='/'; return false;">Cancel</button> <!--Boton para cancelar la acción-->
-    <input type="submit" value="Save"/>  <!--Boton que ejecutara la función ajax-->
-  </p>
-
-  </form>
   </main>
         <!-- Footer-->
         {{>footer}}
