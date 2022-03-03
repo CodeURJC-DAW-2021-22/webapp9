@@ -1,6 +1,7 @@
 package urjc.gamelink.Controllers;
 
 import java.sql.SQLException;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -87,10 +88,10 @@ public class GamelinkController {
         return "home";
     }
 
-    @GetMapping("/home/{id}/nuevasNoticias")
-    public String ajaxMoreLessNewsLoad(Model model, HttpSession session, Pageable page) {
+    @GetMapping("/home/{page}")
+    public String ajaxMoreNewsLoad(Model model, HttpSession session, @PathVariable int page) {
 
-        Page<News> news = ns.findAll(PageRequest.of(page.getPageNumber(), 3)); 
+        Page<News> news = ns.findAll(PageRequest.of(page, 3)); 
     
         model.addAttribute("next", news);
 
@@ -102,6 +103,8 @@ public class GamelinkController {
         return "nextPageTemplate";
 
     }
+
+
 
     @GetMapping("/about")
     public String about(Model model){

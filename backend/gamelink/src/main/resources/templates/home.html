@@ -174,12 +174,12 @@
                         
                         <div id="masImagenes" class="row gx-5"></div>
 
-                        <form method="post" action="/">
+                        <!--<form method="post" action="/">-->
                             <div class="text-end mb-5 mb-xl-0">
                                 <a class="text-decoration-none" href="#!">
                                     {{#hasPrev}} <!--if exists previous new in the database...-->
                                         <a input type="submit" href="/?page={{prevPage}}">Prev</a>	<!--will show prev-->
-                                        <a id="botonMasImagenes" href="/?page={{prevPage}}" class="btn btn-secondary button">
+                                        <a id="botonMasImagenes"  class="btn btn-secondary button">
                                             <i class="fa fa-eye"></i> Menos contenido
                                        </a>
                                        <div id="loader"></div>
@@ -189,18 +189,14 @@
                                         <a input type="submit" href="/?page={{nextPage}}">Next</a> <!--will show next--> 
                                         <!-- pone la variable creada en ejecucion ?page y la asocia a next page que es getNumber + 1 (es decir, sumamos 1)-->
                                         <!--en request of ponemos(page, 3) y page sera igual a 1 por lo que acabo de explicar arriba, asi es como se hace-->
-                                        <a id="botonMasImagenes" href="/?page={{nextPage}}" class="btn btn-secondary button">
+                                        <a id="botonMasImagenes"  class="btn btn-secondary button">
                                             <i class="fa fa-eye"></i> Más contenido
                                        </a>
                                        <div id="loader"></div>
                                     {{/hasNext}}
-                                    <div class="lds-dual-ring"></div>
-                                    <div id="richList"></div>
-                                    <div id="loader" class="lds-dual-ring hidden overlay"></div>
-                                    <i class="bi bi-arrow-right"></i>
                                 </a>
                             </div>
-                        </form>
+                        <!--</form>-->
                     </div>
 
                     <!-- Call to action-->

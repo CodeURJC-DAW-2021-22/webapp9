@@ -6,28 +6,7 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
-/*$(document).ready(function () {
-    $('#botonMasImagenes').click(function () {
-
-        $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
-        // On click, execute the ajax call.
-        $.ajax({
-            type: "GET",
-            url: "/home/{id}/nuevasNoticias",
-            //dataType: 'json',
-            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
-                $('#loader').removeClass('hidden');
-            },
-            success: function (data) {
-                $("#masImagenes").fadeIn(1000).append(data);
-            },
-            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
-                $('#loader').addClass('hidden');
-            },
-        });
-    });
-});*/
-
+var valorDePagina = 0;
 
 
 $(document).ready(function() {    
@@ -36,8 +15,7 @@ $(document).ready(function() {
         $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
         $.ajax({
             type: "GET", //era un get
-            url: "/home/{id}/nuevasNoticias",
-            contenType: "application/json",
+            url: '/home/' +  valorDePagina,
             beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
                 $('#loader').removeClass('hidden');
             },
@@ -51,8 +29,11 @@ $(document).ready(function() {
             },
         });
         //return false;
+        valorDePagina += 1;
     });              
 });
+
+
 
 function verifySignin() {
     //aqui habria que buscar en la BBDD el usuario y mirar si esta registrado
