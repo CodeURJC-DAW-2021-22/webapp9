@@ -58,7 +58,6 @@ public class Videogame {
 
     public Videogame() {}
 
-
     public Videogame(String name, String company, String continent, String description, String requirements, String genre, float price) {
         this.title = name;
         this.company = company;
