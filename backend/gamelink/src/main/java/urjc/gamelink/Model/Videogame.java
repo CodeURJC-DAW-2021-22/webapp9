@@ -65,14 +65,38 @@ public class Videogame {
 
     public Videogame() {}
 
-    public Videogame(String name, String company, String continent, String description, String requirements, String genre, float price) {
-        this.title = name;
+    public Videogame(String title, String company, String continent, String description, String requirements, String genre, float price) {
+        this.title = title;
         this.company = company;
         this.continent = continent;
         this.description = description;
         this.requirements = requirements;
         this.genre = genre;
         this.price = price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public String getRequirements() {
+        return requirements;
+    }
+
+    public void setRequirements(String requirements) {
+        this.requirements = requirements;
+    }
+
+    public boolean isImageVg() {
+        return imageVg;
+    }
+
+    public void setImageVg(boolean imageVg) {
+        this.imageVg = imageVg;
     }
 
     public String getTitle() {

@@ -4,12 +4,9 @@ import java.io.IOException;
 import java.security.Principal;
 import java.sql.Blob;
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-=======
 import java.util.ArrayList;
->>>>>>> origin/main
 import java.util.List;
 import java.util.Optional;
 
@@ -260,7 +257,7 @@ public class GamelinkController {
     @GetMapping("/showNews/{id}")
     public String showNews(Model model, @PathVariable long id){
         
-        model.addAttribute("videogame", vs.findById(id));
+        model.addAttribute("new", vs.findById(id));
 
         return "showNews";
 
@@ -299,11 +296,10 @@ public class GamelinkController {
 		}
 	}
 
-<<<<<<< HEAD
     @GetMapping("/createNew")
     public String createNew(Model model) {
 
-        model.addAttribute("videogames", vs.findAll());
+        model.addAttribute("videogame", vs.findAll());
 
         return "createNew";
     }
@@ -339,11 +335,16 @@ public class GamelinkController {
     }
 
     @PostMapping("/createVideogame")
-    public String createVideogameForm(Model model, Videogame videogame, MultipartFile imageField, @RequestParam List<Long> notices) throws IOException {
+    public String createVideogameForm(Model model, Videogame videogame, MultipartFile imageField, MultipartFile companyField, @RequestParam List<Long> notices) throws IOException {
 
         if (!imageField.isEmpty()) {
             videogame.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
             videogame.setImage(true);
+        }
+
+        if (!companyField.isEmpty()) {
+            videogame.setImageCompanyFile(BlobProxy.generateProxy(companyField.getInputStream(), companyField.getSize()));
+            videogame.setImageCompany(true);
         }
         
         if (!notices.isEmpty()) {
@@ -366,6 +367,8 @@ public class GamelinkController {
             model.addAttribute("price", videogame.get().getPrice() );
             model.addAttribute("genre", videogame.get().getGenre() );
             model.addAttribute("company", videogame.get().getCompany() );
+            model.addAttribute("requirements",videogame.get().getRequirements());
+
         }
 
         model.addAttribute("news", ns.findAll());
@@ -454,7 +457,6 @@ public class GamelinkController {
 
         return "news";
     }
-=======
     @GetMapping("/profile/{id}/image")
 	public ResponseEntity<Object> downloadImageProfile(@PathVariable long id) throws SQLException {
 
@@ -486,6 +488,5 @@ public class GamelinkController {
 			return ResponseEntity.notFound().build();
 		}
 	}
->>>>>>> origin/main
 
 }

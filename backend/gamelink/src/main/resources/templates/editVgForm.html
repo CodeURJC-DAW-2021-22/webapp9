@@ -22,12 +22,38 @@
         </div>
       </div>
 
+      
+      <div class="row" style="margin-left: 20%;">
+        <div class="col-6">
+        <div>
+          <label>Company: </label>
+          <p><textarea name="company" placeholder="company" style="width: 50%;">{{company}}</textarea></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div>
+          <label>Genre: </label>
+          <p><textarea name="genre" placeholder="genre" style="width: 50%;">{{genre}}</textarea></p>
+        </div>
+      </div>
+    </div>
+
       <div class="row " style="margin-left: 20%;">
         <div class="col-12 ">
           <div>
             <label style="text-align: left !important;">New Content: </label>
             <p><textarea name="description" placeholder="description" rows="10"
                 style="width: 75%;">{{description}}</textarea></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row " style="margin-left: 20%;">
+        <div class="col-12 ">
+          <div>
+            <label style="text-align: left !important;">Requirements: </label>
+            <p><textarea name="requirements" placeholder="requirements" rows="10"
+                style="width: 75%;">{{requirements}}</textarea></p>
           </div>
         </div>
       </div>
@@ -44,11 +70,18 @@
       </div>
 
 
-      <div class="row" style="margin-left: 20%;">
-        <div class="col-12 ">
-          <p>Image: </p>
+      <div class="row" style="margin-left: 20%; margin-top: 1%;">
+        <div class="col-6 ">
+          <p>Videogame Image: </p>
           <p>
             <input type='file' name='imageField' accept=".jpg, .jpeg .png .svg" />
+            <input type="hidden" name="_csrf" value="{{token}}" />
+          </p>
+        </div>
+        <div class="col-6 ">
+          <p>Company Image: </p>
+          <p>
+            <input type='file' name='companyField' accept=".jpg, .jpeg .png .svg" />
             <input type="hidden" name="_csrf" value="{{token}}" />
           </p>
         </div>

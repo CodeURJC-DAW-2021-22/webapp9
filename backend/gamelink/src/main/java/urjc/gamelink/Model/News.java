@@ -35,6 +35,8 @@ public class News {
 
     private String badge;
 
+    private String readTime;
+
 
     @ManyToMany
      private List<Videogame> videogamesRelated;
@@ -42,11 +44,20 @@ public class News {
      public News() {
     }
 
-    public News(String title,String description, String date, String badge) {
+    public News(String title,String description, String date,String readTime, String badge) {
         this.title = title;
         this.description = description;
         this.date = date;
         this.badge = badge;
+        this.readTime = readTime;
+    }
+
+    public String getReadTime() {
+        return readTime;
+    }
+
+    public void setReadTime(String readTime) {
+        this.readTime = readTime;
     }
 
     public String getBadge() {

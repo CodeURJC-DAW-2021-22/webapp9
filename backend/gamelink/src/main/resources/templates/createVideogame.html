@@ -9,7 +9,7 @@
 
   <form action="/createVideogame" method="post" enctype="multipart/form-data">
 
-    <div class="container" style="background-color:#f5f5f5; margin-top: 5%;  padding-bottom: 1%; ">
+    <div class="container" style="background-color:#f5f5f5; margin-top: 5%; margin-bottom: 5%; padding-bottom: 1%; ">
       <div class="col-12" style="padding-bottom: 5%;">
         <h2 style="text-align: center; padding-top: 2%;">Create Videogame Form</h2> 
       </div>
@@ -29,6 +29,22 @@
         </div>
       </div>
 
+      <div class="row" style="margin-left: 20%;">
+        <div class="col-6">
+        <div>
+          <label>Company: </label>
+          <p><textarea name="company" placeholder="company" style="width: 50%;"></textarea></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div>
+          <label>Genre: </label>
+          <p><textarea name="genre" placeholder="genre" style="width: 50%;"></textarea></p>
+        </div>
+      </div>
+    </div>
+  
+
       <div class="row " style="margin-left: 20%;">
         <div class="col-12 ">
           <div>
@@ -39,23 +55,40 @@
         </div>
       </div>
 
+      <div class="row " style="margin-left: 20%;">
+        <div class="col-12 ">
+          <div>
+            <label style="text-align: left !important;">Requirements: </label>
+            <p><textarea name="requirements" placeholder="requirements" rows="10"
+                style="width: 75%;"></textarea></p>
+          </div>
+        </div>
+      </div>
+
       <div class="row" style="margin-left: 20%;">
         <div class="col-12">
           <p>Related News: </p>
           <select name="notices" multiple style="width: 75%;">
             {{#news}}
-            <option value="{{ id }}"></option>
+            <option value="{{ id }}">{{title}}</option>
             {{/news}}
           </select>
         </div>
       </div>
 
 
-      <div class="row" style="margin-left: 20%;">
-        <div class="col-12 ">
-          <p>Image: </p>
+      <div class="row" style="margin-left: 20%; margin-top: 1%;">
+        <div class="col-6 ">
+          <p>Videogame Image: </p>
           <p>
             <input type='file' name='imageField' accept=".jpg, .jpeg .png .svg" />
+            <input type="hidden" name="_csrf" value="{{token}}" />
+          </p>
+        </div>
+        <div class="col-6 ">
+          <p>Company Image: </p>
+          <p>
+            <input type='file' name='companyField' accept=".jpg, .jpeg .png .svg" />
             <input type="hidden" name="_csrf" value="{{token}}" />
           </p>
         </div>
