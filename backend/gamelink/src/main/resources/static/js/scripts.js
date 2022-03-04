@@ -8,7 +8,6 @@
 
 var valorDePagina = 0;
 
-
 $(document).ready(function() {    
     $('#botonMasImagenes').on('click', function(){
         //Añadimos la imagen de carga en el contenedor
