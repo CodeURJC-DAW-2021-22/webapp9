@@ -6,10 +6,10 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
-/*$(window).on("load", function(){
+$(window).on("load", function(){
     $('#botonMasImaganes').on("click", aumentarPagina())
     $('#botonMenosImaganes').on("click", disminuirPagina())
-})*/
+})
 
 var valorDePagina = -1;
 
@@ -18,27 +18,6 @@ $(document).ready(function() {
         //Añadimos la imagen de carga en el contenedor
         $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
         aumentar();
-        $.ajax({
-            type: "GET", //era un get
-            url: '/home/' +  valorDePagina,
-            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
-                $('#loader').removeClass('hidden');
-            },
-            success: function(data) {
-                //Cargamos finalmente el contenido deseado
-                //$('#masImagenes').fadeIn(1000).html(data);
-                $("#masImagenes").fadeIn(1000).append(data);
-            },
-            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
-                $('#loader').addClass('hidden');
-            },
-        });
-        //aumentar();
-    });  
-    $('#botonMenosImagenes').on('click', function(){
-        //Añadimos la imagen de carga en el contenedor
-        $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
-        disminuir();
         $.ajax({
             type: "GET", //era un get
             url: '/home/' +  valorDePagina,

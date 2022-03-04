@@ -76,7 +76,7 @@ public class GamelinkController {
 
         Page<News> news = ns.findAll(PageRequest.of(page.getPageNumber(), 3)); 
     
-        model.addAttribute("next", news);
+        model.addAttribute("new", news);
 
         model.addAttribute("hasPrev", news.hasPrevious());
         model.addAttribute("hasNext", news.hasNext());
@@ -93,14 +93,14 @@ public class GamelinkController {
 
         Page<News> news = ns.findAll(PageRequest.of(page, 3)); 
     
-        model.addAttribute("next", news);
+        model.addAttribute("new", news);
 
-        model.addAttribute("hasPrev", news.hasPrevious());
+        /*model.addAttribute("hasPrev", news.hasPrevious());
         model.addAttribute("hasNext", news.hasNext());
         model.addAttribute("nextPage", news.getNumber()+1);
-		model.addAttribute("prevPage", news.getNumber()-1);
+		model.addAttribute("prevPage", news.getNumber()-1);*/
         
-        return "nextPageTemplate";
+        return "NewsTemplate";
 
     }
 
