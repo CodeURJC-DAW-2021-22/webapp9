@@ -60,30 +60,14 @@ public class GamelinkController {
     }
 
 
-    /*@GetMapping("/")
-    public String home(Model model){
-
-        model.addAttribute("new", ns.findAll());
-              
-        return "home";
-
-    }*/
-
-
     @GetMapping("/")
-    public String home2(Model model, HttpSession session, Pageable page) {
+    public String home(Model model, HttpSession session) {
 
 
-        Page<News> news = ns.findAll(PageRequest.of(page.getPageNumber(), 3)); 
+        Page<News> news = ns.findAll(PageRequest.of(0, 3)); 
     
         model.addAttribute("new", news);
 
-        model.addAttribute("hasPrev", news.hasPrevious());
-        model.addAttribute("hasNext", news.hasNext());
-        model.addAttribute("nextPage", news.getNumber()+1);
-		model.addAttribute("prevPage", news.getNumber()-1);	
-
-        
 
         return "home";
     }
@@ -95,11 +79,6 @@ public class GamelinkController {
     
         model.addAttribute("new", news);
 
-        /*model.addAttribute("hasPrev", news.hasPrevious());
-        model.addAttribute("hasNext", news.hasNext());
-        model.addAttribute("nextPage", news.getNumber()+1);
-		model.addAttribute("prevPage", news.getNumber()-1);*/
-        
         return "NewsTemplate";
 
     }
