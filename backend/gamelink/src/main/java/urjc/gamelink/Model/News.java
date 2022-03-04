@@ -26,6 +26,10 @@ public class News {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    
+    @Column(columnDefinition = "TEXT")
+    private String shortDescription;
+
     private boolean image;
 
     @Lob
@@ -44,16 +48,25 @@ public class News {
      public News() {
     }
 
-    public News(String title,String description, String date,String readTime, String badge) {
+    public News(String title,String description, String date,String readTime, String badge ,String shortDescription) {
         this.title = title;
         this.description = description;
         this.date = date;
         this.badge = badge;
         this.readTime = readTime;
+        this.shortDescription = shortDescription;
     }
 
     public String getReadTime() {
         return readTime;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public void setReadTime(String readTime) {

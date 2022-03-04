@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 //import javax.smartcardio.CardTerminals.State;
 
 import org.hibernate.engine.jdbc.BlobProxy;
+import org.jboss.jandex.VoidType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -186,6 +187,8 @@ public class GamelinkController {
     @GetMapping("/news")
     public String news(Model model){
         
+        model.addAttribute("new", ns.findAll());
+        
         return "news";
 
     }
@@ -256,8 +259,14 @@ public class GamelinkController {
 
     @GetMapping("/showNews/{id}")
     public String showNews(Model model, @PathVariable long id){
+
+        Optional <News> newx = ns.findById(id);
+        if(newx.isPresent()){
+            model.addAttribute("new", ns.findById(id).get());
+        }else{
+            return "/";
+        }
         
-        model.addAttribute("new", vs.findById(id));
 
         return "showNews";
 
@@ -266,7 +275,13 @@ public class GamelinkController {
     @GetMapping("/showVideogame/{id}")
     public String showVideogame(Model model, @PathVariable long id){
 
-        model.addAttribute("videogame", vs.findById(id));
+        Optional <Videogame> videogame = vs.findById(id);
+
+        if(videogame.isPresent()){
+            model.addAttribute("videogame", videogame.get());
+            model.addAttribute("id", id);
+        }
+
         
         return "showVideogame";
 
@@ -299,13 +314,14 @@ public class GamelinkController {
     @GetMapping("/createNew")
     public String createNew(Model model) {
 
+
         model.addAttribute("videogame", vs.findAll());
 
         return "createNew";
     }
 
     @PostMapping("/createNew")
-    public String createNewForm(Model model, News news, MultipartFile imageField, @RequestParam List<Long> relatedGame)
+    public String createNewForm(Model model, News news, MultipartFile imageField, @RequestParam(required = false) List<Long> relatedGame)
             throws IOException {
 
         if (!imageField.isEmpty()) {
@@ -317,7 +333,7 @@ public class GamelinkController {
         LocalDateTime now = LocalDateTime.now();
         news.setDate(dtf.format(now));
 
-        if (!relatedGame.isEmpty()) {
+        if (relatedGame != null) {
             news.setVideogamesRelated(vs.findByIds(relatedGame));
         }
 
@@ -335,7 +351,7 @@ public class GamelinkController {
     }
 
     @PostMapping("/createVideogame")
-    public String createVideogameForm(Model model, Videogame videogame, MultipartFile imageField, MultipartFile companyField, @RequestParam List<Long> notices) throws IOException {
+    public String createVideogameForm(Model model, Videogame videogame,@RequestParam(name = "imageField") MultipartFile imageField, @RequestParam(name ="companyField") MultipartFile companyField, @RequestParam(required = false) List<Long> notices) throws IOException {
 
         if (!imageField.isEmpty()) {
             videogame.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
@@ -347,7 +363,7 @@ public class GamelinkController {
             videogame.setImageCompany(true);
         }
         
-        if (!notices.isEmpty()) {
+        if (notices!=null) {
             videogame.setNotices(ns.findByIds(notices));
         }
 
@@ -362,13 +378,7 @@ public class GamelinkController {
         Optional <Videogame> videogame = vs.findById(id);
 
         if(videogame.isPresent()){
-            model.addAttribute("title", videogame.get().getTitle() );
-            model.addAttribute("description", videogame.get().getDescription() );
-            model.addAttribute("price", videogame.get().getPrice() );
-            model.addAttribute("genre", videogame.get().getGenre() );
-            model.addAttribute("company", videogame.get().getCompany() );
-            model.addAttribute("requirements",videogame.get().getRequirements());
-
+            model.addAttribute("videogame", videogame.get());
         }
 
         model.addAttribute("news", ns.findAll());
@@ -379,16 +389,30 @@ public class GamelinkController {
     }
 
     @PostMapping("/editVg/{id}")
-    public String editVideogameForm(Model model, Videogame videogame, @PathVariable long id, MultipartFile imageField, @RequestParam List<Long> notices) throws IOException{
+    public String editVideogameForm(Model model, Videogame videogame, @PathVariable long id, @RequestParam(name = "imageField") MultipartFile imageField, @RequestParam(name ="imageField1") MultipartFile companyField, @RequestParam(required = false) List<Long> notices) throws IOException{
 
-        if(!imageField.isEmpty()){
-            videogame.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-            videogame.setImage(true);
-        }
-        
-        if (!notices.isEmpty()) {
-            videogame.setNotices(ns.findByIds(notices));
-        }
+            Optional<Videogame> aux = vs.findById(id);
+
+            if(!imageField.isEmpty() ){
+                videogame.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+                
+            }else{
+                videogame.setImageFile(aux.get().getImageFile());
+                videogame.setImage(true);
+            }
+
+            if (!companyField.isEmpty()) {
+                videogame.setImageCompanyFile(BlobProxy.generateProxy(companyField.getInputStream(), companyField.getSize()));
+                
+            }else{
+                videogame.setImageCompanyFile(aux.get().getImageCompanyFile());
+                videogame.setImageCompany(true);
+            }
+
+            if(notices != null){
+                videogame.setNotices(ns.findByIds(notices));
+            }
+
 
         videogame.setId(id);
 
@@ -414,11 +438,7 @@ public class GamelinkController {
         Optional <News> newx = ns.findById(id);
 
         if(newx.isPresent()){
-            model.addAttribute("title", newx.get().getTitle() );
-            model.addAttribute("description", newx.get().getDescription() );
-            model.addAttribute("date", newx.get().getDate() );
-            model.addAttribute("readTime", newx.get().getReadTime() );
-            model.addAttribute("badge", newx.get().getBadge() );
+            model.addAttribute("new", newx.get());
         }
 
         model.addAttribute("videogame", vs.findAll());
@@ -429,14 +449,22 @@ public class GamelinkController {
     }
 
     @PostMapping("/editNew/{id}")
-    public String editNewForm(Model model, News newx, @PathVariable long id, MultipartFile imageField, @RequestParam List<Long> videogames) throws IOException{
+    public String editNewForm(Model model, News newx, @PathVariable long id, MultipartFile imageField, @RequestParam(required = false) List<Long> videogames) throws IOException{
+
+        Optional<News> aux = ns.findById(id);
 
         if(!imageField.isEmpty()){
             newx.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
             newx.setImage(true);
+        }else{
+            if(aux.isPresent()){
+                newx.setImageFile(aux.get().getImageFile());
+                newx.setImage(true);
+            }
+
         }
         
-        if (!videogames.isEmpty()) {
+        if (videogames != null) {
             newx.setVideogamesRelated(vs.findByIds(videogames));
         }
 

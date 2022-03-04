@@ -1,6 +1,7 @@
-<section>
 
-  <form action="/editVg/{{id}}" method="post" enctype="multipart/form-data">
+<section style="margin-bottom: 4%;">
+  {{#new}}
+  <form action="/editNew/{{id}}" method="post" enctype="multipart/form-data">
 
     <div class="container" style="background-color:#f5f5f5; margin-top: 2%;  padding-bottom: 1%; ">
 
@@ -9,50 +10,62 @@
           <h2 style="text-align: center; padding-top: 2%;">Edit New Form</h2>
         </div>
       </div>
-      <div class="row" style="margin-left: 20%;">
-        <div class="col-6" >
+
+      <div class="row mt-2 d-flex justify-content-center">
+        <div class="col-md-4 " >
           <div>
             <label>Title: </label>
-            <p><textarea name="title" placeholder="title" style="width: 50%;">{{title}}</textarea></p>
+            <p><textarea name="title" placeholder="title" style="width: 100%;">{{title}}</textarea></p>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-4 " >
           <div>
             <label>Date: </label>
-            <p><textarea name="date" placeholder="date" style="width: 50%;">{{date}}</textarea></p>
+            <p><textarea name="date" placeholder="date" style="width: 100%;">{{date}}</textarea></p>
           </div>
         </div>
       </div>
 
-      <div class="row" style="margin-left: 20%;">
-        <div class="col-6" >
+      <div class="row mt-2 d-flex justify-content-center">
+        <div class="col-md-4 " >
           <div>
             <label>Read Time: </label>
-            <p><textarea name="readTime" placeholder="readTime" style="width: 50%;">{{readTime}}</textarea></p>
+            <p><textarea name="readTime" placeholder="readTime" style="width: 100%;">{{readTime}}</textarea></p>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-4 " >
           <div>
             <label>Badge: </label>
-            <p><textarea name="badge" placeholder="badge" style="width: 50%;">{{badge}}</textarea></p>
+            <p><textarea name="badge" placeholder="badge" style="width: 100%;">{{badge}}</textarea></p>
           </div>
         </div>
       </div>
 
-      <div class="row " style="margin-left: 20%;">
-        <div class="col-12 ">
+      <div class="row mt-3 d-flex justify-content-center" >
+        <div class="col-md-8">
           <div>
             <label style="text-align: left !important;">New Content: </label>
             <p><textarea name="description" placeholder="description" rows="10"
-                style="width: 75%;">{{description}}</textarea></p>
+                style="width: 100%;">{{description}}</textarea></p>
           </div>
         </div>
       </div>
 
-      <div class="row" style="margin-left: 20%;">
-        <div class="col-12">
+      <div class="row mt-3 d-flex justify-content-center" >
+        <div class="col-md-8">
+          <div>
+            <label style="text-align: left !important;">New short header: </label>
+            <p><textarea name="shortDescription" placeholder="shortDescription" rows="10"
+                style="width: 100%;">{{shortDescription}}</textarea></p>
+          </div>
+        </div>
+      </div>
+      
+  {{/new}}
+      <div class="row mt-3 d-flex justify-content-center">
+        <div class="col-8">
           <p>Related Videogames: </p>
-          <select name="videogames" multiple style="width: 75%;">
+          <select name="videogames" multiple style="width: 100%;">
             {{#videogame}}
             <option value="{{ id }}">{{ title }}</option>
             {{/videogame}}
@@ -61,15 +74,16 @@
       </div>
 
 
-      <div class="row" style="margin-left: 20%;">
-        <div class="col-12 ">
+      <div class="row mt-3 d-flex justify-content-center">
+        <div class="col-8 ">
           <p>Image: </p>
           <p>
-            <input type='file' name='imageField' accept=".jpg, .jpeg .png .svg" />
-            <input type="hidden" name="_csrf" value="{{token}}" />
+            <input type='file' name='imageField' accept=".jpg, .jpeg, .png, .svg" />
           </p>
         </div>
       </div>
+
+      <input type="hidden" name="_csrf" value="{{token}}" />
 
       <p style="text-align: center;" >
         <input class="btn btn-primary" type="submit" value="Save" />
