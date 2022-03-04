@@ -4,8 +4,12 @@ import java.io.IOException;
 import java.security.Principal;
 import java.sql.Blob;
 import java.sql.SQLException;
+<<<<<<< HEAD
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+=======
+import java.util.ArrayList;
+>>>>>>> origin/main
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +22,8 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,6 +33,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
@@ -51,8 +58,26 @@ public class GamelinkController {
     @Autowired
     private UseroRepository ur;
 
+    @Autowired
+	private PasswordEncoder passwordEncoder;
+
 
     
+     //this will show admin mode (if the user is and admin) and userProfile (if user is registrated)
+    @ModelAttribute
+	public void showAdminMode(Model model, HttpServletRequest request) {
+		Principal principal = request.getUserPrincipal();
+
+		if (principal != null) {
+
+			model.addAttribute("logged", true);
+			model.addAttribute("isAdmin", request.isUserInRole("ADMIN")); //look for 'ADMIN' in the database of the user
+
+		} else {
+			model.addAttribute("logged", false);
+		}
+	}
+
 
 	@GetMapping("/news/{id}/image")
 	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
@@ -70,6 +95,37 @@ public class GamelinkController {
 		}
 	}
 
+    @GetMapping("/videogame/{id}/imageVg") //this will download the videogame photo
+	public ResponseEntity<Object> downloadImageVideogame(@PathVariable long id) throws SQLException {
+
+		Optional<Videogame> videogame = vs.findById(id);
+		if (videogame.isPresent() && videogame.get().getImageFile() != null) {
+
+			Resource file = new InputStreamResource(videogame.get().getImageFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "imageVg/PNG")
+					.contentLength(videogame.get().getImageFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
+    @GetMapping("/videogame/{id}/imageCompany") //this will download the company photo (videogame)
+	public ResponseEntity<Object> downloadImageCompany(@PathVariable long id) throws SQLException {
+
+		Optional<Videogame> videogame = vs.findById(id);
+		if (videogame.isPresent() && videogame.get().getImageCompanyFile() != null) {
+
+			Resource file = new InputStreamResource(videogame.get().getImageCompanyFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "imageCompany/PNG")
+					.contentLength(videogame.get().getImageCompanyFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 
     @GetMapping("/")
     public String home(Model model){
@@ -149,16 +205,54 @@ public class GamelinkController {
         model.addAttribute("creditCard", user.getCreditCard());
         model.addAttribute("email", user.getEmail());
         model.addAttribute("Videogame", user.getPurchaseVideogames());
-        //model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        model.addAttribute("id", user.getId());
 
         return "userProfile";
 
+    }
+    
+    @PostMapping("/userProfile")
+    public String userProfile(Model model, HttpServletRequest request, @RequestParam String name,
+                                @RequestParam String lastName, @RequestParam String nick, @RequestParam String email,
+                                @RequestParam String creditCard, MultipartFile imageField) throws IOException{
+                                    
+        String useroName = request.getUserPrincipal().getName();
+        Usero user = ur.findByName(useroName).orElseThrow();                            
+        user.setName(name);
+        user.setLastName(lastName);
+        user.setNick(nick);
+        user.setEmail(email);                            
+        user.setCreditCard(creditCard);
+
+        if(!imageField.isEmpty()){
+            user.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+            user.setImage(true);
+        }  
+
+        us.save(user);
+
+
+        return "redirect:/userProfile";                            
     }
 
     @GetMapping("/signin")
     public String signin(Model model){
 
         return "signin";
+    }
+
+    @PostMapping("/signin")
+    public String signin(Model model, Usero user, @RequestParam String password){
+
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add("USERO");
+        user.setRoles(lista);
+        user.setEncodedPassword(passwordEncoder.encode(password));
+        
+
+        us.save(user);
+
+        return "home";
 
     }
 
@@ -184,7 +278,7 @@ public class GamelinkController {
     @GetMapping("/videogame")
     public String videogame(Model model) {
 
-        model.addAttribute("game_name" , "Battlefield 2042");
+        model.addAttribute("games", vs.findAll());
 
         return "videogame";
     }
@@ -205,6 +299,7 @@ public class GamelinkController {
 		}
 	}
 
+<<<<<<< HEAD
     @GetMapping("/createNew")
     public String createNew(Model model) {
 
@@ -359,5 +454,38 @@ public class GamelinkController {
 
         return "news";
     }
+=======
+    @GetMapping("/profile/{id}/image")
+	public ResponseEntity<Object> downloadImageProfile(@PathVariable long id) throws SQLException {
+
+		Optional<Usero> user = us.findById(id);
+		if (user.isPresent() && user.get().getImageFile() != null) {
+
+			Resource file = new InputStreamResource(user.get().getImageFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/PNG")
+					.contentLength(user.get().getImageFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
+    @GetMapping("/usero/{id}/image")
+	public ResponseEntity<Object> downloadImageUsero(@PathVariable long id) throws SQLException {
+
+		Optional<Videogame> videogame = vs.findById(id);
+		if (videogame.isPresent() && videogame.get().getImageFile() != null) {
+
+			Resource file = new InputStreamResource(videogame.get().getImageFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/PNG")
+					.contentLength(videogame.get().getImageFile().length()).body(file);
+
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+>>>>>>> origin/main
 
 }

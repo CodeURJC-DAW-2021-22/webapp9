@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity(name = "tbl_user")
@@ -37,6 +39,7 @@ public class Usero {
     private boolean image;
     
     @Lob
+    @JsonIgnore
     private Blob imageFile;
 
     @ManyToMany
@@ -51,13 +54,19 @@ public class Usero {
     public Usero() {
     }
 
-    public Usero(String name, String nick, String lastName, String encodedPassword, String email, String... roles) {
+    public Usero(String name, String nick, String lastName, String email) {
         this.name = name;
         this.nick = nick;
         this.lastName = lastName;
-        this.encodedPassword = encodedPassword;
         this.email = email;
-        this.roles = List.of(roles);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNick() {

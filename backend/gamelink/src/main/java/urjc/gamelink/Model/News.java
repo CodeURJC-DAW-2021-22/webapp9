@@ -33,8 +33,6 @@ public class News {
 
     private String date;
 
-    private String readTime;
-
     private String badge;
 
 
@@ -44,21 +42,11 @@ public class News {
      public News() {
     }
 
-    public News(String title,String description, String date ,String readtime, String badge) {
+    public News(String title,String description, String date, String badge) {
         this.title = title;
         this.description = description;
         this.date = date;
-        this.readTime = readtime;
         this.badge = badge;
-    }
-
-    
-    public String getReadTime() {
-        return readTime;
-    }
-
-    public void setReadTime(String readTime) {
-        this.readTime = readTime;
     }
 
     public String getBadge() {

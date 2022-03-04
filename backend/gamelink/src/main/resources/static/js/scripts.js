@@ -35,3 +35,16 @@ function changeData(){
 function alertDataChange(){
     alert("Los datos de usuario se han guardado")
 }
+
+var check = function() {
+    if (document.getElementById('inputPassword1').value ==
+      document.getElementById('inputPassword2').value) {
+      document.getElementById('passwordMessage').style.color = 'green';
+      document.getElementById('passwordMessage').innerHTML = 'contraseñas coinciden';
+      document.getElementById('createUserBtn').disabled = false;
+    } else {
+      document.getElementById('passwordMessage').style.color = 'red';
+      document.getElementById('passwordMessage').innerHTML = 'contraseñas no coinciden';
+      document.getElementById('createUserBtn').disabled = true;
+    }
+  }
