@@ -175,27 +175,28 @@
                         <div id="masImagenes" class="row gx-5"></div>
 
                         <!--<form method="post" action="/">-->
+                        <div class="row gx-5">
                             <div class="text-end mb-5 mb-xl-0">
                                 <a class="text-decoration-none" href="#!">
-                                    {{#hasPrev}} <!--if exists previous new in the database...-->
-                                        <a input type="submit" href="/?page={{prevPage}}">Prev</a>	<!--will show prev-->
-                                        <a id="botonMasImagenes"  class="btn btn-secondary button">
-                                            <i class="fa fa-eye"></i> Menos contenido
-                                       </a>
-                                       <div id="loader"></div>
-                                    {{/hasPrev}}
-                                       
-                                    {{#hasNext}} <!--if exists another new in the database...-->                                 
-                                        <a input type="submit" href="/?page={{nextPage}}">Next</a> <!--will show next--> 
-                                        <!-- pone la variable creada en ejecucion ?page y la asocia a next page que es getNumber + 1 (es decir, sumamos 1)-->
-                                        <!--en request of ponemos(page, 3) y page sera igual a 1 por lo que acabo de explicar arriba, asi es como se hace-->
-                                        <a id="botonMasImagenes"  class="btn btn-secondary button">
-                                            <i class="fa fa-eye"></i> Más contenido
-                                       </a>
-                                       <div id="loader"></div>
-                                    {{/hasNext}}
+                        
+                                    
+                                    <!--will show prev-->
+                                    <a id="botonMenosImagenes" class="btn btn-secondary button">
+                                        <i class="fa fa-eye"></i> Menos contenido
+                                    </a>
+                                   
+                                    
+                                    <!--will show next-->
+                                    <!-- pone la variable creada en ejecucion ?page y la asocia a next page que es getNumber + 1 (es decir, sumamos 1)-->
+                                    <!--en request of ponemos(page, 3) y page sera igual a 1 por lo que acabo de explicar arriba, asi es como se hace-->
+                                    <a id="botonMasImagenes" class="btn btn-secondary button">
+                                        <i class="fa fa-eye"></i> Más contenido
+                                    </a>
+                                    <div id="loader"></div>
+                        
                                 </a>
                             </div>
+                        </div>
                         <!--</form>-->
                     </div>
 
