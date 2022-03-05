@@ -63,6 +63,7 @@
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
   --bs-body-bg: rgba(0, 0, 0, 0.226);
+  --bs-purple-rgb: 73, 14, 75;
 }
 
 *,
@@ -84,6 +85,14 @@
 }
 
 /**end css ajax boton*/
+
+/*loginError*/
+.errorButton {
+  border: 2px solid black;
+  background-color: var(--bs-gray-400);
+  width: 25%;
+  border-radius: 20px;
+}
 
 /*paymentConfirmation.html*/
 #confirmPaymentBox1 {
@@ -4612,7 +4621,7 @@ textarea.form-control-lg {
   color: #fff;
 }
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.85);
 }
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
   color: rgba(255, 255, 255, 0.75);
@@ -5030,7 +5039,7 @@ textarea.form-control-lg {
   font-size: 0.75em;
   font-weight: 700;
   line-height: 1;
-  color: #fff;
+  color: var(--bs-white);
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
@@ -7925,6 +7934,16 @@ textarea.form-control-lg {
   color: rgba(255, 255, 255, 0.5) !important;
 }
 
+.text-black-75 {
+  --bs-text-opacity: 1;
+  color: rgba(0, 0, 0, 0.80) !important;
+}
+
+.text-white-75 {
+  --bs-text-opacity: 1;
+  color: rgba(255, 255, 255, 0.80) !important;
+}
+
 .text-reset {
   --bs-text-opacity: 1;
   color: inherit !important;
@@ -7983,7 +8002,12 @@ textarea.form-control-lg {
 
 .bg-dark {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-purple-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-purple {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-purple-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-black {

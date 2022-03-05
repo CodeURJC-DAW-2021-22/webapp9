@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import urjc.gamelink.Model.Usero;
-import urjc.gamelink.Repositories.NewRepository;
+//import urjc.gamelink.Repositories.NewRepository;
 import urjc.gamelink.Repositories.UseroRepository;
 
 @Service
 public class UseroService {
-    
 	@Autowired
 	private UseroRepository repository;
 

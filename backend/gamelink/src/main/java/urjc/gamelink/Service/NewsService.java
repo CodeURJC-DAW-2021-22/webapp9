@@ -6,6 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+//import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+//import org.springframework.data.domain.Page;
+//import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
 
@@ -47,5 +50,8 @@ public class NewsService {
 	public Page<News> findAll(PageRequest of) {
 		return repository.findAll(of);
 	}
+    public List<News> findByIds(List<Long> notices) {
+        return repository.findAllById(notices);
+    }
 
 }

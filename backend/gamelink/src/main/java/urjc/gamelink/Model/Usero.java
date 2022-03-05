@@ -3,6 +3,7 @@ package urjc.gamelink.Model;
 import java.sql.Blob;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -21,6 +24,8 @@ public class Usero {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String nick;
+
     private String name;
     
     private String lastName;
@@ -28,10 +33,13 @@ public class Usero {
     private String email;
 
     private String encodedPassword;
+    
+    private String creditCard;
 
     private boolean image;
     
     @Lob
+    @JsonIgnore
     private Blob imageFile;
 
     @ManyToMany
@@ -46,10 +54,27 @@ public class Usero {
     public Usero() {
     }
 
-    public Usero(String name, String encodedPassword, String... roles) {
+    public Usero(String name, String nick, String lastName, String email) {
         this.name = name;
-        this.encodedPassword = encodedPassword;
-        this.roles = List.of(roles);
+        this.nick = nick;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     public String getName() {
@@ -80,8 +105,8 @@ public class Usero {
         return imageFile;
     }
 
-    public void setImageFile(Blob image) {
-        this.imageFile = image;
+    public void setImageFile(Blob imageFile) {
+        this.imageFile = imageFile;
     }
 
     public boolean getImage(){
@@ -100,6 +125,14 @@ public class Usero {
         this.encodedPassword = encodedPassword;
     }
 
+    public String getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(String creditCard) {
+        this.creditCard = creditCard;
+    }
+
     public List<String> getRoles() {
         return roles;
     }
@@ -107,5 +140,16 @@ public class Usero {
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
+
+    public List<Videogame> getPurchaseVideogames() {
+        return purchaseVideogames;
+    }
+
+    public void setpurchaseVideogames(List<Videogame> purchaseVideogames) {
+       this.purchaseVideogames = purchaseVideogames;
+    }
+    //public void setpurchaseVideogames(Videogame purchaseVideogame) {
+    //   purchaseVideogames.add(purchaseVideogame);
+    //}
 
 }

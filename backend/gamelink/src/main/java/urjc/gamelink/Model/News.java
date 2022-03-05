@@ -3,6 +3,7 @@ package urjc.gamelink.Model;
 import java.sql.Blob;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 //import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -25,6 +26,10 @@ public class News {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    
+    @Column(columnDefinition = "TEXT")
+    private String shortDescription;
+
     private boolean image;
 
     @Lob
@@ -32,9 +37,9 @@ public class News {
 
     private String date;
 
-    private String readTime;
-
     private String badge;
+
+    private String readTime;
 
 
     @ManyToMany
@@ -43,17 +48,25 @@ public class News {
      public News() {
     }
 
-    public News(String title,String description, String date ,String readtime, String badge) {
+    public News(String title,String description, String date,String readTime, String badge ,String shortDescription) {
         this.title = title;
         this.description = description;
         this.date = date;
-        this.readTime = readtime;
         this.badge = badge;
+        this.readTime = readTime;
+        this.shortDescription = shortDescription;
     }
 
-    
     public String getReadTime() {
         return readTime;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public void setReadTime(String readTime) {
@@ -114,6 +127,10 @@ public class News {
 
     public void setVideogamesRelated(List<Videogame> videogamesRelated) {
         this.videogamesRelated = videogamesRelated;
+    }
+
+    public void setId(long id2) {
+        this.id = id2;
     }
 
 }

@@ -3,10 +3,10 @@ package urjc.gamelink.Configuration;
 
 import java.security.SecureRandom;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -37,7 +37,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/showVideogame").permitAll();
         http.authorizeRequests().antMatchers("/videogame").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
-        http.authorizeRequests().antMatchers("/nextPageTemplate").permitAll();
+        http.authorizeRequests().antMatchers("/editVg").permitAll();
+        http.authorizeRequests().antMatchers("/removeVg").permitAll();
+        http.authorizeRequests().antMatchers("/editNs").permitAll();
+        http.authorizeRequests().antMatchers("/removeNs").permitAll();
         http.authorizeRequests().antMatchers("/").permitAll();
 	    
 
@@ -60,7 +63,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/");
-        //http.csrf().disable();
     }
     
 }

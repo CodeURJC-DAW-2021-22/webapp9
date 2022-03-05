@@ -20,21 +20,21 @@ Link Trello:
 ## 1.ENTIDADES
 
 La web consta de 4 entidades:
-(A pesar de no ser necesario mencionar los atributos en la Fase 0, se van a mencionar los atributos que, a priori, se han pensado)
 
 #### Usuario:
-Nombre, apellidos, foto perfil, correo electrónico, ID, juegos comprados, noticias leídas.
+Id, nick, contraseña, tarjeta de crédito, Nombre, apellidos, foto perfil, correo electrónico, juegos comprados, noticias leídas.
 
 #### Videojuego:
-Nombre, descripción, puntuación, carátula, empresa, precio general, género.
+Id, Título, descripción, puntuación, carátula, empresa, precio, género, lista de noticias asociadas.
 
 #### Noticias:
-Título, descripción, foto(opcional), autor.
+Id, Título, descripción, foto(opcional), autor, remesa, lista de videojuegos relacionados.
 
 #### CódigoCompra:
-CódigoID, nombre videojuego, precio plataforma.
+Id, codigo de compra, nombre videojuego asociado, descuento.
 
 Relaciones de las entidades:
+
 El usuario administrador puede publicar de 0 a infinitas noticias, videojuegos y códigos.
  El usuario administrador puede eliminar y/o modificar de 0 a infinitas noticias, videojuegos y códigos publicados previamente.
 Una noticia tiene uno o varios videojuegos asociados.

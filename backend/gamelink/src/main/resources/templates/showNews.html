@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     {{>header}}
-
+    {{#new}}
     <body class="d-flex flex-column h-100" style="background-color:#f5f5f5;">
         <main class="flex-shrink-0">
             <!-- Navigation-->
@@ -10,34 +10,51 @@
             <header class="bg-dark py-5" style="background-color: #454546 !important;">
                 <div class="container px-5"  >
                     <div class="row gx-5 align-items-center justify-content-center">
-                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="Photos/eldenRing.webp" alt="..." /></div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="/news/{{id}}/image" alt="..." /></div>
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
-                                <h1 class="display-5 fw-bolder text-white mb-2">Desvelados los requisitos técnicos de la versión PC de Elden Ring</h1>
+                                <h1 class="display-5 fw-bolder text-white mb-2" style="font-size: 40px;">{{title}}</h1>
+                                <p class="lead fw-normal text-white-50 mb-4" style="color: aliceblue !important;">{{shortDescription}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+          
+
+
             </header>
+
+            {{#isAdmin}}
+            <section class="pt-0 MoreInfo">
+                <div class="container-fluid my-5">
+                    <div class="row justify-content-center" style=" background-color: rgb(27, 31, 31); margin-bottom: 2%;">
+                        <div class="col-5 text-center" >
+                            <p class="lead fw-normal text-white-50 mb-4"
+                                style="color: aliceblue !important; font-size: 2em !important; margin-top: 5%;"> Admin Actions :
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="/deleteNew/{{id}}" style="margin-top: auto;">Eliminar                 
+                                <a class="btn btn-outline-light btn-lg px-4" href="/editNew/{{id}}" style="margin-top: auto;">Editar</a>
+                            </p>
+    
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {{/isAdmin}}
+
             <!-- MoreInfo-->
             <section class="pt-0 MoreInfo" style="margin-left: 10%; margin-right: 10%; background-color: #FFFFFF !important;">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 justify-content-center">
                         <div class="col-auto">
-                            <h1 style="padding-bottom: 10px;">Más información</h1>
+                            <h1 style="padding-bottom: 10px;">Leer más:</h1>
                             <p class="">
-                                Elden Ring es un juego de rol de fantasía oscura desarrollado por FromSoftware y publicado gracias a Bandai Namco Entertainment. Es una aventura épica y desafiante creada por los desarrolladores de Demon's Souls en colaboración con el autor de la serie A Song of Ice and Fire - R. R. Martin. Descubre los secretos de las Tierras Intermedias y embárcate en la misión más heroica para descubrir el propósito del artefacto mágico y tu destino. El lanzamiento de Elden Ring está previsto para 2022.
+                                {{description}}
                             </p>
-                            <h2 class="tab1">Historia</h2>
-                            <p class="tab1">Bandai Namco ha desvelado los requisitos técnicos de la versión para PC de Elden Ring.
-
-                                La página en Steam del esperadísimo nuevo juego de From Software se ha actualizado esta tarde (aunque más tarde ha sido borrada la información) con el hardware mínimo que se necesitará para mover el juego en ordenador. No se han desvelado, eso sí, los requisitos recomendados, detalles que imaginamos publicarán en los próximos días.</p>
-                        </div>
                     </div>
                 </div>
             </section>
         </main>
-        
+        {{/new}}
         <!-- Footer-->
         {{>footer}}
         <!-- Bootstrap core JS-->
