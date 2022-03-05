@@ -733,16 +733,16 @@ public class dbInit {
 
     
     
-    private void setUsImage(Usero u1, String classpathResource) throws IOException {
-        u1.setImage(true);
+    private void setUsImage(Usero user, String classpathResource) throws IOException {
+        user.setImage(true);
         Resource image = new ClassPathResource(classpathResource);
-        u1.setImageFile(BlobProxy.generateProxy((image).getInputStream(), (image).contentLength()));
+        user.setImageFile(BlobProxy.generateProxy((image).getInputStream(), (image).contentLength()));
     }
 
-    private void setVgImage(Videogame vg1, String classpathResource) throws IOException {
-        vg1.setImage(true);
+    private void setVgImage(Videogame videogame, String classpathResource) throws IOException {
+        videogame.setImage(true);
         Resource image = new ClassPathResource(classpathResource);
-        vg1.setImageFile(BlobProxy.generateProxy((image).getInputStream(), (image).contentLength()));
+        videogame.setImageFile(BlobProxy.generateProxy((image).getInputStream(), (image).contentLength()));
     }
 
     private void setVgCompanyImage(Videogame vg1, String classpathResource) throws IOException {

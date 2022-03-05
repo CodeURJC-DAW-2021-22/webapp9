@@ -40,24 +40,28 @@
         <!--news list-->
         <section class="py-5">
             <div class="container px-5">
-                <h2 class="fw-bolder fs-5 mb-4">Noticias que te pueden interesar.</h2>
-                <div class="row gx-5">
+                <h2 class="fw-bolder fs-5 mb-4">Noticias que te pueden interesar.</h2>               
+                <div id ="moreImages" class="row gx-5">
   
  
  
                     {{>newsTemplate}}
                 </div>
-                
-            
                 <div class="text-end mb-5 mb-xl-0">
                     <a class="text-decoration-none" href="#!">
-                        More stories
-                        <i class="bi bi-arrow-right"></i>
+                        <!--will show next-->
+                        <!-- puts the variable created in execution ?page and associates it with next page which is getNumber + 1 (that is, we add 1)-->
+                        <!--in request of we put (page, 3) and page will be equal to 1 for what I just explained above, this is how it is done-->
+                        <a id="moreImagesButton" class="btn btn-secondary button">
+                            <i class="fa fa-eye"></i> Más contenido
+                        </a>
+                        <div id="loader"></div>
                     </a>
                 </div>
+                
+        
             </div>
         </section>
-
         <!--Sección-->
         <section class="py-5 bg-light">
             <div class="container px-5">

@@ -78,6 +78,14 @@
   }
 }
 
+/*css ajax boton*/
+
+.hidden{
+  display: none;
+}
+
+/**end css ajax boton*/
+
 /*loginError*/
 .errorButton {
   border: 2px solid black;

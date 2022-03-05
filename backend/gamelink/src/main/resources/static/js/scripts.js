@@ -6,6 +6,68 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
+var pageValueNews = 0;
+var pageValueVideogames = 0;
+
+$(document).ready(function() {    
+    $('#moreImagesButton').on('click', function(){
+        //Añadimos la imagen de carga en el contenedor
+        $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+        increaseNews();
+        $.ajax({
+            type: "GET", //era un get
+            url: '/news/' +  pageValueNews,
+            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('#loader').removeClass('hidden');
+            },
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                //$('#masImagenes').fadeIn(1000).html(data);
+                $("#moreImages").fadeIn(1000).append(data);
+            },
+            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('#loader').addClass('hidden');
+            },
+        });
+    });               
+});
+
+$(document).ready(function() {    
+    $('#moreVideogamesButton').on('click', function(){
+        //Añadimos la imagen de carga en el contenedor
+        $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+        increaseVideogames();
+        $.ajax({
+            type: "GET", //era un get
+            url: '/videogames/' +  pageValueVideogames,
+            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('#loader').removeClass('hidden');
+            },
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                //$('#masImagenes').fadeIn(1000).html(data);
+                $("#moreImages").fadeIn(1000).append(data);
+            },
+            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('#loader').addClass('hidden');
+            },
+        });
+    });               
+});
+
+
+function increaseNews(){
+    pageValueNews += 1;
+    return pageValueNews;
+}
+
+function increaseVideogames(){
+    pageValueVideogames += 1;
+    return pageValueVideogames;
+}
+
+
+
 function verifySignin() {
     //aqui habria que buscar en la BBDD el usuario y mirar si esta registrado
     var register = true;
@@ -17,20 +79,6 @@ function verifySignin() {
     }
 }
 
-// HAY Q REVISAR ESTA FUNCION PORQ NO HACE LO Q TIENE Q HACER
-function buyProduct() {
-    location.href = 'showVideogame.html';
-    var comprado = true; //esta variable tendra q ser un atributo de la clase 'videojuego' o algo asi :(
-    if (comprado === true) {
-        document.getElementById("buyButton").innerHTML = "ADQUIRIDO";
-    }
-}
-
-function changeData(){
-    let input = getElementById("celdilla1");
-    var x = input.placeholder;
-    input.placeholder = x;
-}
 
 function alertDataChange(){
     alert("Los datos de usuario se han guardado")

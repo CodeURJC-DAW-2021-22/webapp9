@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.security.Principal;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.Map;
+import java.util.Optional;
+
+import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -18,6 +22,9 @@ import org.jboss.jandex.VoidType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,11 +36,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 
 import urjc.gamelink.Model.News;
+import urjc.gamelink.Repositories.NewRepository;
 import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
 import urjc.gamelink.Repositories.UseroRepository;
@@ -77,7 +86,11 @@ public class GamelinkController {
 	}
 
 
-	@GetMapping("/news/{id}/image")
+    private int pagina = 0;
+
+    
+    
+    @GetMapping("/news/{id}/image")
 	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
 
 		Optional<News> news = ns.findById(id);
@@ -91,7 +104,8 @@ public class GamelinkController {
 		} else {
 			return ResponseEntity.notFound().build();
 		}
-	}
+    }
+
 
     @GetMapping("/videogame/{id}/imageVg") //this will download the videogame photo
 	public ResponseEntity<Object> downloadImageVideogame(@PathVariable long id) throws SQLException {
@@ -126,13 +140,40 @@ public class GamelinkController {
 	}
 
     @GetMapping("/")
-    public String home(Model model){
+    public String home(Model model, HttpSession session) {
 
-        model.addAttribute("new", ns.findAll());
-              
+
+        Page<News> news = ns.findAll(PageRequest.of(0, 3)); 
+    
+        model.addAttribute("new", news);
+
+
         return "home";
+    }
+
+    @GetMapping("/news/{page}")
+    public String ajaxMoreNewsLoad(Model model, HttpSession session, @PathVariable int page) {
+
+        Page<News> news = ns.findAll(PageRequest.of(page, 9)); 
+    
+        model.addAttribute("new", news);
+
+        return "NewsTemplate";
 
     }
+
+    @GetMapping("/videogames/{page}")
+    public String ajaxMoreVideogamesLoad(Model model, HttpSession session, @PathVariable int page) {
+
+        Page<Videogame> videogames = vs.findAll(PageRequest.of(page, 9)); 
+    
+        model.addAttribute("games", videogames);
+
+        return "videogameTemplate";
+
+    }
+
+
 
 
     @GetMapping("/about")
@@ -185,13 +226,17 @@ public class GamelinkController {
     }
 
     @GetMapping("/news")
-    public String news(Model model){
-        
-        model.addAttribute("new", ns.findAll());
-        
-        return "news";
+    public String getNews(Model model, HttpSession session) {
 
+
+        Page<News> news = ns.findAll(PageRequest.of(0, 9)); 
+    
+
+        model.addAttribute("new", news);
+
+        return "news";
     }
+
 
     @GetMapping("/userProfile")
     public String userProfile(Model model, HttpServletRequest request){
@@ -290,7 +335,11 @@ public class GamelinkController {
     @GetMapping("/videogame")
     public String videogame(Model model) {
 
-        model.addAttribute("games", vs.findAll());
+        Page<Videogame> videogames = vs.findAll(PageRequest.of(0, 9)); 
+    
+
+        model.addAttribute("games", videogames);
+
 
         return "videogame";
     }
@@ -516,5 +565,6 @@ public class GamelinkController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+
 
 }
