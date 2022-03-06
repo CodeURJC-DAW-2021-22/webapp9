@@ -9,6 +9,82 @@
 var pageValueNews = 0;
 var pageValueVideogames = 0;
 
+/* sell graphic*/
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+//Rateyo
+
+/*$(document).ready(function () {
+
+    $("#rateYo").on('click', function () {
+        $.ajax({
+            rating: 1.6,
+            spacing: "5px",
+            url: '/videogame/' + rating,
+
+            success: function(data) {
+            multiColor: {
+
+                "startColor": "#FF0000", //RED
+                "endColor": "#00FF00"  //GREEN
+            }
+        });
+    });
+});*/
+
+
+$(document).ready(function() {
+    $('button#submitRatingStar').on('click', function() {
+        $.ajax({
+            type: "POST",
+            url: '/videogame/{rating}',
+            data: {rate: $('input[name="rate"]').val()},
+            success: function(response) {
+                $('.alert-success').fadeIn(2000);
+                $('#rate').text(response);
+            }
+        });
+        return false;
+    });              
+});
+
+
 $(document).ready(function() {    
     $('#moreImagesButton').on('click', function(){
         //Añadimos la imagen de carga en el contenedor
@@ -55,7 +131,6 @@ $(document).ready(function() {
     });               
 });
 
-
 function increaseNews(){
     pageValueNews += 1;
     return pageValueNews;
@@ -65,6 +140,7 @@ function increaseVideogames(){
     pageValueVideogames += 1;
     return pageValueVideogames;
 }
+
 
 
 

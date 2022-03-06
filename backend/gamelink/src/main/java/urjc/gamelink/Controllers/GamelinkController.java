@@ -332,6 +332,7 @@ public class GamelinkController {
 
     }
 
+
     @GetMapping("/videogame")
     public String videogame(Model model) {
 
@@ -343,6 +344,17 @@ public class GamelinkController {
 
         return "videogame";
     }
+
+    @PostMapping("/videogame/{rating}")
+    public String videogameRating(Model model, Videogame videogame, @RequestParam int rating){
+
+        videogame.setRating(rating);
+
+        vs.save(videogame);
+
+        return "videogame";
+    }
+    
 
     @ModelAttribute
 	public void addAttributes(Model model, HttpServletRequest request) {
