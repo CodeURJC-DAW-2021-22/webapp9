@@ -478,7 +478,7 @@ public class GamelinkController {
 			vs.delete(id);
 		}
 
-        return "videogame";
+        return "redirect:/videogame";
     }
 
     @GetMapping("/editNew/{id}")
@@ -532,7 +532,7 @@ public class GamelinkController {
 			ns.delete(id);
 		}
 
-        return "news";
+        return "redirect:/news";
     }
     @GetMapping("/profile/{id}/image")
 	public ResponseEntity<Object> downloadImageProfile(@PathVariable long id) throws SQLException {
