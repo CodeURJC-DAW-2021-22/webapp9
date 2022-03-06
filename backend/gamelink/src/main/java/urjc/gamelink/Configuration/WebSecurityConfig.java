@@ -32,23 +32,32 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/errorMessage").permitAll();
         http.authorizeRequests().antMatchers("/home").permitAll();
         http.authorizeRequests().antMatchers("/news").permitAll();
-        http.authorizeRequests().antMatchers("/signin").permitAll();
         http.authorizeRequests().antMatchers("/showNews").permitAll();
         http.authorizeRequests().antMatchers("/showVideogame").permitAll();
         http.authorizeRequests().antMatchers("/videogame").permitAll();
-        http.authorizeRequests().antMatchers("/login").permitAll();
-        http.authorizeRequests().antMatchers("/editVg").permitAll();
-        http.authorizeRequests().antMatchers("/removeVg").permitAll();
-        http.authorizeRequests().antMatchers("/editNs").permitAll();
-        http.authorizeRequests().antMatchers("/removeNs").permitAll();
         http.authorizeRequests().antMatchers("/").permitAll();
 	    
+        // Logged can not acces
 
-        /* Private pages*/
+        http.authorizeRequests().antMatchers("/login").not().hasAnyRole("USERO");
+        http.authorizeRequests().antMatchers("/signin").not().hasAnyRole("USERO");
 
-        http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
+        // Logged Only pages
+
         http.authorizeRequests().antMatchers("/paymentConfirmation").hasAnyRole("USERO");
         http.authorizeRequests().antMatchers("/userProfile").hasAnyRole("USERO");
+
+            /* Admin Only pages*/
+
+        http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/createVideogame").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/editVg/**").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/deleteVg/**").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/createNew").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/editNew/**").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/deleteNew/**").hasAnyRole("ADMIN");
+        
+
 
         // Login form
 
