@@ -11,11 +11,11 @@ var pageValueVideogames = 0;
 
 $(document).ready(function() {    
     $('#moreImagesButton').on('click', function(){
-        //Añadimos la imagen de carga en el contenedor
+        
         $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
         increaseNews();
         $.ajax({
-            type: "GET", //era un get
+            type: "GET", 
             url: '/news/' +  pageValueNews,
             beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
                 $('#loader').removeClass('hidden');
@@ -96,3 +96,36 @@ var check = function() {
       document.getElementById('createUserBtn').disabled = true;
     }
   }
+
+
+
+  window.onload = function() {
+ 
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+            text: "Videojuegos más vendidos por género"
+        },
+        data: [{
+            type: "pie",
+            startAngle: 240,
+            yValueFormatString: "##0.00\"%\"",
+            indexLabel: "{label} {y}",
+            dataPoints: [
+                {y: 78.45, label: "Estrategia"},
+                {y: 7.31, label: "Shooter"},
+                {y: 7.06, label: "Action"},
+                {y: 4.91, label: "Supervivencia"},
+                {y: 1.26, label: "Aventura"},
+                {y: 1.26, label: "Rol"},
+                {y: 1.26, label: "Deportes"},
+                {y: 1.26, label: "Construcción"},
+                {y: 1.26, label: "Carreras"},
+                {y: 1.26, label: "Simulación"},
+                {y: 1.26, label: "terror"},
+            ]
+        }]
+    });
+    chart.render();
+    
+    }
