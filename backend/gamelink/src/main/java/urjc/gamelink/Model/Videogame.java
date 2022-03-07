@@ -30,7 +30,7 @@ public class Videogame {
     @NonNull
     private float price;
 
-    private float rating;
+    private int rating;
 
     @NonNull
     private String genre;
@@ -128,9 +128,7 @@ public class Videogame {
         this.history = history;
     }
 
-    public void setRating(float rating) {
-        this.rating = rating;
-    }
+
 
     public String getCpuR() {
         return cpuR;
@@ -242,7 +240,7 @@ public class Videogame {
         return rating;
     }
 
-    public void  setRating(Float rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 

@@ -41,6 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/removeVg").permitAll();
         http.authorizeRequests().antMatchers("/editNs").permitAll();
         http.authorizeRequests().antMatchers("/removeNs").permitAll();
+        http.authorizeRequests().antMatchers("/videogame/**").permitAll();
         http.authorizeRequests().antMatchers("/").permitAll();
 	    
 

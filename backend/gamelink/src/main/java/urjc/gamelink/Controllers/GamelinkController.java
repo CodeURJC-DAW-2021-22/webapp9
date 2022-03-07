@@ -346,13 +346,13 @@ public class GamelinkController {
     }
 
     @PostMapping("/videogame/{rating}")
-    public String videogameRating(Model model, Videogame videogame, @RequestParam int rating){
+    public String videogameRating(Model model, Videogame videogame, @RequestParam (name = "rate") int rating){
 
         videogame.setRating(rating);
 
         vs.save(videogame);
 
-        return "videogame";
+        return "showVideogame";
     }
     
 
