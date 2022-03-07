@@ -76,7 +76,7 @@ $(document).ready(function() {
     $('button#submitRatingStar').on('click', function() {
         $.ajax({
             type: "POST",
-            url: '/videogame/{rating}',
+            url: '/videogameRating/{{id}}',
             data: {rate: $('input[name="rate"]').val()},
             success: function(response) {
                 $('.alert-success').fadeIn(2000);

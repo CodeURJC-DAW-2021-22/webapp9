@@ -345,14 +345,16 @@ public class GamelinkController {
         return "videogame";
     }
 
-    @PostMapping("/videogame/{rating}")
-    public String videogameRating(Model model, Videogame videogame, @RequestParam (name = "rate") int rating){
+    @PostMapping("/videogameRating/{id}")
+    public String videogameRating(Model model, @RequestParam (name = "rate") int rating, @PathVariable long id){ //pasamos el id por url definiendolo 
 
-        videogame.setRating(rating);
+        Optional<Videogame> videogame = vs.findById(id); //coge por id de vs (del videojuego)
 
-        vs.save(videogame);
+        videogame.get().setRating(rating); //get por el optional
 
-        return "showVideogame";
+        vs.save(videogame.get());
+
+        return "videogame";
     }
     
 
