@@ -23,10 +23,22 @@
                         <p class="lead fw-normal text-white-50 mb-4"
                             style="color: aliceblue !important; font-size: 2em !important;"> Precio: {{price}}</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-
                             <p><a class="btn btn-primary btn-lg px-4 me-sm-3" id="payButton"
                                     onclick="verifySingin()">Comprar ya <span style="color: grey;">{{price}}</span></a></p>
                             <p><a class="btn btn-outline-light btn-lg px-4" href="">Plan de compra</a></p>
+                        </div>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                            <form action="/videogame/{{id}}" method="post">
+                                <div class="star_content">
+                                    <input name="rate" value="1" type="radio" class="star" checked="checked" />
+                                    <input name="rate" value="2" type="radio" class="star" />
+                                    <input name="rate" value="3" type="radio" class="star" />
+                                    <input name="rate" value="4" type="radio" class="star" />
+                                    <input name="rate" value="5" type="radio" class="star" />
+                                </div>
+                                <button type="submit" name="submitRatingStar" id="submitRatingStar"
+                                    class="btn btn-primary btn-sm">Enviar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
