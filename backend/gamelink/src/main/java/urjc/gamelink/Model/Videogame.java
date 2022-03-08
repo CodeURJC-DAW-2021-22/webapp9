@@ -30,7 +30,7 @@ public class Videogame {
     @NonNull
     private float price;
 
-    private int rating;
+    private float rating;
 
     @NonNull
     private String genre;
@@ -240,7 +240,7 @@ public class Videogame {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 
