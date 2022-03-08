@@ -85,11 +85,6 @@ public class GamelinkController {
 		}
 	}
 
-
-    private int pagina = 0;
-
-    
-    
     @GetMapping("/news/{id}/image")
 	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
 
@@ -173,9 +168,6 @@ public class GamelinkController {
 
     }
 
-
-
-
     @GetMapping("/about")
     public String about(Model model){
         
@@ -185,7 +177,7 @@ public class GamelinkController {
 
     @GetMapping("/admin")
     public String admin(Model model){
-        
+
         return "admin";
 
     }
