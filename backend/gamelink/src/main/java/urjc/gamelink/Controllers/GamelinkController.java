@@ -86,7 +86,6 @@ public class GamelinkController {
 	}
 
 
-    private int pagina = 0;
 
     
     
@@ -287,7 +286,11 @@ public class GamelinkController {
     }
 
     @PostMapping("/signin")
-    public String signin(Model model, Usero user, @RequestParam String password){
+    public String signin(Model model, @RequestParam (required = true) Usero user, @RequestParam String password){
+
+        if (user.getName().equals("") || user.getName() == null){
+            return "errorMessage";
+        }
 
         ArrayList<String> lista = new ArrayList<>();
         lista.add("USERO");
