@@ -98,8 +98,77 @@ var check = function() {
   }
 
 
+  $(document).ready(function () { //se cargara cuando se crea la pantalla
+    $('#myChartSoldGenre').ready(function () { //se cargara cuando la grafica2 esta lista
 
-  window.onload = function() {
+        var games = [];
+        var solds = [];
+
+        $.ajax({
+            type: "GET",
+            url: '/api/genres',
+            success: function (data) {
+
+                for (let item of data) {
+                    games.push(item[0])
+                    solds.push(item[1])
+                }
+
+                var ctx = document.getElementById("myChartSoldGenre");
+                var myChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: games,
+                        datasets: [{
+                            label: 'nº de ventas',
+                            data: solds,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)', 
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(0, 0, 0, 0.2)',
+                                'rgba(255, 0, 0, 0.2)',
+                                'rgba(255, 255, 0, 0.2)',
+                                'rgba(0, 255, 0, 0.2)',
+                                'rgba(128, 0, 128, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(0, 0, 0, 1)',
+                                'rgba(255, 0, 0, 1)',
+                                'rgba(255, 0, 04, 1)',
+                                'rgba(255, 255, 0, 1)',
+                                'rgba(0, 255, 0, 1)',
+                                'rgba(128, 0, 128, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            },
+        });
+    })
+})
+
+
+
+ /*  window.onload = function() {
  
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
@@ -128,4 +197,4 @@ var check = function() {
     });
     chart.render();
     
-    }
+    } */
