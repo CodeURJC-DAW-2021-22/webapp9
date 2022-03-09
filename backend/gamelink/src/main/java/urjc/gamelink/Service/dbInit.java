@@ -444,7 +444,7 @@ public class dbInit {
             "Padarox Interactive",
             "Europa",
             "Introduce nuevos elementos a la mecánica de juego para plasmar la emoción y las complicaciones de mantener una ciudad de verdad, ampliando al mismo tiempo algunos de los temas ya conocidos de la experiencia del desarrollo urbanístico.",
-            "Construcción",
+            "Construccion",
             price,
             "Intel® Core™ i5 / AMD Ryzen 5",
             "16  GB de RAM",
@@ -588,7 +588,7 @@ public class dbInit {
             "Bungie",
             "Global",
             "Destiny 2 es un MMO de acción con un mundo único y dinámico al que tus amigos y tú os podéis unir en cualquier momento y desde cualquier lugar.",
-            "Acción",
+            "Accion",
             price,
             "Intel® Core™ i5 / AMD Ryzen 5",
             "16  GB de RAM",
@@ -708,6 +708,14 @@ public class dbInit {
 
         Usero usr = new Usero("usera", "useraPepe", "Uno", "usuario1@gmail.com");
         usr.setEncodedPassword(passwordEncoder.encode("passo"));
+        ArrayList<Videogame> purchaseGames = new ArrayList<>();
+        purchaseGames.add(vg1);
+        purchaseGames.add(vg5);
+        purchaseGames.add(vg10);
+        purchaseGames.add(vg7);
+        purchaseGames.add(vg16);
+        purchaseGames.add(vg20);
+        usr.setpurchaseVideogames(purchaseGames);
         ArrayList<String> roles1 = new ArrayList<>();
         roles1.add("USERO");
         usr.setRoles(roles1);
