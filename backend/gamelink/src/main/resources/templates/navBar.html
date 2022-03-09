@@ -14,6 +14,7 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="/news">Noticias</a></li>
                 <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                {{^logged}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sesión</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
@@ -21,6 +22,8 @@
                         <li><a class="dropdown-item" href="/signin">Registrarse</a></li>
                     </ul>
                 </li>
+                {{/logged}}
+
                 {{#logged}}
                 {{#isAdmin}}
                 <li class="nav-item"><a class="nav-link" href="/admin">Administrador</a></li>
