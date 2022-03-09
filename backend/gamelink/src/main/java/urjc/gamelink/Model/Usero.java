@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -45,7 +46,7 @@ public class Usero {
     @ManyToMany
      private List<News> readNotices;
 
-    @ManyToMany
+    @ManyToMany 
      private List<Videogame> purchaseVideogames;
 
     @ElementCollection(fetch = FetchType.EAGER)
