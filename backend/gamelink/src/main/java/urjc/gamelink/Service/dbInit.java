@@ -708,6 +708,14 @@ public class dbInit {
 
         Usero usr = new Usero("usera", "useraPepe", "Uno", "usuario1@gmail.com");
         usr.setEncodedPassword(passwordEncoder.encode("passo"));
+        ArrayList<Videogame> purchaseGames1 = new ArrayList<>();
+        purchaseGames1.add(vg1);
+        purchaseGames1.add(vg5);
+        purchaseGames1.add(vg10);
+        purchaseGames1.add(vg7);
+        purchaseGames1.add(vg16);
+        purchaseGames1.add(vg20);
+        usr.setpurchaseVideogames(purchaseGames1);
         ArrayList<String> roles1 = new ArrayList<>();
         roles1.add("USERO");
         usr.setRoles(roles1);
@@ -716,10 +724,17 @@ public class dbInit {
 
         Usero usr2 = new Usero("usuario", "usuarioPepe", "Uno", "usuario2@gmail.com");
         usr2.setEncodedPassword(passwordEncoder.encode("pass"));
+        ArrayList<Videogame> purchaseGames2 = new ArrayList<>();
+        purchaseGames2.add(vg1);
+        purchaseGames2.add(vg5);
+        purchaseGames2.add(vg10);
+        purchaseGames2.add(vg7);
+        //purchaseGames2.add(vg16);
+        //purchaseGames2.add(vg20);
+        usr2.setpurchaseVideogames(purchaseGames2);
         ArrayList<String> roles2 = new ArrayList<>();
         roles2.add("USERO");
         usr2.setRoles(roles2);
-
         us.save(usr2);
 
         Usero usr3 = new Usero("admin", "adminPepe", "Uno", "admin@123.com");
