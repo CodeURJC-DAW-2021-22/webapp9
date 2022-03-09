@@ -321,6 +321,7 @@ public class GamelinkController {
     public String showVideogame(Model model, @PathVariable long id){
 
         Optional <Videogame> videogame = vs.findById(id);
+        
 
         if(videogame.isPresent()){
             model.addAttribute("videogame", videogame.get());
@@ -346,13 +347,13 @@ public class GamelinkController {
     }
 
     @PostMapping("/videogameRating/{id}")
-    public String videogameRating(Model model, @RequestParam (name = "rate") float rating, @PathVariable long id){ //pasamos el id por url definiendolo 
+    public String videogameRating(Model model, @RequestParam (name = "rate") float rating, @PathVariable long id, HttpServletRequest request){ //pasamos el id por url definiendolo 
 
-        Optional<Videogame> videogame = vs.findById(id); //coge por id de vs (del videojuego)
+        Optional<Videogame> videogame = vs.findById(id); //coge por id de vs (del videojuego) /dame los videojuegos que empeicen por este id
 
-        videogame.get().setRating(rating); //get por el optional
+        videogame.get().setRating(rating); //get por el optional. Setea el rating por el id del videojuego
 
-        vs.save(videogame.get());
+        vs.save(videogame.get()); //lo guardamos
 
         return "showVideogame";
     }

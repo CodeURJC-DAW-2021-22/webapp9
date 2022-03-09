@@ -68,11 +68,9 @@ var myChart = new Chart(ctx, {
     });
 });*/
 
-$(document).ready(function(){
-    $('input.star').rating();
-});
 
 $(document).ready(function() {
+    $('input.star').rating();
     $('button#submitRatingStar').on('click', function() {
         $.ajax({
             type: "POST",
