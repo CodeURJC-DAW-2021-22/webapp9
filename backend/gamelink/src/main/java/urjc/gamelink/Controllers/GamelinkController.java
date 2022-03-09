@@ -256,14 +256,11 @@ public class GamelinkController {
     }
     
     @PostMapping("/userProfile")
-    public String userProfile(Model model, HttpServletRequest request, @RequestParam String name,
-                                @RequestParam String lastName, @RequestParam String nick, @RequestParam String email,
+    public String userProfile(Model model, HttpServletRequest request, @RequestParam String nick, @RequestParam String email,
                                 @RequestParam String creditCard, MultipartFile imageField) throws IOException{
                                     
         String useroName = request.getUserPrincipal().getName();
-        Usero user = ur.findByName(useroName).orElseThrow();                            
-        user.setName(name);
-        user.setLastName(lastName);
+        Usero user = ur.findByName(useroName).orElseThrow();  
         user.setNick(nick);
         user.setEmail(email);                            
         user.setCreditCard(creditCard);
@@ -568,6 +565,5 @@ public class GamelinkController {
 			return ResponseEntity.notFound().build();
 		}
 	}
-
 
 }
