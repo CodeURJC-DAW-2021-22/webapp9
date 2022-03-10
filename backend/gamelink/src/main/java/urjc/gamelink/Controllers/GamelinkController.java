@@ -189,10 +189,17 @@ public class GamelinkController {
 
     }
 
-    @GetMapping("/videogameStatistics")
-    public String videogameStatistics(Model model){
+    @GetMapping("/videogameStatistics/{page}")
+    public String recommendedVideogamesShow(Model model, HttpServletRequest request, @PathVariable int page){
         
-        return "videogameStatistics";
+        String name = request.getUserPrincipal().getName();
+        Usero user = ur.findByName(name).orElseThrow();
+
+        //Page<Object> videogames = vs.findByFavouriteGenre(user);
+
+        //model.addAttribute("games", videogames);
+
+        return "videogameTemplate";
 
     }
 

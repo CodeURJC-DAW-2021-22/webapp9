@@ -718,8 +718,15 @@ public class dbInit {
         ArrayList<Videogame> purchaseGames1 = new ArrayList<>();
         purchaseGames1.add(vg1);
         purchaseGames1.add(vg5);
+        purchaseGames1.add(vg5);
+        purchaseGames1.add(vg5);
+        purchaseGames1.add(vg5);
         purchaseGames1.add(vg10);
         purchaseGames1.add(vg7);
+        purchaseGames1.add(vg9);
+        purchaseGames1.add(vg9);
+        purchaseGames1.add(vg16);
+        purchaseGames1.add(vg16);
         purchaseGames1.add(vg16);
         purchaseGames1.add(vg20);
         usr.setpurchaseVideogames(purchaseGames1);

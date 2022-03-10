@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
 import urjc.gamelink.Repositories.VideogameRepository;
 
@@ -43,5 +44,9 @@ public class VideogameService {
 
     public Page<Videogame> findAll(PageRequest of) {
         return repository.findAll(of);
+    }
+
+	public List<Object> findByFavouriteGenre(Usero user) {
+        return repository.findByFavouriteGenre(user);
     }
 }

@@ -8,6 +8,7 @@
 
 var pageValueNews = 0;
 var pageValueVideogames = 0;
+var pageValueRecommendedGames = 0;
 
 $(document).ready(function() {    
     $('#moreImagesButton').on('click', function(){
@@ -23,6 +24,27 @@ $(document).ready(function() {
             success: function (data) {
                 //Cargamos finalmente el contenido deseado
                 //$('#masImagenes').fadeIn(1000).html(data);
+                $("#moreImages").fadeIn(1000).append(data);
+            },
+            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('#loader').addClass('hidden');
+            },
+        });
+    });
+});
+
+$(document).ready(function() {    
+    $('#moreRecommendedVideogamesBtn').on('click', function(){
+        
+        $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+        increaseRecommendedVideogames();
+        $.ajax({
+            type: "GET", 
+            url: '/videogameStatistics/' +  pageValueRecommendedGames,
+            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('#loader').removeClass('hidden');
+            },
+            success: function (data) {
                 $("#moreImages").fadeIn(1000).append(data);
             },
             complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
@@ -66,7 +88,10 @@ function increaseVideogames() {
     return pageValueVideogames;
 }
 
-
+function increaseRecommendedVideogames() {
+    pageValueRecommendedGames += 1;
+    return pageValueRecommendedGames;
+}
 
 function verifySignin() {
     principal = request.getUserPrincipal();
