@@ -355,8 +355,27 @@ public class GamelinkController {
 
         vs.save(videogame.get()); //lo guardamos
 
-        return "showVideogame";
+        return "redirect:/showVideogame/" + id;
     }
+
+    /*
+    @PostMapping("/videogameRating/{id}")
+    public String videogameRating(Model model, @RequestParam (name = "rate") List <Float> rating, @PathVariable long id, HttpServletRequest request){ //pasamos el id por url definiendolo 
+
+        Optional<Videogame> videogame = vs.findById(id); //coge por id de vs (del videojuego) /dame los videojuegos que empeicen por este id
+
+        videogame.get().setRatingValue(rating); //get por el optional. Setea el rating por el id del videojuego
+
+        for(float value : rating){
+            //rating.add(value);
+            videogame.get().setRatingValue(rating);
+        }
+
+        vs.save(videogame.get()); //lo guardamos
+
+        return "redirect:/showVideogame/" + id; //tengo que poner un redirect en los PostMapping
+    }*/
+    
     
 
     @ModelAttribute

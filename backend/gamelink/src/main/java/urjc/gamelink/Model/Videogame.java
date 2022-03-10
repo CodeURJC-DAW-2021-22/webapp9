@@ -32,6 +32,8 @@ public class Videogame {
 
     private float rating;
 
+    //private List <Float> ratingValue;
+
     @NonNull
     private String genre;
 
@@ -107,6 +109,14 @@ public class Videogame {
         this.shortDescription = shortDescription;
         this.history = longDesciption;
     }
+
+    /*public void setRatingValue(List<Float> ratingValue){
+        this.ratingValue = ratingValue;
+    }
+
+    public List<Float> getRatingValue(){
+        return ratingValue;
+    }*/
 
     public void setPrice(float price) {
         this.price = price;
