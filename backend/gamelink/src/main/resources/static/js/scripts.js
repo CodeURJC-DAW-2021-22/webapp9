@@ -66,17 +66,26 @@ function increaseVideogames() {
     return pageValueVideogames;
 }
 
+// var principal = request.getUserPrincipal();
 
 
-function verifySignin() {
-    principal = request.getUserPrincipal();
-
-    if (getUserPrincipal() === true) {
-        location.href = '/paymentConfirmation';
-    } else {
-        location.href = '/errorMessage';
-    }
-}
+// $(document).ready(function () {
+//     $('#payButton').on('click', function () {
+//         $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+//         //increaseVideogames();
+//         $.ajax({
+//             type: "GET", 
+//             url: '/showVideogameUser/',
+//             success: function (data) {
+//                 if (data === null) {
+//                     location.href = '/paymentConfirmation';
+//                 }else {
+//                     location.href = '/errorMessage';
+//                 }
+//             },
+//         });
+//     });
+// });
 
 
 function alertDataChange() {

@@ -642,7 +642,7 @@ public class dbInit {
         Videogame vg18 = new Videogame("Phasmofobia",
             "Kinetic Games",
             "Asia",
-            "Phasmophobia is a 4 player online co-op psychological horror. Paranormal activity is on the rise and it’s up to you and your team to use all the ghost hunting equipment at your disposal in order to gather as much evidence as you can.",
+            "Phasmophobia is a 4 player online co-op psychological horror. Paranormal activity is on the rise and it’ s up to you and your team to use all the ghost hunting equipment at your disposal in order to gather as much evidence as you can.",
             "Terror",
             price,
             "Intel® Core™ i5 / AMD Ryzen 5",

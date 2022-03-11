@@ -22,12 +22,11 @@
                     <div class="col-xl-3 col-xxl-3 d-none d-xl-block text-center">
                         <p class="lead fw-normal text-white-50 mb-4"
                             style="color: aliceblue !important; font-size: 2em !important;"> Precio: {{price}}€</p>
-                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-
-                            <p><a class="btn btn-primary btn-lg px-4 me-sm-3" id="payButton"
-                                    onclick="verifySignin()">Comprar ya <span style="color: grey;">{{price}}€</span></a></p>
-                            <p><a class="btn btn-outline-light btn-lg px-4" href="">Plan de compra</a></p>
-                        </div>
+                            <!--Button to pay-->
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" id="payButton" href="/showVideogameUser">
+                                Comprar ya 
+                                <span style="color: grey;">{{price}}€</span>
+                            </a>
                     </div>
                 </div>
             </div>
