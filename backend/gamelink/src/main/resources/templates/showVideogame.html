@@ -30,12 +30,13 @@
                         {{#logged}}
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                             <form action="/videogameRating/{{id}}" method="post">
-                                <div class="star_content-sm-center ">
+                                <div class="star_content-sm-center">
                                     <input name="rate" value="1" type="radio" class="star" />
                                     <input name="rate" value="2" type="radio" class="star" />
                                     <input name="rate" value="3" type="radio" class="star" />
                                     <input name="rate" value="4" type="radio" class="star" />
                                     <input name="rate" value="5" type="radio" class="star" />
+                                    Puntuación media: {{ratingValue}} (sobre 5)
                                 </div>
                                 <input type="submit" name="submitRatingStar" id="submitRatingStar" class="btn btn-primary btn-sm"></input>
                                 <input type="hidden" name="_csrf" value="{{token}}"/>   

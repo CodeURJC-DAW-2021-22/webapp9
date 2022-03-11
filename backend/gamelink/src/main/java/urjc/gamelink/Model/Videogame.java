@@ -33,7 +33,7 @@ public class Videogame {
 
     private float rating;
 
-    private ArrayList <Float> ratingValue; //prueba
+    private float ratingValue; //prueba
 
     @NonNull
     private String genre;
@@ -111,14 +111,11 @@ public class Videogame {
         this.history = longDesciption;
     }
 
-    public void setRatingValue(ArrayList<Float> ratingValue){ //prueba
+    public void setRatingValue(float ratingValue){ //prueba
         this.ratingValue = ratingValue;
     }
 
-    public ArrayList<Float> getRatingValue(){ //prueba
-        for(Float puntuacion : ratingValue){
-
-        }
+    public float getRatingValue(){ //prueba
         return ratingValue;
     }
 

@@ -68,6 +68,10 @@ public class GamelinkController {
     @Autowired
 	private PasswordEncoder passwordEncoder;
 
+    float valor = 0;
+    float valorMedio = 0;
+    int cont = 0;
+
 
     
      //this will show admin mode (if the user is and admin) and userProfile (if user is registrated)
@@ -326,7 +330,6 @@ public class GamelinkController {
         if(videogame.isPresent()){
             model.addAttribute("videogame", videogame.get());
             model.addAttribute("id", id);
-            model.addAttribute("ratingValue", videogame.get().getRatingValue()); //prueba
         }
 
         
@@ -348,14 +351,28 @@ public class GamelinkController {
     }
 
     @PostMapping("/videogameRating/{id}")
-    public String videogameRating(Model model, @RequestParam (name = "rate") float rating, @PathVariable long id, HttpServletRequest request, @RequestParam(name="rate") ArrayList<Float> ratingValue){ //pasamos el id por url definiendolo 
+    public String videogameRating(Model model, @RequestParam (name = "rate") float rating, @PathVariable long id, HttpServletRequest request, ArrayList<Float> ratingValue){ //pasamos el id por url definiendolo 
+
 
         Optional<Videogame> videogame = vs.findById(id); //coge por id de vs (del videojuego) /dame los videojuegos que empeicen por este id
 
         videogame.get().setRating(rating); //get por el optional. Setea el rating por el id del videojuego
-        videogame.get().setRatingValue(ratingValue);
+        
+        ratingValue.add(rating);
+
+        for(int i = 0; i < ratingValue.size(); i++){
+            valor += ratingValue.get(i);
+            cont += 1;
+        }
+        valorMedio = valor/cont;
+
+        videogame.get().setRatingValue(valorMedio);
 
         vs.save(videogame.get()); //lo guardamos
+
+        for (int i = 0; i < ratingValue.size(); i++){ //no funciona.
+            ratingValue.remove(i);
+        }
 
         return "redirect:/showVideogame/" + id;
     }
