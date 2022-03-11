@@ -184,7 +184,7 @@ public class GamelinkController {
 
     }
 
-    @GetMapping("/paymentConfirmation")
+    @GetMapping("/paymentConfirmation/{id}")
     public String paymentConfirmation(Model model, HttpServletRequest request, @PathVariable long id){
         String name = request.getUserPrincipal().getName();
         Usero user = ur.findByName(name).orElseThrow();
@@ -193,8 +193,9 @@ public class GamelinkController {
         Optional <Videogame> videogame = vs.findById(id);
 
         if(videogame.isPresent()){
-            model.addAttribute("videogame", videogame.get());
-            model.addAttribute("id", id);
+            model.addAttribute("videogameName", videogame.get().getTitle());
+        }else{
+            return "/";
         }
 
         model.addAttribute("userName", user.getName());
@@ -570,14 +571,12 @@ public class GamelinkController {
 		}
 	}
 
-    @GetMapping("/showVideogameUser")
-    public String videogamePurchaseUser(Model model, HttpServletRequest request) {
+    @GetMapping("/showVideogameUser/{id}")
+    public String videogamePurchaseUser(Model model, HttpServletRequest request, @PathVariable long id) {
         Principal principal = request.getUserPrincipal();
 
         if (principal != null) {
-
-            return "redirect:/paymentConfirmation";
-
+            return "redirect:/paymentConfirmation"+ id;
         } else {
             return "redirect:/errorMessage";
         }
