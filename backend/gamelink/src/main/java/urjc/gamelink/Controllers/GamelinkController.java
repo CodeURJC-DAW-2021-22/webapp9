@@ -190,17 +190,16 @@ public class GamelinkController {
         Usero user = ur.findByName(name).orElseThrow();
         SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
+        model.addAttribute("date",date);
         Optional <Videogame> videogame = vs.findById(id);
 
         if(videogame.isPresent()){
-            model.addAttribute("videogameName", videogame.get().getTitle());
+            model.addAttribute("videogame", videogame.get());
         }else{
-            return "/";
+            return "redirect:/";
         }
 
-        model.addAttribute("userName", user.getName());
-        model.addAttribute("CreditCard", user.getCreditCard());
-        model.addAttribute("date", formatter.format(date));
+        model.addAttribute("user", user);
         return "paymentConfirmation";
 
     }
@@ -576,7 +575,7 @@ public class GamelinkController {
         Principal principal = request.getUserPrincipal();
 
         if (principal != null) {
-            return "redirect:/paymentConfirmation"+ id;
+            return "redirect:/paymentConfirmation/"+ id;
         } else {
             return "redirect:/errorMessage";
         }

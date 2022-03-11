@@ -44,7 +44,7 @@
                     <table width="50%" align="left">
                         <tbody>
                             <tr>
-                                <td class="esd-block-image" align="center"><a target="_blank"><img class="adapt-img" src="https://image.api.playstation.com/vulcan/ap/rnd/202107/1612/0b0owDFqekJszSOQfD4vvTjy.png" width="50%"></a></td>
+                                <td class="esd-block-image" align="center"><a target="_blank"><img class="adapt-img" src="/videogame/{{id}}/imageVg" width="50%"></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -52,8 +52,8 @@
                         <tbody>
                             <tr>
                                 <td align="left">
-                                    <p><span style="font-size:16px;"><strong style="line-height: 150%;">{{videogameName}}</strong></span></p>
-                                    <p>Desarrollador: FromSoftware</p>
+                                    <p><span style="font-size:16px;"><strong style="line-height: 150%;">{{videogame.title}}</strong></span></p>
+                                    <p>Desarrollador: {{videogame.company}}</p>
                                     <p>Edicion: Estandar</p>
                                 </td>
                             </tr>
@@ -83,7 +83,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td><strong>Precio:</strong></td>
-                                                                <td style="text-align: right;">49.99€</td>
+                                                                <td style="text-align: right;">{{videogame.price}}€</td>
                                                             </tr>
                                                             <tr>
                                                                 <td><strong>Descuento:</strong></td>
@@ -132,8 +132,8 @@
                         <tbody>
                             <tr>
                                 <td class="esd-block-text" align="left">
-                                    <p><strong>Usuario:</strong> {{userName}}</p>
-                                    <p><strong>Tarjeta de crédito:</strong>{{CreditCard}}</p>
+                                    <p><strong>Usuario:</strong> {{user.name}}</p>
+                                    <p><strong>Tarjeta de crédito:</strong>{{user.creditCard}}</p>
                                     <p><strong>País:</strong> España</p>
                                     <p><strong>Dia de la Compra:</strong>{{date}}</p>
                                 </td>

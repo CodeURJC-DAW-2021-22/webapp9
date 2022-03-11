@@ -74,8 +74,6 @@ public class Videogame {
     private String ssooR;
     private String gpuR;
     private String storageR;
-
-
     
     private String cpuM;
     private String ramM;
