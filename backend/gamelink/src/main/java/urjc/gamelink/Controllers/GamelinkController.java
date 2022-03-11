@@ -326,6 +326,7 @@ public class GamelinkController {
         if(videogame.isPresent()){
             model.addAttribute("videogame", videogame.get());
             model.addAttribute("id", id);
+            model.addAttribute("ratingValue", videogame.get().getRatingValue()); //prueba
         }
 
         
@@ -347,37 +348,18 @@ public class GamelinkController {
     }
 
     @PostMapping("/videogameRating/{id}")
-    public String videogameRating(Model model, @RequestParam (name = "rate") float rating, @PathVariable long id, HttpServletRequest request){ //pasamos el id por url definiendolo 
+    public String videogameRating(Model model, @RequestParam (name = "rate") float rating, @PathVariable long id, HttpServletRequest request, @RequestParam(name="rate") ArrayList<Float> ratingValue){ //pasamos el id por url definiendolo 
 
         Optional<Videogame> videogame = vs.findById(id); //coge por id de vs (del videojuego) /dame los videojuegos que empeicen por este id
 
         videogame.get().setRating(rating); //get por el optional. Setea el rating por el id del videojuego
+        videogame.get().setRatingValue(ratingValue);
 
         vs.save(videogame.get()); //lo guardamos
 
         return "redirect:/showVideogame/" + id;
     }
-
-    /*
-    @PostMapping("/videogameRating/{id}")
-    public String videogameRating(Model model, @RequestParam (name = "rate") List <Float> rating, @PathVariable long id, HttpServletRequest request){ //pasamos el id por url definiendolo 
-
-        Optional<Videogame> videogame = vs.findById(id); //coge por id de vs (del videojuego) /dame los videojuegos que empeicen por este id
-
-        videogame.get().setRatingValue(rating); //get por el optional. Setea el rating por el id del videojuego
-
-        for(float value : rating){
-            //rating.add(value);
-            videogame.get().setRatingValue(rating);
-        }
-
-        vs.save(videogame.get()); //lo guardamos
-
-        return "redirect:/showVideogame/" + id; //tengo que poner un redirect en los PostMapping
-    }*/
     
-    
-
     @ModelAttribute
 	public void addAttributes(Model model, HttpServletRequest request) {
 

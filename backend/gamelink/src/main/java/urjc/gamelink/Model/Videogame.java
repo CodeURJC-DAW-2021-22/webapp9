@@ -1,6 +1,7 @@
 package urjc.gamelink.Model;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,7 +33,7 @@ public class Videogame {
 
     private float rating;
 
-    //private List <Float> ratingValue;
+    private ArrayList <Float> ratingValue; //prueba
 
     @NonNull
     private String genre;
@@ -110,13 +111,16 @@ public class Videogame {
         this.history = longDesciption;
     }
 
-    /*public void setRatingValue(List<Float> ratingValue){
+    public void setRatingValue(ArrayList<Float> ratingValue){ //prueba
         this.ratingValue = ratingValue;
     }
 
-    public List<Float> getRatingValue(){
+    public ArrayList<Float> getRatingValue(){ //prueba
+        for(Float puntuacion : ratingValue){
+
+        }
         return ratingValue;
-    }*/
+    }
 
     public void setPrice(float price) {
         this.price = price;

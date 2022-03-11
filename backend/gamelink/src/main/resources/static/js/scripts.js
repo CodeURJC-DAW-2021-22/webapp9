@@ -48,27 +48,6 @@ var myChart = new Chart(ctx, {
     }
 });
 
-//Rateyo
-
-/*$(document).ready(function () {
-
-    $("#rateYo").on('click', function () {
-        $.ajax({
-            rating: 1.6,
-            spacing: "5px",
-            url: '/videogame/' + rating,
-
-            success: function(data) {
-            multiColor: {
-
-                "startColor": "#FF0000", //RED
-                "endColor": "#00FF00"  //GREEN
-            }
-        });
-    });
-});*/
-
-
 $(document).ready(function() {
     $('input.star').rating();
     $('button#submitRatingStar').on('click', function() {
