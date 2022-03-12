@@ -166,6 +166,25 @@ public class GamelinkController {
 
     }
 
+    @GetMapping("/videogameStatistics/{page}")
+    public String ajaxMoreVideogameStatisticsLoad(Model model, HttpServletRequest request,  @PathVariable int page) {
+
+        /*Page<Videogame> videogames = vs.findAll(PageRequest.of(page, 9)); 
+    
+        model.addAttribute("games", videogames);*/
+
+        String name = request.getUserPrincipal().getName();
+        Usero userx = ur.findByName(name).orElseThrow();
+        
+        Pageable paging = PageRequest.of(page, 9);
+        Page<Videogame> videogames = vs.findRecomended(userx.getId(),paging); 
+
+        model.addAttribute("games", videogames);
+
+        return "NewsTemplate";
+
+    }
+
     @GetMapping("/videogames/{page}")
     public String ajaxMoreVideogamesLoad(Model model, HttpSession session, @PathVariable int page) {
 

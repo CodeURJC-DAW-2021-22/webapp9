@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import urjc.gamelink.Model.Videogame;
@@ -41,7 +42,15 @@ public class VideogameService {
         return repository.findAllById(relatedGame);
     }
 
+	public Page<Videogame> findAll(Pageable pageable) { //añadido
+		return repository.findAll(pageable);
+	}
+
     public Page<Videogame> findAll(PageRequest of) {
         return repository.findAll(of);
+    }
+
+	public Page<Videogame> findRecomended(long id, Pageable pageable) {
+        return repository.findRecomended(id,pageable);
     }
 }
