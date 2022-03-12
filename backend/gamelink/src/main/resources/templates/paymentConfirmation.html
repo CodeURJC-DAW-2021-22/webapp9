@@ -59,7 +59,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <p><span style="font-size:15px;"><strong style="line-height: 150%;">Precio:</strong> 49.99€</span></p>
+                                    <p><span style="font-size:15px;"><strong style="line-height: 150%;">Precio:</strong>{{videogame.price}}</span></p>
                                 </td>
                             </tr>
                         </tbody>
@@ -86,12 +86,12 @@
                                                                 <td style="text-align: right;">{{videogame.price}}€</td>
                                                             </tr>
                                                             <tr>
-                                                                <td><strong>Descuento:</strong></td>
-                                                                <td style="text-align: right;">-0€ (0%)</td>
+                                                                <td><strong>Cantidad:</strong></td>
+                                                                <td style="text-align: right;">X 1</td>
                                                             </tr>
                                                             <tr>
                                                                 <td><span style="font-size: 18px; line-height: 200%;"><strong>Total:</strong></span></td>
-                                                                <td style="text-align: right;"><span style="font-size: 18px; line-height: 200%;"><strong>49.99€</strong></span></td>
+                                                                <td style="text-align: right;"><span style="font-size: 18px; line-height: 200%;"><strong>{{videogame.price}}</strong></span></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -144,7 +144,8 @@
             </tr>
             <tr>
                 <td align="center" id="confirmPaymentFinalBox">
-                    <button type="button" id="confirmPaymentFinalButton" onclick="buyProduct()"><p style="margin: auto; color: white;">COMPRAR</p></button>
+                    <button onclick="location.href='/'; return false;">Cancelar</button>
+                    <button onclick="location.href='/payment/{{id}}';">COMPRAR</button>
                 </td>
             </tr>
         </tbody>

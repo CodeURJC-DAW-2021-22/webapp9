@@ -204,6 +204,16 @@ public class GamelinkController {
 
     }
 
+    @GetMapping("/payment/{id}")
+    public String paymentConfirmation2(Model model, HttpServletRequest request, @PathVariable long id){
+        String name = request.getUserPrincipal().getName();
+        Usero user = ur.findByName(name).orElseThrow();
+        Optional <Videogame> videogame = vs.findById(id);
+        user.setOnePurchaseVideogame(videogame.get());
+        us.save(user);
+        return "redirect:/";
+    }
+
     @GetMapping("/videogameStatistics")
     public String videogameStatistics(Model model){
         
