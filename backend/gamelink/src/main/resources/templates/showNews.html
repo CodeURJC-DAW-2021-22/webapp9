@@ -45,12 +45,23 @@
             <section class="pt-0 MoreInfo" style="margin-left: 10%; margin-right: 10%; background-color: #FFFFFF !important;">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 justify-content-center">
-                        <div class="col-auto">
+                        <div class="col-md-12">
                             <h1 style="padding-bottom: 10px;">Leer más:</h1>
                             <p class="">
                                 {{description}}
                             </p>
+                        </div>
+
                     </div>
+                    
+                </div>
+            </section>
+
+            <section class="pt-0 MoreInfo" style="margin-left: 10%; margin-right: 10%; background-color: inherit !important;">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        {{>videogameTemplate}}
+                    </div>                
                 </div>
             </section>
         </main>

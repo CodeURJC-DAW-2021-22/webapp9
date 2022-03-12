@@ -34,7 +34,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {    
-    $('#moreRecommendedVideogamesBtn').on('click', function(){
+    $('#moreRecomendedVideogame').on('click', function(){
         
         $('#loader').html('<div class="loading"><img src="Photos/loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');
         increaseRecommendedVideogames();

@@ -71,19 +71,36 @@ public class GamelinkController {
 
     
      //this will show admin mode (if the user is and admin) and userProfile (if user is registrated)
+    // @ModelAttribute
+	// public void showAdminMode(Model model, HttpServletRequest request) {
+	// 	Principal principal = request.getUserPrincipal();
+
+	// 	if (principal != null) {
+
+	// 		model.addAttribute("logged", true);
+	// 		model.addAttribute("isAdmin", request.isUserInRole("ADMIN")); //look for 'ADMIN' in the database of the user
+
+	// 	} else {
+	// 		model.addAttribute("logged", false);
+	// 	}
+	// }
+    
     @ModelAttribute
-	public void showAdminMode(Model model, HttpServletRequest request) {
+	public void addAttributes(Model model, HttpServletRequest request) {
+
 		Principal principal = request.getUserPrincipal();
 
 		if (principal != null) {
 
 			model.addAttribute("logged", true);
-			model.addAttribute("isAdmin", request.isUserInRole("ADMIN")); //look for 'ADMIN' in the database of the user
+			model.addAttribute("userName", principal.getName());
+			model.addAttribute("isAdmin", request.isUserInRole("ADMIN"));
 
 		} else {
 			model.addAttribute("logged", false);
 		}
 	}
+
 
     @GetMapping("/news/{id}/image")
 	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
@@ -193,13 +210,15 @@ public class GamelinkController {
     public String recommendedVideogamesShow(Model model, HttpServletRequest request, @PathVariable int page){
         
         String name = request.getUserPrincipal().getName();
-        Usero user = ur.findByName(name).orElseThrow();
+        Usero userx = ur.findByName(name).orElseThrow();
+        
+        Pageable paging = PageRequest.of(page, 9);
+        Page<Videogame> videogames = vs.findRecomended(userx.getId(),paging); 
 
-        //Page<Object> videogames = vs.findByFavouriteGenre(user);
+        model.addAttribute("games", videogames);
 
-        //model.addAttribute("games", videogames);
 
-        return "videogameTemplate";
+        return "videogameRecomended";
 
     }
 
@@ -308,6 +327,8 @@ public class GamelinkController {
         Optional <News> newx = ns.findById(id);
         if(newx.isPresent()){
             model.addAttribute("new", ns.findById(id).get());
+            model.addAttribute("games", newx.get().getVideogamesRelated());
+            model.addAttribute("id", id);
         }else{
             return "/";
         }
@@ -324,6 +345,7 @@ public class GamelinkController {
 
         if(videogame.isPresent()){
             model.addAttribute("videogame", videogame.get());
+            model.addAttribute("new", videogame.get().getNotices());
             model.addAttribute("id", id);
         }
 
@@ -344,21 +366,6 @@ public class GamelinkController {
         return "videogame";
     }
 
-    @ModelAttribute
-	public void addAttributes(Model model, HttpServletRequest request) {
-
-		Principal principal = request.getUserPrincipal();
-
-		if (principal != null) {
-
-			model.addAttribute("logged", true);
-			model.addAttribute("userName", principal.getName());
-			model.addAttribute("admin", request.isUserInRole("ADMIN"));
-
-		} else {
-			model.addAttribute("logged", false);
-		}
-	}
 
     @GetMapping("/createNew")
     public String createNew(Model model) {

@@ -46,17 +46,4 @@ public class GraphicController {
         return ur.findBySold();
     }
 
-    @GetMapping("/videogameStatistics/prueba")
-    public List<Object> recommendedVideogamesShow(HttpServletRequest request){
-        
-        String name = request.getUserPrincipal().getName();
-        Usero user = ur.findByName(name).orElseThrow();
-
-        //List<Object> videogames = vs.findByFavouriteGenre(user);
-
-        //model.addAttribute("games", videogames);
-
-        return vr.findByFavouriteGenre(user);
-
-    }
 }
