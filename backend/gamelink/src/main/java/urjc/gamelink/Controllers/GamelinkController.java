@@ -3,7 +3,9 @@ package urjc.gamelink.Controllers;
 import java.io.IOException;
 import java.security.Principal;
 import java.sql.Blob;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.Optional;
 
@@ -199,11 +201,34 @@ public class GamelinkController {
 
     }
 
-    @GetMapping("/paymentConfirmation")
-    public String paymentConfirmation(Model model){
-        
+    @GetMapping("/paymentConfirmation/{id}")
+    public String paymentConfirmation(Model model, HttpServletRequest request, @PathVariable long id){
+        String name = request.getUserPrincipal().getName();
+        Usero user = ur.findByName(name).orElseThrow();
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        model.addAttribute("date",date);
+        Optional <Videogame> videogame = vs.findById(id);
+
+        if(videogame.isPresent()){
+            model.addAttribute("videogame", videogame.get());
+        }else{
+            return "redirect:/";
+        }
+
+        model.addAttribute("user", user);
         return "paymentConfirmation";
 
+    }
+
+    @GetMapping("/payment/{id}")
+    public String paymentConfirmation2(Model model, HttpServletRequest request, @PathVariable long id){
+        String name = request.getUserPrincipal().getName();
+        Usero user = ur.findByName(name).orElseThrow();
+        Optional <Videogame> videogame = vs.findById(id);
+        user.setOnePurchaseVideogame(videogame.get());
+        us.save(user);
+        return "redirect:/";
     }
 
     @GetMapping("/videogameStatistics/{page}")
@@ -572,5 +597,16 @@ public class GamelinkController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+
+    @GetMapping("/showVideogameUser/{id}")
+    public String videogamePurchaseUser(Model model, HttpServletRequest request, @PathVariable long id) {
+        Principal principal = request.getUserPrincipal();
+
+        if (principal != null) {
+            return "redirect:/paymentConfirmation/"+ id;
+        } else {
+            return "redirect:/errorMessage";
+        }
+    } 
 
 }

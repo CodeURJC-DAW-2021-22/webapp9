@@ -149,8 +149,8 @@ public class Usero {
     public void setpurchaseVideogames(List<Videogame> purchaseVideogames) {
        this.purchaseVideogames = purchaseVideogames;
     }
-    //public void setpurchaseVideogames(Videogame purchaseVideogame) {
-    //   purchaseVideogames.add(purchaseVideogame);
-    //}
-
+   
+    public void setOnePurchaseVideogame(Videogame vg){
+        this.purchaseVideogames.add(vg);
+    }
 }

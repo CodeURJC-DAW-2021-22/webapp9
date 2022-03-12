@@ -14,6 +14,8 @@ import urjc.gamelink.Repositories.VideogameRepository;
 import urjc.gamelink.Service.UseroService;
 import urjc.gamelink.Service.VideogameService;
 
+
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
