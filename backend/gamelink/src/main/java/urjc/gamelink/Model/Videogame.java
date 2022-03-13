@@ -110,6 +110,30 @@ public class Videogame {
         this.history = longDesciption;
     }
 
+    public String getHistory() {
+        return history;
+    }
+
+    public void setHistory(String history) {
+        this.history = history;
+    }
+
+    public List<PurchaseCode> getCodes() {
+        return codes;
+    }
+
+    public void setCodes(List<PurchaseCode> codes) {
+        this.codes = codes;
+    }
+
+    public List<Usero> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Usero> users) {
+        this.users = users;
+    }
+
     public void setPrice(float price) {
         this.price = price;
     }

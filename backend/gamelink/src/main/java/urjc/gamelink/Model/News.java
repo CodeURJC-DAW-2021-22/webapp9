@@ -60,6 +60,14 @@ public class News {
         this.argument = argument;
     }
 
+    public List<Usero> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Usero> users) {
+        this.users = users;
+    }
+
     public String getReadTime() {
         return readTime;
     }

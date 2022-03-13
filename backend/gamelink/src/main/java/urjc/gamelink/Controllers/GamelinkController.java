@@ -72,21 +72,6 @@ public class GamelinkController {
 
 
     
-     //this will show admin mode (if the user is and admin) and userProfile (if user is registrated)
-    // @ModelAttribute
-	// public void showAdminMode(Model model, HttpServletRequest request) {
-	// 	Principal principal = request.getUserPrincipal();
-
-	// 	if (principal != null) {
-
-	// 		model.addAttribute("logged", true);
-	// 		model.addAttribute("isAdmin", request.isUserInRole("ADMIN")); //look for 'ADMIN' in the database of the user
-
-	// 	} else {
-	// 		model.addAttribute("logged", false);
-	// 	}
-	// }
-    
     @ModelAttribute
 	public void addAttributes(Model model, HttpServletRequest request) {
 
