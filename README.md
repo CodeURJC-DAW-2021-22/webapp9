@@ -181,9 +181,9 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 ![](CapturasPantallasWEB/SpringBoot.PNG)
 
 # Diagrama de Clases (Fase 2)
-![](CapturasPantallasWEB/diagramaClasesDAWFase2.PNG)
+![](CapturasPantallasWEB/diagramaClasesDAWFase2.png)
 # Modelo  ER (Fase 2)
-![](CapturasPantallasWEB/modeloERDAWFase2.PNG)
+![](CapturasPantallasWEB/modeloERDAWFase2.png)
 # Participación de miembros:
 
 ### Andrea Patricia Acuña Padrón
