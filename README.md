@@ -139,7 +139,7 @@ Destacamos que en la barra de navegación "Administrador" sólo será visible pa
 
 ## Diagrama de navegación (FASE 1)
 
-![](CapturasPantallasWEB/diagramaDeNavegacion.png)
+![](CapturasPantallasWEB/DiagramaNavegacion.png)
 
 ## Instrucciones de Ejecución (Fase 2)
 
