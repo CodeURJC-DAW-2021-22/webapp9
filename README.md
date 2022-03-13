@@ -170,3 +170,4 @@ Debemos crear un servidor en la base de datos.
 ![](CapturasPantallasWEB/ServerCreate.PNG)
 
 El username y la password del servidor deben de ser los mismos que los que están en apartado application.properties. Además debemos configurar el puerto que vayamos a utilizar
+![](CapturasPantallasWEB/ServerCreate2.PNG)
