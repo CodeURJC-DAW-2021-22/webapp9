@@ -143,7 +143,7 @@ var check = function () {
                     data: {
                         labels: games,
                         datasets: [{
-                            label: 'nยบ de ventas',
+                            label: 'nº de ventas',
                             data: solds,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
