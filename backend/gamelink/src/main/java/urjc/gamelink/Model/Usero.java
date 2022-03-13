@@ -16,6 +16,9 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 
 
 @Entity(name = "tbl_user")
@@ -43,10 +46,10 @@ public class Usero {
     @JsonIgnore
     private Blob imageFile;
 
-    @ManyToMany
+    @ManyToMany(mappedBy="users")  
      private List<News> readNotices;
 
-    @ManyToMany 
+    @ManyToMany(mappedBy="users")     
      private List<Videogame> purchaseVideogames;
 
     @ElementCollection(fetch = FetchType.EAGER)
