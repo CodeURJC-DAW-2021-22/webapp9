@@ -45,6 +45,9 @@ public class News {
     @ManyToMany
      private List<Videogame> videogamesRelated;
 
+     @ManyToMany
+     private List<Usero> users;
+
      public News() {
     }
 
