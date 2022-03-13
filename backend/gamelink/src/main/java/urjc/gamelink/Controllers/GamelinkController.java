@@ -3,7 +3,9 @@ package urjc.gamelink.Controllers;
 import java.io.IOException;
 import java.security.Principal;
 import java.sql.Blob;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.Optional;
 
@@ -63,9 +65,6 @@ public class GamelinkController {
     private UseroService us;
 
     @Autowired
-    private UseroRepository ur;
-
-    @Autowired
 	private PasswordEncoder passwordEncoder;
 
     float value = 0;
@@ -73,27 +72,6 @@ public class GamelinkController {
     int cont = 0;
 
 
-    
-     //this will show admin mode (if the user is and admin) and userProfile (if user is registrated)
-    @ModelAttribute
-	public void showAdminMode(Model model, HttpServletRequest request) {
-		Principal principal = request.getUserPrincipal();
-
-		if (principal != null) {
-
-			model.addAttribute("logged", true);
-			model.addAttribute("isAdmin", request.isUserInRole("ADMIN")); //look for 'ADMIN' in the database of the user
-
-		} else {
-			model.addAttribute("logged", false);
-		}
-	}
-
-
-    private int pagina = 0;
-
-    
-    
     @GetMapping("/news/{id}/image")
 	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
 
@@ -174,7 +152,7 @@ public class GamelinkController {
         model.addAttribute("games", videogames);*/
 
         String name = request.getUserPrincipal().getName();
-        Usero userx = ur.findByName(name).orElseThrow();
+        Usero userx = us.findByName(name).orElseThrow();
         
         Pageable paging = PageRequest.of(page, 9);
         Page<Videogame> videogames = vs.findRecomended(userx.getId(),paging); 
@@ -196,9 +174,6 @@ public class GamelinkController {
 
     }
 
-
-
-
     @GetMapping("/about")
     public String about(Model model){
         
@@ -208,22 +183,54 @@ public class GamelinkController {
 
     @GetMapping("/admin")
     public String admin(Model model){
-        
+
         return "admin";
 
     }
 
-    @GetMapping("/paymentConfirmation")
-    public String paymentConfirmation(Model model){
-        
+    @GetMapping("/paymentConfirmation/{id}")
+    public String paymentConfirmation(Model model, HttpServletRequest request, @PathVariable long id){
+        String name = request.getUserPrincipal().getName();
+        Usero user = us.findByName(name).orElseThrow();
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        model.addAttribute("date",date);
+        Optional <Videogame> videogame = vs.findById(id);
+
+        if(videogame.isPresent()){
+            model.addAttribute("videogame", videogame.get());
+        }else{
+            return "redirect:/";
+        }
+
+        model.addAttribute("user", user);
         return "paymentConfirmation";
 
     }
 
-    @GetMapping("/videogameStatistics")
-    public String videogameStatistics(Model model){
+    @GetMapping("/payment/{id}")
+    public String paymentConfirmation2(Model model, HttpServletRequest request, @PathVariable long id){
+        String name = request.getUserPrincipal().getName();
+        Usero user = us.findByName(name).orElseThrow();
+        Optional <Videogame> videogame = vs.findById(id);
+        user.setOnePurchaseVideogame(videogame.get());
+        us.save(user);
+        return "redirect:/";
+    }
+
+    @GetMapping("/videogameStatistics/{page}")
+    public String recommendedVideogamesShow(Model model, HttpServletRequest request, @PathVariable int page){
         
-        return "videogameStatistics";
+        String name = request.getUserPrincipal().getName();
+        Usero userx = us.findByName(name).orElseThrow();
+        
+        Pageable paging = PageRequest.of(page, 9);
+        Page<Videogame> videogames = vs.findRecomended(userx.getId(),paging); 
+
+        model.addAttribute("games", videogames);
+
+
+        return "videogameRecomended";
 
     }
 
@@ -265,7 +272,7 @@ public class GamelinkController {
     public String userProfile(Model model, HttpServletRequest request){
 
         String name = request.getUserPrincipal().getName();
-        Usero user = ur.findByName(name).orElseThrow();
+        Usero user = us.findByName(name).orElseThrow();
         model.addAttribute("username", user.getName());
         model.addAttribute("nick", user.getNick());
         model.addAttribute("encodedPassword", user.getEncodedPassword());
@@ -280,14 +287,11 @@ public class GamelinkController {
     }
     
     @PostMapping("/userProfile")
-    public String userProfile(Model model, HttpServletRequest request, @RequestParam String name,
-                                @RequestParam String lastName, @RequestParam String nick, @RequestParam String email,
+    public String userProfile(Model model, HttpServletRequest request, @RequestParam String nick, @RequestParam String email,
                                 @RequestParam String creditCard, MultipartFile imageField) throws IOException{
                                     
         String useroName = request.getUserPrincipal().getName();
-        Usero user = ur.findByName(useroName).orElseThrow();                            
-        user.setName(name);
-        user.setLastName(lastName);
+        Usero user = us.findByName(useroName).orElseThrow();  
         user.setNick(nick);
         user.setEmail(email);                            
         user.setCreditCard(creditCard);
@@ -310,7 +314,11 @@ public class GamelinkController {
     }
 
     @PostMapping("/signin")
-    public String signin(Model model, Usero user, @RequestParam String password){
+    public String signin(Model model, @RequestParam (required = true) Usero user, @RequestParam String password){
+
+        if (user.getName().equals("") || user.getName() == null){
+            return "errorMessage";
+        }
 
         ArrayList<String> lista = new ArrayList<>();
         lista.add("USERO");
@@ -331,6 +339,8 @@ public class GamelinkController {
         Optional <News> newx = ns.findById(id);
         if(newx.isPresent()){
             model.addAttribute("new", ns.findById(id).get());
+            model.addAttribute("games", newx.get().getVideogamesRelated());
+            model.addAttribute("id", id);
         }else{
             return "/";
         }
@@ -348,6 +358,7 @@ public class GamelinkController {
 
         if(videogame.isPresent()){
             model.addAttribute("videogame", videogame.get());
+            model.addAttribute("new", videogame.get().getNotices());
             model.addAttribute("id", id);
         }
 
@@ -533,7 +544,7 @@ public class GamelinkController {
 			vs.delete(id);
 		}
 
-        return "videogame";
+        return "redirect:/videogame";
     }
 
     @GetMapping("/editNew/{id}")
@@ -587,7 +598,7 @@ public class GamelinkController {
 			ns.delete(id);
 		}
 
-        return "news";
+        return "redirect:/news";
     }
     @GetMapping("/profile/{id}/image")
 	public ResponseEntity<Object> downloadImageProfile(@PathVariable long id) throws SQLException {
@@ -621,5 +632,15 @@ public class GamelinkController {
 		}
 	}
 
+    @GetMapping("/showVideogameUser/{id}")
+    public String videogamePurchaseUser(Model model, HttpServletRequest request, @PathVariable long id) {
+        Principal principal = request.getUserPrincipal();
+
+        if (principal != null) {
+            return "redirect:/paymentConfirmation/"+ id;
+        } else {
+            return "redirect:/errorMessage";
+        }
+    } 
 
 }

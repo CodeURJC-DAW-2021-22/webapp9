@@ -12,8 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 
 
@@ -42,10 +46,10 @@ public class Usero {
     @JsonIgnore
     private Blob imageFile;
 
-    @ManyToMany
+    @ManyToMany(mappedBy="users")  
      private List<News> readNotices;
 
-    @ManyToMany
+    @ManyToMany(mappedBy="users")     
      private List<Videogame> purchaseVideogames;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -148,8 +152,8 @@ public class Usero {
     public void setpurchaseVideogames(List<Videogame> purchaseVideogames) {
        this.purchaseVideogames = purchaseVideogames;
     }
-    //public void setpurchaseVideogames(Videogame purchaseVideogame) {
-    //   purchaseVideogames.add(purchaseVideogame);
-    //}
-
+   
+    public void setOnePurchaseVideogame(Videogame vg){
+        this.purchaseVideogames.add(vg);
+    }
 }

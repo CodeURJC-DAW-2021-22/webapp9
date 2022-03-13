@@ -3,22 +3,35 @@ package urjc.gamelink.Configuration;
 
 import java.security.SecureRandom;
 
+import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 //import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+	RepositoryUserDetailsService userDetailsService;
+
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder(10, new SecureRandom());
+	}
+
+    @Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
 
 
@@ -32,7 +45,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/errorMessage").permitAll();
         http.authorizeRequests().antMatchers("/home").permitAll();
         http.authorizeRequests().antMatchers("/news").permitAll();
-        http.authorizeRequests().antMatchers("/signin").permitAll();
         http.authorizeRequests().antMatchers("/showNews").permitAll();
         http.authorizeRequests().antMatchers("/showVideogame").permitAll();
         http.authorizeRequests().antMatchers("/videogame").permitAll();
@@ -44,12 +56,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/videogame/**").permitAll();
         http.authorizeRequests().antMatchers("/").permitAll();
 	    
+        // Logged can not acces
 
-        /* Private pages*/
+        http.authorizeRequests().antMatchers("/login").not().hasAnyRole("USERO");
+        http.authorizeRequests().antMatchers("/signin").not().hasAnyRole("USERO");
 
-        http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
+        // Logged Only pages
+
         http.authorizeRequests().antMatchers("/paymentConfirmation").hasAnyRole("USERO");
         http.authorizeRequests().antMatchers("/userProfile").hasAnyRole("USERO");
+
+            /* Admin Only pages*/
+
+        http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/createVideogame").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/editVg/**").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/deleteVg/**").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/createNew").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/editNew/**").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/deleteNew/**").hasAnyRole("ADMIN");
+        
+
 
         // Login form
 

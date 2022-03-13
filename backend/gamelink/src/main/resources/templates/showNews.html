@@ -14,7 +14,7 @@
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
                                 <h1 class="display-5 fw-bolder text-white mb-2" style="font-size: 40px;">{{title}}</h1>
-                                <p class="lead fw-normal text-white-50 mb-4" style="color: aliceblue !important;">{{shortDescription}}</p>
+                                <p class="lead fw-normal text-white-50 mb-4" style="color: aliceblue !important;">{{argument}}</p>
                             </div>
                         </div>
                     </div>
@@ -45,12 +45,23 @@
             <section class="pt-0 MoreInfo" style="margin-left: 10%; margin-right: 10%; background-color: #FFFFFF !important;">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 justify-content-center">
-                        <div class="col-auto">
+                        <div class="col-md-12">
                             <h1 style="padding-bottom: 10px;">Leer más:</h1>
                             <p class="">
                                 {{description}}
                             </p>
+                        </div>
+
                     </div>
+                    
+                </div>
+            </section>
+
+            <section class="pt-0 MoreInfo" style="margin-left: 10%; margin-right: 10%; background-color: inherit !important;">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        {{>videogameTemplate}}
+                    </div>                
                 </div>
             </section>
         </main>

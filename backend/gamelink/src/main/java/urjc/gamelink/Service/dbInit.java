@@ -53,7 +53,7 @@ public class dbInit {
         News new2 = new News("PlayStation VR2 se lanzara a principios de 2023",
                                 "Sony PlayStation ha ido compartiendo novedades importantes de PlayStation VR2, el nuevo dispositivo de realidad virtual para la PS5. Una de estas novedades ha sido su fecha de salida",
                                 "26/02/2022",
-                                "3 minutos",
+                                "2 minutos",
                                 "Tendencia",
                                 "Pequeña descripción de tarjeta"); 
         setNewImage(new2,"/static/Photos/ps5_vr2.jpeg");
@@ -62,7 +62,7 @@ public class dbInit {
         News new3 = new News("Forza Horizon 5 anuncia una nueva actualización gratuita",
                                 "Xbox ya ha expresado multiples veces sus intenciones por mejorar la accesibilidad de sus juegos. Por ello esta actualización trae el lenguaje de signos a todas las cinematicas del juego",
                                 "26/02/2022",
-                                "3 minutos",
+                                "4 minutos",
                                 "Proximamente",
                                 "Pequeña descripción de tarjeta"); 
         setNewImage(new3,"/static/Photos/forzaHorizon5.jpeg");
@@ -71,7 +71,7 @@ public class dbInit {
         News new4 = new News("¿Nostalgico de Pac-Man? Esta colección con fecha recupera sus juegos junto a un sueño",
                                 "Pac-Man Musium+ ha confirmado su lanzamiento en todas las plataformas actuales y en Xbox Game Pass desde el dia 1",
                                 "26/02/2022",
-                                "3 minutos",
+                                "1 minutos",
                                 "Tendencia",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new4,"/static/Photos/pacManMusium.jpg");
@@ -89,7 +89,7 @@ public class dbInit {
         News new6 = new News("Pokemos GO recibirá nuevos Pokemon de Alola",
                                 "Rowlet, Litten y Popplio acompañaran a las nuevas criaturas de la septima generación en el juego de Niantic",
                                 "25/02/2022",
-                                "3 minutos",
+                                "2 minutos",
                                 "Proximamente",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new6,"/static/Photos/pokemonGo.jpg");
@@ -98,7 +98,7 @@ public class dbInit {
         News new7 = new News("¿Que barco mejorar en Lost Ark? Estos son nuestros consejos",
                                 "La navegación encierra peligros para todos los jugadores nuevos en el juego. En esta lista encontraras los mejores consejos para poder empezar a surcar los mares de Lost Ark",
                                 "25/02/2022",
-                                "3 minutos",
+                                "5 minutos",
                                 "Tendencia",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new7,"/static/Photos/lostArk_ship.jpg");
@@ -107,7 +107,7 @@ public class dbInit {
         News new8 = new News("Horizon Forbidden West diplica sus ventas digitales con respecto a su anterior juego",
                                 "La nueva aventura de Aloy de Guerrilla Games sigue sigue una tendencia ascendente que venimos observando en los ultims años",
                                 "24/02/2022",
-                                "3 minutos",
+                                "6 minutos",
                                 "Novedad",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new8,"/static/Photos/horizonForbiddenWest.jpeg");
@@ -116,7 +116,7 @@ public class dbInit {
         News new9 = new News("Call of Duty: Warzone corrige con su ultimo parche un error garrafal",
                                 "La nueva actualización del battle royale free to play hace ajustes en la PPSh-41, entre otros cambios",
                                 "24/02/2022",
-                                "3 minutos",
+                                "4 minutos",
                                 "Proximamente",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new9,"/static/Photos/callOfDuty.jpeg");
@@ -134,7 +134,7 @@ public class dbInit {
         News new11 = new News("Nintendo también compra estudios",
                                 "La Gran N adquiere a desarrolladores de Zelda y Super Mario, a parte de incorporar a la compañia japonesa SRD",
                                 "23/02/2022",
-                                "3 minutos",
+                                "8 minutos",
                                 "Nuevo",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new11,"/static/Photos/nintendo.png");
@@ -143,7 +143,7 @@ public class dbInit {
         News new12 = new News("Lost Ark en el horizonte proximo",
                                 "Habeis leído bien, Lost Ark, el esperado juego de Amazón Games esta a punto de llegar a nuestras casas",
                                 "23/02/2022",
-                                "3 minutos",
+                                "4 minutos",
                                 "Proximamente",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new12,"/static/Photos/lostark.jpg");
@@ -161,7 +161,7 @@ public class dbInit {
         News new14 = new News("Nueva informacion sobre Streets of Tarkov",
                                 "Battlestate Games anunció esta mañana en twitter la preview del esperado mapa, asi como avances de lo que se viene en proximas actualizaciones",
                                 "22/02/2022",
-                                "3 minutos",
+                                "2 minutos",
                                 "Tendencia",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new14,"/static/Photos/escapeFromTarkov.jpg");
@@ -170,7 +170,7 @@ public class dbInit {
         News new15 = new News("Dragon Ball FighterZ pone fecha a los combates entre Gpku y compañia en PC Game Pass",
                                 "El servicio de Xbox ampliara su catalogo de juegos de lucha con los enfrentaminetos de la conocida franquicia de Dragon Ball",
                                 "21/02/2022",
-                                "3 minutos",
+                                "1 minutos",
                                 "Nuevo",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new15,"/static/Photos/dragonBall.jpg");
@@ -179,7 +179,7 @@ public class dbInit {
         News new16 = new News("Ciberpunk 2077 no tendra metro, ni ahora ni nunca",
                                 "Aunque era el medio de transporte mas solicitado por los fans, parece que se quedaa fuera de Night City, segun han comentado sus creadores",
                                 "20/02/2022",
-                                "3 minutos",
+                                "6 minutos",
                                 "Tendencia",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new16,"/static/Photos/ciberpunk2077_metro.jpg");
@@ -197,7 +197,7 @@ public class dbInit {
         News new18 = new News("Los creadores de Gears 5 trabajan en varios proyectos por anunciar",
                                 "Asi lo declara Aaron Greenberg, que deefine a The Coalition como maestro en el uso de Unreal Engine, ¿Nos esperamos un nuevo Gears of War o algo mas?",
                                 "20/02/2022",
-                                "3 minutos",
+                                "5 minutos",
                                 "Proximamente",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new18,"/static/Photos/gears5.jpg");
@@ -206,7 +206,7 @@ public class dbInit {
         News new19 = new News("Assassin's Creed: Valhalla se actualiza y se podra jugar gratis este finde en todas las plataformas",
                                 "La última aventura de Ubisoft es todo un exito para sus arcas, pero la coompañia parte en busca de nuevos jugadores",
                                 "19/02/2022",
-                                "3 minutos",
+                                "8 minutos",
                                 "Novedad",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new19,"/static/Photos/assassinCreed.jpg");
@@ -215,13 +215,46 @@ public class dbInit {
         News new20 = new News("Total War: Warhammer 3 firma su segundo mejor estreno de un Total War en Steam",
                                 "Grandes numeros para el videojuego de estrategia pese a su lanzamiento simultaneo en PC Game Pass",
                                 "19/02/2022",
-                                "3 minutos",
+                                "9 minutos",
                                 "Tendencia",
                                 "Pequeña descripción de tarjeta");
         setNewImage(new20,"/static/Photos/totalWarWarhammer3_battle.jpeg");
         ns.save(new20);
 
-        /* Inserción de Videojeugos en la BBDDD */
+
+                /* inserting users into the database */
+
+                Usero usr = new Usero("usera", "useraPepe", "Uno", "usuario1@gmail.com");
+                usr.setEncodedPassword(passwordEncoder.encode("123"));
+                ArrayList<String> roles1 = new ArrayList<>();
+                roles1.add("USERO");
+                usr.setRoles(roles1);
+                usr.setCreditCard("ABCFHU6");
+        
+        
+                us.save(usr);
+        
+                Usero usr2 = new Usero("usuario", "usuarioPepe", "Uno", "usuario2@gmail.com");
+                usr2.setEncodedPassword(passwordEncoder.encode("pass"));
+                ArrayList<String> roles2 = new ArrayList<>();
+                roles2.add("USERO");
+                usr2.setRoles(roles2);
+                us.save(usr2);
+        
+                Usero usr3 = new Usero("admin", "adminPepe", "Uno", "admin@123.com");
+                usr3.setEncodedPassword(passwordEncoder.encode("123"));
+                ArrayList<String> roles3 = new ArrayList<>();
+                roles3.add("USERO");
+                roles3.add("ADMIN");
+                usr3.setRoles(roles3);
+                us.save(usr3);
+
+                ArrayList<Usero> users = new ArrayList<>();
+                users.add(usr);
+                users.add(usr2);
+                users.add(usr3);
+
+        /* Insertion of Videogames in thr BBDDD */
         float price = 24.99f;
         Videogame vg1 = new Videogame("Total War: ROME",
             "Sega",
@@ -244,6 +277,7 @@ public class dbInit {
             );
         setVgImage(vg1,"/static/Photos/totalWarRome.jpg");
         setVgCompanyImage(vg1,"/static/Photos/sega.jpg");
+        vg1.setUsers(users);
         vs.save(vg1);
 
         price = 29.99f;
@@ -317,6 +351,8 @@ public class dbInit {
             );
         setVgImage(vg4,"/static/Photos/minecraft.jpg");
         setVgCompanyImage(vg4,"/static/Photos/microsoft.png");
+        vg4.setUsers(users);
+
         vs.save(vg4);
     
         price = 55.85f;
@@ -444,7 +480,7 @@ public class dbInit {
             "Padarox Interactive",
             "Europa",
             "Introduce nuevos elementos a la mecánica de juego para plasmar la emoción y las complicaciones de mantener una ciudad de verdad, ampliando al mismo tiempo algunos de los temas ya conocidos de la experiencia del desarrollo urbanístico.",
-            "Construcción",
+            "Construccion",
             price,
             "Intel® Core™ i5 / AMD Ryzen 5",
             "16  GB de RAM",
@@ -588,7 +624,7 @@ public class dbInit {
             "Bungie",
             "Global",
             "Destiny 2 es un MMO de acción con un mundo único y dinámico al que tus amigos y tú os podéis unir en cualquier momento y desde cualquier lugar.",
-            "Acción",
+            "Accion",
             price,
             "Intel® Core™ i5 / AMD Ryzen 5",
             "16  GB de RAM",
@@ -635,7 +671,7 @@ public class dbInit {
         Videogame vg18 = new Videogame("Phasmofobia",
             "Kinetic Games",
             "Asia",
-            "Phasmophobia is a 4 player online co-op psychological horror. Paranormal activity is on the rise and it’s up to you and your team to use all the ghost hunting equipment at your disposal in order to gather as much evidence as you can.",
+            "Phasmophobia is a 4 player online co-op psychological horror. Paranormal activity is on the rise and it’ s up to you and your team to use all the ghost hunting equipment at your disposal in order to gather as much evidence as you can.",
             "Terror",
             price,
             "Intel® Core™ i5 / AMD Ryzen 5",
@@ -703,32 +739,10 @@ public class dbInit {
         setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
         vs.save(vg20);
 
+        
 
-        /* inserting users into the database */
 
-        Usero usr = new Usero("usera", "useraPepe", "Uno", "usuario1@gmail.com");
-        usr.setEncodedPassword(passwordEncoder.encode("passo"));
-        ArrayList<String> roles1 = new ArrayList<>();
-        roles1.add("USERO");
-        usr.setRoles(roles1);
-        usr.setCreditCard("ABCFHU6");
-        us.save(usr);
 
-        Usero usr2 = new Usero("usuario", "usuarioPepe", "Uno", "usuario2@gmail.com");
-        usr2.setEncodedPassword(passwordEncoder.encode("pass"));
-        ArrayList<String> roles2 = new ArrayList<>();
-        roles2.add("USERO");
-        usr2.setRoles(roles2);
-
-        us.save(usr2);
-
-        Usero usr3 = new Usero("admin", "adminPepe", "Uno", "admin@123.com");
-        usr3.setEncodedPassword(passwordEncoder.encode("123"));
-        ArrayList<String> roles3 = new ArrayList<>();
-        roles3.add("USERO");
-        roles3.add("ADMIN");
-        usr3.setRoles(roles3);
-        us.save(usr3);
     }
 
     
