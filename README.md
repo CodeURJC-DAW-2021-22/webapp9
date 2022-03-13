@@ -165,3 +165,8 @@ A continuación, debemos descargar el Extension Pack for Java y Spring Boot Exte
 
 Llegados a este punto necesitaremos descargar la base de datos. En este caso se ha usado PostgreSQL 6.4
 ![](CapturasPantallasWEB/PostgreSQLDownload.PNG)
+
+Debemos crear un servidor en la base de datos.
+![](CapturasPantallasWEB/ServerCreate.PNG)
+
+El username y la password del servidor deben de ser los mismos que los que están en apartado application.properties. Además debemos configurar el puerto que vayamos a utilizar
