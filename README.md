@@ -258,6 +258,7 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 ###### Descripción textual de las tareas realizadas en la fase:
 - Paginación: Todas las tareas para realizar la paginación de manera correcta. 
 - Puntuación: Incorporación del sistema de puntuación para los videojuegos (Pendiente de subir al main en Juan-Deprecated)
+- Pequeñas cosas como mejora: incorporación del navBar con moustache, incorporación de atributos a las entidades para el uso de las estrellas, cualquier arreglo, etc.
 ###### Listado de los 5 commits más significativos durante la fase:
 1. [avance paginacion pero no funciona](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/b2417175fbfe16eff11043bd4c67c80fd33fd07d)
 2. [pequeño avance, al menos cambia los elementos al pasar de pagina](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/a1365abc4bc88003b506098a0a0b23038b9d0b86)
