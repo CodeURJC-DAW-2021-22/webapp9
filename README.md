@@ -103,25 +103,41 @@ Cabe destacar que las valoraciones deben de tener en cuenta el número de valora
 Destacamos que en la barra de navegación "Administrador" sólo será visible para el administrador tras acceder como tal.
 1. Registro: la pantalla de registro ofrecerá la posibilidad, a los usuarios no registrados, de registrarse. Esto permitirá acceder a todas las funcionalidades personalizadas de la página: videojuegos y noticias por preferencias y comprar videojuegos.
 ![](CapturasPantallasWEB/registrarse.png)
+
 2. Inicio de sesión: permite a los usuarios previamente registrados acceder a la página web con usuario.
 ![](CapturasPantallasWEB/login.png)
+
 3. MenuHome: esta pantalla es principalmente la pantalla de bienvenida, con información general sobre noticias, compras y nuestro equipo, sin ahondar mucho en los detalles
 ![](CapturasPantallasWEB/main.png)
-4. VerVideojuego es la pantalla que muestra en detalle la información de un videojuego y permite a los usuarios adquirir dicho videojuego por dinero.
-![](CapturasPantallasWEB/VideojuegoEspecifico.png)
-5. About es la pantalla donde se muestra la información relacionada al euqipo de desarrollo de la página web GameLink.
-![](CapturasPantallasWEB/about.png)
-6. Videojuegos: en ella se muestra la lista de videojuegos disponibles en la página web: los más populares para usuarios no registrados y una lista personalizada para usuarios registrados. Si se pincha en un videojuego se redirigirá a la pantalla VerVideojuego.
+
+4.Videojuegos: en ella se muestra la lista de videojuegos disponibles en la página web: los más populares para usuarios no registrados y una lista personalizada para usuarios registrados. Si se pincha en un videojuego se redirigirá a la pantalla VerVideojuego.
 ![](CapturasPantallasWEB/videogames.png)
 ![](CapturasPantallasWEB/Videojuegos-Descubrir.png)
-7. Noticias: pantalla que permite ver las noticias más destacadas del día, así como la opción de poder acceder a ellas para ver cada noticia en detalle si optamos por pinchar en ellas.
+
+5. VerVideojuego es la pantalla que muestra en detalle la información de un videojuego y permite a los usuarios adquirir dicho videojuego por dinero.
+![](CapturasPantallasWEB/VideojuegoEspecifico.png)
+
+6. About es la pantalla donde se muestra la información relacionada al euqipo de desarrollo de la página web GameLink.
+![](CapturasPantallasWEB/about.png)
+
+7. VerNoticia: pantalla que permite ver con detalle cada noticia. Así como los videojuegos que la relacionan
+![](CapturasPantallasWEB/showNews.png)
+
+8. Noticias: pantalla que permite ver las noticias más destacadas del día, así como la opción de poder acceder a ellas para ver cada noticia en detalle si optamos por pinchar en ellas.
 ![](CapturasPantallasWEB/news.png)
-8. EstadísticaVideojuegos es la pantalla que muestra las gráficas con datos relativos al número de unidades vendidas y géneros más populares.
-![](CapturasPantallasWEB/Videojuegos-TOP.png)
-9. Admin es la pantalla utilizada por los usuarios administradores para actualizar las noticias y videojuegos del catálogo.
+
+9. Admin es la pantalla utilizada por los usuarios administradores para actualizar las noticias y videojuegos del catálogo. Además, se mostrarán los gráficos de las compras en la página web
 ![](CapturasPantallasWEB/admin.png)
-10. VerNoticia es la pantalla donde los usuarios podrá leer todo el contenido de una noticia.
-![](CapturasPantallasWEB/NoticiaEspecifica.png)
+
+9. Perfil es la pantalla en la que el usuario registrado podrá ver toda su información así como modificar los campos que le sean necesarios
+![](CapturasPantallasWEB/perfil.png)
+
+9. Confirmación compra es la pantalla en la que el usuario registrado podrá ver el monto a pagar y el videojuego seleccionado para poder confirmar o cancelar su pedido
+![](CapturasPantallasWEB/ConfirmacionCompra.png)
+
+10. Error compra y Error login son las pantallas de error correspondientes cuando el usuario no está registrado e intenta comprar y cuando las credenciales del login no son correctos respectivamente. 
+![](CapturasPantallasWEB/errorCompra.png)
+![](CapturasPantallasWEB/errorLogin.png)
 
 ## Diagrama de navegación (FASE 1)
 
