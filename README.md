@@ -190,7 +190,15 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
   - Compra videojuego: Botón en cada uno de los videojuegos. Dicho botón redirige a un error si el usuario no está loggeado y a una pantalla de confirmación de compra si el usuario si está loggeado. Una vez comprado el videojuego, este pertenecerá al usuario apareciendole la compra en su perfil.
 
 ###### Listado de los 5 commits más significativos durante la fase
- - d14439a8e898589cee1edc0dfebf393c95931ebd
+ - Payment error id videogame
+ - Gráfica videojuegos genero terminada
+ - botón compra finalizado + pequeños arreglos estéticos
+ - Modificar perfil
+ - continuación del perfil
 
 
 ###### Listado de los 5 ficheros en los que más haya participado
+- Login.html
+- UserProfile.html
+- CSRFHandlerConfiguration
+- GamelinkController
