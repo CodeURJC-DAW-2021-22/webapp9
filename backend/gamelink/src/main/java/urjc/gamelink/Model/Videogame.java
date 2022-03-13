@@ -66,6 +66,7 @@ public class Videogame {
     @OneToMany
     private List<PurchaseCode> codes;
 
+
     @ManyToMany
     private List<Usero> users;
 
