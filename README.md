@@ -256,8 +256,8 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 
 ### Juan Luis Rico Rus
 ###### Descripción textual de las tareas realizadas en la fase:
--Paginación: Todas las tareas para realizar la paginación de manera correcta.
--Puntuación: Incorporación del sistema de puntuación para los videojuegos (Pendiente de subir al main en Juan-Deprecated)
+- Paginación: Todas las tareas para realizar la paginación de manera correcta. 
+- Puntuación: Incorporación del sistema de puntuación para los videojuegos (Pendiente de subir al main en Juan-Deprecated)
 ###### Listado de los 5 commits más significativos durante la fase:
 
 ###### Listado de los 5 ficheros en los que más haya participado:
