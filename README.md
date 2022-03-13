@@ -102,23 +102,24 @@ Cabe destacar que las valoraciones deben de tener en cuenta el número de valora
 ## Descripción de cada una de las pantallas (FASE 1).
 Destacamos que en la barra de navegación "Administrador" sólo será visible para el administrador tras acceder como tal.
 1. Registro: la pantalla de registro ofrecerá la posibilidad, a los usuarios no registrados, de registrarse. Esto permitirá acceder a todas las funcionalidades personalizadas de la página: videojuegos y noticias por preferencias y comprar videojuegos.
-![](CapturasPantallasWEB/Registro.png)
+![](CapturasPantallasWEB/registrarse.png)
 2. Inicio de sesión: permite a los usuarios previamente registrados acceder a la página web con usuario.
-![](CapturasPantallasWEB/InicioSesion.png)
+![](CapturasPantallasWEB/login.png)
 3. MenuHome: esta pantalla es principalmente la pantalla de bienvenida, con información general sobre noticias, compras y nuestro equipo, sin ahondar mucho en los detalles
-![](CapturasPantallasWEB/InicioPantalla.png)
+![](CapturasPantallasWEB/main.png)
 4. VerVideojuego es la pantalla que muestra en detalle la información de un videojuego y permite a los usuarios adquirir dicho videojuego por dinero.
 ![](CapturasPantallasWEB/VideojuegoEspecifico.png)
 5. About es la pantalla donde se muestra la información relacionada al euqipo de desarrollo de la página web GameLink.
-![](CapturasPantallasWEB/About.png)
+![](CapturasPantallasWEB/about.png)
 6. Videojuegos: en ella se muestra la lista de videojuegos disponibles en la página web: los más populares para usuarios no registrados y una lista personalizada para usuarios registrados. Si se pincha en un videojuego se redirigirá a la pantalla VerVideojuego.
+![](CapturasPantallasWEB/videogames.png)
 ![](CapturasPantallasWEB/Videojuegos-Descubrir.png)
 7. Noticias: pantalla que permite ver las noticias más destacadas del día, así como la opción de poder acceder a ellas para ver cada noticia en detalle si optamos por pinchar en ellas.
-![](CapturasPantallasWEB/Noticias.png)
+![](CapturasPantallasWEB/news.png)
 8. EstadísticaVideojuegos es la pantalla que muestra las gráficas con datos relativos al número de unidades vendidas y géneros más populares.
 ![](CapturasPantallasWEB/Videojuegos-TOP.png)
 9. Admin es la pantalla utilizada por los usuarios administradores para actualizar las noticias y videojuegos del catálogo.
-![](CapturasPantallasWEB/Administrador.png)
+![](CapturasPantallasWEB/admin.png)
 10. VerNoticia es la pantalla donde los usuarios podrá leer todo el contenido de una noticia.
 ![](CapturasPantallasWEB/NoticiaEspecifica.png)
 
