@@ -173,3 +173,6 @@ El username y la password del servidor deben de ser los mismos que los que está
 
 ![](CapturasPantallasWEB/ServerCreate2.1.PNG)
 ![](CapturasPantallasWEB/appproperties.PNG)
+
+Para proceder a la ejecución del programa, primero se debe abrir la pestaña application.properties, de lo contrario no aparecerá el Spring Boot Dashboard (Instalado previamente mediante la extensión). Una vez abierta, se puede proceder a la ejecución del programa
+![](CapturasPantallasWEB/SpringBoot.PNG)
