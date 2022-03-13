@@ -138,7 +138,7 @@ Destacamos que en la barra de navegación "Administrador" sólo será visible pa
 ![](CapturasPantallasWEB/errorLogin.png)
 
 11. Top videojuegos: pantalla que permite ver los videojuegos mas populares del momento en base a sus puntuaciones.
-![](CapturasPantallasWEB/topVideojuegos.png)
+![](CapturasPantallasWEB/topVideogames.png)
 
 ## Diagrama de navegación (FASE 1)
 
