@@ -32,20 +32,17 @@ import urjc.gamelink.Repositories.UseroRepository;
 public class GraphicController {
     
     @Autowired
-    private UseroRepository ur;
-
-    @Autowired
-    private VideogameRepository vr;
+    private UseroService us;
 
     @GetMapping("/api/genres")
     public List<Object> graphic(){
 
-        return ur.findByGenre();
+        return us.findByGenre();
     }
 
     @GetMapping("/api/videogameSold")
     public List<Object> graphic2() {
-        return ur.findBySold();
+        return us.findBySold();
     }
 
 }

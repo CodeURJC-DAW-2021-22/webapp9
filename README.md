@@ -139,4 +139,40 @@ Destacamos que en la barra de navegación "Administrador" sólo será visible pa
 
 ## Diagrama de navegación (FASE 1)
 
-![](CapturasPantallasWEB/DiagramaPantallas.png)
+![](CapturasPantallasWEB/DiagramaNavegacion.png)
+
+## Instrucciones de Ejecución (Fase 2)
+
+Para poder descargar el código del proyecto se debe acceder al GitHub, después pulsar el boton verde en el que pone CODE. Una vez lo hayamos pulsado aparecerá un desplegable en el que se tendrá la opción de descargar como ZIP.
+
+El programa puede ser ejecutado tanto en Visual Studio Code como en SpringToolSuite4. Debido a que ha sido desarrollado en Visual Studio Code, las instrucciones serán para este entorno en concreto.
+
+Para poder utilizar Visual Studio Code, deberemos dirigirnos a la página oficial y descargar el programa para el sistema operativo que se desee
+![](CapturasPantallasWEB/DownloadVSCode.PNG)
+
+La versión Java necesaria es la 17, a su vez requiere la versión PostgreSQL 6.4 y Maven 4.0.0.
+
+Para poder usar Java y Maven, primero deberemos descargar las extensiones. El proceso será el siguiente:
+
+Primero vamos al apartado "Extensions"
+
+
+![](CapturasPantallasWEB/pluggins.PNG)
+
+
+A continuación, debemos descargar el Extension Pack for Java y Spring Boot Extension Pack
+![](CapturasPantallasWEB/Extensions.PNG)
+
+Llegados a este punto necesitaremos descargar la base de datos. En este caso se ha usado PostgreSQL 6.4
+![](CapturasPantallasWEB/PostgreSQLDownload.PNG)
+
+Debemos crear un servidor en la base de datos.
+![](CapturasPantallasWEB/ServerCreate.PNG)
+
+El username y la password del servidor deben de ser los mismos que los que están en apartado application.properties. Además debemos configurar el puerto que vayamos a utilizar
+
+![](CapturasPantallasWEB/ServerCreate2.1.PNG)
+![](CapturasPantallasWEB/appproperties.PNG)
+
+Para proceder a la ejecución del programa, primero se debe abrir la pestaña application.properties, de lo contrario no aparecerá el Spring Boot Dashboard (Instalado previamente mediante la extensión). Una vez abierta, se puede proceder a la ejecución del programa
+![](CapturasPantallasWEB/SpringBoot.PNG)

@@ -65,9 +65,6 @@ public class GamelinkController {
     private UseroService us;
 
     @Autowired
-    private UseroRepository ur;
-
-    @Autowired
 	private PasswordEncoder passwordEncoder;
 
 
@@ -189,7 +186,7 @@ public class GamelinkController {
     @GetMapping("/paymentConfirmation/{id}")
     public String paymentConfirmation(Model model, HttpServletRequest request, @PathVariable long id){
         String name = request.getUserPrincipal().getName();
-        Usero user = ur.findByName(name).orElseThrow();
+        Usero user = us.findByName(name).orElseThrow();
         SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
         model.addAttribute("date",date);
@@ -209,7 +206,7 @@ public class GamelinkController {
     @GetMapping("/payment/{id}")
     public String paymentConfirmation2(Model model, HttpServletRequest request, @PathVariable long id){
         String name = request.getUserPrincipal().getName();
-        Usero user = ur.findByName(name).orElseThrow();
+        Usero user = us.findByName(name).orElseThrow();
         Optional <Videogame> videogame = vs.findById(id);
         user.setOnePurchaseVideogame(videogame.get());
         us.save(user);
@@ -220,7 +217,7 @@ public class GamelinkController {
     public String recommendedVideogamesShow(Model model, HttpServletRequest request, @PathVariable int page){
         
         String name = request.getUserPrincipal().getName();
-        Usero userx = ur.findByName(name).orElseThrow();
+        Usero userx = us.findByName(name).orElseThrow();
         
         Pageable paging = PageRequest.of(page, 9);
         Page<Videogame> videogames = vs.findRecomended(userx.getId(),paging); 
@@ -270,7 +267,7 @@ public class GamelinkController {
     public String userProfile(Model model, HttpServletRequest request){
 
         String name = request.getUserPrincipal().getName();
-        Usero user = ur.findByName(name).orElseThrow();
+        Usero user = us.findByName(name).orElseThrow();
         model.addAttribute("username", user.getName());
         model.addAttribute("nick", user.getNick());
         model.addAttribute("encodedPassword", user.getEncodedPassword());
@@ -289,7 +286,7 @@ public class GamelinkController {
                                 @RequestParam String creditCard, MultipartFile imageField) throws IOException{
                                     
         String useroName = request.getUserPrincipal().getName();
-        Usero user = ur.findByName(useroName).orElseThrow();  
+        Usero user = us.findByName(useroName).orElseThrow();  
         user.setNick(nick);
         user.setEmail(email);                            
         user.setCreditCard(creditCard);
