@@ -140,7 +140,7 @@ Destacamos que en la barra de navegación "Administrador" sólo será visible pa
 11. Top videojuegos: pantalla que permite ver los videojuegos mas populares del momento en base a sus puntuaciones.
 ![](CapturasPantallasWEB/topVideogames.png)
 
-## Diagrama de navegación (FASE 1)
+## Diagrama de navegación (FASE 2)
 
 ![](CapturasPantallasWEB/DiagramaDeNavegacion.png)
 
@@ -180,6 +180,10 @@ El username y la password del servidor deben de ser los mismos que los que está
 Para proceder a la ejecución del programa, primero se debe abrir la pestaña application.properties, de lo contrario no aparecerá el Spring Boot Dashboard (Instalado previamente mediante la extensión). Una vez abierta, se puede proceder a la ejecución del programa
 ![](CapturasPantallasWEB/SpringBoot.PNG)
 
+# Diagrama de Clases (Fase 2)
+![](CapturasPantallasWEB/diagramaClasesDAWFase2.PNG)
+# Modelo  ER (Fase 2)
+![](CapturasPantallasWEB/modeloERDAWFase2.PNG)
 # Participación de miembros:
 
 ### Andrea Patricia Acuña Padrón
@@ -262,3 +266,26 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 3. [styles.css](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/css/styles.css)
 4. [showVideogame.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/showVideogame.html)
 5. [videogame](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/videogame.html)
+
+### Jhostin Davis Ortiz Moreno
+###### Descripción textual de las tareas realizadas en la fase:
+- Registro: Formulario para guardar nuevos usuarios. Implementado con ciertas medidas de seguridad para no guardar usuarios sin credenciales en la BD.
+- Algoritmo de consulta avanzada: Query SQL para recomendar juegos a los usuarios registrados en función de los géneros de los videojuegos que ya hayan comprado.
+- Header y Footer unificados con mustache: Header y Footer implementados en forma de templates .html que se incrustarán mediante mustache en el resto de páginas html.
+- Creación de las entidades: Creación de las clases que actuarán como entidades en la BD.
+- Configuración inicial del proyecto con Maven: configurado el proyecto mediante plantilla Maven. pom.xml dentro de carpeta backend.
+
+###### Listado de los 5 commits más significativos durante la fase:
+1. [Primer avance algoritmo consulta avanzada](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4043b4dcd82030654058ac1554cc5d9fedfa5fee)
+2. [Usuarios Nuevos se crean correctamente (Falta formulario con js correctamente implementado)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/1c04924ea917ab3f1496572cbe80a69c46e1b2a3)
+3. [Header y Footer genéricos en todas las páginas](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/731925a234f137817f699a8f0ff3f0dc03da120d)
+4. [Carpeta backend](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/94b5cc989115249cef59a5bbf961db7c52d66a52)
+5. [Primera versión entidades](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/159fd74109c92898ec25c4fbd5197004af544a21)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [script.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
+2. [Usero.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Model/Usero.java)
+3. [GamelinkController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/GamelinkController.java)
+4. [Videogame.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Model/Videogame.java)
+5. [VideogameRepository.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blame/main/backend/gamelink/src/main/java/urjc/gamelink/Repositories/VideogameRepository.java)
+
