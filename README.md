@@ -75,11 +75,13 @@ el usuario administrador podrá cambiar cualquier imágen de la página. Esto in
 
 ## 4. GRÁFICOS
 
-La página web contará con un gráfico de barras, el cual medirá el número de ventas de un videojuego/barra, mostrando así todos los videojuegos.
-Además constará de un gráfico de sectores, el cual mostrará las ventas por género a lo largo del tiempo. 
+La página web contará con un gráfico de barras, el cual medirá el número de ventas de un videojuego a lo largo de los últimos meses. Tendrá un desplegable para seleccionar el videojuego deseado y ver sus ventas correspondientes, así como las ventas generales de todos los videojuegos de la web.
 
-![](CapturasPantallasWEB/graficos.png)
+![](imagenes/grafico1.png)
 
+También contará con un gráfico de sectores, que medirá los géneros de videojuegos más vendidos a lo largo del mes.
+
+![](imagenes/grafico2.png)
 
 ## 5. TECNOLOGÍA COMPLEMENTARIA
 
@@ -100,82 +102,26 @@ Cabe destacar que las valoraciones deben de tener en cuenta el número de valora
 ## Descripción de cada una de las pantallas (FASE 1).
 Destacamos que en la barra de navegación "Administrador" sólo será visible para el administrador tras acceder como tal.
 1. Registro: la pantalla de registro ofrecerá la posibilidad, a los usuarios no registrados, de registrarse. Esto permitirá acceder a todas las funcionalidades personalizadas de la página: videojuegos y noticias por preferencias y comprar videojuegos.
-![](CapturasPantallasWEB/registrarse.png)
-
+![](CapturasPantallasWEB/Registro.png)
 2. Inicio de sesión: permite a los usuarios previamente registrados acceder a la página web con usuario.
-![](CapturasPantallasWEB/login.png)
-
+![](CapturasPantallasWEB/InicioSesion.png)
 3. MenuHome: esta pantalla es principalmente la pantalla de bienvenida, con información general sobre noticias, compras y nuestro equipo, sin ahondar mucho en los detalles
-![](CapturasPantallasWEB/main.png)
-
-4.Videojuegos: en ella se muestra la lista de videojuegos disponibles en la página web: los más populares para usuarios no registrados y una lista personalizada para usuarios registrados. Si se pincha en un videojuego se redirigirá a la pantalla VerVideojuego.
-![](CapturasPantallasWEB/videogames.png)
+![](CapturasPantallasWEB/InicioPantalla.png)
+4. VerVideojuego es la pantalla que muestra en detalle la información de un videojuego y permite a los usuarios adquirir dicho videojuego por dinero.
+![](CapturasPantallasWEB/VideojuegoEspecifico.png)
+5. About es la pantalla donde se muestra la información relacionada al euqipo de desarrollo de la página web GameLink.
+![](CapturasPantallasWEB/About.png)
+6. Videojuegos: en ella se muestra la lista de videojuegos disponibles en la página web: los más populares para usuarios no registrados y una lista personalizada para usuarios registrados. Si se pincha en un videojuego se redirigirá a la pantalla VerVideojuego.
 ![](CapturasPantallasWEB/Videojuegos-Descubrir.png)
-
-5. VerVideojuego es la pantalla que muestra en detalle la información de un videojuego y permite a los usuarios adquirir dicho videojuego por dinero.
-![](CapturasPantallasWEB/showVideogame.png)
-
-6. About es la pantalla donde se muestra la información relacionada al euqipo de desarrollo de la página web GameLink.
-![](CapturasPantallasWEB/about.png)
-
-7. VerNoticia: pantalla que permite ver con detalle cada noticia. Así como los videojuegos que la relacionan
-![](CapturasPantallasWEB/showNews.png)
-
-8. Noticias: pantalla que permite ver las noticias más destacadas del día, así como la opción de poder acceder a ellas para ver cada noticia en detalle si optamos por pinchar en ellas.
-![](CapturasPantallasWEB/news.png)
-
-9. Admin es la pantalla utilizada por los usuarios administradores para actualizar las noticias y videojuegos del catálogo. Además, se mostrarán los gráficos de las compras en la página web
-![](CapturasPantallasWEB/admin.png)
-
-9. Perfil es la pantalla en la que el usuario registrado podrá ver toda su información así como modificar los campos que le sean necesarios
-![](CapturasPantallasWEB/perfil.png)
-
-9. Confirmación compra es la pantalla en la que el usuario registrado podrá ver el monto a pagar y el videojuego seleccionado para poder confirmar o cancelar su pedido
-![](CapturasPantallasWEB/ConfirmacionCompra.png)
-
-10. Error compra y Error login son las pantallas de error correspondientes cuando el usuario no está registrado e intenta comprar y cuando las credenciales del login no son correctos respectivamente. 
-![](CapturasPantallasWEB/errorCompra.png)
-![](CapturasPantallasWEB/errorLogin.png)
-
-11. Top videojuegos: pantalla que permite ver los videojuegos mas populares del momento en base a sus puntuaciones.
-![](CapturasPantallasWEB/topVideogames.png)
+7. Noticias: pantalla que permite ver las noticias más destacadas del día, así como la opción de poder acceder a ellas para ver cada noticia en detalle si optamos por pinchar en ellas.
+![](CapturasPantallasWEB/Noticias.png)
+8. EstadísticaVideojuegos es la pantalla que muestra las gráficas con datos relativos al número de unidades vendidas y géneros más populares.
+![](CapturasPantallasWEB/Videojuegos-TOP.png)
+9. Admin es la pantalla utilizada por los usuarios administradores para actualizar las noticias y videojuegos del catálogo.
+![](CapturasPantallasWEB/Administrador.png)
+10. VerNoticia es la pantalla donde los usuarios podrá leer todo el contenido de una noticia.
+![](CapturasPantallasWEB/NoticiaEspecifica.png)
 
 ## Diagrama de navegación (FASE 1)
 
-![](CapturasPantallasWEB/DiagramaDeNavegacion.png)
-
-## Instrucciones de Ejecución (Fase 2)
-
-Para poder descargar el código del proyecto se debe acceder al GitHub, después pulsar el boton verde en el que pone CODE. Una vez lo hayamos pulsado aparecerá un desplegable en el que se tendrá la opción de descargar como ZIP.
-
-El programa puede ser ejecutado tanto en Visual Studio Code como en SpringToolSuite4. Debido a que ha sido desarrollado en Visual Studio Code, las instrucciones serán para este entorno en concreto.
-
-Para poder utilizar Visual Studio Code, deberemos dirigirnos a la página oficial y descargar el programa para el sistema operativo que se desee
-![](CapturasPantallasWEB/DownloadVSCode.PNG)
-
-La versión Java necesaria es la 17, a su vez requiere la versión PostgreSQL 6.4 y Maven 4.0.0.
-
-Para poder usar Java y Maven, primero deberemos descargar las extensiones. El proceso será el siguiente:
-
-Primero vamos al apartado "Extensions"
-
-
-![](CapturasPantallasWEB/pluggins.PNG)
-
-
-A continuación, debemos descargar el Extension Pack for Java y Spring Boot Extension Pack
-![](CapturasPantallasWEB/Extensions.PNG)
-
-Llegados a este punto necesitaremos descargar la base de datos. En este caso se ha usado PostgreSQL 6.4
-![](CapturasPantallasWEB/PostgreSQLDownload.PNG)
-
-Debemos crear un servidor en la base de datos.
-![](CapturasPantallasWEB/ServerCreate.PNG)
-
-El username y la password del servidor deben de ser los mismos que los que están en apartado application.properties. Además debemos configurar el puerto que vayamos a utilizar
-
-![](CapturasPantallasWEB/ServerCreate2.1.PNG)
-![](CapturasPantallasWEB/appproperties.PNG)
-
-Para proceder a la ejecución del programa, primero se debe abrir la pestaña application.properties, de lo contrario no aparecerá el Spring Boot Dashboard (Instalado previamente mediante la extensión). Una vez abierta, se puede proceder a la ejecución del programa
-![](CapturasPantallasWEB/SpringBoot.PNG)
+![](CapturasPantallasWEB/DiagramaPantallas.png)

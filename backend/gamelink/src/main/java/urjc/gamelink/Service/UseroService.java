@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
 //import urjc.gamelink.Repositories.NewRepository;
 import urjc.gamelink.Repositories.UseroRepository;
@@ -35,17 +34,5 @@ public class UseroService {
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
-
-    public List<Object> findByGenre() {
-        return repository.findByGenre();
-    }
-
-    public List<Object> findBySold() {
-        return repository.findBySold();
-    }
-
-    public Optional<Usero> findByName(String name) {
-        return repository.findByName(name);
-    }
 }
 

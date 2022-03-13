@@ -44,7 +44,7 @@
                     <table width="50%" align="left">
                         <tbody>
                             <tr>
-                                <td class="esd-block-image" align="center"><a target="_blank"><img class="adapt-img" src="/videogame/{{id}}/imageVg" width="50%"></a></td>
+                                <td class="esd-block-image" align="center"><a target="_blank"><img class="adapt-img" src="https://image.api.playstation.com/vulcan/ap/rnd/202107/1612/0b0owDFqekJszSOQfD4vvTjy.png" width="50%"></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -52,14 +52,14 @@
                         <tbody>
                             <tr>
                                 <td align="left">
-                                    <p><span style="font-size:16px;"><strong style="line-height: 150%;">{{videogame.title}}</strong></span></p>
-                                    <p>Desarrollador: {{videogame.company}}</p>
+                                    <p><span style="font-size:16px;"><strong style="line-height: 150%;">Elden Ring</strong></span></p>
+                                    <p>Desarrollador: FromSoftware</p>
                                     <p>Edicion: Estandar</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <p><span style="font-size:15px;"><strong style="line-height: 150%;">Precio:</strong>{{videogame.price}}</span></p>
+                                    <p><span style="font-size:15px;"><strong style="line-height: 150%;">Precio:</strong> 49.99€</span></p>
                                 </td>
                             </tr>
                         </tbody>
@@ -83,15 +83,15 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td><strong>Precio:</strong></td>
-                                                                <td style="text-align: right;">{{videogame.price}}€</td>
+                                                                <td style="text-align: right;">49.99€</td>
                                                             </tr>
                                                             <tr>
-                                                                <td><strong>Cantidad:</strong></td>
-                                                                <td style="text-align: right;">X 1</td>
+                                                                <td><strong>Descuento:</strong></td>
+                                                                <td style="text-align: right;">-0€ (0%)</td>
                                                             </tr>
                                                             <tr>
                                                                 <td><span style="font-size: 18px; line-height: 200%;"><strong>Total:</strong></span></td>
-                                                                <td style="text-align: right;"><span style="font-size: 18px; line-height: 200%;"><strong>{{videogame.price}}</strong></span></td>
+                                                                <td style="text-align: right;"><span style="font-size: 18px; line-height: 200%;"><strong>49.99€</strong></span></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -132,10 +132,10 @@
                         <tbody>
                             <tr>
                                 <td class="esd-block-text" align="left">
-                                    <p><strong>Usuario:</strong> {{user.name}}</p>
-                                    <p><strong>Tarjeta de crédito:</strong>{{user.creditCard}}</p>
-                                    <p><strong>País:</strong> España</p>
-                                    <p><strong>Dia de la Compra:</strong>{{date}}</p>
+                                    <p><strong>Usuario:</strong> JhostinGuapo</p>
+                                    <p><strong>Codigo Postal:</strong> 12345</p>
+                                    <p><strong>Pais:</strong> España</p>
+                                    <p><strong>Dia de la Compra:</strong> 18/02/22</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -144,8 +144,7 @@
             </tr>
             <tr>
                 <td align="center" id="confirmPaymentFinalBox">
-                    <button onclick="location.href='/'; return false;">Cancelar</button>
-                    <button onclick="location.href='/payment/{{id}}';">COMPRAR</button>
+                    <button type="button" id="confirmPaymentFinalButton" onclick="buyProduct()"><p style="margin: auto; color: white;">COMPRAR</p></button>
                 </td>
             </tr>
         </tbody>

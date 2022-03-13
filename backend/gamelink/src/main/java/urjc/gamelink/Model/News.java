@@ -28,7 +28,7 @@ public class News {
 
     
     @Column(columnDefinition = "TEXT")
-    private String argument;
+    private String shortDescription;
 
     private boolean image;
 
@@ -45,39 +45,28 @@ public class News {
     @ManyToMany
      private List<Videogame> videogamesRelated;
 
-     @ManyToMany
-     private List<Usero> users;
-
      public News() {
     }
 
-    public News(String title,String description, String date,String readTime, String badge ,String argument) {
+    public News(String title,String description, String date,String readTime, String badge ,String shortDescription) {
         this.title = title;
         this.description = description;
         this.date = date;
         this.badge = badge;
         this.readTime = readTime;
-        this.argument = argument;
-    }
-
-    public List<Usero> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<Usero> users) {
-        this.users = users;
+        this.shortDescription = shortDescription;
     }
 
     public String getReadTime() {
         return readTime;
     }
 
-    public String getArgument() {
-        return argument;
+    public String getShortDescription() {
+        return shortDescription;
     }
 
-    public void setArgument(String argument) {
-        this.argument = argument;
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public void setReadTime(String readTime) {
