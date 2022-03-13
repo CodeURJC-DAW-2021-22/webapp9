@@ -159,3 +159,6 @@ Primero vamos al apartado "Extensions"
 
 A continuación, debemos descargar el Extension Pack for Java y Spring Boot Extension Pack
 ![](CapturasPantallasWEB/Extensions.PNG)
+
+Llegados a este punto necesitaremos descargar la base de datos. En este caso se ha usado PostgreSQL 6.4
+![](CapturasPantallasWEB/PostgreSQLDownload.PNG)
