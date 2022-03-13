@@ -145,6 +145,11 @@ Destacamos que en la barra de navegación "Administrador" sólo será visible pa
 
 Para poder descargar el código del proyecto se debe acceder al GitHub, después pulsar el boton verde en el que pone CODE. Una vez lo hayamos pulsado aparecerá un desplegable en el que se tendrá la opción de descargar como ZIP.
 
+El programa puede ser ejecutado tanto en Visual Studio Code como en SpringToolSuite4. Debido a que ha sido desarrollado en Visual Studio Code, las instrucciones serán para este entorno en concreto.
+
+Para poder utilizar Visual Studio Code, deberemos dirigirnos a la página oficial y descargar el programa para el sistema operativo que se desee
+![](CapturasPantallasWEB/DownloadVSCode.PNG)
+
 La versión Java necesaria es la 17, a su vez requiere la versión PostgreSQL 6.4 y Maven 4.0.0.
 
 Para poder usar Java y Maven, primero deberemos descargar las extensiones. El proceso será el siguiente:
