@@ -190,19 +190,43 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
   - Compra videojuego: Botón en cada uno de los videojuegos. Dicho botón redirige a un error si el usuario no está loggeado y a una pantalla de confirmación de compra si el usuario si está loggeado. Una vez comprado el videojuego, este pertenecerá al usuario apareciendole la compra en su perfil.
 
 ###### Listado de los 5 commits más significativos durante la fase
- - Payment error id videogame 
+ 1. Payment error id videogame 
        -> * [Payment error id videogame](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/d14439a8e898589cee1edc0dfebf393c95931ebd)
- - Gráfica videojuegos genero terminada 
+ 2. Gráfica videojuegos genero terminada 
        -> * [Gráfica videojuegos genero terminada](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/5ad0b54b49bf4f347666071e44702ccffd7ea8af)
- - botón compra finalizado + pequeños arreglos estéticos
+ 3. botón compra finalizado + pequeños arreglos estéticos
        -> * [botón compra finalizado + pequeños arreglos estéticos](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/434c519edc1d4fdc92f0c623013520684dcfd985)
- - Modificar perfil
+ 4. Modificar perfil
        -> * [Modificar perfil](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/515c8b0e163bc34b55bb0439cbcda2237245e73f)
- - continuación del perfil
+ 5. continuación del perfil
        -> * [continuación del perfil](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/15f9aedc20dc3c69d736ea388c36e2a657766c4f)
 
 ###### Listado de los 5 ficheros en los que más haya participado
-- Login.html
-- UserProfile.html
-- CSRFHandlerConfiguration
-- GamelinkController
+1. Login.html
+2. UserProfile.html
+3. CSRFHandlerConfiguration
+4. GamelinkController
+
+### Mani Victor Patel Bentz
+###### Descripción textual de las tareas realizadas en la fase: 
+- En esta fase me he encargado de implementar que se pueda crear/eliminar/editar videojuegos y noticias, templates y funciones de cotnrolador. 
+- Creado los templates y funciones de controlador para cargar de base de datos la información asociada a cada videojuego o noticia. 
+- Implementado el protocolo https y agregado en el servicio de seguridad que dependiendo del rol de un usuario pueda o no acceder a ciertas URLs. 
+- Implementado también el algoritmo de personalizado. Ajustado nuestras relaciones entre entidades y lo que conllevaba en el código. 
+- Finalmente, algún hotfix me ha sido encargado.
+###### Listado de los 5 commits más significativos durante la fase
+
+1. [Me he adelantado este commit no vale](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/544869dcfb29b2db7245287fb8dc071d8ba85d6e)
+2. [Remove/Edit implemented, but Remove has errors](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4176b34a9d399172164bf8545880c9134b6f7b73)
+3. [Added games and news](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/46f85740e30eca420c4871ff7009868e0c058526)
+4. [Various fixes, most important edit and create videogame/new works](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/c4de66fe183f8156e9b131917e98178b15f70c0f)
+5. [Forms completed](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/5a065adb48ee5b4a2517ea4b8954a60e8fb57c40)
+
+###### Listado de los 5 ficheros en los que más haya participado
+
+1. [GamelinkController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/GamelinkController.java)
+2. [Videogame.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/main/backend/gamelink/src/main/java/urjc/gamelink/Model)
+3. [WebSecurityConfig.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Configuration/WebSecurityConfig.java)
+4. [editNewForm.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/editNewForm.html)
+5. [createVideogame.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/createNew.html)
+
