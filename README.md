@@ -234,11 +234,11 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 
 ### Carlos Fuentes Díaz
 ###### Descripción textual de las tareas realizadas en la fase:
-- Mensaje de error al comprar un juego: En este apartado se comprueba que el usuario esta registrado, si no lo está, al pulsar el botón de compra de un juego este le redirija a una pantalla de error de compra, esta tendrá un botón para poder volver atrás.
-- Confirmación de la compra: Si un usuario quiere comprar un juego se comprobará si está registrado, si lo está, al pulsar el botón de compra del juego, este le llevará a una pantalla donde le saldrá la factura de la compra y un botón para poder confirmar la compra realizada, al comprar el juego volverá a la página del juego.
+- Templates mensaje de error al comprar un juego y confirmar compra: creación de las templates para el mensaje error y la confirmación de la compra
 - Inicializar la BBDD: Se han introducido a la base de datos los 20 primeros videojuegos y las 20 primeras noticias de la página web.
 - Estética de la página web: En este apartado se ha mejorado la estética general de toda la página web, ya sean los colores, texto o que la página web sea más atractiva a la vista.
 - Hacer un navegador más dinámico: Cuando estas registrado como usuario no registrado, como usuario o como administrador, que en el navegador de la página web se muestren las pestañas que les corresponda a cada uno
+- Grafica de videojuegos vendidos: Consulta Query de todos los videojuegos vendidos y su visualización por grafico en admin.html
 
 ###### Listado de los 5 commits más significativos durante la fase:
 1. [1ºparte de verificacionCompra/mensaje de error](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/e271495aec51c17330652f6896364e8949936512)
@@ -248,7 +248,7 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 5. [grafica de juegos vendidos TERMINADO](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/abd347d402fbfe69e3c4a69cd4fe9022ebc2a0bf)
 
 ###### Listado de los 5 ficheros en los que más haya participado:
-1. [loginError.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/loginError.html)
+1. [styles.css](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/css/styles.css)
 2. [paymentConfirmation.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/paymentConfirmation.html)
 3. [bdinit.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Service/dbInit.java)
 4. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
