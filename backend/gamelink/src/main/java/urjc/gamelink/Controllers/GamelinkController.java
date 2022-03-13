@@ -370,12 +370,14 @@ public class GamelinkController {
     }
 
     @PostMapping("/videogameRating/{id}")
-    public String videogameRating(Model model, @RequestParam (name = "rate") float rating, @PathVariable long id, HttpServletRequest request, ArrayList<Float> ratingValue){ //we pass the id by url defining it
+    public String videogameRating(Model model, @RequestParam (name = "rate") float rating, @PathVariable long id, HttpServletRequest request/*ArrayList<Float> ratingValue*/){ //we pass the id by url defining it
 
 
         Optional<Videogame> videogame = vs.findById(id); //take by id of vs (of the video game) / give me the video games that start with this id
 
         videogame.get().setRating(rating); //get for the optional. Set the rating by the game id
+
+        ArrayList<Float> ratingValue = new ArrayList<>();
         
         ratingValue.add(rating);
 
