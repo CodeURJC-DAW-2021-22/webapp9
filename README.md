@@ -140,3 +140,17 @@ Destacamos que en la barra de navegación "Administrador" sólo será visible pa
 ## Diagrama de navegación (FASE 1)
 
 ![](CapturasPantallasWEB/DiagramaPantallas.png)
+
+## Instrucciones de Ejecución (Fase 2)
+
+Para poder descargar el código del proyecto se debe acceder al GitHub, después pulsar el boton verde en el que pone CODE. Una vez lo hayamos pulsado aparecerá un desplegable en el que se tendrá la opción de descargar como ZIP.
+
+La versión Java necesaria es la 17, a su vez requiere la versión PostgreSQL 6.4 y Maven 4.0.0.
+
+Para poder usar Java y Maven, primero deberemos desgargar las extensiones. El proceso será el siguiente:
+
+Primero vamos al apartado "Extensiones"
+![](CapturasPantallaWeb/pluggins.png)
+
+A continuación, debemos descargar el Extension Pack for Java y Spring Boot Extension Pack
+![](CapturasPantallaWeb/Extensions.png)
