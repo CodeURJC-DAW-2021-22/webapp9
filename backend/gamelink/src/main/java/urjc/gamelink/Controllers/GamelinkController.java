@@ -383,7 +383,10 @@ public class GamelinkController {
             valor += ratingValue.get(i);
             cont += 1;
         }
-        valorMedio = valor/cont;
+
+        double scale = Math.pow(10, 1);
+
+        valorMedio = (float) (Math.round((valor/cont)*scale)/scale);
 
         videogame.get().setRatingValue(valorMedio);
 
