@@ -189,7 +189,7 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
   - Gráfica de géneros: Consulta Query de los videojuegos vendidos por género y su visualización por gráfico en admin.html
   - Compra videojuego: Botón en cada uno de los videojuegos. Dicho botón redirige a un error si el usuario no está loggeado y a una pantalla de confirmación de compra si el usuario si está loggeado. Una vez comprado el videojuego, este pertenecerá al usuario apareciendole la compra en su perfil.
 
-###### Listado de los 5 commits más significativos durante la fase
+###### Listado de los 5 commits más significativos durante la fase:
  1. Payment error id videogame 
        -> * [Payment error id videogame](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/d14439a8e898589cee1edc0dfebf393c95931ebd)
  2. Gráfica videojuegos genero terminada 
@@ -201,7 +201,7 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
  5. continuación del perfil
        -> * [continuación del perfil](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/15f9aedc20dc3c69d736ea388c36e2a657766c4f)
 
-###### Listado de los 5 ficheros en los que más haya participado
+###### Listado de los 5 ficheros en los que más haya participado:
 1. Login.html
 2. UserProfile.html
 3. CSRFHandlerConfiguration
@@ -216,7 +216,7 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 - Ajustado nuestras relaciones entre entidades y lo que conlleva en el código. 
 - Finalmente, algún hotfix me ha sido encargado.
 
-###### Listado de los 5 commits más significativos durante la fase
+###### Listado de los 5 commits más significativos durante la fase:
 
 1. [Me he adelantado este commit no vale](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/544869dcfb29b2db7245287fb8dc071d8ba85d6e)
 2. [Remove/Edit implemented, but Remove has errors](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4176b34a9d399172164bf8545880c9134b6f7b73)
@@ -224,7 +224,7 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 4. [Various fixes, most important edit and create videogame/new works](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/c4de66fe183f8156e9b131917e98178b15f70c0f)
 5. [Forms completed](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/5a065adb48ee5b4a2517ea4b8954a60e8fb57c40)
 
-###### Listado de los 5 ficheros en los que más haya participado
+###### Listado de los 5 ficheros en los que más haya participado:
 
 1. [GamelinkController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/GamelinkController.java)
 2. [Videogame.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/main/backend/gamelink/src/main/java/urjc/gamelink/Model)
@@ -232,3 +232,24 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 4. [editNewForm.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/editNewForm.html)
 5. [createVideogame.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/createNew.html)
 
+### Carlos Fuentes Díaz
+###### Descripción textual de las tareas realizadas en la fase:
+- Mensaje de error al comprar un juego: En este apartado se comprueba que el usuario esta registrado, si no lo está, al pulsar el botón de compra de un juego este le redirija a una pantalla de error de compra, esta tendrá un botón para poder volver atrás.
+- Confirmación de la compra: Si un usuario quiere comprar un juego se comprobará si está registrado, si lo está, al pulsar el botón de compra del juego, este le llevará a una pantalla donde le saldrá la factura de la compra y un botón para poder confirmar la compra realizada, al comprar el juego volverá a la página del juego.
+- Inicializar la BBDD: Se han introducido a la base de datos los 20 primeros videojuegos y las 20 primeras noticias de la página web.
+- Estética de la página web: En este apartado se ha mejorado la estética general de toda la página web, ya sean los colores, texto o que la página web sea más atractiva a la vista.
+- Hacer un navegador más dinámico: Cuando estas registrado como usuario no registrado, como usuario o como administrador, que en el navegador de la página web se muestren las pestañas que les corresponda a cada uno
+
+###### Listado de los 5 commits más significativos durante la fase:
+1. [1ºparte de verificacionCompra/mensaje de error](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/e271495aec51c17330652f6896364e8949936512)
+2. [cambiado a ingles](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/5af0efce13629c127dc1457c634fc692b75d75cb)
+3. [actualizar bbdd videojuegos 1ºparte](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/c06c23ecd9663ef69334d2a0d4817c601d87c1de)
+4. [actualizar bbdd terminado](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/f979fb0ff7cddde61fb0a6f6e4262f8d482f88ad)
+5. [grafica de juegos vendidos TERMINADO](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/abd347d402fbfe69e3c4a69cd4fe9022ebc2a0bf)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [loginError.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/loginError.html)
+2. [paymentConfirmation.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/paymentConfirmation.html)
+3. [bdinit.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Service/dbInit.java)
+4. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
+5. [GamelinkController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/GamelinkController.java)
