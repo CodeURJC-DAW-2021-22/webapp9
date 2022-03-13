@@ -147,10 +147,10 @@ Para poder descargar el código del proyecto se debe acceder al GitHub, después
 
 La versión Java necesaria es la 17, a su vez requiere la versión PostgreSQL 6.4 y Maven 4.0.0.
 
-Para poder usar Java y Maven, primero deberemos desgargar las extensiones. El proceso será el siguiente:
+Para poder usar Java y Maven, primero deberemos descargar las extensiones. El proceso será el siguiente:
 
 ![](CapturasPantallasWEB/pluggins.PNG)
-Primero vamos al apartado "Extensiones"
+Primero vamos al apartado "Extensions"
 
 A continuación, debemos descargar el Extension Pack for Java y Spring Boot Extension Pack
 ![](CapturasPantallasWEB/Extensions.PNG)
