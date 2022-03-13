@@ -68,8 +68,8 @@ public class GamelinkController {
     @Autowired
 	private PasswordEncoder passwordEncoder;
 
-    float valor = 0;
-    float valorMedio = 0;
+    float value = 0;
+    float average = 0;
     int cont = 0;
 
 
@@ -370,29 +370,29 @@ public class GamelinkController {
     }
 
     @PostMapping("/videogameRating/{id}")
-    public String videogameRating(Model model, @RequestParam (name = "rate") float rating, @PathVariable long id, HttpServletRequest request, ArrayList<Float> ratingValue){ //pasamos el id por url definiendolo 
+    public String videogameRating(Model model, @RequestParam (name = "rate") float rating, @PathVariable long id, HttpServletRequest request, ArrayList<Float> ratingValue){ //we pass the id by url defining it
 
 
-        Optional<Videogame> videogame = vs.findById(id); //coge por id de vs (del videojuego) /dame los videojuegos que empeicen por este id
+        Optional<Videogame> videogame = vs.findById(id); //take by id of vs (of the video game) / give me the video games that start with this id
 
-        videogame.get().setRating(rating); //get por el optional. Setea el rating por el id del videojuego
+        videogame.get().setRating(rating); //get for the optional. Set the rating by the game id
         
         ratingValue.add(rating);
 
         for(int i = 0; i < ratingValue.size(); i++){
-            valor += ratingValue.get(i);
+            value += ratingValue.get(i);
             cont += 1;
         }
 
         double scale = Math.pow(10, 1);
 
-        valorMedio = (float) (Math.round((valor/cont)*scale)/scale);
+        average = (float) (Math.round((value/cont)*scale)/scale);
 
-        videogame.get().setRatingValue(valorMedio);
+        videogame.get().setRatingValue(average);
 
-        vs.save(videogame.get()); //lo guardamos
+        vs.save(videogame.get()); //load to the database
 
-        for (int i = 0; i < ratingValue.size(); i++){ //no funciona.
+        for (int i = 0; i < ratingValue.size(); i++){ //not working
             ratingValue.remove(i);
         }
 
