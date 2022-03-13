@@ -78,7 +78,7 @@ el usuario administrador podrá cambiar cualquier imágen de la página. Esto in
 La página web contará con un gráfico de barras, el cual medirá el número de ventas de un videojuego/barra, mostrando así todos los videojuegos.
 Además constará de un gráfico de sectores, el cual mostrará las ventas por género a lo largo del tiempo. 
 
-![](imagenes/graficos.png)
+![](CapturasPantallasWEB/graficos.png)
 
 
 ## 5. TECNOLOGÍA COMPLEMENTARIA
