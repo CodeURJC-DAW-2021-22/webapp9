@@ -115,7 +115,7 @@ Destacamos que en la barra de navegación "Administrador" sólo será visible pa
 ![](CapturasPantallasWEB/Videojuegos-Descubrir.png)
 
 5. VerVideojuego es la pantalla que muestra en detalle la información de un videojuego y permite a los usuarios adquirir dicho videojuego por dinero.
-![](CapturasPantallasWEB/VideojuegoEspecifico.png)
+![](CapturasPantallasWEB/showVideogame.png)
 
 6. About es la pantalla donde se muestra la información relacionada al euqipo de desarrollo de la página web GameLink.
 ![](CapturasPantallasWEB/about.png)
