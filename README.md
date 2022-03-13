@@ -179,3 +179,17 @@ El username y la password del servidor deben de ser los mismos que los que está
 
 Para proceder a la ejecución del programa, primero se debe abrir la pestaña application.properties, de lo contrario no aparecerá el Spring Boot Dashboard (Instalado previamente mediante la extensión). Una vez abierta, se puede proceder a la ejecución del programa
 ![](CapturasPantallasWEB/SpringBoot.PNG)
+
+# Participación de miembros:
+
+### Andrea Patricia Acuña Padrón
+###### Descripción textual de las tareas realizadas en la fase: 
+  - Login: Realización del login del usuario. Se debe comprobar que el usuario está en la base de datos y que los campos de nombre y contraseña coinciden. Además, si hay algún error como que no está el usuario en la base de datos saldrá una pantalla de error. 
+  - Editar perfil usuario: Visualización de una pantalla del perfil del usuario con los datos del mismo. Además, se podrán modificar los campos del usuario así como la foto de perfil. Se contará con un botón para guardar los cmabios y otro para deshacer los mismos.
+  - Gráfica de géneros: Consulta Query de los videojuegos vendidos por género y su visualización por gráfico en admin.html
+  - Compra videojuego: Botón en cada uno de los videojuegos. Dicho botón redirige a un error si el usuario no está loggeado y a una pantalla de confirmación de compra si el usuario si está loggeado. Una vez comprado el videojuego, este pertenecerá al usuario apareciendole la compra en su perfil.
+
+###### Listado de los 5 commits más significativos durante la fase
+ - 
+
+###### Listado de los 5 ficheros en los que más haya participado
