@@ -150,7 +150,7 @@ La versión Java necesaria es la 17, a su vez requiere la versión PostgreSQL 6.
 Para poder usar Java y Maven, primero deberemos desgargar las extensiones. El proceso será el siguiente:
 
 Primero vamos al apartado "Extensiones"
-![](CapturasPantallaWEB/pluggins.PNG)
+![](CapturasPantallasWEB/pluggins.PNG)
 
 A continuación, debemos descargar el Extension Pack for Java y Spring Boot Extension Pack
-![](CapturasPantallaWEB/Extensions.PNG)
+![](CapturasPantallasWEB/Extensions.PNG)
