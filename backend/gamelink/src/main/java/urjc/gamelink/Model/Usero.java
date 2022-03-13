@@ -153,7 +153,5 @@ public class Usero {
        this.purchaseVideogames = purchaseVideogames;
     }
    
-    public void setOnePurchaseVideogame(Videogame vg){
-        this.purchaseVideogames.add(vg);
-    }
+
 }

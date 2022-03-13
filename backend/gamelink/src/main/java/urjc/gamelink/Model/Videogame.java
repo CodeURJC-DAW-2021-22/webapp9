@@ -359,5 +359,10 @@ public class Videogame {
     public String toString() {
         return "Videojuego [id=" + id + ", title=" + title + ", description=" + description + "Precio=" +price+"]";
     }
-
+    
+    public void setOnePurchaseVideogame(Usero userx){
+        this.users.add(userx);
+    }
 }
+
+

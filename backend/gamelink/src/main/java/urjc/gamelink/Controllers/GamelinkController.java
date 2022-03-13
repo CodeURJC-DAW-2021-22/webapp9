@@ -208,7 +208,7 @@ public class GamelinkController {
         String name = request.getUserPrincipal().getName();
         Usero user = us.findByName(name).orElseThrow();
         Optional <Videogame> videogame = vs.findById(id);
-        user.setOnePurchaseVideogame(videogame.get());
+        videogame.get().setOnePurchaseVideogame(user);
         us.save(user);
         return "redirect:/";
     }
