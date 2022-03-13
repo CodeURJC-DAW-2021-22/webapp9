@@ -209,11 +209,13 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 
 ### Mani Victor Patel Bentz
 ###### Descripción textual de las tareas realizadas en la fase: 
-- En esta fase me he encargado de implementar que se pueda crear/eliminar/editar videojuegos y noticias, templates y funciones de cotnrolador. 
+- En esta fase me he encargado de implementar que se pueda crear/eliminar/editar videojuegos y noticias, templates y funciones de controlador. 
 - Creado los templates y funciones de controlador para cargar de base de datos la información asociada a cada videojuego o noticia. 
 - Implementado el protocolo https y agregado en el servicio de seguridad que dependiendo del rol de un usuario pueda o no acceder a ciertas URLs. 
-- Implementado también el algoritmo de personalizado. Ajustado nuestras relaciones entre entidades y lo que conllevaba en el código. 
+- Implementado también el algoritmo de personalizado. 
+- Ajustado nuestras relaciones entre entidades y lo que conlleva en el código. 
 - Finalmente, algún hotfix me ha sido encargado.
+
 ###### Listado de los 5 commits más significativos durante la fase
 
 1. [Me he adelantado este commit no vale](https://github.com/CodeURJC-DAW-2021-22/webapp9/tree/544869dcfb29b2db7245287fb8dc071d8ba85d6e)
