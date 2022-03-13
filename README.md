@@ -253,3 +253,16 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 3. [bdinit.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Service/dbInit.java)
 4. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
 5. [GamelinkController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/GamelinkController.java)
+
+### Juan Luis Rico Rus
+###### Descripción textual de las tareas realizadas en la fase:
+-Todas las tareas para realizar la paginación de manera correcta.
+-Incorporación del sistema de puntuación para los videojuegos (Pendiente de subir al main en Juan-Deprecated)
+###### Listado de los 5 commits más significativos durante la fase:
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [GamelinkController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/GamelinkController.java)
+2. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
+3. [styles.css](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/css/styles.css)
+4. [showVideogame.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/showVideogame.html)
+5. [videogame](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/videogame.html)
