@@ -309,14 +309,19 @@ public class GamelinkController {
     }
 
     @PostMapping("/signin")
-    public String signin(Model model, @RequestParam (required = true) Usero user, @RequestParam String password){
+    public String signin(Model model, Usero user, @RequestParam (required = true) String name, @RequestParam String email, 
+        @RequestParam String password, @RequestParam String nick, @RequestParam String lastName){
 
-        if (user.getName().equals("") || user.getName() == null){
+        if (name.equals("") || name == null){
             return "errorMessage";
         }
 
         ArrayList<String> lista = new ArrayList<>();
         lista.add("USERO");
+        user.setName(name);
+        user.setEmail(email);
+        user.setNick(nick);
+        user.setLastName(lastName);
         user.setRoles(lista);
         user.setEncodedPassword(passwordEncoder.encode(password));
         
