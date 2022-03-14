@@ -3,8 +3,6 @@ package urjc.gamelink.Service;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 import javax.annotation.PostConstruct;
 
@@ -15,7 +13,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import antlr.collections.List;
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
