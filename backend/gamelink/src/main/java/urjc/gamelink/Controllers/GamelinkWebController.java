@@ -43,7 +43,7 @@ import urjc.gamelink.Service.UseroService;
 import urjc.gamelink.Service.VideogameService;
 
 @Controller
-public class GamelinkController {
+public class GamelinkWebController {
 
     @Autowired
     private NewsService ns;
