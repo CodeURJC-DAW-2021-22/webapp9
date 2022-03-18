@@ -2,11 +2,9 @@ package urjc.gamelink.Controllers;
 
 import java.io.IOException;
 import java.security.Principal;
-import java.sql.Blob;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Map;
+//import java.text.SimpleDateFormat;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -14,13 +12,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
-//import javax.smartcardio.CardTerminals.State;
 
 import org.hibernate.engine.jdbc.BlobProxy;
-import org.jboss.jandex.VoidType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -30,24 +25,19 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 
 import urjc.gamelink.Model.News;
-import urjc.gamelink.Repositories.NewRepository;
 import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
-import urjc.gamelink.Repositories.UseroRepository;
 import urjc.gamelink.Service.NewsService;
 import urjc.gamelink.Service.UseroService;
 import urjc.gamelink.Service.VideogameService;
@@ -187,7 +177,7 @@ public class GamelinkWebController {
     public String paymentConfirmation(Model model, HttpServletRequest request, @PathVariable long id){
         String name = request.getUserPrincipal().getName();
         Usero user = us.findByName(name).orElseThrow();
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+        //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
         model.addAttribute("date",date);
         Optional <Videogame> videogame = vs.findById(id);
@@ -309,14 +299,19 @@ public class GamelinkWebController {
     }
 
     @PostMapping("/signin")
-    public String signin(Model model, @RequestParam (required = true) Usero user, @RequestParam String password){
+    public String signin(Model model, Usero user, @RequestParam (required = true) String name, @RequestParam String email, 
+        @RequestParam String password, @RequestParam String nick, @RequestParam String lastName){
 
-        if (user.getName().equals("") || user.getName() == null){
+        if (name.equals("") || name == null){
             return "errorMessage";
         }
 
         ArrayList<String> lista = new ArrayList<>();
         lista.add("USERO");
+        user.setName(name);
+        user.setEmail(email);
+        user.setNick(nick);
+        user.setLastName(lastName);
         user.setRoles(lista);
         user.setEncodedPassword(passwordEncoder.encode(password));
         

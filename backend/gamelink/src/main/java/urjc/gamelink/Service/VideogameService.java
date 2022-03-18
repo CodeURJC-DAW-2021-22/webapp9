@@ -9,7 +9,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
 import urjc.gamelink.Repositories.VideogameRepository;
 

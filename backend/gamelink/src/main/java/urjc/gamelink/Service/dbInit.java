@@ -3,8 +3,6 @@ package urjc.gamelink.Service;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 import javax.annotation.PostConstruct;
 
@@ -15,7 +13,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import antlr.collections.List;
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
@@ -224,7 +221,7 @@ public class dbInit {
 
                 /* inserting users into the database */
 
-                Usero usr = new Usero("usera", "useraPepe", "Uno", "usuario1@gmail.com");
+                Usero usr = new Usero("user", "usuario", "usuarioLastname", "usuario1@gmail.com");
                 usr.setEncodedPassword(passwordEncoder.encode("123"));
                 ArrayList<String> roles1 = new ArrayList<>();
                 roles1.add("USERO");
@@ -241,7 +238,7 @@ public class dbInit {
                 usr2.setRoles(roles2);
                 us.save(usr2);
         
-                Usero usr3 = new Usero("admin", "adminPepe", "Uno", "admin@123.com");
+                Usero usr3 = new Usero("admin", "adminName", "adminLastName", "admin@123.com");
                 usr3.setEncodedPassword(passwordEncoder.encode("123"));
                 ArrayList<String> roles3 = new ArrayList<>();
                 roles3.add("USERO");

@@ -1,17 +1,11 @@
 package urjc.gamelink.Repositories;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
 
 public interface VideogameRepository extends JpaRepository<Videogame, Long> {
