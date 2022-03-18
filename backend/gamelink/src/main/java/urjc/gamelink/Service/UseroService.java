@@ -34,5 +34,17 @@ public class UseroService {
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
+
+    public List<Object> findByGenre() {
+        return repository.findByGenre();
+    }
+
+    public List<Object> findBySold() {
+        return repository.findBySold();
+    }
+
+    public Optional<Usero> findByName(String name) {
+        return repository.findByName(name);
+    }
 }
 

@@ -3,7 +3,6 @@ package urjc.gamelink.Model;
 import java.sql.Blob;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,9 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
@@ -43,10 +42,10 @@ public class Usero {
     @JsonIgnore
     private Blob imageFile;
 
-    @ManyToMany
+    @ManyToMany(mappedBy="users")  
      private List<News> readNotices;
 
-    @ManyToMany 
+    @ManyToMany(mappedBy="users")     
      private List<Videogame> purchaseVideogames;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -150,7 +149,5 @@ public class Usero {
        this.purchaseVideogames = purchaseVideogames;
     }
    
-    public void setOnePurchaseVideogame(Videogame vg){
-        this.purchaseVideogames.add(vg);
-    }
+
 }

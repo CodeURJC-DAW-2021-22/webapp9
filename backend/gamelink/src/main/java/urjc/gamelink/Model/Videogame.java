@@ -3,7 +3,6 @@ package urjc.gamelink.Model;
 import java.sql.Blob;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,8 +12,6 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.lang.NonNull;
 
 @Entity(name = "tbl_videogame")
@@ -66,6 +63,7 @@ public class Videogame {
     @OneToMany
     private List<PurchaseCode> codes;
 
+
     @ManyToMany
     private List<Usero> users;
 
@@ -107,6 +105,30 @@ public class Videogame {
 
         this.shortDescription = shortDescription;
         this.history = longDesciption;
+    }
+
+    public String getHistory() {
+        return history;
+    }
+
+    public void setHistory(String history) {
+        this.history = history;
+    }
+
+    public List<PurchaseCode> getCodes() {
+        return codes;
+    }
+
+    public void setCodes(List<PurchaseCode> codes) {
+        this.codes = codes;
+    }
+
+    public List<Usero> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Usero> users) {
+        this.users = users;
     }
 
     public void setPrice(float price) {
@@ -334,5 +356,10 @@ public class Videogame {
     public String toString() {
         return "Videojuego [id=" + id + ", title=" + title + ", description=" + description + "Precio=" +price+"]";
     }
-
+    
+    public void setOnePurchaseVideogame(Usero userx){
+        this.users.add(userx);
+    }
 }
+
+

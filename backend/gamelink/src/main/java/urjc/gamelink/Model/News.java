@@ -2,12 +2,8 @@ package urjc.gamelink.Model;
 
 import java.sql.Blob;
 import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-//import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,6 +41,9 @@ public class News {
     @ManyToMany
      private List<Videogame> videogamesRelated;
 
+     @ManyToMany
+     private List<Usero> users;
+
      public News() {
     }
 
@@ -55,6 +54,14 @@ public class News {
         this.badge = badge;
         this.readTime = readTime;
         this.argument = argument;
+    }
+
+    public List<Usero> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Usero> users) {
+        this.users = users;
     }
 
     public String getReadTime() {

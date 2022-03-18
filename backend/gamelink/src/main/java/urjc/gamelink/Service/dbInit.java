@@ -3,8 +3,6 @@ package urjc.gamelink.Service;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 import javax.annotation.PostConstruct;
 
@@ -15,7 +13,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import antlr.collections.List;
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
@@ -221,14 +218,40 @@ public class dbInit {
         setNewImage(new20,"/static/Photos/totalWarWarhammer3_battle.jpeg");
         ns.save(new20);
 
-        /* Inserción de Videojeugos en la BBDDD */
 
-        /*
-        LOS REQUERIMIENTOS, LA DESCRIPCION DE LOS JUEGOS Y LA HISTORIA NO ESTAN BIEN PUESTOS... AHI QUE PONER CADA OVEJA CON SU PAREJA
-        LOS REQUERIMIENTOS, LA DESCRIPCION DE LOS JUEGOS Y LA HISTORIA NO ESTAN BIEN PUESTOS... AHI QUE PONER CADA OVEJA CON SU PAREJA
-        LOS REQUERIMIENTOS, LA DESCRIPCION DE LOS JUEGOS Y LA HISTORIA NO ESTAN BIEN PUESTOS... AHI QUE PONER CADA OVEJA CON SU PAREJA
-        LOS REQUERIMIENTOS, LA DESCRIPCION DE LOS JUEGOS Y LA HISTORIA NO ESTAN BIEN PUESTOS... AHI QUE PONER CADA OVEJA CON SU PAREJA
-        */
+                /* inserting users into the database */
+
+                Usero usr = new Usero("user", "usuario", "usuarioLastname", "usuario1@gmail.com");
+                usr.setEncodedPassword(passwordEncoder.encode("123"));
+                ArrayList<String> roles1 = new ArrayList<>();
+                roles1.add("USERO");
+                usr.setRoles(roles1);
+                usr.setCreditCard("ABCFHU6");
+        
+        
+                us.save(usr);
+        
+                Usero usr2 = new Usero("usuario", "usuarioPepe", "Uno", "usuario2@gmail.com");
+                usr2.setEncodedPassword(passwordEncoder.encode("pass"));
+                ArrayList<String> roles2 = new ArrayList<>();
+                roles2.add("USERO");
+                usr2.setRoles(roles2);
+                us.save(usr2);
+        
+                Usero usr3 = new Usero("admin", "adminName", "adminLastName", "admin@123.com");
+                usr3.setEncodedPassword(passwordEncoder.encode("123"));
+                ArrayList<String> roles3 = new ArrayList<>();
+                roles3.add("USERO");
+                roles3.add("ADMIN");
+                usr3.setRoles(roles3);
+                us.save(usr3);
+
+                ArrayList<Usero> users = new ArrayList<>();
+                users.add(usr);
+                users.add(usr2);
+                users.add(usr3);
+
+        /* Insertion of Videogames in thr BBDDD */
         float price = 24.99f;
         Videogame vg1 = new Videogame("Total War: ROME",
             "Sega",
@@ -251,6 +274,7 @@ public class dbInit {
             );
         setVgImage(vg1,"/static/Photos/totalWarRome.jpg");
         setVgCompanyImage(vg1,"/static/Photos/sega.jpg");
+        vg1.setUsers(users);
         vs.save(vg1);
 
         price = 29.99f;
@@ -324,6 +348,8 @@ public class dbInit {
             );
         setVgImage(vg4,"/static/Photos/minecraft.jpg");
         setVgCompanyImage(vg4,"/static/Photos/microsoft.png");
+        vg4.setUsers(users);
+
         vs.save(vg4);
     
         price = 55.85f;
@@ -710,633 +736,10 @@ public class dbInit {
         setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
         vs.save(vg20);
 
-        vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-            "TT Games",
-            "Global",
-            "Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-            "Aventura",
-            price,
-            "Intel® Core™ i5 / AMD Ryzen 5",
-            "16  GB de RAM",
-            "Windows® 10 de 64 bits",
-            "NVIDIA® GeForce® GTX 1050",
-            "+50 GB de espacio disponible",
-            "Intel® Core™ i3 / AMD® Ryzen™ 3",
-            "8 GB de RAM",
-            "Windows® 10 de 64 bits",
-            "NVIDIA® GeForce® 460",
-            "+50 GB de espacio disponible",
-            "Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-            "Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-            );
-        setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-        setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-        vs.save(vg20);
-
-        vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-            "TT Games",
-            "Global",
-            "Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-            "Aventura",
-            price,
-            "Intel® Core™ i5 / AMD Ryzen 5",
-            "16  GB de RAM",
-            "Windows® 10 de 64 bits",
-            "NVIDIA® GeForce® GTX 1050",
-            "+50 GB de espacio disponible",
-            "Intel® Core™ i3 / AMD® Ryzen™ 3",
-            "8 GB de RAM",
-            "Windows® 10 de 64 bits",
-            "NVIDIA® GeForce® 460",
-            "+50 GB de espacio disponible",
-            "Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-            "Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-            );
-        setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-        setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-        vs.save(vg20);
-
-        vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-            "TT Games",
-            "Global",
-            "Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-            "Aventura",
-            price,
-            "Intel® Core™ i5 / AMD Ryzen 5",
-            "16  GB de RAM",
-            "Windows® 10 de 64 bits",
-            "NVIDIA® GeForce® GTX 1050",
-            "+50 GB de espacio disponible",
-            "Intel® Core™ i3 / AMD® Ryzen™ 3",
-            "8 GB de RAM",
-            "Windows® 10 de 64 bits",
-            "NVIDIA® GeForce® 460",
-            "+50 GB de espacio disponible",
-            "Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-            "Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-            );
-        setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-        setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-        vs.save(vg20);
-
-        vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-            "TT Games",
-            "Global",
-            "Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-            "Aventura",
-            price,
-            "Intel® Core™ i5 / AMD Ryzen 5",
-            "16  GB de RAM",
-            "Windows® 10 de 64 bits",
-            "NVIDIA® GeForce® GTX 1050",
-            "+50 GB de espacio disponible",
-            "Intel® Core™ i3 / AMD® Ryzen™ 3",
-            "8 GB de RAM",
-            "Windows® 10 de 64 bits",
-            "NVIDIA® GeForce® 460",
-            "+50 GB de espacio disponible",
-            "Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-            "Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-            );
-        setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-        setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-        vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-            "TT Games",
-            "Global",
-            "Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-            "Aventura",
-            price,
-            "Intel® Core™ i5 / AMD Ryzen 5",
-            "16  GB de RAM",
-            "Windows® 10 de 64 bits",
-            "NVIDIA® GeForce® GTX 1050",
-            "+50 GB de espacio disponible",
-            "Intel® Core™ i3 / AMD® Ryzen™ 3",
-            "8 GB de RAM",
-            "Windows® 10 de 64 bits",
-            "NVIDIA® GeForce® 460",
-            "+50 GB de espacio disponible",
-            "Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-            "Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-            );
-        setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-        setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-        vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-        "TT Games",
-        "Global",
-        "Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-        "Aventura",
-        price,
-        "Intel® Core™ i5 / AMD Ryzen 5",
-        "16  GB de RAM",
-        "Windows® 10 de 64 bits",
-        "NVIDIA® GeForce® GTX 1050",
-        "+50 GB de espacio disponible",
-        "Intel® Core™ i3 / AMD® Ryzen™ 3",
-        "8 GB de RAM",
-        "Windows® 10 de 64 bits",
-        "NVIDIA® GeForce® 460",
-        "+50 GB de espacio disponible",
-        "Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-        "Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-        );
-    setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-    setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-    vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-    "TT Games",
-    "Global",
-    "Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-    "Aventura",
-    price,
-    "Intel® Core™ i5 / AMD Ryzen 5",
-    "16  GB de RAM",
-    "Windows® 10 de 64 bits",
-    "NVIDIA® GeForce® GTX 1050",
-    "+50 GB de espacio disponible",
-    "Intel® Core™ i3 / AMD® Ryzen™ 3",
-    "8 GB de RAM",
-    "Windows® 10 de 64 bits",
-    "NVIDIA® GeForce® 460",
-    "+50 GB de espacio disponible",
-    "Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-    "Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-    );
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);vg20 = new Videogame("LEGO Star Wars: The Skywalker saga",
-"TT Games",
-"Global",
-"Disfruta de las nueve películas de la saga Star Wars en un videojuego totalmente innovador de LEGO. Vive aventuras divertidísimas, cargadas de humor ingenioso y la libertad de sumergirte de lleno en la galaxia de LEGO Star Wars.",
-"Aventura",
-price,
-"Intel® Core™ i5 / AMD Ryzen 5",
-"16  GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® GTX 1050",
-"+50 GB de espacio disponible",
-"Intel® Core™ i3 / AMD® Ryzen™ 3",
-"8 GB de RAM",
-"Windows® 10 de 64 bits",
-"NVIDIA® GeForce® 460",
-"+50 GB de espacio disponible",
-"Total War: ROME REMASTERED te permite experimentar de nuevo el juego que definió esta premiada saga de estrategia. Es hora de volver a disfrutar de este verdadero clásico, ahora remasterizado en 4K y repleto de mejoras visuales y de jugabilidad.",
-"Contenido adicional gratuito \n total war: warhammer salio a la venta con un exito rotundo en mayo de 2016. Desde entonces, hemos anadido toda una pletora de contenido gratuito, incluyendo la reciente adicion de bretonia, como quinta raza jugable en el viejo mundo. \n Ademas de esta nueva raza, el exuberante mundo de total war: warhammer ha sido expandido desde su publicacion, con la inclusion de cuatro nuevos senores legendarios, nuevas unidades, novedosos saberes de la magia y mas de 30 mapas especialmente disenados para librar batallas individuales y multijugador. Estas actualizaciones estan disponibles para los jugadores existentes y los nuevos. \n Cientos de horas de juego te esperan en el amanecer de una nueva era. En total wartm: warhammer cobra vida un mundo de heroes legendarios, monstruos gigantescos, criaturas voladoras, tormentas de energia magica y regimientos de guerreros de pesadilla. \n Lidera razas extraordinarias \n los caballeros de bretonia, los valerosos hombres del imperio, los vengativos enanos, los mortiferos condes vampiro y los brutales orcos y goblins de las tribus pieles verdes. Cada raza es totalmente diferente y cuenta con sus propios personajes, su campana, su mecanica, sus unidades de combate y su estilo de juego particular. \n Lidera a personajes legendarios \n lleva tus ejercitos a la guerra bajo el mando de uno de los 12 legendarios senores del mundo de warhammer fantasy battles y equipalos con epicas armas, corazas, monturas y magia letal, obtenidos al recorrer sus historias mediante una serie de cadenas de aventuras individuales."
-);
-setVgImage(vg20,"/static/Photos/legoStarWars.jpg");
-setVgCompanyImage(vg20,"/static/Photos/ttGames.png");
-vs.save(vg20);
-
         
 
 
-        /* inserting users into the database */
 
-        Usero usr = new Usero("usera", "useraPepe", "Uno", "usuario1@gmail.com");
-        usr.setEncodedPassword(passwordEncoder.encode("123"));
-        ArrayList<Videogame> purchaseGames1 = new ArrayList<>();
-        purchaseGames1.add(vg1);
-        purchaseGames1.add(vg5);
-        purchaseGames1.add(vg5);
-        purchaseGames1.add(vg5);
-        purchaseGames1.add(vg5);
-        purchaseGames1.add(vg10);
-        purchaseGames1.add(vg7);
-        purchaseGames1.add(vg9);
-        purchaseGames1.add(vg9);
-        purchaseGames1.add(vg16);
-        purchaseGames1.add(vg16);
-        purchaseGames1.add(vg16);
-        purchaseGames1.add(vg20);
-        usr.setpurchaseVideogames(purchaseGames1);
-        ArrayList<String> roles1 = new ArrayList<>();
-        roles1.add("USERO");
-        usr.setRoles(roles1);
-        usr.setCreditCard("ABCFHU6");
-
-
-        us.save(usr);
-
-        Usero usr2 = new Usero("usuario", "usuarioPepe", "Uno", "usuario2@gmail.com");
-        usr2.setEncodedPassword(passwordEncoder.encode("pass"));
-        ArrayList<Videogame> purchaseGames2 = new ArrayList<>();
-        purchaseGames2.add(vg1);
-        purchaseGames2.add(vg5);
-        purchaseGames2.add(vg10);
-        purchaseGames2.add(vg7);
-        //purchaseGames2.add(vg16);
-        //purchaseGames2.add(vg20);
-        usr2.setpurchaseVideogames(purchaseGames2);
-        ArrayList<String> roles2 = new ArrayList<>();
-        roles2.add("USERO");
-        usr2.setRoles(roles2);
-        us.save(usr2);
-
-        Usero usr3 = new Usero("admin", "adminPepe", "Uno", "admin@123.com");
-        usr3.setEncodedPassword(passwordEncoder.encode("123"));
-        ArrayList<String> roles3 = new ArrayList<>();
-        roles3.add("USERO");
-        roles3.add("ADMIN");
-        usr3.setRoles(roles3);
-        us.save(usr3);
     }
 
     
