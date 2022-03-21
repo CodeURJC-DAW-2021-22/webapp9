@@ -55,8 +55,6 @@ public class GamelinkWebController {
 
     @Autowired
 	private PasswordEncoder passwordEncoder;
-
-
     
     @ModelAttribute
 	public void addAttributes(Model model, HttpServletRequest request) {
@@ -365,6 +363,7 @@ public class GamelinkWebController {
 
         return "redirect:/news";
     }
+
     @GetMapping("/profile/{id}/image")
 	public ResponseEntity<Object> downloadImageProfile(@PathVariable long id) throws SQLException {
 
