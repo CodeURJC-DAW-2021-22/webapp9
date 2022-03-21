@@ -72,23 +72,6 @@ public class GamelinkWebController {
 		}
 	}
 
-
-    @GetMapping("/news/{id}/image")
-	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
-
-		Optional<News> news = ns.findById(id);
-		if (news.isPresent() && news.get().getImageFile() != null) {
-
-			Resource file = new InputStreamResource(news.get().getImageFile().getBinaryStream());
-
-			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/PNG")
-					.contentLength(news.get().getImageFile().length()).body(file);
-
-		} else {
-			return ResponseEntity.notFound().build();
-		}
-    }
-
     @GetMapping("/")
     public String home(Model model, HttpSession session) {
 
@@ -99,17 +82,6 @@ public class GamelinkWebController {
 
 
         return "home";
-    }
-
-    @GetMapping("/news/{page}")
-    public String ajaxMoreNewsLoad(Model model, HttpSession session, @PathVariable int page) {
-
-        Page<News> news = ns.findAll(PageRequest.of(page, 9)); 
-    
-        model.addAttribute("new", news);
-
-        return "NewsTemplate";
-
     }
 
     @GetMapping("/about")
@@ -175,18 +147,6 @@ public class GamelinkWebController {
         
         return "errorMessage";
 
-    }
-
-    @GetMapping("/news")
-    public String getNews(Model model, HttpSession session) {
-
-
-        Page<News> news = ns.findAll(PageRequest.of(0, 9)); 
-    
-
-        model.addAttribute("new", news);
-
-        return "news";
     }
 
 
@@ -257,111 +217,6 @@ public class GamelinkWebController {
 
         return "home";
 
-    }
-
-
-    @GetMapping("/showNews/{id}")
-    public String showNews(Model model, @PathVariable long id){
-
-        Optional <News> newx = ns.findById(id);
-        if(newx.isPresent()){
-            model.addAttribute("new", ns.findById(id).get());
-            model.addAttribute("games", newx.get().getVideogamesRelated());
-            model.addAttribute("id", id);
-        }else{
-            return "/";
-        }
-        
-
-        return "showNews";
-
-    }
-
-
-    @GetMapping("/createNew")
-    public String createNew(Model model) {
-
-
-        model.addAttribute("videogame", vs.findAll());
-
-        return "createNew";
-    }
-
-    @PostMapping("/createNew")
-    public String createNewForm(Model model, News news, MultipartFile imageField, @RequestParam(required = false) List<Long> relatedGame)
-            throws IOException {
-
-        if (!imageField.isEmpty()) {
-            news.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-            news.setImage(true);
-        }
-
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime now = LocalDateTime.now();
-        news.setDate(dtf.format(now));
-
-        if (relatedGame != null) {
-            news.setVideogamesRelated(vs.findByIds(relatedGame));
-        }
-
-        ns.save(news);
-
-        return "Admin";
-    }
-
-
-    @GetMapping("/editNew/{id}")
-    public String editNew(Model model, @PathVariable long id){
-
-        Optional <News> newx = ns.findById(id);
-
-        if(newx.isPresent()){
-            model.addAttribute("new", newx.get());
-        }
-
-        model.addAttribute("videogame", vs.findAll());
-        
-
-
-        return "editNew";
-    }
-
-    @PostMapping("/editNew/{id}")
-    public String editNewForm(Model model, News newx, @PathVariable long id, MultipartFile imageField, @RequestParam(required = false) List<Long> videogames) throws IOException{
-
-        Optional<News> aux = ns.findById(id);
-
-        if(!imageField.isEmpty()){
-            newx.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-            newx.setImage(true);
-        }else{
-            if(aux.isPresent()){
-                newx.setImageFile(aux.get().getImageFile());
-                newx.setImage(true);
-            }
-
-        }
-        
-        if (videogames != null) {
-            newx.setVideogamesRelated(vs.findByIds(videogames));
-        }
-
-        newx.setId(id);
-
-        ns.save(newx);
-
-        return "redirect:/showNews/" + id;
-    }
-
-    @GetMapping("/deleteNew/{id}")
-    public String deleteNew(Model model, @PathVariable long id){
-   
-        Optional<News> newx = ns.findById(id);
-		if (newx.isPresent()) {
-			ns.delete(id);
-		}
-
-        return "redirect:/news";
     }
 
     @GetMapping("/profile/{id}/image")
