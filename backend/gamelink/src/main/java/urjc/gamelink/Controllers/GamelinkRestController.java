@@ -227,6 +227,27 @@ public class GamelinkRestController {
         public List<Object> graphic2() {
             return us.findBySold();
         }
+        
+       // Asign a purchase to a user
+       @PutMapping("/{id}/purchase")
+       public ResponseEntity<Object> purchaseVideogame(@PathVariable long vgId, @RequestParam long usId) {
+            
+           Usero user = us.findById(usId).orElseThrow();
+           Optional<Videogame> vg = vs.findById(vgId);
+           
+           if (vg.isPresent()){
+              vg.setOnePurchaseVideogame(user);
+              vg.setId(vgId);
+              vs.save(vg);
+              
+               return new ResponseEntity<>(updatedVg, HttpStatus.OK);
+               
+           }else{
+               
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+           }
+           
+       }
     }
     
     @RestController
@@ -469,6 +490,8 @@ public class GamelinkRestController {
 
             return ResponseEntity.noContent().build();
         }
+        
+
     }
         
 }
