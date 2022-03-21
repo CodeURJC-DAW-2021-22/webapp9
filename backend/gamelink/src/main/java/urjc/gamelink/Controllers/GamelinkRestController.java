@@ -36,8 +36,8 @@ import urjc.gamelink.Service.VideogameService;
 public class GamelinkRestController {
 
     @RestController
-    @RequestMapping("/api")
-    public class GlRestController {
+    @RequestMapping("/api/videogames")
+    public class VideogamesRestController {
 
         @Autowired
         private NewsService ns;
@@ -52,14 +52,14 @@ public class GamelinkRestController {
         //////////////// Videogame Section
 
         // Retruns all the videogames
-        @GetMapping("/videogames")
+        @GetMapping("/")
         public List<Videogame> getVideogames() {
 
             return vs.findAll();
         }
 
         // Retruns a videogame
-        @GetMapping("/videogame/{id}")
+        @GetMapping("/{id}")
         public ResponseEntity<Videogame> getVideogame(@PathVariable long id) {
             Optional<Videogame> videogame = vs.findById(id);
             if (videogame.isPresent()) {
@@ -72,7 +72,7 @@ public class GamelinkRestController {
         }
 
         // Creates a videogame
-        @PostMapping("/vgc")
+        @PostMapping("/")
         @ResponseStatus(HttpStatus.CREATED)
         public Videogame createVideogame(@RequestBody Videogame vg) {
 
@@ -82,7 +82,7 @@ public class GamelinkRestController {
         }
 
         // Modifies a videogame
-        @PutMapping("/vgcm/{id}")
+        @PutMapping("/{id}")
         public ResponseEntity<Videogame> updateVideogame(@PathVariable long id, @RequestBody Videogame updatedVg)
                 throws SQLException {
 
@@ -105,7 +105,7 @@ public class GamelinkRestController {
         }
 
         // Deletes a videogame
-        @DeleteMapping("/vgd/{id}")
+        @DeleteMapping("/{id}")
         public ResponseEntity<Videogame> deleteVideogame(@PathVariable long id) {
 
             try {
@@ -118,7 +118,7 @@ public class GamelinkRestController {
         }
 
         // Uploads an image to videogame image
-        @PostMapping("/vg/{id}/image")
+        @PostMapping("/{id}/image")
         public ResponseEntity<Videogame> uploadVgImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
                 throws IOException {
 
@@ -134,7 +134,7 @@ public class GamelinkRestController {
         }
 
         // Downloads an image of videogame image
-        @GetMapping("/vg/{id}/image")
+        @GetMapping("/{id}/image")
         public ResponseEntity<Object> downloadVgImage(@PathVariable long id) throws SQLException {
 
             Videogame vg = vs.findById(id).orElseThrow();
@@ -152,7 +152,7 @@ public class GamelinkRestController {
         }
 
         // Deletes an image of a videogame image
-        @DeleteMapping("/vg/{id}/image")
+        @DeleteMapping("/{id}/image")
         public ResponseEntity<Object> deleteVgImage(@PathVariable long id) {
 
             Videogame vg = vs.findById(id).orElseThrow();
@@ -166,7 +166,7 @@ public class GamelinkRestController {
         }
 
         // Uploads an image to videogame company image
-        @PostMapping("/vgCompany/{id}/image")
+        @PostMapping("/{id}/companyImage")
         public ResponseEntity<Videogame> uploadVgCompanyImage(@PathVariable long id,
                 @RequestParam MultipartFile imageFile)
                 throws IOException {
@@ -183,7 +183,7 @@ public class GamelinkRestController {
         }
 
         // Downloads an image of videogame company image
-        @GetMapping("/vgCompany/{id}/image")
+        @GetMapping("/{id}/companyImage")
         public ResponseEntity<Object> downloadVgCompanyImage(@PathVariable long id) throws SQLException {
 
             Videogame vg = vs.findById(id).orElseThrow();
@@ -201,7 +201,7 @@ public class GamelinkRestController {
         }
 
         // Deletes an image of a videogame company image
-        @DeleteMapping("/vgCompany/{id}/image")
+        @DeleteMapping("/{id}/companyImage")
         public ResponseEntity<Object> deleteVgCompanyImage(@PathVariable long id) {
 
             Videogame vg = vs.findById(id).orElseThrow();
@@ -213,19 +213,37 @@ public class GamelinkRestController {
 
             return ResponseEntity.noContent().build();
         }
+        
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //////////////// Chars data Section
 
+        @GetMapping("/stats/genres")
+        public List<Object> graphic() {
+
+            return us.findByGenre();
+        }
+
+        @GetMapping("/stats/sales")
+        public List<Object> graphic2() {
+            return us.findBySold();
+        }
+    }
+    
+    @RestController
+    @RequestMapping("/api/news")
+    public class NewsRestController {
         ////////////////////////////////////////////////////////////////////////////////////////
         //////////////// News Section
 
         // Retruns all the news
-        @GetMapping("/news")
+        @GetMapping("/")
         public List<News> getNews() {
 
             return ns.findAll();
         }
 
         // Retruns a new
-        @GetMapping("/new/{id}")
+        @GetMapping("/{id}")
         public ResponseEntity<News> getNew(@PathVariable long id) {
             Optional<News> newx = ns.findById(id);
             if (newx.isPresent()) {
@@ -238,7 +256,7 @@ public class GamelinkRestController {
         }
 
         // Creates a new
-        @PostMapping("/newc")
+        @PostMapping("/")
         @ResponseStatus(HttpStatus.CREATED)
         public News createNew(@RequestBody News newx) {
 
@@ -248,7 +266,7 @@ public class GamelinkRestController {
         }
 
         // Modifies a new
-        @PutMapping("/newm/{id}")
+        @PutMapping("/{id}")
         public ResponseEntity<News> updateBook(@PathVariable long id, @RequestBody News updatedNew)
                 throws SQLException {
 
@@ -271,7 +289,7 @@ public class GamelinkRestController {
         }
 
         // Deletes a new
-        @DeleteMapping("/newd/{id}")
+        @DeleteMapping("/{id}")
         public ResponseEntity<News> deleteBook(@PathVariable long id) {
 
             try {
@@ -284,7 +302,7 @@ public class GamelinkRestController {
         }
 
         // Uploads an image to new image
-        @PostMapping("/new/{id}/image")
+        @PostMapping("/{id}/image")
         public ResponseEntity<News> uploadNewImage(@PathVariable long id,
                 @RequestParam MultipartFile imageFile)
                 throws IOException {
@@ -301,7 +319,7 @@ public class GamelinkRestController {
         }
 
         // Downloads an image of new image
-        @GetMapping("/new/{id}/image")
+        @GetMapping("/{id}/image")
         public ResponseEntity<Object> downloadNewImage(@PathVariable long id) throws SQLException {
 
             News newx = ns.findById(id).orElseThrow();
@@ -319,7 +337,7 @@ public class GamelinkRestController {
         }
 
         // Deletes an image of a new image
-        @DeleteMapping("/new/{id}/image")
+        @DeleteMapping("/{id}/image")
         public ResponseEntity<Object> deleteNewImage(@PathVariable long id) {
 
             News newx = ns.findById(id).orElseThrow();
@@ -331,18 +349,126 @@ public class GamelinkRestController {
 
             return ResponseEntity.noContent().build();
         }
-        ////////////////////////////////////////////////////////////////////////////////////////
-        //////////////// Chars Section
 
-        @GetMapping("/videogameGenres")
-        public List<Object> graphic() {
+    }
+    
+    @RestController
+    @RequestMapping("/api/users")
+    public class NewsRestController {
+        
+        @GetMapping("/")
+        public List<Usero> getUsers() {
 
-            return us.findByGenre();
+            return us.findAll();
         }
 
-        @GetMapping("/videogameSold")
-        public List<Object> graphic2() {
-            return us.findBySold();
+        // Retruns a user
+        @GetMapping("/{id}")
+        public ResponseEntity<Usero> getUser(@PathVariable long id) {
+            Optional<Usero> user = us.findById(id);
+            if (user.isPresent()) {
+                Usero userx = usero.get();
+                return new ResponseEntity<>(userx, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+
+        }
+
+        // Creates a user
+        @PostMapping("/")
+        @ResponseStatus(HttpStatus.CREATED)
+        public News createUser(@RequestBody Usero user) {
+
+            ns.save(user);
+
+            return user;
+        }
+
+        // Modifies a user
+        @PutMapping("/{id}")
+        public ResponseEntity<News> updateBook(@PathVariable long id, @RequestBody Usero updatedUser)
+                throws SQLException {
+
+            if (us.exist(id)) {
+                if (updatedUser.getImage()) {
+                    Usero user = us.findById(id).orElseThrow();
+                    if (user.getImage()) {
+                        updatedUser.setImageFile(BlobProxy.generateProxy(user.getImageFile().getBinaryStream(),
+                                user.getImageFile().length()));
+                    }
+                }
+
+                updatedUser.setId(id);
+                us.save(updatedUser);
+
+                return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }
+
+        // Deletes a user
+        @DeleteMapping("/{id}")
+        public ResponseEntity<News> deleteBook(@PathVariable long id) {
+
+            try {
+                us.delete(id);
+                return new ResponseEntity<>(null, HttpStatus.OK);
+
+            } catch (EmptyResultDataAccessException e) {
+                return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            }
+        }
+        
+      // Uploads an image to user image
+        @PostMapping("/{id}/image")
+        public ResponseEntity<Usero> uploadNewImage(@PathVariable long id,
+                @RequestParam MultipartFile imageFile)
+                throws IOException {
+
+            Usero user = us.findById(id).orElseThrow();
+
+            URI location = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
+
+            user.setImage(true);
+            user.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+            us.save(usero);
+
+            return ResponseEntity.created(location).build();
+        }
+
+        // Downloads an image of user image
+        @GetMapping("/{id}/image")
+        public ResponseEntity<Object> downloadNewImage(@PathVariable long id) throws SQLException {
+
+            Usero user = us.findById(id).orElseThrow();
+
+            if (user.getImageFile() != null) {
+
+                Resource file = new InputStreamResource(user.getImageFile().getBinaryStream());
+
+                return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+                        .contentLength(user.getImageFile().length()).body(file);
+
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        }
+
+        // Deletes an image of a user image
+        @DeleteMapping("/{id}/image")
+        public ResponseEntity<Object> deleteNewImage(@PathVariable long id) {
+
+            Usero user = us.findById(id).orElseThrow();
+
+            user.setImageFile(null);
+            user.setImage(false);
+
+            us.save(user);
+
+            return ResponseEntity.noContent().build();
         }
     }
+        
 }
