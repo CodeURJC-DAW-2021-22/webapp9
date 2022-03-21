@@ -1,7 +1,7 @@
 #################################################
 # Imagen base para el contenedor de compilación
 #################################################
-FROM maven:3.8.4-openjdk-17 as builder
+FROM maven as builder
 
 # Define el directorio de trabajo donde ejecutar comandos
 WORKDIR /project
