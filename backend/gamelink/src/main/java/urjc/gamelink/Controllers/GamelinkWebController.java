@@ -1,5 +1,6 @@
 package urjc.gamelink.Controllers;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.sql.Date;
 //import java.text.SimpleDateFormat;
@@ -10,7 +11,10 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -146,7 +150,7 @@ public class GamelinkWebController {
 
     @PostMapping("/signin")
     public String signin(Model model, Usero user, @RequestParam (required = true) String name, @RequestParam String email, 
-        @RequestParam String password, @RequestParam String nick, @RequestParam String lastName){
+        @RequestParam String password, @RequestParam String nick, @RequestParam String lastName) throws IOException{
 
         if (name.equals("") || name == null){
             return "errorMessage";
@@ -159,6 +163,7 @@ public class GamelinkWebController {
         user.setNick(nick);
         user.setLastName(lastName);
         user.setRoles(lista);
+        setUsImage(user, "static/Photos/defaultProfilePhoto.jpg");
         user.setEncodedPassword(passwordEncoder.encode(password));
         
 
@@ -166,6 +171,12 @@ public class GamelinkWebController {
 
         return "home";
 
+    }
+
+    private void setUsImage(Usero user, String classpathResource) throws IOException {
+        user.setImage(true);
+        Resource image = new ClassPathResource(classpathResource);
+        user.setImageFile(BlobProxy.generateProxy((image).getInputStream(), (image).contentLength()));
     }
 
 }
