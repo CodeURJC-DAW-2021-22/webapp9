@@ -1,7 +1,7 @@
 #################################################
 # Imagen base para el contenedor de compilación
 #################################################
-FROM maven:3.8.4-jdk-17 as builder
+FROM maven:3.8.4-openjdk-17 as builder
 
 # Define el directorio de trabajo donde ejecutar comandos
 WORKDIR /project
@@ -10,13 +10,13 @@ WORKDIR /project
 COPY pom.xml /project/
 
 # Descarga las dependencias del proyecto
-RUN mvn clean verify
+# RUN mvn clean verify
 
 # Copia el código del proyecto
 COPY /src /project/src
 
 # Compila proyecto
-RUN mvn package -o -DskipTests=true
+RUN mvn package -DskipTests=true
 
 #################################################
 # Imagen base para el contenedor de la aplicación
