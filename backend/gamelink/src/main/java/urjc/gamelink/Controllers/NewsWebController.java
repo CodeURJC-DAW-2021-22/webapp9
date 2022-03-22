@@ -141,7 +141,7 @@ public class NewsWebController {
         if (relatedGame != null) {
             news.setVideogamesRelated(vs.findByIds(relatedGame));
         }
-
+        news.setArgument("Pequeña descripción de tarjeta");
         ns.save(news);
 
         return "Admin";
