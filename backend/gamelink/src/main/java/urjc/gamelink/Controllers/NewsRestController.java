@@ -30,21 +30,17 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import urjc.gamelink.Model.News;
-import urjc.gamelink.Model.Videogame;
 import urjc.gamelink.Service.NewsService;
-import urjc.gamelink.Service.VideogameService;
 
-public class NewsRestController {
+
 
     @RestController
     @RequestMapping("/api/news")
-    public class NRestController {
+    public class NewsRestController {
 
         @Autowired
         private NewsService ns;
 
-        @Autowired
-        private VideogameService vs;
 
         ////////////////////////////////////////////////////////////////////////////////////////
         //////////////// News Section
@@ -57,7 +53,7 @@ public class NewsRestController {
         }
 
         // Returns a page of news
-        @GetMapping("/")
+        @GetMapping("/pages")
         public Page<News> findNewsPage(@RequestParam("page") int page) {
 
             int size = 9;
@@ -175,4 +171,3 @@ public class NewsRestController {
         }
 
     }
-}

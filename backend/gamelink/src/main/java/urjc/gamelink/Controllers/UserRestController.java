@@ -32,7 +32,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
-import urjc.gamelink.Repositories.UseroRepository;
 import urjc.gamelink.Service.UseroService;
 
 

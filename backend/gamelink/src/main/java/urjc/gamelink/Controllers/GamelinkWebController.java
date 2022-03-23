@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.security.Principal;
 import java.sql.Date;
 import java.sql.SQLException;
-//import java.text.SimpleDateFormat;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;

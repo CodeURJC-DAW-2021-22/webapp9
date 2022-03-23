@@ -35,11 +35,11 @@ import urjc.gamelink.Model.Videogame;
 import urjc.gamelink.Service.UseroService;
 import urjc.gamelink.Service.VideogameService;
 
-public class VideogamesRestController {
+
 
     @RestController
     @RequestMapping("/api/videogames")
-    public class VideogameRestController {
+    public class VideogamesRestController {
 
         @Autowired
         private VideogameService vs;
@@ -58,7 +58,7 @@ public class VideogamesRestController {
         }
 
         // Returns a apge of videogames
-        @GetMapping("/")
+        @GetMapping("/pages")
         public Page<Videogame> findVideogmamePage(@RequestParam("page") int page) {
 
             int size = 9;
@@ -274,4 +274,3 @@ public class VideogamesRestController {
         }
     }
 
-}
