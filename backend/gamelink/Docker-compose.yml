@@ -9,7 +9,7 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/gamelink
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=Nekowa10
+      - SPRING_DATASOURCE_PASSWORD=password
       - SPRING_JPA_HIBERNATE_DLL_AUTO=update
       - SPRING_JPA_SHOW_SQL=true
     restart: on-failure
