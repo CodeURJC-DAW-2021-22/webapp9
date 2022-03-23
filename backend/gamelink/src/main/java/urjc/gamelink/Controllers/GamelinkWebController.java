@@ -143,7 +143,7 @@ public class GamelinkWebController {
     
         model.addAttribute("new", news);
 
-        return "NewsTemplate";
+        return "newsTemplate";
 
     }
 
@@ -396,7 +396,7 @@ public class GamelinkWebController {
 
         ns.save(news);
 
-        return "Admin";
+        return "admin";
     }
 
     @GetMapping("/createVideogame")
@@ -426,7 +426,7 @@ public class GamelinkWebController {
 
         vs.save(videogame);
 
-        return "Admin";
+        return "admin";
     }
 
     @GetMapping("/editVg/{id}")
