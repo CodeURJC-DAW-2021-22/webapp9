@@ -10,6 +10,15 @@ var pageValueNews = 0;
 var pageValueVideogames = 0;
 var pageValueRecommendedGames = 0;
 
+
+function generatePDF(){
+    const element = document.getElementById("payConfirmation");
+
+    html2pdf()
+    .from(element)
+    .save();
+}
+
 $(document).ready(function() {    
     $('#moreImagesButton').on('click', function(){
         
