@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "tbl_news")
 public class News {
     
@@ -29,6 +31,7 @@ public class News {
     private boolean image;
 
     @Lob
+    @JsonIgnore
     private Blob imageFile;
 
     private String date;
@@ -39,9 +42,11 @@ public class News {
 
 
     @ManyToMany
+    @JsonIgnore
      private List<Videogame> videogamesRelated;
 
      @ManyToMany
+     @JsonIgnore
      private List<Usero> users;
 
      public News() {

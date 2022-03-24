@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.security.Principal;
 import java.sql.Date;
 import java.sql.SQLException;
-//import java.text.SimpleDateFormat;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -116,6 +115,17 @@ public class GamelinkWebController {
 
 
         return "home";
+    }
+
+    @GetMapping("/news/{page}")
+    public String ajaxMoreNewsLoad(Model model, HttpSession session, @PathVariable int page) {
+
+        Page<News> news = ns.findAll(PageRequest.of(page, 9)); 
+    
+        model.addAttribute("new", news);
+
+        return "newsTemplate";
+
     }
 
     @GetMapping("/videogames/{page}")
@@ -268,6 +278,38 @@ public class GamelinkWebController {
         return "videogame";
     }
 
+
+    @GetMapping("/createNew")
+    public String createNew(Model model) {
+
+
+        model.addAttribute("videogame", vs.findAll());
+
+        return "createNew";
+    }
+
+    @PostMapping("/createNew")
+    public String createNewForm(Model model, News news, MultipartFile imageField, @RequestParam(required = false) List<Long> relatedGame)
+            throws IOException {
+
+        if (!imageField.isEmpty()) {
+            news.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+            news.setImage(true);
+        }
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+        news.setDate(dtf.format(now));
+
+        if (relatedGame != null) {
+            news.setVideogamesRelated(vs.findByIds(relatedGame));
+        }
+
+        ns.save(news);
+
+        return "admin";
+    }
+
     @GetMapping("/createVideogame")
     public String createVideogame(Model model) {
 
@@ -295,7 +337,7 @@ public class GamelinkWebController {
 
         vs.save(videogame);
 
-        return "Admin";
+        return "admin";
     }
 
     @GetMapping("/editVg/{id}")

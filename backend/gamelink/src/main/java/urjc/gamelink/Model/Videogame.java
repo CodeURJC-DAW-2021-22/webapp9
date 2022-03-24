@@ -12,6 +12,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.springframework.lang.NonNull;
 
 @Entity(name = "tbl_videogame")
@@ -48,23 +50,28 @@ public class Videogame {
     private String history;
 
     @Lob
+    @JsonIgnore
     private Blob imageFile;
 
     private boolean imageVg;
 
     @Lob
+    @JsonIgnore
     private Blob imageCompanyFile;
 
     private boolean imageCompany;
 
     @ManyToMany
+    @JsonIgnore
     private List<News> notices;
 
     @OneToMany
+    @JsonIgnore
     private List<PurchaseCode> codes;
 
 
     @ManyToMany
+    @JsonIgnore
     private List<Usero> users;
 
     private String cpuR;
@@ -107,6 +114,10 @@ public class Videogame {
         this.history = longDesciption;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getHistory() {
         return history;
     }
@@ -141,14 +152,6 @@ public class Videogame {
 
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
-    }
-
-    public String gethistory() {
-        return history;
-    }
-
-    public void sethistory(String history) {
-        this.history = history;
     }
 
     public void setRating(float rating) {
