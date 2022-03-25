@@ -228,7 +228,6 @@ import urjc.gamelink.Service.VideogameService;
 
         @GetMapping("/stats/genres")
         public List<Object> graphic() {
-
             return us.findByGenre();
         }
 
