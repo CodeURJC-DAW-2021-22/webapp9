@@ -156,15 +156,11 @@ public class NewsWebController {
             model.addAttribute("new", newx.get());
         }
 
-        model.addAttribute("videogame", vs.findAll());
-        
-
-
         return "editNew";
     }
 
     @PostMapping("/editNew/{id}")
-    public String editNewForm(Model model, News newx, @PathVariable long id, MultipartFile imageField, @RequestParam(required = false) List<Long> videogames) throws IOException{
+    public String editNewForm(Model model, News newx, @PathVariable long id, MultipartFile imageField) throws IOException{
 
         Optional<News> aux = ns.findById(id);
 
@@ -179,10 +175,6 @@ public class NewsWebController {
 
         }
         
-        if (videogames != null) {
-            newx.setVideogamesRelated(vs.findByIds(videogames));
-        }
-
         newx.setId(id);
 
         ns.save(newx);

@@ -1,0 +1,1073 @@
+{
+	"info": {
+		"_postman_id": "43236aa3-c38e-41d8-8e30-ed4d88573fb4",
+		"name": "Gamelink",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Videogames",
+			"item": [
+				{
+					"name": "Get all videogames",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a videogame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/27",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a page of videogames",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/pages?page=0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"pages"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the image of a videogame",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "image/jpeg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/34/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"34",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the company image of a videogame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/34/companyImage",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"34",
+								"companyImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit videogame",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Sims\",\r\n    \"price\": 24.99,\r\n    \"genre\":\"Supervivencia\",\r\n    \"company\":\"Sega\",\r\n    \"continent\":\"Global\",\r\n    \"description\":\"Buen juego...\",\r\n    \"shortDescription\":\"Juego...\",\r\n    \"history\":\"Crea tu mundo ideal...\", \r\n    \"cpuR\":\"1a\",\r\n    \"ramR\":\"2b\",\r\n    \"ssooR\":\"3c\",\r\n    \"gpuR\":\"4d\",\r\n    \"storageR\":\"5e\",\r\n    \"cpuM\":\"6f\",\r\n    \"ramM\":\"7g\",\r\n    \"ssooM\":\"8h\",\r\n    \"gpuM\":\"9j\",\r\n    \"storageM\":\"10k\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/37",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"37"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a related new to a videogame",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/37/addRelatedNew/10",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"37",
+								"addRelatedNew",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload image to the company image of a videogame",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageFile",
+									"type": "file",
+									"src": "08igToMBy/screen-0.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/34/companyImage",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"34",
+								"companyImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create videogame",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Sims\",\r\n    \"price\": 24.99,\r\n    \"genre\":\"Simulación\",\r\n    \"company\":\"Sega\",\r\n    \"continent\":\"Global\",\r\n    \"description\":\"Buen juego...\",\r\n    \"shortDescription\":\"Juego...\",\r\n    \"history\":\"Crea tu mundo ideal...\", \r\n    \"cpuR\":\"1a\",\r\n    \"ramR\":\"2b\",\r\n    \"ssooR\":\"3c\",\r\n    \"gpuR\":\"4d\",\r\n    \"storageR\":\"5e\",\r\n    \"cpuM\":\"6f\",\r\n    \"ramM\":\"7g\",\r\n    \"ssooM\":\"8h\",\r\n    \"gpuM\":\"9j\",\r\n    \"storageM\":\"10k\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload image to a videogame",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageFile",
+									"type": "file",
+									"src": "kizl1xK53/screen-0.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/34/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"34",
+								"image"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete videogame",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/34",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the company image of a videogame",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/34/companyImage",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"34",
+								"companyImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the image of a videogame",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/34/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"34",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "News",
+			"item": [
+				{
+					"name": "Get all news",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/news/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"news",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a new",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/news/10",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"news",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a page of news",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/news/pages?page=0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"news",
+								"pages"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download the image of a new",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/news/10/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"news",
+								"10",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit new",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Sims\",\r\n    \"description\":\"Buen juego...\",\r\n    \"date\":\"Juego...\",\r\n    \"readTime\":\"Crea tu mundo ideal...\", \r\n    \"badge\":\"1a\",\r\n    \"argument\":\"2b\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/news/10",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"news",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new to read news of a user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/news/10/read/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"news",
+								"10",
+								"read",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload image to a new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageFile",
+									"type": "file",
+									"src": "Gh0_oymO0/screen-0.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/news/10/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"news",
+								"10",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Sims\",\r\n    \"description\":\"Buen juego...\",\r\n    \"date\":\"Juego...\",\r\n    \"readTime\":\"Crea tu mundo ideal...\", \r\n    \"badge\":\"1a\",\r\n    \"argument\":\"2b\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/news/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"news",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete new",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/news/10",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"news",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the image of a new",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/news/11/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"news",
+								"11",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usero",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download user profile image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/3/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"3",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get videogames purchased by a user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/purchases/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"purchases",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get news read by a user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/readNews/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"readNews",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count by genre of the game sold",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/stats/genres",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"stats",
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count by name of the game sold",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/stats/sales",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"stats",
+								"sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get videogames recommended for a user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/2/recommendations",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"2",
+								"recommendations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a user (register)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "mani",
+									"type": "text"
+								},
+								{
+									"key": "nick",
+									"value": "mvp",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "some",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "a@a.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload user profile image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageFile",
+									"type": "file",
+									"src": "A0bt4IqUh/screen-0.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/3/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"3",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add credit card to a user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "creditCard",
+									"value": "9092",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/3/creditCard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"3",
+								"creditCard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a user basic information",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "mani",
+									"type": "text"
+								},
+								{
+									"key": "nick",
+									"value": "mvp",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "some",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "a@a.com",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "123",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/2/password",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"2",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a videogame to a user purchase  videogames list",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/videogames/37/purchase/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"videogames",
+								"37",
+								"purchase",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user profile image",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
