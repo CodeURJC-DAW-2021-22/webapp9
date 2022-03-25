@@ -83,7 +83,7 @@ public class NewsWebController {
     
         model.addAttribute("new", news);
 
-        return "NewsTemplate";
+        return "newsTemplate";
 
     }
 
@@ -144,7 +144,7 @@ public class NewsWebController {
         news.setArgument("Pequeña descripción de tarjeta");
         ns.save(news);
 
-        return "Admin";
+        return "admin";
     }
 
     @GetMapping("/editNew/{id}")

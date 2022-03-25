@@ -236,6 +236,6 @@ public class VideogameWebController {
 
         vs.save(videogame);
 
-        return "Admin";
+        return "admin";
     }
 }
