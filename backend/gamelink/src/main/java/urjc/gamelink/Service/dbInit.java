@@ -227,6 +227,7 @@ public class dbInit {
                 roles1.add("USERO");
                 usr.setRoles(roles1);
                 usr.setCreditCard("ABCFHU6");
+                setUsImage(usr, "static/Photos/defaultProfilePhoto.jpg");
         
         
                 us.save(usr);
@@ -236,6 +237,7 @@ public class dbInit {
                 ArrayList<String> roles2 = new ArrayList<>();
                 roles2.add("USERO");
                 usr2.setRoles(roles2);
+                setUsImage(usr2, "static/Photos/defaultProfilePhoto.jpg");
                 us.save(usr2);
         
                 Usero usr3 = new Usero("admin", "adminName", "adminLastName", "admin@123.com");
@@ -244,6 +246,7 @@ public class dbInit {
                 roles3.add("USERO");
                 roles3.add("ADMIN");
                 usr3.setRoles(roles3);
+                setUsImage(usr3, "static/Photos/defaultProfilePhoto.jpg");
                 us.save(usr3);
 
                 ArrayList<Usero> users = new ArrayList<>();
