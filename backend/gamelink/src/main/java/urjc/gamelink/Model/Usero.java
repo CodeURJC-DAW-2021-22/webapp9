@@ -43,9 +43,11 @@ public class Usero {
     private Blob imageFile;
 
     @ManyToMany(mappedBy="users")  
+    @JsonIgnore
      private List<News> readNotices;
 
     @ManyToMany(mappedBy="users")     
+    @JsonIgnore
      private List<Videogame> purchaseVideogames;
 
     @ElementCollection(fetch = FetchType.EAGER)
