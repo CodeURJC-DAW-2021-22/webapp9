@@ -13,12 +13,14 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 
 
 
 @Entity(name = "tbl_user")
 public class Usero {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,12 +44,12 @@ public class Usero {
     @JsonIgnore
     private Blob imageFile;
 
-    @ManyToMany(mappedBy="users")  
     @JsonIgnore
+    @ManyToMany(mappedBy="users")  
      private List<News> readNotices;
 
-    @ManyToMany(mappedBy="users")     
     @JsonIgnore
+    @ManyToMany(mappedBy="users")     
      private List<Videogame> purchaseVideogames;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -66,6 +68,15 @@ public class Usero {
     public Long getId() {
         return id;
     }
+
+    public List<News> getReadNotices() {
+        return readNotices;
+    }
+
+    public void setReadNotices(List<News> readNotices) {
+        this.readNotices = readNotices;
+    }
+
 
     public void setId(Long id) {
         this.id = id;
@@ -150,6 +161,7 @@ public class Usero {
     public void setpurchaseVideogames(List<Videogame> purchaseVideogames) {
        this.purchaseVideogames = purchaseVideogames;
     }
-   
+    
+    
 
 }

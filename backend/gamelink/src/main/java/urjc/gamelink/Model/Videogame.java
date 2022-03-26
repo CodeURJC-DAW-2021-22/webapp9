@@ -1,7 +1,9 @@
 package urjc.gamelink.Model;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,8 +39,6 @@ public class Videogame {
     private String company;
 
     private String continent;
-
-    //private String badge;
     
     @Column(columnDefinition = "TEXT")
     private String description;
@@ -49,29 +49,28 @@ public class Videogame {
     @Column(columnDefinition = "TEXT")
     private String history;
 
-    @Lob
     @JsonIgnore
+    @Lob
     private Blob imageFile;
 
     private boolean imageVg;
 
-    @Lob
     @JsonIgnore
+    @Lob
     private Blob imageCompanyFile;
 
     private boolean imageCompany;
 
-    @ManyToMany
     @JsonIgnore
+    @ManyToMany
     private List<News> notices;
 
-    @OneToMany
     @JsonIgnore
+    @OneToMany
     private List<PurchaseCode> codes;
 
-
-    @ManyToMany
     @JsonIgnore
+    @ManyToMany
     private List<Usero> users;
 
     private String cpuR;
@@ -112,6 +111,8 @@ public class Videogame {
 
         this.shortDescription = shortDescription;
         this.history = longDesciption;
+
+        this.notices = new ArrayList<>();
     }
 
     public void setId(Long id) {
@@ -362,6 +363,10 @@ public class Videogame {
     
     public void setOnePurchaseVideogame(Usero userx){
         this.users.add(userx);
+    }
+
+    public void appendNew(News news) {
+        this.notices.add(news);
     }
 }
 

@@ -138,7 +138,7 @@ var check = function () {
 
         $.ajax({
             type: "GET",
-            url: '/api/videogameSold',
+            url: '/api/videogames/stats/sales',
             success: function (data) {
 
                 for (let item of data) {
@@ -196,7 +196,7 @@ var check = function () {
 
         $.ajax({
             type: "GET",
-            url: '/api/genres',
+            url: '/api/videogames/stats/genres',
             success: function (data) {
 
                 for (let item of data) {
