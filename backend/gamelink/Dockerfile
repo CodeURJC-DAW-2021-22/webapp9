@@ -9,7 +9,7 @@ WORKDIR /project
 # Copia las dependencias del proyecto
 COPY pom.xml /project/
 
-# Descarga las dependencias del proyecto
+# Descarga las dependencias del proyecto (lo hemos comentado para que se descarguen de internet, no de manera local)
 #RUN mvn clean verify
 
 # Copia el código del proyecto
