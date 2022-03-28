@@ -76,31 +76,6 @@ public class GamelinkWebController {
         return "home";
     }
 
-<<<<<<< HEAD
-    @GetMapping("/news/{page}")
-    public String ajaxMoreNewsLoad(Model model, HttpSession session, @PathVariable int page) {
-
-        Page<News> news = ns.findAll(PageRequest.of(page, 9)); 
-    
-        model.addAttribute("new", news);
-
-        return "newsTemplate";
-
-    }
-
-    @GetMapping("/videogames/{page}")
-    public String ajaxMoreVideogamesLoad(Model model, HttpSession session, @PathVariable int page) {
-
-        Page<Videogame> videogames = vs.findAll(PageRequest.of(page, 9)); 
-    
-        model.addAttribute("games", videogames);
-
-        return "videogameTemplate";
-
-    }
-
-=======
->>>>>>> f635e8654a634cfe8e85bf08c814c2649f442266
     @GetMapping("/about")
     public String about(Model model){
         
