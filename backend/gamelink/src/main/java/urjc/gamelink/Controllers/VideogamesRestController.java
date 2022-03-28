@@ -3,9 +3,14 @@ package urjc.gamelink.Controllers;
 import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import org.aspectj.weaver.ast.And;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -30,13 +35,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
 import urjc.gamelink.Model.Videogame;
+import urjc.gamelink.Service.NewsService;
 import urjc.gamelink.Service.UseroService;
 import urjc.gamelink.Service.VideogameService;
 
 
-
+    
     @RestController
     @RequestMapping("/api/videogames")
     public class VideogamesRestController {
@@ -46,6 +53,9 @@ import urjc.gamelink.Service.VideogameService;
 
         @Autowired
         private UseroService us;
+
+        @Autowired
+        private NewsService ns;
 
         ////////////////////////////////////////////////////////////////////////////////////////
         //////////////// Videogame Section
@@ -83,11 +93,14 @@ import urjc.gamelink.Service.VideogameService;
         // Creates a videogame
         @PostMapping("/")
         @ResponseStatus(HttpStatus.CREATED)
-        public Videogame createVideogame(@RequestBody Videogame vg) {
+        public ResponseEntity<Videogame> createVideogame(@RequestBody Videogame vg) {
 
             vs.save(vg);
 
-            return vg;
+            URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(vg.getId()).toUri();
+           
+            return ResponseEntity.created(location).body(vg);
+
         }
 
         // Modifies a videogame
@@ -223,6 +236,20 @@ import urjc.gamelink.Service.VideogameService;
             return ResponseEntity.noContent().build();
         }
 
+        //Add a new to the related news of a videogame
+        @PutMapping("/{id}/addRelatedNew/{idn}")
+        public ResponseEntity<List<News>> addRelatedNew(@PathVariable long id,@PathVariable long idn){
+            if(vs.exist(id) && ns.exist(idn)){
+                Videogame vg = vs.findById(id).get();
+                vg.appendNew(ns.findById(idn).get());
+                vg.setId(id);
+                vs.save(vg);
+                return new ResponseEntity<>(vg.getNotices(),HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }
+
         ////////////////////////////////////////////////////////////////////////////////////////
         //////////////// Chars data Section
 
@@ -237,8 +264,8 @@ import urjc.gamelink.Service.VideogameService;
         }
 
         // Asign a purchase to a user
-        @PutMapping("/{id}/purchase")
-        public ResponseEntity<Object> purchaseVideogame(@PathVariable long id, @RequestParam long usId) {
+        @PutMapping("/{id}/purchase/{usId}")
+        public ResponseEntity<Object> purchaseVideogame(@PathVariable long id, @PathVariable long usId) {
 
             Usero user = us.findById(usId).orElseThrow();
             Optional<Videogame> vg = vs.findById(id);
@@ -248,7 +275,7 @@ import urjc.gamelink.Service.VideogameService;
                 vg.get().setId(id);
                 vs.save(vg.get());
 
-                return new ResponseEntity<>(vg, HttpStatus.OK);
+                return new ResponseEntity<>(user.getPurchaseVideogames(), HttpStatus.OK);
 
             } else {
 
@@ -257,19 +284,6 @@ import urjc.gamelink.Service.VideogameService;
 
         }
 
-        // Find recommended videogames
-        @GetMapping("/{id}/recommendations")
-        public ResponseEntity<Page<Videogame>> findRecomended(@PathVariable long id,
-                @RequestParam Pageable pageable) {
 
-            Optional<Usero> user = us.findById(id);
-            if (user.isPresent()) {
-                Page<Videogame> videogames = vs.findRecomended(id, pageable);
-                return new ResponseEntity<>(videogames, HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-
-        }
     }
 

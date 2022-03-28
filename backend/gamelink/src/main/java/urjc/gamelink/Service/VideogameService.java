@@ -21,6 +21,8 @@ public class VideogameService {
 	public Optional<Videogame> findById(long id) {
 		return repository.findById(id);
 	}
+
+
 	
 	public boolean exist(long id) {
 		return repository.existsById(id);
@@ -49,4 +51,9 @@ public class VideogameService {
 	public Page<Videogame> findRecomended(long id, Pageable pageable) {
         return repository.findRecomended(id,pageable);
     }
+
+	public List<Videogame> findRecomended2(long id) {
+        return repository.findRecomended2(id);
+    }
 }
+
