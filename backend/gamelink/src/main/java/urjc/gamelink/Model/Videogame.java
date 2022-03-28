@@ -1,7 +1,9 @@
 package urjc.gamelink.Model;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.springframework.lang.NonNull;
 
@@ -35,8 +39,6 @@ public class Videogame {
     private String company;
 
     private String continent;
-
-    //private String badge;
     
     @Column(columnDefinition = "TEXT")
     private String description;
@@ -47,23 +49,27 @@ public class Videogame {
     @Column(columnDefinition = "TEXT")
     private String history;
 
+    @JsonIgnore
     @Lob
     private Blob imageFile;
 
     private boolean imageVg;
 
+    @JsonIgnore
     @Lob
     private Blob imageCompanyFile;
 
     private boolean imageCompany;
 
+    @JsonIgnore
     @ManyToMany
     private List<News> notices;
 
+    @JsonIgnore
     @OneToMany
     private List<PurchaseCode> codes;
 
-
+    @JsonIgnore
     @ManyToMany
     private List<Usero> users;
 
@@ -105,6 +111,12 @@ public class Videogame {
 
         this.shortDescription = shortDescription;
         this.history = longDesciption;
+
+        this.notices = new ArrayList<>();
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getHistory() {
@@ -141,14 +153,6 @@ public class Videogame {
 
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
-    }
-
-    public String gethistory() {
-        return history;
-    }
-
-    public void sethistory(String history) {
-        this.history = history;
     }
 
     public void setRating(float rating) {
@@ -359,6 +363,10 @@ public class Videogame {
     
     public void setOnePurchaseVideogame(Usero userx){
         this.users.add(userx);
+    }
+
+    public void appendNew(News news) {
+        this.notices.add(news);
     }
 }
 

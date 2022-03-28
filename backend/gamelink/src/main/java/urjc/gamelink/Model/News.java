@@ -2,6 +2,7 @@ package urjc.gamelink.Model;
 
 import java.sql.Blob;
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "tbl_news")
 public class News {
@@ -28,6 +31,7 @@ public class News {
 
     private boolean image;
 
+    @JsonIgnore
     @Lob
     private Blob imageFile;
 
@@ -37,10 +41,11 @@ public class News {
 
     private String readTime;
 
-
-    @ManyToMany
+    @JsonIgnore
+    @ManyToMany(mappedBy = "notices")
      private List<Videogame> videogamesRelated;
 
+     @JsonIgnore
      @ManyToMany
      private List<Usero> users;
 
@@ -136,8 +141,17 @@ public class News {
         this.videogamesRelated = videogamesRelated;
     }
 
-    public void setId(long id2) {
-        this.id = id2;
+    public Long getId() {
+        return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setOneReadNew(Usero user) {
+        this.users.add(user);
+    }
+
+  
 }

@@ -169,7 +169,7 @@ var check = function () {
 
         $.ajax({
             type: "GET",
-            url: '/api/videogameSold',
+            url: '/api/videogames/stats/sales',
             success: function (data) {
 
                 for (let item of data) {
@@ -183,7 +183,7 @@ var check = function () {
                     data: {
                         labels: games,
                         datasets: [{
-                            label: 'nยบ de ventas',
+                            label: 'nº de ventas',
                             data: solds,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
@@ -227,7 +227,7 @@ var check = function () {
 
         $.ajax({
             type: "GET",
-            url: '/api/genres',
+            url: '/api/videogames/stats/genres',
             success: function (data) {
 
                 for (let item of data) {
