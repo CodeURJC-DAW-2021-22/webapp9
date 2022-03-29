@@ -17,37 +17,33 @@ import urjc.gamelink.Configuration.Security.jwt.LoginRequest;
 import urjc.gamelink.Configuration.Security.jwt.UserLoginService;
 import urjc.gamelink.Configuration.Security.jwt.AuthResponse.Status;
 
-
-
+@RestController
+@RequestMapping("/api")
 public class LoginRestController {
-    
-    @RestController
-    @RequestMapping("/api")
-    public class LRestController {
-        
-        @Autowired
-        private UserLoginService userService;
-    
-        @PostMapping("/login")
-        public ResponseEntity<AuthResponse> login(
-                @CookieValue(name = "accessToken", required = false) String accessToken,
-                @CookieValue(name = "refreshToken", required = false) String refreshToken,
-                @RequestBody LoginRequest loginRequest) {
-            
-            return userService.login(loginRequest, accessToken, refreshToken);
-        }
-    
-        @PostMapping("/refresh")
-        public ResponseEntity<AuthResponse> refreshToken(
-                @CookieValue(name = "refreshToken", required = false) String refreshToken) {
-    
-            return userService.refresh(refreshToken);
-        }
-    
-        @PostMapping("/logout")
-        public ResponseEntity<AuthResponse> logOut(HttpServletRequest request, HttpServletResponse response) {
-    
-            return ResponseEntity.ok(new AuthResponse(Status.SUCCESS, userService.logout(request, response)));
-        }
+
+    @Autowired
+    private UserLoginService userService;
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(
+            @CookieValue(name = "accessToken", required = false) String accessToken,
+            @CookieValue(name = "refreshToken", required = false) String refreshToken,
+            @RequestBody LoginRequest loginRequest) {
+
+        return userService.login(loginRequest, accessToken, refreshToken);
     }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<AuthResponse> refreshToken(
+            @CookieValue(name = "refreshToken", required = false) String refreshToken) {
+
+        return userService.refresh(refreshToken);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<AuthResponse> logOut(HttpServletRequest request, HttpServletResponse response) {
+
+        return ResponseEntity.ok(new AuthResponse(Status.SUCCESS, userService.logout(request, response)));
+    }
+
 }
