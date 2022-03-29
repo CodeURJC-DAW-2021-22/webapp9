@@ -49,8 +49,18 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.antMatcher("/api/**");
 		
 		// URLs that need authentication to access to it
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/**").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/**").hasAnyRole("USERO");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/users/**").hasAnyRole("USERO");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").hasAnyRole("USERO");
+
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/videogames/*/purchase/*").hasAnyRole("USERO");
+
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/auth/**").not().hasAnyRole("USERO");
+		// URLs where the admin has  unique access
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/news").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/news").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/videogames").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/videogames").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/**").hasAnyRole("ADMIN");
 		
 		// Other URLs can be accessed without authentication
