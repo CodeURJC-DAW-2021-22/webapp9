@@ -90,12 +90,9 @@ Además constará de un gráfico de sectores, el cual mostrará las ventas por g
 
 ## 6. ALGORITMO O CONSULTA AVANZADA
 
-Principalmente existirán dos funcionalidades que implementan un algoritmo basado cada uno en diferentes datos de las entidades:
-* Se implementará un sistema que ofrezca a los usuarios registrados videojuegos que puedan interesarles basados en su historial de compra. La decisión sobre qué juegos se muestran se hará en base a compras realizadas por usuarios con un historial de compras similar.
-* Se implementará un sistema que muestre una lista de los juegos más “populares”, lista que será actualizada semanalmente. Dicha “popularidad” se medirá en función de dos factores que se reflejarán en dos listas diferenciadas:
-    * Número de ventas totales del juego en cuestión.
-    * Valoración global del juego.  
-Cabe destacar que las valoraciones deben de tener en cuenta el número de valoraciones que tenga el videojuego (no puede haber un juego con una valoración de 5 estrellas por encima de uno con miles de valoraciones con media de 4,5 estrellas).
+Principalmente existirá una funcionalidad que implementa un algoritmo basado cada uno en diferentes datos de las entidades:
+* Se implementará un sistema que ofrezca a los usuarios registrados videojuegos que puedan interesarles basados en su historial de compra. La decisión sobre qué juegos ha comprado el usuario previamente, concretamente con el genero del mismo. 
+De esta forma se mostraran los videojuegos cuyo genero sea el mismo al genero mas comprado del usuario
 
 ## Descripción de cada una de las pantallas (FASE 1).
 Destacamos que en la barra de navegación "Administrador" sólo será visible para el administrador tras acceder como tal.

@@ -18,7 +18,7 @@ import urjc.gamelink.Configuration.Security.jwt.UserLoginService;
 import urjc.gamelink.Configuration.Security.jwt.AuthResponse.Status;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/auth")
 public class LoginRestController {
 
     @Autowired
@@ -45,5 +45,4 @@ public class LoginRestController {
 
         return ResponseEntity.ok(new AuthResponse(Status.SUCCESS, userService.logout(request, response)));
     }
-
 }
