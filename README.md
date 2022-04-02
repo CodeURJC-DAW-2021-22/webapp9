@@ -295,8 +295,8 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 # Documentación de la API REST(Fase 3)
 
 ## Especificación openAPI
-- [archivo yaml](backend/gameling/api-docs/api-docs.yaml)
-- 
+- [archivo yaml](backend/gamelink/api-docs/api-docs.yaml)
+
 ## Documento HTML
 - [enlaze](https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp9/7c9569b82c7b36f569e645f98066d7feb7ca2c81/backend/gamelink/api-docs/api-docs.html)
 
