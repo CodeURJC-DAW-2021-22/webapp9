@@ -181,7 +181,7 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 ![](CapturasPantallasWEB/diagramaClasesDAWFase2.png)
 # Modelo  ER (Fase 2)
 ![](CapturasPantallasWEB/modeloERDAWFase2.png)
-# Participación de miembros:
+# Participación de miembros (Fase 2):
 
 ### Andrea Patricia Acuña Padrón
 ###### Descripción textual de las tareas realizadas en la fase: 
@@ -291,4 +291,13 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 3. [GamelinkController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/GamelinkController.java)
 4. [Videogame.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Model/Videogame.java)
 5. [VideogameRepository.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blame/main/backend/gamelink/src/main/java/urjc/gamelink/Repositories/VideogameRepository.java)
+
+# Documentación de la API REST(Fase 3)
+
+## Especificación openAPI
+- [archivo yaml](backend/gameling/api-docs/api-docs.yaml)
+- 
+## Documento HTML
+- [enlaze](https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp9/7c9569b82c7b36f569e645f98066d7feb7ca2c81/backend/gamelink/api-docs/api-docs.html)
+
 
