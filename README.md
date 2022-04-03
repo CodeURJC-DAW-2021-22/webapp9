@@ -300,4 +300,6 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 ## Documento HTML
 - [enlaze](https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp9/7c9569b82c7b36f569e645f98066d7feb7ca2c81/backend/gamelink/api-docs/api-docs.html)
 
+## Tecnología complementaria (Recuperación de la fase 2)
+
 
