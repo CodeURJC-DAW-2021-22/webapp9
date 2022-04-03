@@ -301,5 +301,10 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 - [enlaze](https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp9/7c9569b82c7b36f569e645f98066d7feb7ca2c81/backend/gamelink/api-docs/api-docs.html)
 
 ## Tecnología complementaria (Recuperación de la fase 2)
+Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
+
+La generación del PDF se realiza mediante la libreria html2pdf, con su archivo js correspondiente. No ha sido incoporado en la API Rest, dado que todas las acciones de realizan en el Frontend.
+
+El procedimiento para generar un PDF es el siguiente:
 
 
