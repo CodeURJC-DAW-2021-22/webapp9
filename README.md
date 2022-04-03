@@ -307,4 +307,11 @@ La generación del PDF se realiza mediante la libreria html2pdf, con su archivo 
 
 El procedimiento para generar un PDF es el siguiente:
 
+Primero debemos logearnos como usuario (también valdría como administrador)
+![](CapturasPantallasWEB/userLogin.PNG)
+
+A continuación, debemos dirigirnos a la sección de videojuegos y presionar descubrir para visualizar los videojuegos. 
+
+Una vez se haya seleccionado un videojuego, se deberá pulsar la opción de comprar. A continuación nos saldrá la factura y podremos descargarla
+
 
