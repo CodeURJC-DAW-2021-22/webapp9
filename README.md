@@ -341,7 +341,29 @@ Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nomb
 ![](CapturasPantallasWEB/imageName.PNG)
 
 
+# Participación de miembros (Fase 3):
 
+### Andrea Patricia Acuña Padrón
+###### Descripción textual de las tareas realizadas en la fase: 
+  - Dockerizar la aplicación creando los archivos necesarios y probando los diversos mandatos
+  - Creación de la imagen junto con mi compañero Juan Luis Rico Rus
+  - Arreglar gráficas dinámicas
+  - Creación de la página de error: URL no válida
+  
+
+###### Listado de los 5 commits más significativos durante la fase:
+ 1. [inicio dockerfile y docker-compose](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/fb768e2b54671848b0149da624e05a6513aec17c)
+ 2. [dockerfile y docker-compose avance](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4f97a8b2265d0fcad08adad98588045f33c5810d)
+ 3. [fixed graphics by andrecupa](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/9d4580d7e75912d7f673ca29c8c7a8f64ba08d2a)
+ 4. [página error URL no válida](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/3e48d44bffc134a4a78a976f928bc0d8ec136413)
+ 5. [cambios de arreglos](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/8bacc5a76395e5db2a0a0d0367f08b89c93bdbab)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [Docker-compose.yml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/Docker-compose.yml)
+2. [Dockerfile](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/Dockerfile)
+3. [pom.xml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/pom.xml)
+4. [error.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/Andrea/backend/gamelink/src/main/resources/templates/error.html)
+5. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
 
 ## Tecnología complementaria (Recuperación de la fase 2)
 Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
