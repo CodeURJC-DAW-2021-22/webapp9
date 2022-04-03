@@ -390,6 +390,28 @@ Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nomb
 4. [LoginRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/LoginRestController.java)
 5. [RestSecurityConfig.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Configuration/Security/RestSecurityConfig.java)
 
+### Juan Luis Rico Rus
+###### Descripción textual de las tareas realizadas en la fase:
+-He dockerizado y creado la imágen de la aplicación junto con Andrea Patricia Acuña Padrón.
+-He participado en Postman junto con mi compañero Carlos Fuentes en la parte de Login.
+-He realizado las tareas necesarias para la incoporación de la tecnologia complementaria.
+
+###### Listado de los 5 commits más significativos durante la fase:
+1. [Dockerfile y docker-compose (no funciona aun)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/a364bd1918e1972ab4c61d957e82299f7e42e326) 
+2. [Cambio a login rest controller](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/efeb21e825a396134cc16340298df5ec40d4a49e)
+3. [Ajustes realizados en clase](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/c0ea1eeca5b1ddd2dbe6d0b33deb3974d9cb0f56)
+4. [boton de descargar PDF (como no, no funciona, no lo reconoce pero bueno mañana lo soluciono)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/725b1f9c95a1255f97b045181b4a4defafa2b27a)
+5. [generador de pdfs completo](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4dd4102f346d43394c0228e0f703a373b8aafec4)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [Dockerfile](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/Dockerfile)
+2. [Docker-compose.yml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/Docker-compose.yml)
+3. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
+4. [paymentConfirmation.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/nextPageTemplate.html)
+5. [pom.xml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/pom.xml)
+
+
+
 ## Tecnología complementaria (Recuperación de la fase 2)
 Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
 
