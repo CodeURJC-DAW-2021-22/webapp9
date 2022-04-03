@@ -412,6 +412,27 @@ Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nomb
 4. [paymentConfirmation.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/nextPageTemplate.html)
 5. [pom.xml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/pom.xml)
 
+### Carlos Fuentes Díaz
+###### Descripción textual de las tareas realizadas en la fase:
+- Separacion del controlador principal en controladores mas pequeños junto con Jhostin David Ortiz Moreno.
+- Participado en Postman junto con mi compañero Juan Luis Rico Rus en la parle de Login.
+- Actualizar el diagrama de clases.
+- Correccion de pequeños errores.
+
+###### Listado de los 5 commits más significativos durante la fase:
+1. [division del controller (parte news)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/49eaaa364af202f595d2e48080ac8cd2fd0320ca)
+2. [division del controller (parte usero)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/69a2fc7415fea1e2ff56e865baaa00d5356259f2)
+3. [mini cambio](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/c44a02f24e688b365ed8ee99e33785ba9f4dc934)
+4. [Update README.md](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/7b787f12a83d84d40f33d0a0dfe0c2c1d51c2148)
+5. [mini cambio](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/c44a02f24e688b365ed8ee99e33785ba9f4dc934)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [UseroWebController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/UseroWebController.java)
+2. [NewsWebController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/NewsWebController.java)
+3. [Docker-compose.yml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/Docker-compose.yml)
+4. [GamelinkWebController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/GamelinkWebController.java)
+5. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
+
 ## Tecnología complementaria (Recuperación de la fase 2)
 Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
 
