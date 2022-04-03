@@ -322,6 +322,27 @@ Tal y como se puede observar en la imagen
 Para poder publicar una imágen en DockerHub, primero debemos dirigirnos a la carpeta donde este docker y docker-compose en nuestra aplicación:
 ![](CapturasPantallasWEB/dockerPath.PNG)
 
+Una vez estemos en el directorio correcto, debemos ejecutar el siguiente comando para construir la imágen:
+![](CapturasPantallasWEB/dockerBuild.PNG)
+
+A continuación, debemos pushear la imágen al repositorio para que pueda ser descargada:
+![](CapturasPantallasWEB/dockerPush.PNG)
+
+Como se puede observar, se ha creado correctamente el repositorio con la imágen:
+![](CapturasPantallasWEB/dockerHubRepository.PNG)
+
+El siguiente paso es pullear la imágen del repositorio, para ello se utiliza el comando que se indica en el repositorio:
+![](CapturasPantallasWEB/dockerHubPullCommand.PNG)
+
+Una vez hemos realizado este paso, debemos comprobar que se ha pulleado correctamente a nuestra aplicación de docker. Para ello, debemos dirigirnos a la pestaña de imágenes.
+![](CapturasPantallasWEB/imageDownloaded.PNG)
+
+Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nombre de la imágen sea el mismo que el que nos indica DockerHub:
+![](CapturasPantallasWEB/imageName.PNG)
+
+
+
+
 ## Tecnología complementaria (Recuperación de la fase 2)
 Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
 
