@@ -316,6 +316,7 @@ A continuación, debemos dirigirnos a la sección de videojuegos y presionar des
 Una vez se haya seleccionado un videojuego, se deberá pulsar la opción de comprar. 
 ![](CapturasPantallasWEB/buyVideogame.PNG)
 
-A continuación nos saldrá la factura y podremos descargarla. La imágen siguiente muestra el PDF de la factura una vez se realiza la descarga
+A continuación nos saldrá la factura y podremos descargarla. La imágen siguiente muestra el PDF de la factura una vez se realiza la descarga.
+![](CapturasPantallasWEB/PDFDownloaded.PNG)
 
 
