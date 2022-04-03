@@ -340,6 +340,8 @@ Una vez hemos realizado este paso, debemos comprobar que se ha pulleado correcta
 Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nombre de la imágen sea el mismo que el que nos indica DockerHub:
 ![](CapturasPantallasWEB/imageName.PNG)
 
+# Diagrama de Clases (Fase 3)
+![](CapturasPantallasWEB/diagramaDeClases.png)
 
 # Participación de miembros (Fase 3):
 
@@ -409,8 +411,6 @@ Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nomb
 3. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
 4. [paymentConfirmation.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/nextPageTemplate.html)
 5. [pom.xml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/pom.xml)
-
-
 
 ## Tecnología complementaria (Recuperación de la fase 2)
 Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
