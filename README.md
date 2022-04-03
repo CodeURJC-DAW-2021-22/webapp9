@@ -294,11 +294,14 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 
 # Documentación de la API REST(Fase 3)
 
+## URL Aplicación en Heroku
+- [Aplicación en Heroku](https://codeurjc-daw-2021-22-webapp9.herokuapp.com/)
+
 ## Especificación openAPI
 - [archivo yaml](backend/gamelink/api-docs/api-docs.yaml)
 
 ## Documento HTML
-- [enlaze](https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp9/7c9569b82c7b36f569e645f98066d7feb7ca2c81/backend/gamelink/api-docs/api-docs.html)
+- [enlace](https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp9/7c9569b82c7b36f569e645f98066d7feb7ca2c81/backend/gamelink/api-docs/api-docs.html)
 
 ## Instrucciones de ejecución de la aplicación dockerizada
 #### Para poder hacer uso del docker-compose.yml será necesario:
