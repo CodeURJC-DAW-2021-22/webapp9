@@ -365,25 +365,6 @@ Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nomb
 4. [error.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/Andrea/backend/gamelink/src/main/resources/templates/error.html)
 5. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
 
-## Tecnología complementaria (Recuperación de la fase 2)
-Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
-
-La generación del PDF se realiza mediante la libreria html2pdf, con su archivo js correspondiente. No ha sido incoporado en la API Rest, dado que todas las acciones de realizan en el Frontend. He aquí el tutorial que ha sido usado: https://parzibyte.me/blog/2020/09/05/html-pdf-javascript/
-
-El procedimiento para generar un PDF es el siguiente:
-
-Primero debemos logearnos como usuario (también valdría como administrador)
-![](CapturasPantallasWEB/userLogin.PNG)
-
-A continuación, debemos dirigirnos a la sección de videojuegos y presionar descubrir para visualizar los videojuegos. 
-![](CapturasPantallasWEB/discoverVideogame.PNG)
-
-Una vez se haya seleccionado un videojuego, se deberá pulsar la opción de comprar. 
-![](CapturasPantallasWEB/buyVideogame.PNG)
-
-A continuación nos saldrá la factura y podremos descargarla. La imágen siguiente muestra el PDF de la factura una vez se realiza la descarga.
-![](CapturasPantallasWEB/PDFDownloaded.PNG)
-
 ### Mani Victor Patel Bentz
 ###### Descripción textual de las tareas realizadas en la fase:
  
@@ -408,3 +389,24 @@ A continuación nos saldrá la factura y podremos descargarla. La imágen siguie
 3. [NewsRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/NewsWebController.java)
 4. [LoginRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/LoginRestController.java)
 5. [RestSecurityConfig.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Configuration/Security/RestSecurityConfig.java)
+
+## Tecnología complementaria (Recuperación de la fase 2)
+Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
+
+La generación del PDF se realiza mediante la libreria html2pdf, con su archivo js correspondiente. No ha sido incoporado en la API Rest, dado que todas las acciones de realizan en el Frontend. He aquí el tutorial que ha sido usado: https://parzibyte.me/blog/2020/09/05/html-pdf-javascript/
+
+El procedimiento para generar un PDF es el siguiente:
+
+Primero debemos logearnos como usuario (también valdría como administrador)
+![](CapturasPantallasWEB/userLogin.PNG)
+
+A continuación, debemos dirigirnos a la sección de videojuegos y presionar descubrir para visualizar los videojuegos. 
+![](CapturasPantallasWEB/discoverVideogame.PNG)
+
+Una vez se haya seleccionado un videojuego, se deberá pulsar la opción de comprar. 
+![](CapturasPantallasWEB/buyVideogame.PNG)
+
+A continuación nos saldrá la factura y podremos descargarla. La imágen siguiente muestra el PDF de la factura una vez se realiza la descarga.
+![](CapturasPantallasWEB/PDFDownloaded.PNG)
+
+
