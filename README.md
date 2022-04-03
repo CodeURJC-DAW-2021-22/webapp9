@@ -392,9 +392,9 @@ Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nomb
 
 ### Juan Luis Rico Rus
 ###### Descripción textual de las tareas realizadas en la fase:
--He dockerizado y creado la imágen de la aplicación junto con Andrea Patricia Acuña Padrón.
--He participado en Postman junto con mi compañero Carlos Fuentes en la parte de Login.
--He realizado las tareas necesarias para la incoporación de la tecnologia complementaria.
+- He dockerizado y creado la imágen de la aplicación junto con Andrea Patricia Acuña Padrón.
+- He participado en Postman junto con mi compañero Carlos Fuentes en la parte de Login.
+- He realizado las tareas necesarias para la incoporación de la tecnologia complementaria.
 
 ###### Listado de los 5 commits más significativos durante la fase:
 1. [Dockerfile y docker-compose (no funciona aun)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/a364bd1918e1972ab4c61d957e82299f7e42e326) 
