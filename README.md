@@ -317,6 +317,11 @@ Tal y como se puede observar en la imagen
 #### Una vez ejecutado el comando y construida la imagen, el usuario podrá acceder mediante la url:
 (https://localhost:8443)
 
+#### Publicación de la imágen en DockerHub y descarga
+
+Para poder publicar una imágen en DockerHub, primero debemos dirigirnos a la carpeta donde este docker y docker-compose en nuestra aplicación:
+![](CapturasPantallasWEB/dockerPath.PNG)
+
 ## Tecnología complementaria (Recuperación de la fase 2)
 Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
 
