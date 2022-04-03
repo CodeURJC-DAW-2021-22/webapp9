@@ -300,4 +300,88 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 ## Documento HTML
 - [enlaze](https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp9/7c9569b82c7b36f569e645f98066d7feb7ca2c81/backend/gamelink/api-docs/api-docs.html)
 
+## Instrucciones de ejecución de la aplicación dockerizada
+#### Para poder hacer uso del docker-compose.yml será necesario:
+
+- tener instalado Docker desktop: [enlace docker desktop](https://docs.docker.com/desktop/windows/install/)
+- Tener clonado el repositorio github: [enlace repositorio github](https://github.com/CodeURJC-DAW-2021-22/webapp9)
+
+#### Una vez se tienen instalados los requisitos previos:
+
+- Se entrará a la bash del SO y se posicionará en la carpeta donde estén los archivos  dockerfile y docker-compose mediante el comando cd 
+Tal y como se puede observar en la imagen
+![](CapturasPantallasWEB/cmdDockerFile.png)
+
+- Una vez situados correctamente se ejecutará el siguiente comando: docker-compose up
+
+#### Una vez ejecutado el comando y construida la imagen, el usuario podrá acceder mediante la url:
+(https://localhost:8443)
+
+## Publicación de la imágen en DockerHub y descarga
+
+Para poder publicar una imágen en DockerHub, primero debemos dirigirnos a la carpeta donde este docker y docker-compose en nuestra aplicación:
+![](CapturasPantallasWEB/dockerPath.PNG)
+
+Una vez estemos en el directorio correcto, debemos ejecutar el siguiente comando para construir la imágen:
+![](CapturasPantallasWEB/dockerBuild.PNG)
+
+A continuación, debemos pushear la imágen al repositorio para que pueda ser descargada:
+![](CapturasPantallasWEB/dockerPush.PNG)
+
+Como se puede observar, se ha creado correctamente el repositorio con la imágen:
+![](CapturasPantallasWEB/dockerHubRepository.PNG)
+
+El siguiente paso es pullear la imágen del repositorio, para ello se utiliza el comando que se indica en el repositorio:
+![](CapturasPantallasWEB/dockerHubPullCommand.PNG)
+
+Una vez hemos realizado este paso, debemos comprobar que se ha pulleado correctamente a nuestra aplicación de docker. Para ello, debemos dirigirnos a la pestaña de imágenes.
+![](CapturasPantallasWEB/imageDownloaded.PNG)
+
+Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nombre de la imágen sea el mismo que el que nos indica DockerHub:
+![](CapturasPantallasWEB/imageName.PNG)
+
+
+# Participación de miembros (Fase 3):
+
+### Andrea Patricia Acuña Padrón
+###### Descripción textual de las tareas realizadas en la fase: 
+  - Dockerizar la aplicación creando los archivos necesarios y probando los diversos mandatos
+  - Creación de la imagen junto con mi compañero Juan Luis Rico Rus
+  - Arreglar gráficas dinámicas
+  - Creación de la página de error: URL no válida
+  
+
+###### Listado de los 5 commits más significativos durante la fase:
+ 1. [inicio dockerfile y docker-compose](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/fb768e2b54671848b0149da624e05a6513aec17c)
+ 2. [dockerfile y docker-compose avance](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4f97a8b2265d0fcad08adad98588045f33c5810d)
+ 3. [fixed graphics by andrecupa](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/9d4580d7e75912d7f673ca29c8c7a8f64ba08d2a)
+ 4. [página error URL no válida](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/3e48d44bffc134a4a78a976f928bc0d8ec136413)
+ 5. [cambios de arreglos](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/8bacc5a76395e5db2a0a0d0367f08b89c93bdbab)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [Docker-compose.yml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/Docker-compose.yml)
+2. [Dockerfile](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/Dockerfile)
+3. [pom.xml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/pom.xml)
+4. [error.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/Andrea/backend/gamelink/src/main/resources/templates/error.html)
+5. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
+
+## Tecnología complementaria (Recuperación de la fase 2)
+Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
+
+La generación del PDF se realiza mediante la libreria html2pdf, con su archivo js correspondiente. No ha sido incoporado en la API Rest, dado que todas las acciones de realizan en el Frontend. He aquí el tutorial que ha sido usado: https://parzibyte.me/blog/2020/09/05/html-pdf-javascript/
+
+El procedimiento para generar un PDF es el siguiente:
+
+Primero debemos logearnos como usuario (también valdría como administrador)
+![](CapturasPantallasWEB/userLogin.PNG)
+
+A continuación, debemos dirigirnos a la sección de videojuegos y presionar descubrir para visualizar los videojuegos. 
+![](CapturasPantallasWEB/discoverVideogame.PNG)
+
+Una vez se haya seleccionado un videojuego, se deberá pulsar la opción de comprar. 
+![](CapturasPantallasWEB/buyVideogame.PNG)
+
+A continuación nos saldrá la factura y podremos descargarla. La imágen siguiente muestra el PDF de la factura una vez se realiza la descarga.
+![](CapturasPantallasWEB/PDFDownloaded.PNG)
+
 
