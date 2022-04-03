@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Escuchamos el click del botón
     const $boton = document.querySelector("#generatePDF");
     $boton.addEventListener("click", () => {
-        const $elementoParaConvertir = document.body; // <-- Aquí puedes elegir cualquier elemento del DOM
+        const $elementoParaConvertir = document.body; // <-- Here you can choose any element of the DOM
         html2pdf()
             .set({
                 margin: 1,
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     quality: 0.98
                 },
                 html2canvas: {
-                    scale: 3, // A mayor escala, mejores gráficos, pero más peso
+                    scale: 3, // Larger scale, better graphics, but more weight
                     letterRendering: true,
                 },
                 jsPDF: {
@@ -42,14 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-/*function generatePDF(){
-    const element = document.getElementById("payConfirmation");
-
-    html2pdf()
-    .from(element)
-    .save();
-}*/
-
 $(document).ready(function() {    
     $('#moreImagesButton').on('click', function(){
         
@@ -62,8 +54,8 @@ $(document).ready(function() {
                 $('#loader').removeClass('hidden');
             },
             success: function (data) {
-                //Cargamos finalmente el contenido deseado
-                //$('#masImagenes').fadeIn(1000).html(data);
+                //We finally load the desired content
+                //$('#moreImgages').fadeIn(1000).html(data);
                 $("#moreImages").fadeIn(1000).append(data);
             },
             complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
