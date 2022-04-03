@@ -384,4 +384,27 @@ Una vez se haya seleccionado un videojuego, se deberá pulsar la opción de comp
 A continuación nos saldrá la factura y podremos descargarla. La imágen siguiente muestra el PDF de la factura una vez se realiza la descarga.
 ![](CapturasPantallasWEB/PDFDownloaded.PNG)
 
+### Mani Victor Patel Bentz
+###### Descripción textual de las tareas realizadas en la fase:
+ 
+- Desarrollado la api rest al completo, dividido en los distintos controladores rest.
+- Testeado y generado el postman_collections.
+- Agregado las dependecias y generado la carpeta api-docs.
+- Integrado seguridad a los controladores rest y configurado las urls para evitar exploits.
+- Realizado algún hotfix que me ha sido encargado.
 
+###### Listado de los 5 commits más significativos durante la fase:
+
+1. [Divided the rest controller and some adds](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/178bb3a704d9fcf711c7a4fd169678c606b6eab8)
+2. [Added new methods, will separate in different rest controller](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/6a4bacb119377d0f487d0056445ed8809fa933ed)
+3. [Fixes in the RestAPi](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/fc9dd084679c992376ec92d8e8b0c05865c41946)
+4. [Rest apis fixed and added some new methods, postman collection added. Fixed querys.](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/cb1a08af9e26cf55e5b1a28b25ddc8695ba8fdc5)
+5. [New urls security rules](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4d90b1b05e54f2ba8820c00aeaf28eb49da7fc59)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+
+1. [VideogamesRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/VideogamesRestController.java)
+2. [UserRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/UserRestController.java)
+3. [NewsRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/NewsWebController.java)
+4. [LoginRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/LoginRestController.java)
+5. [RestSecurityConfig.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Configuration/Security/RestSecurityConfig.java)
