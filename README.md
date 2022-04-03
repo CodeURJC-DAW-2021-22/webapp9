@@ -303,7 +303,7 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 ## Tecnología complementaria (Recuperación de la fase 2)
 Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
 
-La generación del PDF se realiza mediante la libreria html2pdf, con su archivo js correspondiente. No ha sido incoporado en la API Rest, dado que todas las acciones de realizan en el Frontend.
+La generación del PDF se realiza mediante la libreria html2pdf, con su archivo js correspondiente. No ha sido incoporado en la API Rest, dado que todas las acciones de realizan en el Frontend. He aquí el tutorial que ha sido usado: https://parzibyte.me/blog/2020/09/05/html-pdf-javascript/
 
 El procedimiento para generar un PDF es el siguiente:
 
