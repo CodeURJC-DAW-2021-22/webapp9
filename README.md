@@ -311,7 +311,10 @@ Primero debemos logearnos como usuario (también valdría como administrador)
 ![](CapturasPantallasWEB/userLogin.PNG)
 
 A continuación, debemos dirigirnos a la sección de videojuegos y presionar descubrir para visualizar los videojuegos. 
+![](CapturasPantallasWEB/discoverVideogame.PNG)
 
-Una vez se haya seleccionado un videojuego, se deberá pulsar la opción de comprar. A continuación nos saldrá la factura y podremos descargarla
+Una vez se haya seleccionado un videojuego, se deberá pulsar la opción de comprar. 
+
+A continuación nos saldrá la factura y podremos descargarla
 
 
