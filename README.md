@@ -300,6 +300,23 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 ## Documento HTML
 - [enlaze](https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp9/7c9569b82c7b36f569e645f98066d7feb7ca2c81/backend/gamelink/api-docs/api-docs.html)
 
+## Instrucciones de ejecución de la aplicación dockerizada
+Para poder hacer uso del docker-compose.yml será necesario:
+
+- tener instalado Docker desktop: [enlace docker desktop](https://docs.docker.com/desktop/windows/install/)
+- Tener clonado el repositorio github: [enlace repositorio github](https://github.com/CodeURJC-DAW-2021-22/webapp9)
+
+Una vez se tienen instalados los requisitos previos:
+
+- Se entrará a la bash del SO y se posicionará en la carpeta donde estén los archivos  dockerfile y docker-compose mediante el comando cd 
+Tal y como se puede observar en la imagen
+![](CapturasPantallasWEB/cmdDockerFile.png)
+
+- Una vez situados correctamente se ejecutará el siguiente comando: docker-compose up
+
+Una vez ejecutado el comando y construida la imagen, el usuario podrá acceder mediante la url:
+(https://localhost:8443)
+
 ## Tecnología complementaria (Recuperación de la fase 2)
 Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.
 
