@@ -13,7 +13,6 @@ var pageValueRecommendedGames = 0;
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Escuchamos el click del botón
     const $boton = document.querySelector("#generatePDF");
     $boton.addEventListener("click", () => {
         const $elementoParaConvertir = document.body; // <-- Here you can choose any element of the DOM
