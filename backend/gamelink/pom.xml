@@ -64,23 +64,11 @@
 	
 	</dependencies>
 
-		<build>
+<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<image>
-						<env>
-							<BPE_OVERRIDE_JAVA_TOOL_OPTIONS>
-								-Xss256K
-								-XX:ReservedCodeCacheSize=64M
-								-XX:MaxMetaspaceSize=100000K
-								-Xmx64M
-							</BPE_OVERRIDE_JAVA_TOOL_OPTIONS>
-						</env>
-					</image>
-				</configuration>
 				<executions>
 					<execution>
 						<id>pre-integration-test</id>
@@ -114,7 +102,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<apiDocsUrl>https://localhost:8443/v3/api-docs.yaml</apiDocsUrl>
+					<apiDocsUrl>http://localhost:8443/v3/api-docs.yaml</apiDocsUrl>
 					<outputFileName>api-docs.yaml</outputFileName>
 					<outputDir>${project.basedir}/api-docs</outputDir>
 				</configuration>
