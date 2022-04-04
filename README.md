@@ -320,7 +320,7 @@ Tal y como se puede observar en la imagen
 #### Una vez ejecutado el comando y construida la imagen, el usuario podrá acceder mediante la url:
 (https://localhost:8443)
 
-## Publicación de la imágen en DockerHub y descarga
+## Publicación de la imagen en DockerHub y descarga
 
 Para poder publicar una imágen en DockerHub, primero debemos dirigirnos a la carpeta donde este docker y docker-compose en nuestra aplicación:
 ![](CapturasPantallasWEB/dockerPath.PNG)
@@ -342,6 +342,33 @@ Una vez hemos realizado este paso, debemos comprobar que se ha pulleado correcta
 
 Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nombre de la imágen sea el mismo que el que nos indica DockerHub:
 ![](CapturasPantallasWEB/imageName.PNG)
+
+## Instrucciones para despliegue en Heroku
+
+Para poder desplegar una aplicación en heroku, primero es necesario crearse una cuenta en heroku e instalar el cliente para terminal.
+
+Una vez hecho esto, necesitamos cambiar en application.properties el valor de server.port:
+![](CapturasPantallasWEB/HerokuServerPort.png)
+
+También tenemos que cambiar las dependencias del pom.xml y limitar la memoria a 512Mb:
+![](CapturasPantallasWEB/HerokuMemory.png)
+
+También necesitamos una nueva clase que se encargue de la configuración de la base de datos:
+![](CapturasPantallasWEB/HerokuDB.png)
+
+Una vez hecho esto, abrimos una terminal en el directorio de nuestra app y nos logueamos con $heroku login.
+
+Para la creación de la app en Heroku usamos el comando:
+![](CapturasPantallasWEB/HerokuCreate.png)
+
+Usamos $heroku container:login para que docker pueda subir imágenes a heroku (sólo se hace una vez)
+
+Una vez hecho esto, ejecutamos la siguiente serie de comandos:
+![](CapturasPantallasWEB/HerokuDeploy.png)
+
+Para desactivar los certificados usamos el comando $heroku config:set SERVER_SSL_ENABLED=false --app codeurjc-daw-2021-22-webapp9
+
+Para añadir una base de datos usamos $heroku addons:create heroku-postgresql --app codeurjc-daw-2021-22-webapp9
 
 # Diagrama de Clases (Fase 3)
 ![](CapturasPantallasWEB/diagramaDeClases.png)
