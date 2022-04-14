@@ -31,6 +31,7 @@ public class Usero {
 
     private String email;
 
+    @JsonIgnore
     private String encodedPassword;
     
     private String creditCard;
