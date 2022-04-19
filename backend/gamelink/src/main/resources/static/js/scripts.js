@@ -152,8 +152,8 @@ var check = function () {
     }
   }
 
-  $(document).ready(function () { //se cargara cuando se crea la pantalla
-    $('#myChart').ready(function () { //se cargara cuando la grafica2 esta lista
+  $(document).ready(function () { 
+    $('#myChart').ready(function () { 
 
         var games = [];
         var solds = [];
@@ -210,8 +210,8 @@ var check = function () {
     })
 })
 
-  $(document).ready(function () { //se cargara cuando se crea la pantalla
-    $('#myChartSoldGenre').ready(function () { //se cargara cuando la grafica2 esta lista
+  $(document).ready(function () { 
+    $('#myChartSoldGenre').ready(function () { 
 
         var games1 = [];
         var solds1 = [];

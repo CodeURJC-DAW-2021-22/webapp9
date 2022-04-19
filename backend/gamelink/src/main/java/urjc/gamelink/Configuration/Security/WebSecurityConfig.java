@@ -6,9 +6,12 @@ import java.security.SecureRandom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.ExceptionHandlingConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -19,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
 	RepositoryUserDetailsService userDetailsService;
+    private Customizer<ExceptionHandlingConfigurer<HttpSecurity>> GlobalControllerExceptionHandler;
 
 
 	@Bean
@@ -51,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/videogame").permitAll();
         http.authorizeRequests().antMatchers("/").permitAll();
 	    
-        // Logged can not acces
+        // Logged can not access
 
         http.authorizeRequests().antMatchers("/login").not().hasAnyRole("USERO");
         http.authorizeRequests().antMatchers("/signin").not().hasAnyRole("USERO");
@@ -71,7 +75,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/editNew/**").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers("/deleteNew/**").hasAnyRole("ADMIN");
         
-
 
         // Login form
 
