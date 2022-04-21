@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../models/user.model';
+import { Usero } from '../models/usero.model';
 
 const BASE_URL = '/api/auth';
 
@@ -8,7 +8,7 @@ const BASE_URL = '/api/auth';
 export class LoginService {
 
     logged: boolean;
-    user: User;
+    user: Usero;
 
     constructor(private http: HttpClient) {
         this.reqIsLogged();
@@ -18,7 +18,7 @@ export class LoginService {
 
         this.http.get('/api/users/me', { withCredentials: true }).subscribe(
             response => {
-                this.user = response as User;
+                this.user = response as Usero;
                 this.logged = true;
             },
             error => {
