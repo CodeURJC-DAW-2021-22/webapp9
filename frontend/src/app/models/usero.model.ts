@@ -11,4 +11,6 @@ export interface Usero {
     creditCard:string;
 
     image:boolean;
+    
+    roles:string[];
 }
