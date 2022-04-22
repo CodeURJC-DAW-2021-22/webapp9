@@ -3,7 +3,6 @@ package urjc.gamelink.Model;
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
