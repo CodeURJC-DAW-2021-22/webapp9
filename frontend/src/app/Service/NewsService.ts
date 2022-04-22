@@ -1,5 +1,5 @@
 import { Service } from '@angular/core';
-import { HttpClient } fron '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 
 import { News } from '../Model/News';
 import { NewRepository } from '../Repositories/NewRepository';
