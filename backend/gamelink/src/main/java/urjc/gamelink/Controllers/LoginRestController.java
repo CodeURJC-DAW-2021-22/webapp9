@@ -17,7 +17,6 @@ import urjc.gamelink.Configuration.Security.jwt.LoginRequest;
 import urjc.gamelink.Configuration.Security.jwt.UserLoginService;
 import urjc.gamelink.Configuration.Security.jwt.AuthResponse.Status;
 
-
 @RestController
 @RequestMapping("/api/auth")
 public class LoginRestController {   
