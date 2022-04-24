@@ -1,18 +1,23 @@
-import { Service } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { News } from '../Model/News';
-import { NewRepository } from '../Repositories/NewRepository';
+import { News } from '../models/new.model';
+import { Observable } from 'rxjs';
 
-@Service
+const URL = '/api/news/';
+
+@Injectable({ providedIn: 'root' })
 export class NewsService {
 
-    constructor(private httpClient: HttpClient) {}
+    constructor(private httpClient: HttpClient) { }
 
-    private repository: NewRepository;
-
+    /*
     findById(id: number) {
         return this.repository.findById(id);
+    }
+    */
+    getNewById(id: number): Observable<News> {
+        return this.httpClient.get(URL + id) as Observable<News>;
     }
 
     exist(id: number) {
@@ -20,19 +25,33 @@ export class NewsService {
     }
 
     findAll(pageable: Pageable) {
-        return this.repository.findAll(pageable);
+        return this.httpClient.findAll(pageable);
     }
 
+    /*
     findAll() {
         return this.repository.findAll();
     }
-
-    save(new: News) {
-        return this.httpClient.put(URL + new.id, new);
+    */
+    getNews(): Observable<News> {
+        return this.httpClient.get(URL) as Observable<News>;
     }
 
+    /*save(new: News) {
+        return this.httpClient.put(URL + new.id, new);
+    }
+    */
+    saveNew(news: News) {
+        return this.httpClient.put(URL + news.id, news);
+    }
+
+    /*
     delete(id: number) {
         this.repository.deleteById(id);
+    }
+    */
+    deleteNew(news: News) {
+        return this.httpClient.delete(URL + news.id);
     }
 
     findAll(of: PageRequest) {
