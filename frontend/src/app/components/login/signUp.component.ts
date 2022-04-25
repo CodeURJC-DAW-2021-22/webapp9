@@ -5,7 +5,7 @@ import { SignUpService } from '../../services/signUp.service';
   selector: 'signup',
   templateUrl: './signup.component.html'
 })
-export class LoginComponent {
+export class SignUpComponent {
 
   constructor(public signUpService: SignUpService) { }
 
@@ -13,7 +13,7 @@ export class LoginComponent {
 
     event.preventDefault();
 
-    this.signUpService.logIn(nick, name, lastName, email, pass);
+    this.signUpService.signup(nick, name, lastName, email, pass);
   }
 
 }

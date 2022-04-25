@@ -19,7 +19,7 @@
                                         <div class="card-body">
                                             <h3 class="card-title text-center">Login</h3>
                                             <div class="card-text">                                  
-                                                <form action="/login" method="post">
+                                                <form *ngIf="!loginService.isLogged()">
                                                     <!-- to error: add class "has-danger" -->
                                                     <div class="form-group">
                                                         <label>Nombre Usuario:</label>
