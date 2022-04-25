@@ -58,11 +58,11 @@ export class NewsService {
         return this.httpClient.put()
     }
 */
-    /*
+
     private handleError(error: any) {
-		console.log("ERROR:");
-		console.error(error);
-		return throwError("Server error (" + error.status + "): " + error.text())
-	}
-    */
+		  console.log("ERROR:");
+		  console.error(error);
+		  return throwError("Server error (" + error.status + "): " + error.text())
+	  }
+
 }
