@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
-import { SignUpService } from '../../services/signUp.service'; 
+import { UseroService } from '../../services/Usero.service'; 
 
 @Component({
   selector: 'signup',
-  templateUrl: './signup.component.html'
+  templateUrl: './usero.component.html'
 })
 export class SignUpComponent {
 
-  constructor(public signUpService: SignUpService) { }
+  constructor(public useroService: UseroService) { }
 
   signup(event: any, nick: String, name: String, lastName: String, email: String, pass: String) {
 
     event.preventDefault();
 
-    this.signUpService.signup(nick, name, lastName, email, pass);
+    this.useroService.signup(nick, name, lastName, email, pass);
   }
 
 }

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-3 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
-                            class="rounded-circle mt-5" width="150px" src="/profile/{{id}}/image"><span
+                            class="rounded-circle mt-5" width="150px" [src]="userImage()"><span
                             class="font-weight-bold">"{{user.nick}}"</span><span class="text-black-50">"{{user.email}}"</span><span>
                         </span>
                         <button (click)="save()">Save</button>
@@ -25,27 +25,27 @@
                                         <h3>"{{user.username}}"</h3>
                                 </div>
                                 <div class="col-md-6"><label class="labels">Apellido(s)</label>
-                                    <h3>"{{user.lastName}}"</h3>
+                                        <h3>"{{user.lastName}}"</h3>
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels">Nombre de usuario</label>
                                     <input name="nick" type="text" class="form-control" placeholder="RodPerez"
-                                        value="{{user.nick}}">
+                                        [(ngModel)]="{{user.nick}}">
                                 </div>
                                 <div class="col-md-12"><label class="labels">Email</label>
                                     <input name="email" type="email" class="form-control"
-                                        placeholder="RodPerez@gmail.com" value="{{user.email}}">
+                                        placeholder="RodPerez@gmail.com" [(ngModel)]="{{user.email}}">
                                 </div>
 
 
                                 <div class="col-md-12"><label class="labels">Número de tarjeta</label>
-                                    <input *ngIf="user.creditCard" name="creditCard" type="text" class="form-control" placeholder="123456789A" value="{{user?.creditCard}}">
+                                    <input *ngIf="user.creditCard" name="creditCard" type="text" class="form-control" placeholder="123456789A" [(ngModel)]="{{user?.creditCard}}">
                                 </div>
 
                                 <div class="col-md-12">
                                     <p>Imagen de perfil</p>
-                                    <input type='file' name='imageField' accept=".jpg, .jpeg, .png, .svg" />
+                                    <input #file type='file' name='imageField' accept=".jpg, .jpeg, .png, .svg" />
                                 </div>
                         </form>
                     </div>
