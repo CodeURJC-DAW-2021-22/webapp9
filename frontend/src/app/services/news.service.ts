@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { News } from '../models/new.model';
+import { Usero } from '../models/usero.model'
 import { catchError, Observable, throwError } from 'rxjs';
 
 const URL = '/api/news/';
@@ -53,7 +54,7 @@ export class NewsService {
         return this.httpClient.delete(URL + news.id + '/image')
     }
 /*
-    readNew() {
+    readNew(news: News, user: Usero) {
         return this.httpClient.put()
     }
 */
