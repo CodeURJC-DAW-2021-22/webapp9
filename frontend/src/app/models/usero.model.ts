@@ -1,16 +1,16 @@
 export interface Usero {
     id?: number;
-    nick:string;
+    nick: string;
 
-    name:string;
+    name: string;
     
-    lastName:string;
+    lastName: string;
 
-    email:string;
+    email: string;
 
-    creditCard:string;
+    creditCard: string;
 
-    image:boolean;
+    image: boolean;
     
-    roles:string[];
+    roles: string[];
 }

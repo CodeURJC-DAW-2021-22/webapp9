@@ -18,7 +18,7 @@
                                         <div class="card-body">
                                             <h3 class="card-title text-center">Registro</h3>
                                             <div class="card-text">
-                                                <form action="/signin" method="post">
+                                                <form *ngIf="!loginService.isLogged()">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Nick</label>
                                                         <input #nick name="nick" type="text" class="form-control form-control-sm" id="exampleInputEmail1" required>
@@ -47,9 +47,6 @@
                                                     <button type="submit" (click)="signup($event, nick.value, name.value, lastName.value, email.value, 
                                                                                         pass.value)" class="btn btn-default">registrarse</button>
                                                 </form>
-                                                <script>
-                                                    document.getElementById('createUserBtn').disabled = true;
-                                                </script>
                                             </div>
                                         </div>
                                     </div>
