@@ -21,7 +21,7 @@ export class NewsService {
 
     getNews(): Observable<News[]> {
       return this.httpClient.get(URL).pipe(
-        //catchError(error => this.handleError(error))
+        catchError((error: any) => this.handleError(error))
       ) as Observable<News[]>;
     }
 
@@ -53,7 +53,7 @@ export class NewsService {
     //getNewById
     getNew(id: number): Observable<News> {
       return this.httpClient.get(URL + id).pipe(
-        //catchError(error => this.handleError(error))
+        catchError((error: any) => this.handleError(error))
       ) as Observable<News>;
     }
 
@@ -80,7 +80,7 @@ export class NewsService {
           );
       } else { //else, if exists, this method update the existing book
         return this.httpClient.put(URL + news.id, news).pipe( //put(location, object to be located in the location) (en lo primero mete lo segundo, vamos)
-          //catchError(error => this.handleError(error))
+          catchError((error: any) => this.handleError(error))
         );
       }
     }
@@ -111,7 +111,7 @@ export class NewsService {
 
     updateNew(news: News){
       return this.httpClient.put(URL + news.id, news).pipe(
-        //catchError(error => this.handleError(error))
+        catchError((error: any) => this.handleError(error))
       );
     }
 
@@ -132,7 +132,7 @@ export class NewsService {
 
     deleteNew(news: News) {
       return this.httpClient.delete(URL + news.id).pipe(
-        //catchError(error => this.handleError(error))
+        catchError((error: any) => this.handleError(error))
       );
     }
 
@@ -158,7 +158,7 @@ export class NewsService {
     uploadNewImage(news: News, formData: FormData) {
       return this.httpClient.post(URL + news.id + '/image', formData)
         .pipe(
-          //catchError(error => this.handleError(error))
+          catchError((error: any) => this.handleError(error))
         );
     }
 
@@ -185,7 +185,7 @@ export class NewsService {
     downloadNewImage(news: News) {
       return this.httpClient.get(URL + news.id + '/image')
         .pipe(
-          //catchError(error => this.handleError(error))
+          catchError((error: any) => this.handleError(error))
         );
     }
 
@@ -208,7 +208,7 @@ export class NewsService {
     deleteNewImage(news: News) {
       return this.httpClient.delete(URL + news.id + '/image')
         .pipe(
-          //catchError(error => this.handleError(error))
+          catchError((error: any) => this.handleError(error)) //en esta versión de angular tenemos que definir todas las variables
         );
     }
 
@@ -237,10 +237,10 @@ export class NewsService {
     }
     */
 
-    /*private handleError(error: any) {
+    private handleError(error: any) {
       console.log("ERROR:");
       console.error(error);
       return throwError("Server error (" + error.status + "): " + error.text())
-    }*/
+    }
 
 }
