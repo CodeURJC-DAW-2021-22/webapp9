@@ -8,11 +8,12 @@ import { routing } from './app.routing';
 import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NewsComponent } from './components/news/news.component';
-import { NavBarComponent } from './components/navBar/navBar.component'
+import { NavBarComponent } from './components/navBar/navBar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeaderComponent, NewsComponent, NavBarComponent],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, NewsComponent, NavBarComponent, FooterComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   bootstrap: [AppComponent]
 })
