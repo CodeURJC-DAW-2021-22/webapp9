@@ -15,6 +15,8 @@ export class NewsComponent{
   //25: int;
   news: News | undefined;
 
-  constructor(private router: Router, public newsService: NewsService)
+  constructor(private router: Router, public newsService: NewsService){
+    
+  }
 
 }

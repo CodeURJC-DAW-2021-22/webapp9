@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service'
 
 @Component({
   selector: 'navBar',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
 })
 
 
-export class HeaderComponent{
+export class NavBarComponent{
 
+    constructor(public loginService: LoginService){
+
+    }
 
 }
