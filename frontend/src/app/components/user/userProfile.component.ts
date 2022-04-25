@@ -11,7 +11,6 @@ import { UseroService } from '../../services/usero.service';
 export class UserProfile {
 
   user? : Usero;
-  // FALTA AÑADIR VIDEOJUEGO Y TAMBIÉN UN MÉTODO DE IMAGEN DE VIDEOJUEGO...E IGUAL ALGO MÁS PARA MOSTRARLO BIEN
   @ViewChild("file")
   file: any;
   removeImage? :boolean;
@@ -57,6 +56,10 @@ export class UserProfile {
 
   userImage() {
     return this.user?.image? '/api/user/' + this.user?.id + '/image' : '/assets/images/defaultProfilePhoto'; 
+  }
+
+  videogameImage() {
+    // AQUÍ FALTA QUE SE AÑADA EL ATRIBUTO VIDEJUEGO COMPRADO A USER U USER.VIDEOGAME.IMAGE
   }
 
 }

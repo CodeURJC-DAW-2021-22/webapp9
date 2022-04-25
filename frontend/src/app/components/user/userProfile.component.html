@@ -54,16 +54,16 @@
             </div>
             <div class="col-md-4">
                 <div class="p-3 py-5">
-                    <h4 class="text-right">Mis compras</h4>
+                    <h4 *ngIf="user.videogame" class="text-right">Mis compras</h4>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <ul>
                             <li>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img class="img-fluid rounded-3 my-5" src="/usero/{{id}}/image" alt="..." />
+                                        <img class="img-fluid rounded-3 my-5" [src]="videogameImage()"/>
                                     </div>
                                     <div class="col-md-8 align-self-center">
-                                        <p>"{{videogame?.title}}"</p>
+                                        <p>"{{user.videogame.title}}"</p>
                                     </div>
                                 </div>
                             </li>
