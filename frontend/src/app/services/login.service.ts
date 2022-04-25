@@ -7,8 +7,9 @@ const BASE_URL = '/api/auth';
 @Injectable({ providedIn: 'root' })
 export class LoginService {
 
-    logged: boolean | undefined;
-    user: Usero | undefined;
+    //Check these 2 lines, i've added '?' to both of them
+    logged?: boolean;
+    user?: Usero;
 
     constructor(private http: HttpClient) {
         this.reqIsLogged();

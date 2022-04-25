@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { LoginComponent } from './components/login/login.component';
-import { SignUpComponent } from './components/login/signUp.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NewsComponent } from './components/news/news.component';
+import { NavBarComponent } from './components/navBar/navBar.component'
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignUpComponent],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, NewsComponent, NavBarComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   bootstrap: [AppComponent]
 })

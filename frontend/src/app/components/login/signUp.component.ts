@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UseroService } from '../../services/Usero.service'; 
+import { UseroService } from '../../services/Usero.service';
 
 @Component({
   selector: 'signup',
