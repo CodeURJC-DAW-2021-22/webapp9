@@ -13,9 +13,6 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonView;
-
-
 
 
 @Entity(name = "tbl_user")
@@ -34,6 +31,7 @@ public class Usero {
 
     private String email;
 
+    @JsonIgnore
     private String encodedPassword;
     
     private String creditCard;

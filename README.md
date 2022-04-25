@@ -294,11 +294,14 @@ Para proceder a la ejecución del programa, primero se debe abrir la pestaña ap
 
 # Documentación de la API REST(Fase 3)
 
+## URL Aplicación en Heroku
+- [Aplicación en Heroku](https://codeurjc-daw-2021-22-webapp9.herokuapp.com/)
+
 ## Especificación openAPI
 - [archivo yaml](backend/gamelink/api-docs/api-docs.yaml)
 
 ## Documento HTML
-- [enlaze](https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp9/7c9569b82c7b36f569e645f98066d7feb7ca2c81/backend/gamelink/api-docs/api-docs.html)
+- [enlace](https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp9/7c9569b82c7b36f569e645f98066d7feb7ca2c81/backend/gamelink/api-docs/api-docs.html)
 
 ## Instrucciones de ejecución de la aplicación dockerizada
 #### Para poder hacer uso del docker-compose.yml será necesario:
@@ -317,7 +320,7 @@ Tal y como se puede observar en la imagen
 #### Una vez ejecutado el comando y construida la imagen, el usuario podrá acceder mediante la url:
 (https://localhost:8443)
 
-## Publicación de la imágen en DockerHub y descarga
+## Publicación de la imagen en DockerHub y descarga
 
 Para poder publicar una imágen en DockerHub, primero debemos dirigirnos a la carpeta donde este docker y docker-compose en nuestra aplicación:
 ![](CapturasPantallasWEB/dockerPath.PNG)
@@ -340,6 +343,35 @@ Una vez hemos realizado este paso, debemos comprobar que se ha pulleado correcta
 Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nombre de la imágen sea el mismo que el que nos indica DockerHub:
 ![](CapturasPantallasWEB/imageName.PNG)
 
+## Instrucciones para despliegue en Heroku
+
+Para poder desplegar una aplicación en heroku, primero es necesario crearse una cuenta en heroku e instalar el cliente para terminal.
+
+Una vez hecho esto, necesitamos cambiar en application.properties el valor de server.port:
+![](CapturasPantallasWEB/HerokuServerPort.png)
+
+También tenemos que cambiar las dependencias del pom.xml y limitar la memoria a 512Mb:
+![](CapturasPantallasWEB/HerokuMemory.png)
+
+También necesitamos una nueva clase que se encargue de la configuración de la base de datos:
+![](CapturasPantallasWEB/HerokuDB.png)
+
+Una vez hecho esto, abrimos una terminal en el directorio de nuestra app y nos logueamos con $heroku login.
+
+Para la creación de la app en Heroku usamos el comando:
+![](CapturasPantallasWEB/HerokuCreate.png)
+
+Usamos $heroku container:login para que docker pueda subir imágenes a heroku (sólo se hace una vez)
+
+Una vez hecho esto, ejecutamos la siguiente serie de comandos:
+![](CapturasPantallasWEB/HerokuDeploy.png)
+
+Para desactivar los certificados usamos el comando $heroku config:set SERVER_SSL_ENABLED=false --app codeurjc-daw-2021-22-webapp9
+
+Para añadir una base de datos usamos $heroku addons:create heroku-postgresql --app codeurjc-daw-2021-22-webapp9
+
+# Diagrama de Clases (Fase 3)
+![](CapturasPantallasWEB/diagramaDeClases.png)
 
 # Participación de miembros (Fase 3):
 
@@ -364,6 +396,93 @@ Finalmente, debemos establecer en nuestro archivo docker-compose.yml que el nomb
 3. [pom.xml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/pom.xml)
 4. [error.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/Andrea/backend/gamelink/src/main/resources/templates/error.html)
 5. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
+
+### Mani Victor Patel Bentz
+###### Descripción textual de las tareas realizadas en la fase:
+ 
+- Desarrollado la api rest al completo, dividido en los distintos controladores rest.
+- Testeado y generado el postman_collections.
+- Agregado las dependecias y generado la carpeta api-docs.
+- Integrado seguridad a los controladores rest y configurado las urls para evitar exploits.
+- Realizado algún hotfix que me ha sido encargado.
+
+###### Listado de los 5 commits más significativos durante la fase:
+
+1. [Divided the rest controller and some adds](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/178bb3a704d9fcf711c7a4fd169678c606b6eab8)
+2. [Added new methods, will separate in different rest controller](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/6a4bacb119377d0f487d0056445ed8809fa933ed)
+3. [Fixes in the RestAPi](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/fc9dd084679c992376ec92d8e8b0c05865c41946)
+4. [Rest apis fixed and added some new methods, postman collection added. Fixed querys.](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/cb1a08af9e26cf55e5b1a28b25ddc8695ba8fdc5)
+5. [New urls security rules](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4d90b1b05e54f2ba8820c00aeaf28eb49da7fc59)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+
+1. [VideogamesRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/VideogamesRestController.java)
+2. [UserRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/UserRestController.java)
+3. [NewsRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/NewsWebController.java)
+4. [LoginRestController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/LoginRestController.java)
+5. [RestSecurityConfig.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Configuration/Security/RestSecurityConfig.java)
+
+### Juan Luis Rico Rus
+###### Descripción textual de las tareas realizadas en la fase:
+- He dockerizado y creado la imágen de la aplicación junto con Andrea Patricia Acuña Padrón.
+- He participado en Postman junto con mi compañero Carlos Fuentes en la parte de Login.
+- He realizado las tareas necesarias para la incoporación de la tecnologia complementaria.
+
+###### Listado de los 5 commits más significativos durante la fase:
+1. [Dockerfile y docker-compose (no funciona aun)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/a364bd1918e1972ab4c61d957e82299f7e42e326) 
+2. [Cambio a login rest controller](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/efeb21e825a396134cc16340298df5ec40d4a49e)
+3. [Ajustes realizados en clase](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/c0ea1eeca5b1ddd2dbe6d0b33deb3974d9cb0f56)
+4. [boton de descargar PDF (como no, no funciona, no lo reconoce pero bueno mañana lo soluciono)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/725b1f9c95a1255f97b045181b4a4defafa2b27a)
+5. [generador de pdfs completo](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4dd4102f346d43394c0228e0f703a373b8aafec4)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [Dockerfile](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/Dockerfile)
+2. [Docker-compose.yml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/Docker-compose.yml)
+3. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
+4. [paymentConfirmation.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/templates/nextPageTemplate.html)
+5. [pom.xml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/pom.xml)
+
+### Carlos Fuentes Díaz
+###### Descripción textual de las tareas realizadas en la fase:
+- Separacion del controlador principal en controladores mas pequeños junto con Jhostin David Ortiz Moreno.
+- Participado en Postman junto con mi compañero Juan Luis Rico Rus en la parle de Login.
+- Actualizar el diagrama de clases.
+- Correccion de pequeños errores.
+
+###### Listado de los 5 commits más significativos durante la fase:
+1. [division del controller (parte news)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/49eaaa364af202f595d2e48080ac8cd2fd0320ca)
+2. [division del controller (parte usero)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/69a2fc7415fea1e2ff56e865baaa00d5356259f2)
+3. [mini cambio](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/c44a02f24e688b365ed8ee99e33785ba9f4dc934)
+4. [Update README.md](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/7b787f12a83d84d40f33d0a0dfe0c2c1d51c2148)
+5. [mini cambio](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/c44a02f24e688b365ed8ee99e33785ba9f4dc934)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [UseroWebController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/UseroWebController.java)
+2. [NewsWebController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/NewsWebController.java)
+3. [Docker-compose.yml](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/Docker-compose.yml)
+4. [GamelinkWebController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/GamelinkWebController.java)
+5. [scripts.js](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/resources/static/js/scripts.js)
+
+### Jhostin Davis Ortiz Moreno
+###### Descripción textual de las tareas realizadas en la fase: 
+  - Despliegue de la aplicación en heroku
+  - Separación del controlador web (GamelinkController) en diferentes clases para mejor estilo del código.
+  - Arreglo de errores en la página web (imágenes por defecto en nuevos usuarios, visualización de nuevas noticias creadas por el admin, eliminación de imports no usados)
+  
+
+###### Listado de los 5 commits más significativos durante la fase:
+ 1. [arreglado estilo código (Imports no usados fuera)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/3a7dd9e8bdcd27eeb47fc910a402f083548e8096)
+ 2. [nuevo controlador web videogame](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/5c16ffe6b7371249e05ce5d183475c1bb46ffd81)
+ 3. [Arregladas imágenes por defecto de nuevos usuarios](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/80734f79375c7f9c1b3fb78d907411a62c6f0ed2)
+ 4. [scripts heroku en main](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/6bf3ec5903df7dc184387d554ea9832b5bace9ec)
+ 5. [primera version controlador por entidad](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/7363714f3115a2c4344abfd4af623ae74a5cff8f)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [create_heroku_app.sh](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/create_heroku_app.sh)
+2. [deploy_heroku_app.sh](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/deploy_heroku_app.sh)
+3. [DatabaseConfig.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/DatabaseConfig.java)
+4. [VideogameWebController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/VideogameWebController.java)
+5. [UseroWebController.java](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/backend/gamelink/src/main/java/urjc/gamelink/Controllers/UseroWebController.java)
 
 ## Tecnología complementaria (Recuperación de la fase 2)
 Dadas las multiples opciopnes de tecnología complementaria a incorporar, hemos decidido implementar un sistema de generación de PDFs para que el usuario pueda obtener un PDF de la factura que recibe al comprar un videojuego.

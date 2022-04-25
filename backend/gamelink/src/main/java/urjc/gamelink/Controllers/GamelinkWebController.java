@@ -14,8 +14,10 @@ import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +26,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 
 import urjc.gamelink.Model.News;
 import urjc.gamelink.Model.Usero;
@@ -66,12 +67,9 @@ public class GamelinkWebController {
 
     @GetMapping("/")
     public String home(Model model, HttpSession session) {
-
-
         Page<News> news = ns.findAll(PageRequest.of(0, 3)); 
     
         model.addAttribute("new", news);
-
 
         return "home";
     }
@@ -178,4 +176,10 @@ public class GamelinkWebController {
         user.setImageFile(BlobProxy.generateProxy((image).getInputStream(), (image).contentLength()));
     }
 
+    @GetMapping("/error")
+    public String error(Model model){
+
+        return "error";
+
+    }
 }
