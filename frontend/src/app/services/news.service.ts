@@ -12,9 +12,9 @@ export class NewsService {
 
     constructor(private httpClient: HttpClient) { }
 
-    getsNews(): Observable<News> {
+    getNews(): Observable<News> {
         return this.httpClient.get(URL).pipe(
-            //catchError(error => this.handleError(error))
+            catchError((error: any) => this.handleError(error))
         ) as Observable<News>
     }
 
