@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
 const BASE_URL = '/api/users';
 
 @Injectable({ providedIn: 'root' })
-export class SignupService {
+export class UseroService {
 
     user?: Usero;
 
@@ -15,13 +15,13 @@ export class SignupService {
 
     getUsers(): Observable<Usero[]> {
 		return this.http.get(BASE_URL).pipe(
-			catchError((error: any) => this.handleError(error))
+			//catchError((error: any) => this.handleError(error))
 		) as Observable<Usero[]>;
 	}
 
     getUser(id: number | string): Observable<Usero> {
 		return this.http.get(BASE_URL + id).pipe(
-			catchError((error: any) => this.handleError(error))
+			//catchError((error: any) => this.handleError(error))
 		) as Observable<Usero>;
 	}
 
