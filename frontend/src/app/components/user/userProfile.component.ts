@@ -1,16 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Usero } from 'src/app/models/usero.model';
+import { Usero } from './../../models/usero.model';
 import { UseroService } from '../../services/usero.service'; 
 
 @Component({
   selector: 'userProfile',
-  templateUrl: './usero.component.html'
+  templateUrl: './userProfile.component.html'
 })
 export class UserProfile {
 
-  user? : Usero;
+  user : Usero;
   @ViewChild("file")
   file: any;
   removeImage? :boolean;
@@ -19,16 +19,16 @@ export class UserProfile {
     const id = activatedRoute.snapshot.params['id'];
     if (id) {
       useroService.getUser(id).subscribe(
-        (user: Usero) => this.user = user,
+        (user: Usero) => user = user,
         (error: any) => console.error(error)
       );
-    }
   }
+}
 
 
   save(){
     this.useroService.updateUser(this.user).subscribe(
-      (user: Usero) => this.uploadImage(user),
+      (user: any) => this.uploadImage(user),
       (error: string) => alert('Error al guardar los datos: ' + error)
     );
   }
