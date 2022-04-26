@@ -59,6 +59,30 @@ export class SignupService {
 		);
 	}
 
+	updatePassword(user: Usero) {
+		return this.http.put(BASE_URL + user.id + '/password', user).pipe(
+			catchError((error: any) => this.handleError(error))
+		);
+	}
+
+	setUserCreditCard(user: Usero) {
+
+		if (!user.creditCard) {
+			return this.http.post(BASE_URL, user.id + '/creditCard')
+				.pipe(
+					catchError((error: any) => this.handleError(error))
+				);
+		} else {
+			return this.http.put(BASE_URL + user.id + '/creditCard', user).pipe(
+				catchError((error: any) => this.handleError(error))
+			);
+		}
+	}
+
+
+
+
+
     /*createUser(user: Usero, password: String) {
         this.http.post(BASE_URL + '/signup', {username: user, password: password});
     }
