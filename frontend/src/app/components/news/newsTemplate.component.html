@@ -1,26 +1,25 @@
 <p *ngIf="news"></p> <!--llamamos a news de tipo News, cargamos el constructor-->
 <div class="col-lg-4 mb-5">
     <div class="card h-100 shadow border-0">
-        <p *ngIf="newsService.downloadNewImage()"></p>  <!--la imagen-->
-        <img class="card-img-top" src="/news/{{id}}/image" alt="..." />
+        <p *ngIf="getNewsImage()"></p>  <!--la imagen-->
+        <img class="card-img-top" src="/news/{{news?.id}}/image" alt="..." />
 
-        <p *ngIf="!newsService.getNews()"></p> <!--no imagen-->
+        <p *ngIf="!getNewsImage()"></p> <!--no imagen-->
         <img class="card-img-top" src="/Photos/not_foung.png" alt="..." />
 
         <div class="card-body p-4">
-            <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{badge}}</div>
-            <a class="text-decoration-none link-dark stretched-link" href="/showNews/{{id}}"><h5 class="card-title mb-3" style="color: black;">{{title}}</h5></a>
-            <p class="card-text mb-0">{{description}}</p>
+            <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{news?.badge}}</div>
+            <a class="text-decoration-none link-dark stretched-link" href="/showNews/{{news?.id}}"><h5 class="card-title mb-3" style="color: black;">{{news?.title}}</h5></a>
+            <p class="card-text mb-0">{{news?.description}}</p>
         </div>
         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
             <div class="d-flex align-items-end justify-content-between">
                 <div class="d-flex align-items-center">
                     <div class="small">
-                        <div class="text-muted">{{date}} &middot; {{readTime}}</div>
+                        <div class="text-muted">{{news?.date}} &middot; <p>{{news?.readTime}}</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{{/new}}

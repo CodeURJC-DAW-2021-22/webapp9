@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { News } from 'src/app/models/new.model';
-import { NewsService } from 'src/app/services/news.Service';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'news',
@@ -16,7 +16,7 @@ export class NewsComponent{
   news: News | undefined;
 
   constructor(private router: Router, public newsService: NewsService){
-    
+
   }
 
 }
