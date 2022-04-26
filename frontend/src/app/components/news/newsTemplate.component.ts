@@ -14,7 +14,7 @@ export class NewsTemplateComponent{
 
     news: News | undefined;
 
-    constructor(private router: Router, public newsService: NewsService, activatedRoute: ActivatedRoute){
+    constructor(public newsService: NewsService, activatedRoute: ActivatedRoute){
 
         const id = activatedRoute.snapshot.params['id'];
         this.newsService.getNew(id).subscribe(

@@ -14,7 +14,7 @@ export class NewsService {
 
     getNews(): Observable<News> {
         return this.httpClient.get(URL).pipe(
-            catchError((error: any) => this.handleError(error))
+            //catchError((error: any) => this.handleError(error))
         ) as Observable<News>
     }
 
@@ -53,11 +53,10 @@ export class NewsService {
     deleteNewImage(news: News) {
         return this.httpClient.delete(URL + news.id + '/image')
     }
-/*
-    readNew(news: News, user: Usero) {
+    /*readNew(news: News, user: Usero) {
         return this.httpClient.put()
-    }
-*/
+    }*/
+
 
     private handleError(error: any) {
 		  console.log("ERROR:");
