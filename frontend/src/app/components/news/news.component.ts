@@ -1,7 +1,7 @@
         //int
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { News } from 'src/app/models/new.model';
+import { News } from 'src/app/models/news.model';
 import { NewsService } from 'src/app/services/news.Service';
 
 @Component({
