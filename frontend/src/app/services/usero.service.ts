@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
 const BASE_URL = '/api/users';
 
 @Injectable({ providedIn: 'root' })
-export class SignupService {
+export class UseroService {
 
     user?: Usero;
 
