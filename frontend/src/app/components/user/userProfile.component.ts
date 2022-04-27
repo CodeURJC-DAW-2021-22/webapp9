@@ -10,7 +10,7 @@ import { UseroService } from '../../services/usero.service';
 })
 export class UserProfile {
 
-  user : Usero;
+  user!: Usero;
   @ViewChild("file")
   file: any;
   removeImage? :boolean;
