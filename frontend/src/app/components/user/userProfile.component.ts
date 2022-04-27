@@ -10,7 +10,7 @@ import { UseroService } from '../../services/usero.service';
 })
 export class UserProfile {
 
-  user : Usero;
+  public user!: Usero;
   @ViewChild("file")
   file: any;
   removeImage? :boolean;
@@ -60,6 +60,10 @@ export class UserProfile {
 
   videogameImage() {
     // AQUÍ FALTA QUE SE AÑADA EL ATRIBUTO VIDEJUEGO COMPRADO A USER U USER.VIDEOGAME.IMAGE
+  }
+
+  logOut(){
+
   }
 
 }

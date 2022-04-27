@@ -19,7 +19,7 @@
                             </div>
                             <div class="row mt-2">
                                 <div class="col-md-6"><label class="labels">Nombre</label>
-                                        <h3>"{{user.username}}"</h3>
+                                        <h3>"{{user.name}}"</h3>
                                 </div>
                                 <div class="col-md-6"><label class="labels">Apellido(s)</label>
                                         <h3>"{{user.lastName}}"</h3>
@@ -27,8 +27,7 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels">Nombre de usuario</label>
-                                    <input name="nick" type="text" class="form-control" placeholder="RodPerez"
-                                        [(ngModel)]="{{user.nick}}">
+                                    <input name="nick" type="text" class="form-control" placeholder="RodPerez" [(ngModel)]="user.nick">
                                 </div>
                                 <div class="col-md-12"><label class="labels">Email</label>
                                     <input name="email" type="email" class="form-control"

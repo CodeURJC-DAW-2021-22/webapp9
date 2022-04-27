@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UseroService } from '../../services/usero.service';
+import { Usero } from './../../models/usero.model';
 
 @Component({
   selector: 'signup',
@@ -9,11 +10,11 @@ export class SignUpComponent {
 
   constructor(public useroService: UseroService) { }
 
-  createUser(event: any, nick: String, name: String, lastName: String, email: String, pass: String) {
+  createUser(event: any, nick: string, name: string, lastName: string, email: string, pass: String) {
 
     event.preventDefault();
-
-    this.useroService.createUser(nick, name, lastName, email, pass);
+    var user: Usero = { nick, name, lastName, email, creditCard: "",image: false, roles: ['USERO']}
+    this.useroService.createUser(user);
   }
 
 }
