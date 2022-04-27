@@ -30,7 +30,7 @@ export class NewsComponent{
   }
 
   getNewsImage(){
-      if(this.news){ //We have to put this always. If exist any new...
+      if(this.news){ //Wwe have to put this always. If exist any new...
           return this.news?.image+ '/api/news/' +this.news.id
       } else {
           return undefined;
