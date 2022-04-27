@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Usero } from './../../models/usero.model';
 import { UseroService } from '../../services/usero.service'; 
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'userProfile',
@@ -15,7 +16,7 @@ export class UserProfile {
   file: any;
   removeImage? :boolean;
 
-  constructor(private router: Router, activatedRoute: ActivatedRoute,public useroService: UseroService) { 
+  constructor(private router: Router, activatedRoute: ActivatedRoute,public useroService: UseroService, public loginservice : LoginService) { 
     const id = activatedRoute.snapshot.params['id'];
     if (id) {
       useroService.getUser(id).subscribe(
@@ -59,11 +60,11 @@ export class UserProfile {
   }
 
   videogameImage() {
-    // AQUÍ FALTA QUE SE AÑADA EL ATRIBUTO VIDEJUEGO COMPRADO A USER U USER.VIDEOGAME.IMAGE
+    
   }
 
   logOut(){
-
+    this.loginservice.logOut();
   }
 
 }
