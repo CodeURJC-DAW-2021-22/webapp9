@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 
 
 export class HomeComponent{
-
+  images = ["assets/images/ lostark.jpg", "assets/images/archeAge.jpg", "assets/images/pokemonArceus.jpg"]
 }
