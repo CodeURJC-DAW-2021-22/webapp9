@@ -31,12 +31,12 @@
                                 </div>
                                 <div class="col-md-12"><label class="labels">Email</label>
                                     <input name="email" type="email" class="form-control"
-                                        placeholder="RodPerez@gmail.com" [(ngModel)]="{{user.email}}">
+                                        placeholder="RodPerez@gmail.com" [(ngModel)]="user.email">
                                 </div>
 
 
                                 <div class="col-md-12"><label class="labels">Número de tarjeta</label>
-                                    <input *ngIf="user.creditCard" name="creditCard" type="text" class="form-control" placeholder="123456789A" [(ngModel)]="{{user?.creditCard}}">
+                                    <input *ngIf="user.creditCard" name="creditCard" type="text" class="form-control" placeholder="123456789A" [(ngModel)]="user?.creditCard">
                                 </div>
 
                                 <div class="col-md-12">
