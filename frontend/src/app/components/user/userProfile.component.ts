@@ -1,8 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 import { Usero } from './../../models/usero.model';
-import { UseroService } from '../../services/usero.service'; 
+import { UseroService } from '../../services/usero.service';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class UserProfile {
   file: any;
   removeImage? :boolean;
 
-  constructor(private router: Router, activatedRoute: ActivatedRoute,public useroService: UseroService, public loginservice : LoginService) { 
+  constructor(private router: Router, activatedRoute: ActivatedRoute,public useroService: UseroService, public loginservice : LoginService) {
     const id = activatedRoute.snapshot.params['id'];
     if (id) {
       useroService.getUser(id).subscribe(
@@ -56,11 +57,11 @@ export class UserProfile {
   }
 
   userImage() {
-    return this.user?.image? '/api/user/' + this.user?.id + '/image' : '/assets/images/defaultProfilePhoto'; 
+    return this.user?.image? '/api/user/' + this.user?.id + '/image' : '/assets/images/defaultProfilePhoto';
   }
 
   videogameImage() {
-    
+
   }
 
   logOut(){

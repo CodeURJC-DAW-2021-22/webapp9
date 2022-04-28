@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { News } from 'src/app/models/new.model';
+import { News } from 'src/app/models/news.model';
 import { NewsService } from 'src/app/services/news.service';
 
 
@@ -12,13 +12,13 @@ import { NewsService } from 'src/app/services/news.service';
 
 export class NewsTemplateComponent{
 
-    news: News | undefined;
+    news!: News;
 
     constructor(public newsService: NewsService, activatedRoute: ActivatedRoute){
 
         const id = activatedRoute.snapshot.params['id'];
         this.newsService.getNew(id).subscribe(
-            (news: News) => this.news = news,
+            //(news: News) => this.news = news,
             (error: any) => console.error(error)
 
         );

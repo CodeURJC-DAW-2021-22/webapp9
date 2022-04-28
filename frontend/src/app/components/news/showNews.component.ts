@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { News } from 'src/app/models/new.model';
+import { News } from 'src/app/models/news.model';
 import { NewsService } from 'src/app/services/news.service';
 import { LoginService } from 'src/app/services/login.service';
+'../../services/usero.service';
 
 @Component({
   selector: 'showNews',
@@ -11,13 +12,13 @@ import { LoginService } from 'src/app/services/login.service';
 
 export class ShowNewsComponent{
 
-  news: News | undefined;
+  news!: News;
 
   constructor(public newsService: NewsService, public loginService: LoginService, activatedRoute: ActivatedRoute){
 
     const id = activatedRoute.snapshot.params['id'];
         this.newsService.getNew(id).subscribe(
-            (news: News) => this.news = news,
+            //(news: News) => this.news = news,
             (error: any) => console.error(error)
 
         );
