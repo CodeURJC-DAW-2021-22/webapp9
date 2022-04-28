@@ -15,7 +15,7 @@ export class NewsService {
     getsNews() {
         return this.httpClient.get(URL).pipe(
             catchError((error: any) => this.handleError(error))
-        ) //as Observable<News> es el tipo de objeto que devuelve, un objeto del tipo News
+        )
     }
 
     findNewsPage() {
@@ -70,7 +70,8 @@ export class NewsService {
         return this.httpClient.delete(URL + news.id + '/image').pipe(
         )
     }
-    /*readNew(news: News, user: Usero) {
+/*
+    readNew(news: News, user: Usero) {
         return this.httpClient.put()
     }
 */
