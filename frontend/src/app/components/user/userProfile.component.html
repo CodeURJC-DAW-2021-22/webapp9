@@ -56,8 +56,8 @@
             </div>
             <div class="col-md-4">
                 <div class="p-3 py-5">
-                    <h4 *ngIf="user.videogame" class="text-right">Mis compras</h4>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 *ngIf="videogame" class="text-right">Mis compras:</h4>
+                    <div *ngFor="let vg of videogames"  class="d-flex justify-content-between align-items-center mb-3">
                         <ul>
                             <li>
                                 <div class="row">
@@ -65,7 +65,7 @@
                                         <img class="img-fluid rounded-3 my-5" [src]="videogameImage()"/>
                                     </div>
                                     <div class="col-md-8 align-self-center">
-                                        <p>"{{user.videogame.title}}"</p>
+                                        <p>"{{videogame.title}}"</p>
                                     </div>
                                 </div>
                             </li>

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Usero } from './../../models/usero.model';
 import { UseroService } from '../../services/usero.service'; 
 import { LoginService } from '../../services/login.service';
+import { Videogame } from 'src/app/models/videogame.model';
 
 @Component({
   selector: 'userProfile',
@@ -12,6 +13,7 @@ import { LoginService } from '../../services/login.service';
 export class UserProfile {
 
   user!: Usero;
+  videogame! : Videogame[]; 
   @ViewChild("file")
   file: any;
   removeImage? :boolean;
@@ -24,6 +26,11 @@ export class UserProfile {
         (error: any) => console.error(error)
       );
   }
+  useroService.getVideogames.subscribe(
+    (videogame: Videogame) => videogame = videogame,
+    (error: any) => console.error(error)
+  );
+  // TENGO QUE HACER ALGO DEL TIPO --> THIS.VIDEOGAME = useroService.getVideogames() 
 }
 
 
