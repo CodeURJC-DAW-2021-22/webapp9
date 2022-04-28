@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Usero } from './../../models/usero.model';
 import { UseroService } from '../../services/usero.service';
 import { LoginService } from '../../services/login.service';
+import { Videogame } from 'src/app/models/videogame.model';
 
 @Component({
   selector: 'userProfile',
@@ -13,6 +14,7 @@ import { LoginService } from '../../services/login.service';
 export class UserProfile {
 
   user!: Usero;
+  videogame! : Videogame[];
   @ViewChild("file")
   file: any;
   removeImage? :boolean;
@@ -25,6 +27,10 @@ export class UserProfile {
         (error: any) => console.error(error)
       );
   }
+  useroService.getVideogames(this.user).subscribe(
+    (videogame: Videogame[]) => videogame = videogame,
+    (error: any) => console.error(error)
+  );
 }
 
 
@@ -44,32 +50,27 @@ export class UserProfile {
       let formData = new FormData();
       formData.append("imageFile", image);
       this.useroService.setUserImage(user, formData).subscribe(
-        (_: any) => this.afterUploadImage(user),
+        (_: any) => this.afterUploadImage(),
         ( error: string) => alert('Error al actualizar o subir la imagen: ' + error)
       );
     } else {
-      this.afterUploadImage(user);
+      this.afterUploadImage();
     }
   }
 
-  private afterUploadImage(user: Usero){
-    this.router.navigate(['/usero/', user.id]); // NO ESTOY SEGURA DE ESA URL..SEGURAMENTE ESTÉ MAL. REVISARLA
+  private afterUploadImage(){
+    this.router.navigate(['/userProfile/']);
   }
 
   userImage() {
-    return this.user?.image? '/api/user/' + this.user?.id + '/image' : '/assets/images/defaultProfilePhoto';
+    return this.user.image? '/api/users/' + this.user.id + '/image' : '/assets/images/defaultProfilePhoto';
   }
 
-  videogameImage() {
-
+  videogameImage(vg: Videogame) {
+    return vg.imageVg? '/api/videogames/' + vg.id + '/image' : '/assets/images/defaultProfilePhoto';
   }
 
   logOut(){
     this.loginservice.logOut();
   }
-
-  /*getUserVideogame(){
-    this.useroService.getVideogames(this.user);
-  }*/
-
 }
