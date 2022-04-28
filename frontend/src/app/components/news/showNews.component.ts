@@ -13,7 +13,7 @@ export class ShowNewsComponent{
 
   news: News | undefined;
 
-  constructor(public newsService: NewsService, loginService: LoginService, activatedRoute: ActivatedRoute){
+  constructor(public newsService: NewsService, public loginService: LoginService, activatedRoute: ActivatedRoute){
 
     const id = activatedRoute.snapshot.params['id'];
         this.newsService.getNew(id).subscribe(
@@ -22,6 +22,10 @@ export class ShowNewsComponent{
 
         );
 
+  }
+
+  isAdmin(){
+    return this.loginService.isAdmin();
   }
 
 }
