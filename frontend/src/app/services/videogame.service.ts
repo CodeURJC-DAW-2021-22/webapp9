@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import { Videogame } from "../models/videojuego.model";
+import { Videogame } from "../models/videogame.model";
 import { Observable,throwError  } from "rxjs";
 import { catchError } from 'rxjs/operators';
 
-const URL = '/api/news/';
+const URL = '/api/videogames/';
 
 
 @Injectable({ providedIn: 'root' })

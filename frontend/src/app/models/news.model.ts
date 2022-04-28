@@ -13,4 +13,7 @@ export interface News {
 
     image:boolean;
 
+    title:string;
+
+
 }

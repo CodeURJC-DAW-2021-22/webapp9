@@ -1,35 +1,36 @@
 import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Usero } from 'src/app/models/usero.model';
-import { UseroService } from '../../services/usero.service'; 
+
+import { Usero } from './../../models/usero.model';
+import { UseroService } from '../../services/usero.service';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'userProfile',
-  templateUrl: './usero.component.html'
+  templateUrl: './userProfile.component.html'
 })
 export class UserProfile {
 
-  user? : Usero;
-  // FALTA AÑADIR VIDEOJUEGO Y TAMBIÉN UN MÉTODO DE IMAGEN DE VIDEOJUEGO...E IGUAL ALGO MÁS PARA MOSTRARLO BIEN
+  user!: Usero;
   @ViewChild("file")
   file: any;
   removeImage? :boolean;
 
-  constructor(private router: Router, activatedRoute: ActivatedRoute,public useroService: UseroService) { 
+  constructor(private router: Router, activatedRoute: ActivatedRoute,public useroService: UseroService, public loginservice : LoginService) {
     const id = activatedRoute.snapshot.params['id'];
     if (id) {
       useroService.getUser(id).subscribe(
-        (user: Usero) => this.user = user,
+        (user: Usero) => user = user,
         (error: any) => console.error(error)
       );
-    }
   }
+}
 
 
   save(){
     this.useroService.updateUser(this.user).subscribe(
-      (user: Usero) => this.uploadImage(user),
+      (user: any) => this.uploadImage(user),
       (error: string) => alert('Error al guardar los datos: ' + error)
     );
   }
@@ -56,7 +57,15 @@ export class UserProfile {
   }
 
   userImage() {
-    return this.user?.image? '/api/user/' + this.user?.id + '/image' : '/assets/images/defaultProfilePhoto'; 
+    return this.user?.image? '/api/user/' + this.user?.id + '/image' : '/assets/images/defaultProfilePhoto';
+  }
+
+  videogameImage() {
+
+  }
+
+  logOut(){
+    this.loginservice.logOut();
   }
 
 }
