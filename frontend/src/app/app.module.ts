@@ -16,6 +16,12 @@ import { ShowNewsComponent } from './components/news/showNews.component';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent, ShowNewsComponent],
+import { NavBarComponent } from './components/navBar/navBar.component'
+import { HomeComponent } from './components/home/home.component';
+
+
+@NgModule({
+  declarations: [AppComponent, LoginComponent, HeaderComponent, NewsComponent, NavBarComponent, HomeComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   bootstrap: [AppComponent]
 })

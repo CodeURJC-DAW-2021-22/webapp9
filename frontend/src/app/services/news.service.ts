@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { News } from '../models/new.model';
+import { News } from '../models/news.model';
 import { Usero } from '../models/usero.model'
 import { catchError, Observable, throwError } from 'rxjs';
 

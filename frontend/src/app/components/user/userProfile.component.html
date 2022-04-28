@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0">
-        <div class="container rounded bg-white mt-5 mb-5">
+
+        <div *ngIf="user" class="container rounded bg-white mt-5 mb-5">
             <div class="row">
                 <div class="col-md-3 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
@@ -22,31 +19,33 @@
                             </div>
                             <div class="row mt-2">
                                 <div class="col-md-6"><label class="labels">Nombre</label>
-                                        <h3>"{{user.username}}"</h3>
+                                        <h3>"{{user.name}}"</h3>
                                 </div>
                                 <div class="col-md-6"><label class="labels">Apellido(s)</label>
                                         <h3>"{{user.lastName}}"</h3>
                                 </div>
                             </div>
                             <div class="row mt-3">
+                                
                                 <div class="col-md-12"><label class="labels">Nombre de usuario</label>
-                                    <input name="nick" type="text" class="form-control" placeholder="RodPerez"
-                                        [(ngModel)]="{{user.nick}}">
+                                    <input name="nick" type="text" class="form-control" placeholder="RodPerez" [(ngModel)]="user.nick">
                                 </div>
+
                                 <div class="col-md-12"><label class="labels">Email</label>
-                                    <input name="email" type="email" class="form-control"
-                                        placeholder="RodPerez@gmail.com" [(ngModel)]="{{user.email}}">
+                                    <input name="email" type="email" class="form-control" placeholder="RodPerez@gmail.com" [(ngModel)]="user.email">
                                 </div>
 
 
                                 <div class="col-md-12"><label class="labels">Número de tarjeta</label>
-                                    <input *ngIf="user.creditCard" name="creditCard" type="text" class="form-control" placeholder="123456789A" [(ngModel)]="{{user?.creditCard}}">
+                                    <input *ngIf="user.creditCard" name="creditCard" type="text" class="form-control" placeholder="123456789A" [(ngModel)]="user.creditCard">
                                 </div>
 
                                 <div class="col-md-12">
                                     <p>Imagen de perfil</p>
                                     <input #file type='file' name='imageField' accept=".jpg, .jpeg, .png, .svg" />
                                 </div>
+
+                            </div>
                         </form>
                     </div>
 
@@ -57,16 +56,16 @@
             </div>
             <div class="col-md-4">
                 <div class="p-3 py-5">
-                    <h4 class="text-right">Mis compras</h4>
+                    <h4 *ngIf="user.videogame" class="text-right">Mis compras</h4>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <ul>
                             <li>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img class="img-fluid rounded-3 my-5" src="/usero/{{id}}/image" alt="..." />
+                                        <img class="img-fluid rounded-3 my-5" [src]="videogameImage()"/>
                                     </div>
                                     <div class="col-md-8 align-self-center">
-                                        <p>"{{videogame?.title}}"</p>
+                                        <p>"{{user.videogame.title}}"</p>
                                     </div>
                                 </div>
                             </li>
@@ -76,9 +75,4 @@
             </div>
         </div>
         <button class="btn btn-primary profile-button m-3" (click)="logOut()" type="button">Log Out</button>
-        </div>
-        </div>
-        </div>
-    </main>
-</body>
-</html>
+
