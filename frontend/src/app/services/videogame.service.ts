@@ -1,16 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import { News } from "../models/new.model"
 import { Videogame } from "../models/videojuego.model";
-import { Observable } from "rxjs";
-import { Usero } from "../models/usero.model";
+import { Observable,throwError  } from "rxjs";
+import { catchError } from 'rxjs/operators';
 
 const URL = '/api/news/';
 
-/////////////////////////////////////////////////////////////////////
-// FALTA REVISAR Q FUNCIONE BIEN, Y DOS FUNCIONES MAS ABAJO
-/////////////////////////////////////////////////////////////////////
 
 @Injectable({ providedIn: 'root' })
 export class VideogameService {
@@ -25,10 +21,18 @@ export class VideogameService {
         return this.httpClient.get(URL + "pages")
     }
 
-    getVideogame(id: number) {
-        return this.httpClient.get(URL + id)
+    getVideogame(id: number | string): Observable<Videogame>  {
+        return this.httpClient.get(URL + id).pipe(
+			catchError(error => this.handleError(error))
+		) as Observable<any>;
     }
 
+	private handleError(error: any) {
+		console.log("ERROR:");
+		console.error(error);
+		return throwError("Server error (" + error.status + "): " + error.text())
+	}
+    
     createVideogame(videogame: Videogame) {
         if (!videogame.id) {
             return this.httpClient.post(URL, videogame)
@@ -42,16 +46,12 @@ export class VideogameService {
     }
 
     deleteVideogame(videogame: Videogame) {
-        return this.httpClient.delete(URL + videogame.id)
+        return this.httpClient.delete(URL + videogame.id).pipe(catchError(error => this.handleError(error)));
     }
 
     uploadVideogameCompanyImage(videogame: Videogame, formData: FormData) {
 		return this.httpClient.post(URL + videogame.id + '/companyImage', formData)
 	}
-
-    downloadVideogameCompanyImage(videogame: Videogame) {
-        return this.httpClient.get(URL + videogame.id + '/companyImage')
-    }
 
     deleteVideogameCompanyImage(videogame: Videogame) {
         return this.httpClient.delete(URL + videogame.id + '/companyImage')
