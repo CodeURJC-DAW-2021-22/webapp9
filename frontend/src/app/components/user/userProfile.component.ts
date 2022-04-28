@@ -26,8 +26,8 @@ export class UserProfile {
         (error: any) => console.error(error)
       );
   }
-  useroService.getVideogames.subscribe(
-    (videogame: Videogame) => videogame = videogame,
+  useroService.getVideogames(this.user).subscribe(
+    (videogame: Videogame[]) => videogame = videogame,
     (error: any) => console.error(error)
   );
   // TENGO QUE HACER ALGO DEL TIPO --> THIS.VIDEOGAME = useroService.getVideogames() 
