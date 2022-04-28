@@ -29,10 +29,10 @@ export class UseroService {
 		) as Observable<Usero>;
 	}
 
-	getVideogames(user: Usero): Observable<Videogame> {
+	getVideogames(user: Usero): Observable<Videogame[]> {
 		return this.http.get(BASE_URL + '/purchases' + user.id).pipe(
 			//catchError((error: any) => this.handleError(error))
-		) as Observable<Videogame>;
+		) as Observable<Videogame[]>;
 	}
 
 	getUserReadNews(id: number | string): Observable<News[]> {
