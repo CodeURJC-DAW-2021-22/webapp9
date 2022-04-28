@@ -1,157 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<body class="d-flex flex-column">
-    <main class="flex-shrink-0">
-        <section class="py-5">
-            <div class="container px-5">
-                <h1 class="fw-bolder fs-5 mb-4">Noticias destacadas</h1>
-                <div class="card border-0 shadow rounded-3 overflow-hidden">
-                    <div class="card-body p-0">
-                        <div class="row gx-0">
-                            <div class="col-lg-6 col-xl-5 py-lg-5">
-                                <div class="p-4 p-md-5">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Últimas novedades</div>
-                                    <div class="h2 fw-bolder">Lanzamiento mundial de Lost Ark</div>
-                                    <p>No seas el último en probar este maravilloso juego completamente gratuito. Aquí
-                                        te contamos todo lo que debes saber.</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-xl-7">
-                                <div class="bg-featured-blog"
-                                    style="background-image: url('Photos/lostark.jpg')">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<section class="py-5">
+  <div class="container px-5">
+    <h1 class="fw-bolder fs-5 mb-4">Noticias destacadas</h1>
+    <div class="card border-0 shadow rounded-3 overflow-hidden">
+      <div class="card-body p-0">
+        <div class="row gx-0">
+          <div class="col-lg-6 col-xl-5 py-lg-5">
+            <div class="p-4 p-md-5">
+              <div class="badge bg-primary bg-gradient rounded-pill mb-2">Últimas novedades</div>
+              <div class="h2 fw-bolder">Lanzamiento mundial de Lost Ark</div>
+              <p>No seas el último en probar este maravilloso juego completamente gratuito. Aquí
+                te contamos todo lo que debes saber.</p>
             </div>
-        </section>
-
-        <!--news list-->
-        <section class="py-5">
-            <div class="container px-5">
-                <h2 class="fw-bolder fs-5 mb-4">Noticias que te pueden interesar.</h2>
-                <div id ="moreImages" class="row gx-5">
-                    {{>newsTemplate}}
-                </div>
-                <div class="text-end mb-5 mb-xl-0">
-                    <a class="text-decoration-none" href="#!">
-                        <!--will show next-->
-                        <!-- puts the variable created in execution ?page and associates it with next page which is getNumber + 1 (that is, we add 1)-->
-                        <!--in request of we put (page, 3) and page will be equal to 1 for what I just explained above, this is how it is done-->
-                        <a id="moreImagesButton" class="btn btn-secondary button">
-                            <i class="fa fa-eye"></i> Más contenido
-                        </a>
-                        <div id="loader"></div>
-                    </a>
-                </div>
-
-
+          </div>
+          <div class="col-lg-6 col-xl-7">
+            <div class="bg-featured-blog" style="background-image: url('Photos/lostark.jpg')">
             </div>
-        </section>
-        <!--Sección-->
-        <section class="py-5 bg-light">
-            <div class="container px-5">
-                <div class="row gx-5">
-                    <div class="col-xl-8">
-                        <h2 class="fw-bolder fs-5 mb-4" style="color: white;">Actualidad</h2>
-                        <!-- News item-->
-                        <div class="mb-4">
-                            <div class="small text-muted"></div>
-                            <a class="link-dark" href="#!">
-                                <h3>No te pierdas las ultimas noticias de DayZ</h3>
-                            </a>
-                        </div>
-                        <!-- News item-->
-                        <div class="mb-5">
-                            <div class="small text-muted"></div>
-                            <a class="link-dark" href="#!">
-                                <h3>La última guía de Dark Souls ya está disponible</h3>
-                            </a>
-                        </div>
-                        <!-- News item-->
-                        <div class="mb-5">
-                            <div class="small text-muted"></div>
-                            <a class="link-dark" href="#!">
-                                <h3>Nuevas noticias sobre The Witcher 4</h3>
-                            </a>
-                        </div>
-                        <div class="text-end mb-5 mb-xl-0">
-                            <a class="text-decoration-none" href="#!">
-                                <!--More news
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--news list-->
+<section class="py-5">
+  <div class="container px-5">
+    <h2 class="fw-bolder fs-5 mb-4">Noticias que te pueden interesar.</h2>
+    <div id="moreImages" class="row gx-5">
+      <newsTemplate></newsTemplate>
+    </div>
+    <div class="text-end mb-5 mb-xl-0">
+      <a class="text-decoration-none" href="#!">
+        <!--will show next-->
+        <!-- puts the variable created in execution ?page and associates it with next page which is getNumber + 1 (that is, we add 1)-->
+        <!--in request of we put (page, 3) and page will be equal to 1 for what I just explained above, this is how it is done-->
+        <a id="moreImagesButton" class="btn btn-secondary button">
+          <i class="fa fa-eye"></i> Más contenido
+        </a>
+        <div id="loader"></div>
+      </a>
+    </div>
+
+
+  </div>
+</section>
+<!--Section-->
+<section class="py-5 bg-light">
+  <div class="container px-5">
+    <div class="row gx-5">
+      <div class="col-xl-8">
+        <h2 class="fw-bolder fs-5 mb-4" style="color: white;">Actualidad</h2>
+        <!-- News item-->
+        <div class="mb-4">
+          <div class="small text-muted"></div>
+          <a class="link-dark" href="#!">
+            <h3>No te pierdas las ultimas noticias de DayZ</h3>
+          </a>
+        </div>
+        <!-- News item-->
+        <div class="mb-5">
+          <div class="small text-muted"></div>
+          <a class="link-dark" href="#!">
+            <h3>La última guía de Dark Souls ya está disponible</h3>
+          </a>
+        </div>
+        <!-- News item-->
+        <div class="mb-5">
+          <div class="small text-muted"></div>
+          <a class="link-dark" href="#!">
+            <h3>Nuevas noticias sobre The Witcher 4</h3>
+          </a>
+        </div>
+        <div class="text-end mb-5 mb-xl-0">
+          <a class="text-decoration-none" href="#!">
+            <!--More news
                                 <i class="bi bi-arrow-right"></i>-->
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-4">
-                        <div class="py-5">
-                            <div class="col-lg-12 align-self-center">
-                                <div id="gamesDisplay" class="carousel slide" data-bs-ride="carousel">
-                                    <!-- Indicators/dots -->
-                                    <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#gamesDisplay" data-bs-slide-to="0"
-                                            class="active"></button>
-                                        <button type="button" data-bs-target="#gamesDisplay"
-                                            data-bs-slide-to="1"></button>
-                                        <button type="button" data-bs-target="#gamesDisplay"
-                                            data-bs-slide-to="2"></button>
-                                    </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4">
+        <div class="py-5">
+          <div class="col-lg-12 align-self-center">
+            <div id="gamesDisplay" class="carousel slide" data-bs-ride="carousel">
 
-                                    <!-- The slideshow/carousel -->
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img src="Photos/diabloIV.jpg" alt="D4" class="d-block" style="width:100%">
-                                            <div class="carousel-caption">
-                                                <h3>Diablo 4</h3>
-                                                <p>Fecha de lanzamiento revelada</p>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="Photos/overwatch2.jpg" alt="OVW2" class="d-block" style="width:100%">
-                                            <div class="carousel-caption">
-                                                <h3>Overwatch 2</h3>
-                                                <p>Se cancela definitivamente</p>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="Photos/marioKart9.jpg"
-                                                alt="MK9" class="d-block" style="width:100%">
-                                            <div class="carousel-caption">
-                                                <h3>Mario kart 9</h3>
-                                                <p>Ya es una realidad, no te lo pierdas</p>
-                                            </div>
-                                        </div>
-                                    </div>
+              <!-- The slideshow/carousel -->
 
-                                    <!-- Left and right controls/icons -->
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#gamesDisplay" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#gamesDisplay" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Fin de la prueba-->
-                </div>
+              <news *ngIf="imagesCarousel">
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="imagesCarousel[0]" alt="Random first slide">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>Diablo 4</h3>
+                    <p>Fecha de lanzamiento revelada</p>
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="imagesCarousel[1]" alt="Random second slide">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>Overwatch 2</h3>
+                    <p>Se cancela definitivamente</p>
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="imagesCarousel[2]" alt="Random third slide">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>Mario kart 9</h3>
+                    <p>Ya es una realidad, no te lo pierdas</p>
+                  </div>
+                </ng-template>
+              </news>
+
             </div>
-            </div>
-            </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </main>
-    <!-- Footer-->
-    {{>footer}}
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-</body>
-
-</html>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>

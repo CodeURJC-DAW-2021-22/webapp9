@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
-import { SignUpService } from '../../services/usero.service'; 
+import { UseroService } from '../../services/usero.service';
+import { Usero } from './../../models/usero.model';
 
 @Component({
   selector: 'signup',
-  templateUrl: './signup.component.html'
+  templateUrl: './signUp.component.html'
 })
-export class LoginComponent {
+export class SignUpComponent {
 
-  constructor(public signUpService: SignUpService) { }
+  constructor(public useroService: UseroService) { }
 
-  signup(event: any, nick: String, name: String, lastName: String, email: String, pass: String) {
+  createUser(event: any, nick: string, name: string, lastName: string, email: string, pass: String) {
 
     event.preventDefault();
-
-    this.signUpService.logIn(nick, name, lastName, email, pass);
+    var user: Usero = { nick, name, lastName, email, creditCard: "",image: false, roles: ['USERO']}
+    this.useroService.createUser(user);
   }
 
 }

@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import { News } from "../models/new.model"
-import { Videogame } from "../models/videojuego.model";
+import { News } from "../models/news.model"
+import { Videogame } from "../models/videogame.model";
 import { Observable } from "rxjs";
 import { Usero } from "../models/usero.model";
 
-const URL = '/api/news/';
+const URL = '/api/videogames/';
 
 /////////////////////////////////////////////////////////////////////
 // FALTA REVISAR Q FUNCIONE BIEN, Y DOS FUNCIONES MAS ABAJO
