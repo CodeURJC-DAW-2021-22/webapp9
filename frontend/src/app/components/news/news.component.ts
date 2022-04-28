@@ -21,7 +21,7 @@ export class NewsComponent{
 
     const id = activatedRoute.snapshot.params['id'];
         this.newsService.getNew(id).subscribe(
-            //(news: News) => this.news = news,
+            (news) => this.news =  news as News, //casting in ts, es mejor hacerlo en el servicio (as Observable<News>), pero al dar error, hacemos el cast en el component
             (error: any) => console.error(error)
 
 
@@ -30,7 +30,7 @@ export class NewsComponent{
   }
 
   getNewsImage(){
-      if(this.news){ //Wwe have to put this always. If exist any new...
+      if(this.news){ //We have to put this always. If exist any new...
           return this.news?.image+ '/api/news/' +this.news.id
       } else {
           return undefined;

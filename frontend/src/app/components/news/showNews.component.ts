@@ -18,7 +18,7 @@ export class ShowNewsComponent{
 
     const id = activatedRoute.snapshot.params['id'];
         this.newsService.getNew(id).subscribe(
-            //(news: News) => this.news = news,
+            (news) => this.news =  news as News,
             (error: any) => console.error(error)
 
         );

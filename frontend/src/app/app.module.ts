@@ -13,12 +13,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NewsTemplateComponent } from './components/news/newsTemplate.component';
 import { ShowNewsComponent } from './components/news/showNews.component';
 import { HomeComponent } from './components/home/home.component';
+import { UserProfile } from './components/user/userProfile.component';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent, ShowNewsComponent, HomeComponent],
+  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent, ShowNewsComponent, HomeComponent, UserProfile],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule],
   bootstrap: [AppComponent]
 })
