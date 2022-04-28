@@ -147,9 +147,9 @@
 }
 
 
-/*end*
+/*fin*
 
-/**(there is also for background color)*/
+/**modification juan (there is also for background color)*/
 
 
 .col-lg-4.mb-5{
@@ -166,9 +166,9 @@
   max-height: 100% !important;
 } 
 
-/**end*/
+/**fin*/
 
-/**CSS User Profile*/
+/**Css perfil de usuario*/
 
 body {
   background: rgb(99, 39, 120)
@@ -11617,22 +11617,14 @@ form{
 
 /*Para el gráfico circular*/
 * {
-<<<<<<< HEAD
   box-sizing: border-box;    
-=======
-  box-sizing: border-box;
->>>>>>> origin/JuanFase3
 }
 .grafico {
   height: 400px;
   margin: 1rem auto;
   position: relative;
   width: 400px;
-<<<<<<< HEAD
     } 
-=======
-    }
->>>>>>> origin/JuanFase3
 .recorte {
   border-radius: 50%;
   clip: rect(0px, 400px, 400px, 200px);

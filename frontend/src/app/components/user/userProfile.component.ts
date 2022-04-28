@@ -21,7 +21,7 @@ export class UserProfile {
     const id = activatedRoute.snapshot.params['id'];
     if (id) {
       useroService.getUser(id).subscribe(
-        (user: Usero) => user = user,
+        (user) => this.user = user as Usero,
         (error: any) => console.error(error)
       );
   }
