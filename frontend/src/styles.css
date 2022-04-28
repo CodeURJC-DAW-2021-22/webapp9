@@ -147,9 +147,9 @@
 }
 
 
-/*fin*
+/*end*
 
-/**modification juan (there is also for background color)*/
+/**(there is also for background color)*/
 
 
 .col-lg-4.mb-5{
@@ -166,9 +166,9 @@
   max-height: 100% !important;
 } 
 
-/**fin*/
+/**end*/
 
-/**Css perfil de usuario*/
+/**CSS User Profile*/
 
 body {
   background: rgb(99, 39, 120)
@@ -4747,7 +4747,11 @@ textarea.form-control-lg {
 }
 
 /*Ajusta las imagenes de las cartas a que todas tengan el mismo height */
+<<<<<<< HEAD
 .card-img-top { 
+=======
+.card-img-top {
+>>>>>>> origin/JuanFase3
   width: 100%;
   height: 15vw;
   object-fit: cover;
@@ -11488,8 +11492,13 @@ html {
 
 /* NUEVO PARA EL FORMULARIO DE INICIAR SESIÓN Y REGISTRARSE*/
 
+<<<<<<< HEAD
 html,body { 
 	height: 100%; 
+=======
+html,body {
+	height: 100%;
+>>>>>>> origin/JuanFase3
 }
 
 .global-container{
@@ -11514,7 +11523,11 @@ form{
 }
 
 
+<<<<<<< HEAD
 .login-form{ 
+=======
+.login-form{
+>>>>>>> origin/JuanFase3
 	width:330px;
 	margin:20px;
 }
@@ -11617,14 +11630,22 @@ form{
 
 /*Para el gráfico circular*/
 * {
+<<<<<<< HEAD
   box-sizing: border-box;    
+=======
+  box-sizing: border-box;
+>>>>>>> origin/JuanFase3
 }
 .grafico {
   height: 400px;
   margin: 1rem auto;
   position: relative;
   width: 400px;
+<<<<<<< HEAD
     } 
+=======
+    }
+>>>>>>> origin/JuanFase3
 .recorte {
   border-radius: 50%;
   clip: rect(0px, 400px, 400px, 200px);

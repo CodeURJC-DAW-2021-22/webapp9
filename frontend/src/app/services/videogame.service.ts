@@ -6,7 +6,7 @@ import { Videogame } from "../models/videogame.model";
 import { Observable } from "rxjs";
 import { Usero } from "../models/usero.model";
 
-const URL = '/api/news/';
+const URL = '/api/videogames/';
 
 /////////////////////////////////////////////////////////////////////
 // FALTA REVISAR Q FUNCIONE BIEN, Y DOS FUNCIONES MAS ABAJO

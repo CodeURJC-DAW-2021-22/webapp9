@@ -12,57 +12,72 @@ export class NewsService {
 
     constructor(private httpClient: HttpClient) { }
 
-    getsNews(): Observable<News> {
+    getsNews() {
         return this.httpClient.get(URL).pipe(
-            //catchError(error => this.handleError(error))
-        ) as Observable<News>
+            catchError((error: any) => this.handleError(error))
+        )
     }
 
     findNewsPage() {
-        return this.httpClient.get(URL + "pages")
+        return this.httpClient.get(URL + "pages").pipe(
+            catchError((error: any) => this.handleError(error))
+        )
     }
 
-    getNew(id: number): Observable<News> {
-        return this.httpClient.get(URL + id) as Observable<News>
+    getNew(id: number) {
+        return this.httpClient.get(URL + id).pipe(
+            catchError((error: any) => this.handleError(error))
+        )
     }
 
     createNew(news: News) {
         if (!news.id) {
-            return this.httpClient.post(URL, news)
+            return this.httpClient.post(URL, news).pipe(
+                catchError((error: any) => this.handleError(error))
+            )
         } else {
-            return this.httpClient.put(URL + news.id, news)
+            return this.httpClient.put(URL + news.id, news).pipe(
+                catchError((error: any) => this.handleError(error))
+            )
         }
     }
 
     uptadeNew(news: News) {
-        return this.httpClient.put(URL + news.id, news)
+        return this.httpClient.put(URL + news.id, news).pipe(
+            catchError((error: any) => this.handleError(error))
+        )
     }
 
     deleteNew(news: News) {
-        return this.httpClient.delete(URL + news.id)
+        return this.httpClient.delete(URL + news.id).pipe(
+            catchError((error: any) => this.handleError(error))
+        )
     }
 
     uploadNewImage(news: News, formData: FormData) {
-		return this.httpClient.post(URL + news.id + '/image', formData)
+		return this.httpClient.post(URL + news.id + '/image', formData).pipe(
+            catchError((error: any) => this.handleError(error))
+        )
 	}
 
     downloadNewImage(news: News) {
-        return this.httpClient.get(URL + news.id + '/image')
+        return this.httpClient.get(URL + news.id + '/image').pipe(
+            catchError((error: any) => this.handleError(error))
+        )
     }
 
     deleteNewImage(news: News) {
-        return this.httpClient.delete(URL + news.id + '/image')
+        return this.httpClient.delete(URL + news.id + '/image').pipe(
+        )
     }
-/*
-    readNew(news: News, user: Usero) {
+    /*readNew(news: News, user: Usero) {
         return this.httpClient.put()
     }
 */
-    /*
+
     private handleError(error: any) {
 		console.log("ERROR:");
 		console.error(error);
 		return throwError("Server error (" + error.status + "): " + error.text())
 	}
-    */
 }

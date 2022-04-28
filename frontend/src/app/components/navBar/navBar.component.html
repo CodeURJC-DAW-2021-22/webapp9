@@ -23,13 +23,12 @@
                         <li><a class="dropdown-item" href="/signin">Registrarse</a></li>
                     </ul>
                 </li>
-                </p>
 
                 <a ngIf="loginService.isLogged()">
                     <p ngIf="loginService.isAdmin()"><!--/p-->
-                        <li class="nav-item"><a class="nav-link" href="/admin">Administrador</a></li>
+                        <li class="nav-item"><a class="nav-link" [routerLink]="['/admin']">Administrador</a></li>
                     </p>
-                    <li class="nav-item"><a class="nav-link" href="/userProfile">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" [routerLink]="['/userProfile']">Perfil</a></li>
                 </a>
             </ul>
         </div>

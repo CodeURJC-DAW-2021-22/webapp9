@@ -1,0 +1,68 @@
+<p *ngIf="news"></p>
+
+<!-- Header-->
+<header class="bg-dark py-5" style="background-color: #454546 !important;">
+  <div class="container px-5">
+    <div class="row gx-5 align-items-center justify-content-center">
+      <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
+          src="/news/{{news?.id}}/image" alt="..." /></div>
+      <div class="col-lg-8 col-xl-7 col-xxl-6">
+        <div class="my-5 text-center text-xl-start">
+          <h1 class="display-5 fw-bolder text-white mb-2" style="font-size: 40px;">{{news?.title}}</h1>
+          <p class="lead fw-normal text-white-50 mb-4" style="color: aliceblue !important;">{{news?.argument}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</header>
+
+<p>*ngIf="isAdmin()"</p>
+<section class="pt-0 MoreInfo">
+  <div class="container-fluid my-5">
+    <div class="row justify-content-center" style=" background-color: rgb(27, 31, 31); margin-bottom: 2%;">
+      <div class="col-5 text-center">
+        <p class="lead fw-normal text-white-50 mb-4"
+          style="color: aliceblue !important; font-size: 2em !important; margin-top: 5%;"> Admin Actions :
+          <a class="btn btn-primary btn-lg px-4 me-sm-3" [routerLink]="['/deleteNew/{{news?.id}}']"
+            style="margin-top: auto;">Eliminar</a>
+          <a class="btn btn-outline-light btn-lg px-4" [routerLink]="['/editNew/{{news?.id}}']"
+            style="margin-top: auto;">Editar</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MoreInfo-->
+<section class="pt-0 MoreInfo" style="margin-left: 10%; margin-right: 10%; background-color: #FFFFFF !important;">
+  <div class="container px-5 my-5">
+    <div class="row gx-5 justify-content-center">
+      <div class="col-md-12">
+        <h1 style="padding-bottom: 10px;">Leer más:</h1>
+        <p class="">
+          {{news?.description}}
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="pt-0 MoreInfo" style="margin-left: 10%; margin-right: 10%; background-color: inherit !important;">
+  <div class="container px-5 my-5">
+    <div class="row gx-5 justify-content-center">
+      <!--{{>videogameTemplate}}-->
+    </div>
+  </div>
+</section>
+<!-- Footer-->
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
