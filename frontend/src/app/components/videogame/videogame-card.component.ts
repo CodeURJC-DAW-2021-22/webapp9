@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { Videogame } from 'src/app/models/videojuego.model';
+import { Videogame } from 'src/app/models/videogame.model';
 import { VideogameService } from 'src/app/services/videogame.service';
 
 @Component({

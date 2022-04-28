@@ -12,7 +12,7 @@
 
     <div class="col-md-5 border-right">
       <div class="p-3 py-5">
-        <form *ngIf="loginService.isLogged()">
+        <form *ngIf="loginservice.isLogged()">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h4 class="text-right">Mi perfil: "{{user.nick}}"</h4>
           </div>
@@ -57,7 +57,7 @@
   </div>
   <div class="col-md-4">
     <div class="p-3 py-5">
-      <h4 *ngIf="user.videogame" class="text-right">Mis compras</h4>
+      <h4 class="text-right">Mis compras</h4>
       <div class="d-flex justify-content-between align-items-center mb-3">
         <ul>
           <li>
@@ -66,7 +66,7 @@
                 <img class="img-fluid rounded-3 my-5" [src]="videogameImage()" />
               </div>
               <div class="col-md-8 align-self-center">
-                <p>"{{user.videogame.title}}"</p>
+                <p>""</p>
               </div>
             </div>
           </li>
