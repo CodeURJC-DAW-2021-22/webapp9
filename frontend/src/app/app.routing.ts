@@ -6,7 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 //ojo, el template no debe llamar al servicio, hay que hacerlo a través del componente
 
 const appRoutes = [
-    { path: 'home', component: HomeComponent }
+    { path: 'home', component: HomeComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full'}
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);

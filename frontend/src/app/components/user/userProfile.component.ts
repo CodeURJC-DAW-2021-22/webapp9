@@ -68,4 +68,8 @@ export class UserProfile {
     this.loginservice.logOut();
   }
 
+  /*getUserVideogame(){
+    this.useroService.getVideogames(this.user);
+  }*/
+
 }
