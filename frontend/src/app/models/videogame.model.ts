@@ -2,7 +2,7 @@ export interface Videogame {
     id?: number;
     imageVg: boolean;
     imageCompany: boolean;
-	title: string;
+	  title: string;
     price:number;
     rating:number;
     genre:string;
@@ -11,13 +11,13 @@ export interface Videogame {
     description:string;
     shortDescription:string;
     history:string;
-    
+
     cpuR:string;
     ramR:string;
     ssooR:string;
     gpuR:string;
     storageR:string;
-    
+
     cpuM:string;
     ramM:string;
     ssooM:string;

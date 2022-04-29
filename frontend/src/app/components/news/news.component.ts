@@ -14,14 +14,14 @@ export class NewsComponent{
 
   //25: int;
   //25: int;
-  news!: News;
-  imagesCarousel = ['diabloIV.jgp', 'overwatch2.jpg', 'marioKart9.jgp'].map((n) => `./backend/src/main/resources/static/Photos/${n}`); //esto no se si está bien
+  news!: News[];
+  imagesCarousel = ['assets/images/ diabloIV.jgp', 'assets/images/ overwatch2.jpg', 'assets/images/ marioKart9.jgp']s
 
   constructor(private router: Router, public newsService: NewsService, activatedRoute: ActivatedRoute){
 
     const id = activatedRoute.snapshot.params['id'];
-        this.newsService.getNew(id).subscribe(
-            (news) => this.news =  news as News, //casting in ts, es mejor hacerlo en el servicio (as Observable<News>), pero al dar error, hacemos el cast en el component
+        this.newsService.getNews().subscribe(
+            (news) => this.news =  news as News[], //casting in ts, es mejor hacerlo en el servicio (as Observable<News>), pero al dar error, hacemos el cast en el component
             (error: any) => console.error(error)
 
 
@@ -29,9 +29,9 @@ export class NewsComponent{
 
   }
 
-  getNewsImage(){
+  getNewsImage(news: News){
       if(this.news){ //We have to put this always. If exist any new...
-          return this.news?.image+ '/api/news/' +this.news.id
+        return news.image? '/api/news/' + news.id + '/image' : '/assets/images/not_foung.png';
       } else {
           return undefined;
       }

@@ -26,7 +26,7 @@
 <section class="py-5">
   <div class="container px-5">
     <h2 class="fw-bolder fs-5 mb-4">Noticias que te pueden interesar.</h2>
-    <div id="moreImages" class="row gx-5">
+    <div id="moreImages" class="row gx-5" *ngFor="let ns of news">
       <newsTemplate></newsTemplate>
     </div>
     <div class="text-end mb-5 mb-xl-0">

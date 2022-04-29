@@ -12,7 +12,7 @@ export class NewsService {
 
     constructor(private httpClient: HttpClient) { }
 
-    getsNews() {
+    getNews() {
         return this.httpClient.get(URL).pipe(
             catchError((error: any) => this.handleError(error))
         ) //as Observable<News> es el tipo de objeto que devuelve, un objeto del tipo News

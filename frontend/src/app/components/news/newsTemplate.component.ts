@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { News } from 'src/app/models/news.model';
 import { NewsService } from 'src/app/services/news.service';
 
@@ -24,9 +25,12 @@ export class NewsTemplateComponent{
         );
     }
 
-    getNewsImage(){
+
+
+
+    newsImage(){
         if(this.news){ //We have to put this always. If exist any new...
-            return this.news?.image+ '/api/news/' +this.news.id
+          return this.news.image? '/api/news/' + this.news.id + '/image' : '/assets/images/not_foung.png';
         } else {
             return undefined;
         }
