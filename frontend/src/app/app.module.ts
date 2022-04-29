@@ -16,12 +16,14 @@ import { ShowNewsComponent } from './components/news/showNews.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserProfile } from './components/user/userProfile.component';
 import { VideogameCardComponent } from './components/videogame/videogame-card.component';
+import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
+
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
+  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule],
   bootstrap: [AppComponent]
 })

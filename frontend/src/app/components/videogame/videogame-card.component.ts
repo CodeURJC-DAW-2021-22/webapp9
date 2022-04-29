@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Component,Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Videogame } from 'src/app/models/videogame.model';
 import { VideogameService } from 'src/app/services/videogame.service';
 
@@ -10,17 +10,22 @@ import { VideogameService } from 'src/app/services/videogame.service';
 
 export class VideogameCardComponent{
 
+  @Input() id!:number;
+
   videogame!: Videogame;
 
-  constructor(private router: Router, activatedRoute: ActivatedRoute, public videogameService: VideogameService){
+  constructor(private router: Router, public videogameService: VideogameService){
     
-    const id = activatedRoute.snapshot.params['id'];
-    videogameService.getVideogame(id).subscribe(
-        videogame => this.videogame = videogame,
-        error => console.error(error)
-    )
-  }
 
+  }
+  
+    ngOnInit() {
+      this.videogameService.getVideogame(this.id).subscribe(
+        videogame => this.videogame = videogame as Videogame,
+        error => console.error(error)
+        
+    )
+    }
     gotoVideogame() {
         this.router.navigate(['/videogame/'+this.videogame.id]);
     }

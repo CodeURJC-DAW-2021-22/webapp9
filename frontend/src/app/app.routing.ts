@@ -1,4 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
+import { VideogameDetailComponent } from './components/videogame/videogame-detail.component';
+import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
 
 import { HomeComponent } from './components/home/home.component';
 
@@ -7,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 
 const appRoutes = [
     { path: 'home', component: HomeComponent },
+    { path: 'videogamecatalog', component: VideogameCatalogComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ]

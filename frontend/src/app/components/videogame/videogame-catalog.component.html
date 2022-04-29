@@ -1,0 +1,21 @@
+
+
+<section class="py-5">
+    <div class="container px-5">
+        <h2 class="fw-bolder fs-5 mb-4">Videojuegos</h2>
+        <div id="moreImages" class="row gx-5">
+            <videogame-card  [id]='selectid'></videogame-card>
+        </div>
+        <div class="text-end mb-5 mb-xl-0">
+            <a class="text-decoration-none" href="#!">
+                <!--will show next-->
+                <!-- puts the variable created in execution ?page and associates it with next page which is getNumber + 1 (that is, we add 1)-->
+                <!--in request of we put (page, 3) and page will be equal to 1 for what I just explained above, this is how it is done-->
+                <a id="moreVideogamesButton" class="btn btn-secondary button">
+                    <i class="fa fa-eye"></i> Más contenido
+                </a>
+                <div id="loader"></div>
+            </a>
+        </div>
+    </div>
+</section>

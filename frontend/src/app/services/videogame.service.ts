@@ -21,7 +21,7 @@ export class VideogameService {
         return this.httpClient.get(URL + "pages")
     }
 
-    getVideogame(id: number | string): Observable<Videogame>  {
+    getVideogame(id: number | string    ): Observable<any>  {
         return this.httpClient.get(URL + id).pipe(
 			catchError(error => this.handleError(error))
 		) as Observable<any>;
