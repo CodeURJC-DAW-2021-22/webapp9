@@ -10,22 +10,14 @@ import { VideogameService } from 'src/app/services/videogame.service';
 
 export class VideogameCardComponent{
 
-  @Input() id!:number;
-
-  videogame!: Videogame;
+  @Input()videogame!: Videogame;
 
   constructor(private router: Router, public videogameService: VideogameService){
-    
 
   }
-  
-    ngOnInit() {
-      this.videogameService.getVideogame(this.id).subscribe(
-        videogame => this.videogame = videogame as Videogame,
-        error => console.error(error)
-        
-    )
-    }
+
+    ngOnInit() {}
+
     gotoVideogame() {
         this.router.navigate(['/videogame/'+this.videogame.id]);
     }

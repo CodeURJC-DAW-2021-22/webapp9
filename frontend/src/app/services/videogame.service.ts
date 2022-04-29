@@ -13,8 +13,8 @@ export class VideogameService {
 
     constructor(private httpClient: HttpClient) {}
 
-    getVideogames(): Observable<Videogame> {
-        return this.httpClient.get(URL).pipe() as Observable<Videogame>
+    getVideogames(): Observable<Videogame[]> {
+        return this.httpClient.get(URL).pipe() as Observable<Videogame[]>
     }
 
     findVideogamePage() {

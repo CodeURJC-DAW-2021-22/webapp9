@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
+import { Videogame } from 'src/app/models/videogame.model';
 import { VideogameService } from 'src/app/services/videogame.service';
 
 @Component({
@@ -9,12 +10,20 @@ import { VideogameService } from 'src/app/services/videogame.service';
 
 export class VideogameCatalogComponent{
   
-  selectid:number = 29;
-  
+  ids!:number[];
+  videogames!:Videogame[];
+  ready:boolean = false;
   constructor(private router: Router, activatedRoute: ActivatedRoute, public videogameService: VideogameService){
 
   }
 
+  ngOnInit(){
+    this.videogameService.getVideogames().subscribe(      
+      videogames => this.videogames = videogames as Videogame[],
+      error => console.error(error)
+    )
+    this.ready = true;
+  }
 
   
 
