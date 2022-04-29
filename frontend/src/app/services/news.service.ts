@@ -12,7 +12,7 @@ export class NewsService {
 
     constructor(private httpClient: HttpClient) { }
 
-    getsNews() {
+    getNews() {
         return this.httpClient.get(URL).pipe(
             catchError((error: any) => this.handleError(error))
         )
@@ -24,10 +24,10 @@ export class NewsService {
         )
     }
 
-    getNew(id: number) {
+    getNew(id: number): Observable<any> {
         return this.httpClient.get(URL + id).pipe(
             catchError((error: any) => this.handleError(error))
-        )
+        ) as Observable<any>
     }
 
     createNew(news: News) {

@@ -1,9 +1,10 @@
 export interface Usero {
     id?: number;
+
     nick: string;
 
     name: string;
-    
+
     lastName: string;
 
     email: string;
@@ -11,6 +12,6 @@ export interface Usero {
     creditCard: string;
 
     image: boolean;
-    
+
     roles: string[];
 }

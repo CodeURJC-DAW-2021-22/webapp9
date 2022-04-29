@@ -27,7 +27,7 @@
   <div class="container px-5">
     <h2 class="fw-bolder fs-5 mb-4">Noticias que te pueden interesar.</h2>
     <div id="moreImages" class="row gx-5">
-      <newsTemplate></newsTemplate>
+      <newsTemplate class="col-lg-4 mb-5" *ngFor="let ng of news" [news]="ng"></newsTemplate>
     </div>
     <div class="text-end mb-5 mb-xl-0">
       <a class="text-decoration-none" href="#!">
@@ -85,7 +85,7 @@
 
               <!-- The slideshow/carousel -->
 
-              <news *ngIf="imagesCarousel">
+              <a *ngIf="imagesCarousel">
                 <ng-template ngbSlide>
                   <div class="picsum-img-wrapper">
                     <img [src]="imagesCarousel[0]" alt="Random first slide">
@@ -113,7 +113,7 @@
                     <p>Ya es una realidad, no te lo pierdas</p>
                   </div>
                 </ng-template>
-              </news>
+              </a>
 
             </div>
           </div>

@@ -20,7 +20,8 @@
                         <div class="col-lg-12 mb-5 mb-lg-0" style="padding-bottom: 3em;"><h2 class="fw-bolder mb-0" style="text-align: center;">Nuestros videojuegos destacados.</h2></div>
                         <div class="col-lg-12 align-self-center">
 
-                                <home *ngIf="images">
+                                <a *ngIf="images"> <!--Esta etiqueta estaba puesta a home, la he cambiado porque
+                                                        es la que provoca la recursión de home (MÍRALO JUAN)-->
                                     <ng-template ngbSlide>
                                       <div class="picsum-img-wrapper">
                                         <img [src]="images[0]" alt="Random first slide">
@@ -48,8 +49,8 @@
                                         <p>Pokemon + mundo abierto, no hay nada más que decir.</p>
                                       </div>
                                     </ng-template>
-                                  </home>
-                              
+                                </a>
+
                         </div>
                     </div>
                 </div>
@@ -77,8 +78,8 @@
             <section class="py-5">
                 <div class="container px-5 my-5">
                     <div id="moreImages" class="row gx-5 justify-content-center">
-                        <!-- AQUÍ VA EL NEWS TEMPLATE --> 
+                        <newsTemplate></newsTemplate>
                     </div>
-                   
+
                 </div>
             </section>

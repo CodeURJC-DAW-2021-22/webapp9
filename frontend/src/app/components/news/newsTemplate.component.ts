@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { News } from 'src/app/models/news.model';
 import { NewsService } from 'src/app/services/news.service';
 
@@ -9,27 +10,37 @@ import { NewsService } from 'src/app/services/news.service';
   templateUrl: './newsTemplate.component.html'
 })
 
-
+//const id = activatedRoute.snapshot.params['id'];
 export class NewsTemplateComponent{
 
-    news!: News;
+  @Input() id!: number; //para que se vea en el padre, poner input, fin
+  @Input() news!: News;
 
-    constructor(public newsService: NewsService, activatedRoute: ActivatedRoute){
+    constructor(public newsService: NewsService, activatedRoute: ActivatedRoute, private router: Router){
 
-        const id = activatedRoute.snapshot.params['id'];
-        this.newsService.getNew(id).subscribe(
-            (news) => this.news =  news as News,
-            (error: any) => console.error(error)
-
-        );
     }
 
-    getNewsImage(){
+    ngOnInit(){
+      this.newsService.getNew(this.id).subscribe(
+        (news) => this.news =  news as News,
+        (error: any) => console.error(error)
+
+      );
+
+    }
+
+
+
+    newsImage(){
         if(this.news){ //We have to put this always. If exist any new...
-            return this.news?.image+ '/api/news/' +this.news.id
+          return this.news.image? '/api/news/' + this.news.id + '/image' : '/assets/images/not_foung.png';
         } else {
             return undefined;
         }
+    }
+
+    goToNew() {
+      this.router.navigate(['/showNews/'+this.news.id]);
     }
 
     /*getNewsBadge(){
