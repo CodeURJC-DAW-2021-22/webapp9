@@ -11,7 +11,7 @@ import { UserProfile } from './components/user/userProfile.component';
 const appRoutes = [
     { path: 'home', component: HomeComponent },
     { path: 'news', component: NewsComponent },
-    { path: 'showNews', component: ShowNewsComponent},
+    { path: 'showNews/:id', component: ShowNewsComponent},
     { path: 'userProfile', component: UserProfile},
     { path: '', redirectTo: 'home', pathMatch: 'full'}
 ]

@@ -14,6 +14,7 @@ export class NewsComponent{
 
   //25: int;
   //25: int;
+  ready: boolean = false;
   news!: News[];
   imagesCarousel = ['assets/images/ diabloIV.jgp', 'assets/images/ overwatch2.jpg', 'assets/images/ marioKart9.jgp']
 
