@@ -1,0 +1,106 @@
+
+    <main class="flex-shrink-0">
+
+        <header class="bg-dark py-5" style="background-color: #454546 !important;">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <div class="col-xl-4 col-xxl-5 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
+                        [src]="videogameImage()" alt="..." /></div>
+                    <div class="col-lg-6 col-xl-5 col-xxl-4">
+                        <div class="my-5 text-center text-xl-start">
+                            <h1 class="display-5 fw-bolder text-white mb-2">{{videogame.title}}</h1>
+                            <p class="lead fw-normal text-white-50 mb-4" style="color: aliceblue !important;">{{videogame.shortDescription}}</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-xxl-3 d-none d-xl-block text-center">
+                        <p class="lead fw-normal text-white-50 mb-4"
+                            style="color: aliceblue !important; font-size: 2em !important;"> Precio: {{videogame.price}}€</p>
+                            <!--Button to pay-->
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" id="payButton" href="/showVideogameUser/{{videogame.id}}">
+                                Comprar ya 
+                                <span style="color: grey;">{{videogame.price}}€</span>
+                            </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+        <section  class="pt-0 MoreInfo">
+            <div class="container-fluid px-5 my-5">
+                <div class="row justify-content-center" style=" background-color: rgb(27, 31, 31); margin-bottom: 2%;">
+                    <div class="col-5 text-center" >
+                        <p class="lead fw-normal text-white-50 mb-4"
+                            style="color: aliceblue !important; font-size: 2em !important; margin-top: 5%;"> Admin Actions :
+                            <button class="btn btn-primary btn-lg px-4 me-sm-3" (click)="removeVideogame()" style="margin-top: auto;">Eliminar  </button>               
+                            <button class="btn btn-outline-light btn-lg px-4" (click)="editVideogame()" style="margin-top: auto;">Editar</button>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- MoreInfo-->
+        <section class="pt-0 MoreInfo"
+            style="margin-left: 10%; margin-right: 10%; background-color: #FFFFFF !important;">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-auto">
+                        <h1 style="padding-bottom: 10px;">Descripción el producto</h1>
+                        <p class="">
+                            {{videogame.description}}
+                        </p>
+                        <h2 class="tab1">Historia</h2>
+                        <p class="tab1">
+                            {{videogame.history}}
+                        </p>
+                    </div>
+                </div>
+                <!--Requsisitos-->
+                <div class="row gx-5 justify-content-center" style="margin-top: 5%;">
+                    <div class="col-auto">
+                        <h1 style="padding-bottom: 10px;">Requisitos Recomendados</h1>
+                        <ul>
+                            <li><strong>Procesador o CPU:</strong> {{videogame.cpuR}}</li>
+                            <li><strong>Memoria RAM:</strong> {{videogame.ramR}}</li>
+                            <li><strong>Sistema operativo:</strong> {{videogame.ssooR}}</li>
+                            <li><strong>Tarjeta gráfica:</strong> {{videogame.gpuR}}
+                            </li>
+                            <li><strong>Espacio disponible en disco:</strong> {{videogame.storageR}}</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-auto">
+                        <h1 style="padding-bottom: 10px;">Requisitos Minimos</h1>
+                        <ul>
+                            <li><strong>Procesador o CPU:</strong> {{videogame.cpuM}}</li>
+                            <li><strong>Memoria RAM:</strong> {{videogame.ramM}}</li>
+                            <li><strong>Sistema operativo:</strong> {{videogame.ssooM}}</li>
+                            <li><strong>Tarjeta gráfica:</strong> {{videogame.gpuM}}
+                            </li>
+                            <li><strong>Espacio disponible en disco:</strong> {{videogame.storageM}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Noticias Relacionadas-->
+        <section class="pt-0 MoreInfo"
+            style="margin-left: 10%; margin-right: 10%; background-color: inherit !important; text-align: center;">
+            <h1 style="padding-bottom: 10px;">Noticias destacadas sobre este Titulo.</h1>
+            <div class="container px-5 my-5" style="margin-bottom: 0px !important ;">
+                <div class="row gx-5 justify-content-center">
+
+                    <!-- {{>newsTemplate}}  FALTA AÑADIR -->
+
+                </div>
+            </div>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-center">
+                <p><a class="btn btn-primary btn-lg px-4 me-sm-3" href="">Cargar Más</a></p>
+            </div>
+        </section>
+    </main>

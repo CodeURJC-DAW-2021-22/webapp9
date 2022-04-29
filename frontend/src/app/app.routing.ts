@@ -1,4 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
+import { VideogameDetailComponent } from './components/videogame/videogame-detail.component';
+import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { NewsComponent } from './components/news/news.component';
@@ -13,7 +15,10 @@ const appRoutes = [
     { path: 'news', component: NewsComponent },
     { path: 'showNews/:id', component: ShowNewsComponent},
     { path: 'userProfile', component: UserProfile},
-    { path: '', redirectTo: 'home', pathMatch: 'full'}
+    { path: 'videogamecatalog', component: VideogameCatalogComponent },
+    { path: 'videogame/:id', component: VideogameDetailComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
+
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);

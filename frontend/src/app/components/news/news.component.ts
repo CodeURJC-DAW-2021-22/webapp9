@@ -1,4 +1,3 @@
-        //int
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { News } from 'src/app/models/news.model';
