@@ -39,11 +39,11 @@ export class NewsComponent{
 
   //esto es una prueba
   nextPage(){
-    if(this.news){
-        return this.router.navigate(['/news/1'])
-    } else {
-        return undefined;
-    }
+      if(this.news){
+          return this.router.navigate(['/news/1'])
+      } else {
+          return undefined;
+      }
   }
 
 }
