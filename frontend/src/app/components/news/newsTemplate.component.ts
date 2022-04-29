@@ -13,8 +13,8 @@ import { NewsService } from 'src/app/services/news.service';
 //const id = activatedRoute.snapshot.params['id'];
 export class NewsTemplateComponent{
 
-  @Input()id!: number;
-  news!: News;
+  @Input() id!: number; //para que se vea en el padre, poner input, fin
+  @Input() news!: News;
 
     constructor(public newsService: NewsService, activatedRoute: ActivatedRoute, private router: Router){
 
