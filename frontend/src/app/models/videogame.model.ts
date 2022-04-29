@@ -1,3 +1,18 @@
+import { LastValueFromConfig } from "rxjs/internal/lastValueFrom";
+
+export interface VideogamePage {
+
+    content: Videogame[];
+    empty: boolean;
+    first: boolean;
+    last: boolean;
+    number: number;
+    numberOfElements: number;
+    size: number;
+    pageable: any[];
+    sort: boolean [];
+}
+
 export interface Videogame {
     id?: number;
     imageVg: boolean;

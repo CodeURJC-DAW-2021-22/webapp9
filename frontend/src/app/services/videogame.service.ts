@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import { Videogame } from "../models/videogame.model";
+import { Videogame,VideogamePage } from "../models/videogame.model";
 import { Observable,throwError  } from "rxjs";
 import { catchError } from 'rxjs/operators';
 
@@ -14,11 +14,14 @@ export class VideogameService {
     constructor(private httpClient: HttpClient) {}
 
     getVideogames(): Observable<Videogame[]> {
-        return this.httpClient.get(URL).pipe() as Observable<Videogame[]>
+        var videogame = this.httpClient.get(URL).pipe() as Observable<Videogame[]>
+        return videogame
     }
 
-    findVideogamePage() {
-        return this.httpClient.get(URL + "pages")
+    getVideogamesPage(page: number): Observable<VideogamePage>{
+        
+        var videogames= this.httpClient.get(URL + "pages?page=" + page).pipe() as Observable<VideogamePage>
+        return videogames
     }
 
     getVideogame(id: number | string    ): Observable<any>  {

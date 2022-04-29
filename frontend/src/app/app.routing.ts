@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 const appRoutes = [
     { path: 'home', component: HomeComponent },
     { path: 'videogamecatalog', component: VideogameCatalogComponent },
+    { path: 'videogame/:id', component: VideogameDetailComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ]

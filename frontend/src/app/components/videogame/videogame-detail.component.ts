@@ -20,17 +20,17 @@ export class VideogameDetailComponent{
         error => console.error(error)
     )
   }
-
+  //Forbidden error falta ser admin
   removeVideogame() {
     const okResponse = window.confirm('Do you want to remove this videogame?');
     if (okResponse) {
         this.videogameService.deleteVideogame(this.videogame).subscribe(
-            _ => this.router.navigate(['/videogame']), //Cambiar a el catalogo de videojuegos
+            _ => this.router.navigate(['/videogame/']), //Cambiar a el catalogo de videojuegos
             error => console.error(error)
         );
     }
 }       
-
+//Forbidden error falta ser admin
     editVideogame() {
         this.router.navigate(['/videogame/edit', this.videogame.id]);
     }

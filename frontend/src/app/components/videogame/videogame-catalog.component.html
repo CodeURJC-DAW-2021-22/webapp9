@@ -6,13 +6,18 @@
             <videogame-card class="col-lg-4 mb-5" *ngFor="let videogame of videogames;let i = index" [videogame]="videogame"></videogame-card>
         </div>
         <div class="text-end mb-5 mb-xl-0">
-            <a class="text-decoration-none" href="#!">
-                <!--will show next-->
-                <!-- puts the variable created in execution ?page and associates it with next page which is getNumber + 1 (that is, we add 1)-->
-                <!--in request of we put (page, 3) and page will be equal to 1 for what I just explained above, this is how it is done-->
-                <a id="moreVideogamesButton" class="btn btn-secondary button">
-                    <i class="fa fa-eye"></i> Más contenido
-                </a>
+            <a class="text-decoration-none">
+                <button class="btn btn-secondary button" (click)="nextpage()" >
+                    <i class="fa fa-eye"></i> Pagina siguiente
+                </button>
+                <div id="loader"></div>
+            </a>
+        </div>
+        <div *ngIf="page > 0" class="text-end mb-5 mb-xl-0">
+            <a class="text-decoration-none">
+                <button class="btn btn-secondary button" (click)="prevpage()" >
+                    <i class="fa fa-eye"></i>  Pagina anterior
+                </button>
                 <div id="loader"></div>
             </a>
         </div>
