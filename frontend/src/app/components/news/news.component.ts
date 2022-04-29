@@ -15,7 +15,7 @@ export class NewsComponent{
   //25: int;
   //25: int;
   news!: News[];
-  imagesCarousel = ['assets/images/ diabloIV.jgp', 'assets/images/ overwatch2.jpg', 'assets/images/ marioKart9.jgp']s
+  imagesCarousel = ['assets/images/ diabloIV.jgp', 'assets/images/ overwatch2.jpg', 'assets/images/ marioKart9.jgp']
 
   constructor(private router: Router, public newsService: NewsService, activatedRoute: ActivatedRoute){
 
