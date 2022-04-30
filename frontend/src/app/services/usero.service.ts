@@ -6,7 +6,7 @@ import { News } from '../models/news.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-const BASE_URL = '/api/users';
+const BASE_URL = '/api/users/';
 
 @Injectable({ providedIn: 'root' })
 export class UseroService {
@@ -17,40 +17,40 @@ export class UseroService {
 
 
 	/*------------------GET METHODS------------------*/
-    getUsers(): Observable<Usero[]> {
+    getUsers(){
 		return this.http.get(BASE_URL).pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<Usero[]>;
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
-    getUser(id: number | string): Observable<Usero> {
+    getUser(id: number | string) {
 		return this.http.get(BASE_URL + id).pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<Usero>;
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
-	getVideogames(user: Usero): Observable<Videogame[]> {
-		return this.http.get(BASE_URL + '/purchases' + user.id).pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<Videogame[]>;
+	getVideogames(user: Usero) {
+		return this.http.get(BASE_URL + 'purchases/' + user.id).pipe(
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
-	getUserReadNews(id: number | string): Observable<News[]> {
-		return this.http.get(BASE_URL + '/purchases' + id).pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<News[]>;
+	getUserReadNews(id: number | string) {
+		return this.http.get(BASE_URL + 'purchases/' + id).pipe(
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
-	getRecommended(id: number | string): Observable<Videogame[]> {
+	getRecommended(id: number | string) {
 		return this.http.get(BASE_URL + id + '/recommendations' ).pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<Videogame[]>;
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
-	getMe(): Observable<Usero> {
-		return this.http.get(BASE_URL + '/me').pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<Usero>;
+	getMe() {
+		return this.http.get(BASE_URL + 'me').pipe(
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
 	/*------------------CREATE METHODS------------------*/
@@ -68,7 +68,7 @@ export class UseroService {
 		}
 	}
 
-	updateUser(user: Usero) {
+	updateUser(user: Usero){
 		return this.http.put(BASE_URL + user.id, user).pipe(
 			catchError((error: any) => this.handleError(error))
 		);
@@ -91,7 +91,7 @@ export class UseroService {
 
 	/*------------------PASSWORD METHODS------------------*/
 	updatePassword(user: Usero) {
-		return this.http.put(BASE_URL + user.id + 'password', user).pipe(
+		return this.http.put(BASE_URL + user.id + '/password', user).pipe(
 			catchError((error: any) => this.handleError(error))
 		);
 	}

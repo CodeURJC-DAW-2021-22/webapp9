@@ -86,7 +86,7 @@ public class UserRestController {
 
     // Modifies a user
     @PutMapping("/{id}")
-    public ResponseEntity<Usero> updateUser(@PathVariable long id, Usero updatedUser)
+    public ResponseEntity<Usero> updateUser(@PathVariable long id, @RequestParam Usero updatedUser)
             throws SQLException {
 
         if (us.exist(id)) {

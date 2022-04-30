@@ -13,7 +13,6 @@ import { NewsService } from 'src/app/services/news.service';
 
 export class HomeComponent{
   news!: News[];
-  images = ["assets/images/ lostark.jpg", "assets/images/ archeAge.jpg", "assets/images/ pokemonArceus.jpg"]
 
 
   constructor( public newsService: NewsService, activatedRoute: ActivatedRoute){
