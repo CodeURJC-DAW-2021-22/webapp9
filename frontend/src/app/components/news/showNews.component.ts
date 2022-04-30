@@ -29,4 +29,13 @@ export class ShowNewsComponent{
     return this.loginService.isAdmin();
   }
 
+  newsImage(){
+    if(this.news){ //We have to put this always. If exist any new...
+      return this.news.image? '/api/news/' + this.news.id + '/image' : '/assets/images/not_foung.png';
+    } else {
+        return undefined;
+    }
+  }
+
+
 }
