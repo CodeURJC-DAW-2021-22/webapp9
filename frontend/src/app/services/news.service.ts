@@ -1,3 +1,4 @@
+import { NewsPage } from './../models/news.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,22 +13,20 @@ export class NewsService {
 
     constructor(private httpClient: HttpClient) { }
 
-    getsNews() {
+    getNews() {
         return this.httpClient.get(URL).pipe(
             catchError((error: any) => this.handleError(error))
-        )
+        ) //as Observable<News> es el tipo de objeto que devuelve, un objeto del tipo News
     }
 
-    findNewsPage() {
-        return this.httpClient.get(URL + "pages").pipe(
-            catchError((error: any) => this.handleError(error))
-        )
+    findNewsPage(page: number): Observable<NewsPage> {
+        return this.httpClient.get(URL + "pages?page=" + page).pipe() as Observable<NewsPage> //NewsPage es la interfaz en el model de news
     }
 
-    getNew(id: number) {
+    getNew(id: number): Observable<any> {
         return this.httpClient.get(URL + id).pipe(
             catchError((error: any) => this.handleError(error))
-        )
+        ) as Observable<any>
     }
 
     createNew(news: News) {

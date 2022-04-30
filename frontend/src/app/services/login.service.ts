@@ -8,7 +8,7 @@ const BASE_URL = '/api/auth';
 export class LoginService {
 
     //Check these 2 lines, i've added '?' to both of them
-    logged?: boolean;
+    logged: boolean = false;
     user?: Usero;
 
     constructor(private http: HttpClient) {
