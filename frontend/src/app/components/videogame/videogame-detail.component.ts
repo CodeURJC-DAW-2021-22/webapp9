@@ -32,11 +32,15 @@ export class VideogameDetailComponent{
 }       
 //Forbidden error falta ser admin
     editVideogame() {
-        this.router.navigate(['/videogame/edit', this.videogame.id]);
+        this.router.navigate(['/videogame/edit/' + this.videogame.id]);
     }
 
     gotovideogamescatalog() {
         this.router.navigate(['/videogame']);
+    }
+
+    purchasevideogame(){ //falta meter user id
+        this.router.navigate(['/videogame/' + this.videogame.id + '/purchase/' ]);
     }
 
     videogameImage(){

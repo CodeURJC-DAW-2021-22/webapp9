@@ -16,10 +16,10 @@
                         <p class="lead fw-normal text-white-50 mb-4"
                             style="color: aliceblue !important; font-size: 2em !important;"> Precio: {{videogame.price}}€</p>
                             <!--Button to pay-->
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" id="payButton" href="/showVideogameUser/{{videogame.id}}">
+                            <button class="btn btn-primary btn-lg px-4 me-sm-3" id="payButton" (click)="purchasevideogame()">
                                 Comprar ya 
                                 <span style="color: grey;">{{videogame.price}}€</span>
-                            </a>
+                            </button>
                     </div>
                 </div>
             </div>

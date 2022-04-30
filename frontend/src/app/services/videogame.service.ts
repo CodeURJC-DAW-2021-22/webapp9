@@ -11,6 +11,7 @@ const URL = '/api/videogames/';
 @Injectable({ providedIn: 'root' })
 export class VideogameService {
 
+
     constructor(private httpClient: HttpClient) {}
 
     getVideogames(): Observable<Videogame[]> {
@@ -58,6 +59,13 @@ export class VideogameService {
 
     deleteVideogameCompanyImage(videogame: Videogame) {
         return this.httpClient.delete(URL + videogame.id + '/companyImage')
+    }
+
+    purchasegame(id: number | undefined, idus: number | undefined) {
+        if (id == undefined || idus == undefined){
+            return alert("Error al comprar el videojuego, intentelo más tarde.")
+        }
+        return this.httpClient.delete(URL + id + '/purchase/' + idus)
     }
 /*
     addRelatedNew(videogame: Videogame) {

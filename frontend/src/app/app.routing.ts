@@ -1,6 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { VideogameDetailComponent } from './components/videogame/videogame-detail.component';
 import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
+import { VideogameEditFormComponent } from './components/videogame/videogame-edit-form.component';
+import { VideogamePurchaseComponent } from './components/videogame/videogame-purchase.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { NewsComponent } from './components/news/news.component';
@@ -17,7 +19,9 @@ const appRoutes = [
     { path: 'userProfile', component: UserProfile},
     { path: 'videogamecatalog', component: VideogameCatalogComponent },
     { path: 'videogame/:id', component: VideogameDetailComponent },
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
+    { path: 'videogame/edit/:id', component: VideogameEditFormComponent },
+    { path: 'videogame/:id/purchase/:id2', component: VideogamePurchaseComponent },
+    { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
 ]
 

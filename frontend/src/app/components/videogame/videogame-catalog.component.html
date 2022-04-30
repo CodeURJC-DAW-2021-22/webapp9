@@ -5,7 +5,7 @@
         <div *ngIf="ready"   id="moreImages" class="row gx-5">    
             <videogame-card class="col-lg-4 mb-5" *ngFor="let videogame of videogames;let i = index" [videogame]="videogame"></videogame-card>
         </div>
-        <div class="text-end mb-5 mb-xl-0">
+        <div *ngIf="videogames.length == 9"  class="text-end mb-5 mb-xl-0">
             <a class="text-decoration-none">
                 <button class="btn btn-secondary button" (click)="nextpage()" >
                     <i class="fa fa-eye"></i> Pagina siguiente
