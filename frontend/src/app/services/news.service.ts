@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
+import { NewsPage } from './../models/news.model';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { News } from '../models/news.model'
 import { Usero } from '../models/usero.model'
@@ -18,10 +19,8 @@ export class NewsService {
         )
     }
 
-    findNewsPage() {
-        return this.httpClient.get(URL + "pages").pipe(
-            catchError((error: any) => this.handleError(error))
-        )
+    findNewsPage(page: number): Observable<NewsPage> {
+        return this.httpClient.get(URL + "pages?page=" + page).pipe() as Observable<NewsPage> //NewsPage es la interfaz en el model de news
     }
 
     getNew(id: number): Observable<any> {

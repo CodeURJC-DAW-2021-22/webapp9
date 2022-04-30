@@ -13,7 +13,7 @@
                 <div class="card-body">
                   <h3 class="card-title text-center">Login</h3>
                   <div class="card-text">
-                    <form *ngIf="!loginService.isLogged()">
+                    <form>
                       <!-- to error: add class "has-danger" -->
                       <div class="form-group">
                         <label>Nombre Usuario:</label>
@@ -25,14 +25,12 @@
                         <input #pass type="password" name="password" class="form-control form-control-sm"
                           placeholder="Password" id="exampleInputPassword1">
                         <br />
-                        <a href="login" style="float:right;font-size:12px;">¿Olvidaste tu contraseña?</a>
                         <br />
                       </div>
                       <!-- button to send the information-->
-                      <button type="submit" (click)="logIn($event, user.value, pass.value)"
-                        class="btn btn-default">Login</button>
+                      <a class="btn btn-primary btn-lg px-4 me-sm-3" type="submit" (click)="logIn($event, user.value, pass.value)">Login</a>
                       <div class="sign-up">
-                        ¿No tienes cuenta? <a [routerLink]="['/signup']">¡Créate una!</a>
+                        ¿No tienes cuenta? <a [routerLink]="['/signUp']">¡Créate una!</a>
                       </div>
                     </form>
                   </div>
