@@ -1,15 +1,16 @@
 export interface NewsPage {
 
-    content: News[];
-    empty: boolean;
-    first: boolean;
-    last: boolean;
-    number: number;
-    numberOfElements: number;
-    size: number;
-    pageable: any[];
-    sort: boolean [];
+  content: News[];
+  empty: boolean;
+  first: boolean;
+  last: boolean;
+  number: number;
+  numberOfElements: number;
+  size: number;
+  pageable: any[];
+  sort: boolean [];
 }
+
 
 export interface News {
     id?: number;
