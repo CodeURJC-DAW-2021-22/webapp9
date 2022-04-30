@@ -15,12 +15,13 @@ import { ShowNewsComponent } from './components/news/showNews.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserProfile } from './components/user/userProfile.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { CreateNewComponent } from './components/news/createNew.component';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent, ShowNewsComponent, HomeComponent, UserProfile, AdminComponent],
+  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent, ShowNewsComponent, HomeComponent, UserProfile, AdminComponent, CreateNewComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule],
   bootstrap: [AppComponent]
 })

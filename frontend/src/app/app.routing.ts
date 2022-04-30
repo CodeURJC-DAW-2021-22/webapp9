@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
 
 import { HomeComponent } from './components/home/home.component';
+import { CreateNewComponent } from './components/news/createNew.component';
 import { NewsComponent } from './components/news/news.component';
 import { ShowNewsComponent } from './components/news/showNews.component';
 import { UserProfile } from './components/user/userProfile.component';
@@ -15,6 +16,7 @@ const appRoutes = [
     { path: 'showNews', component: ShowNewsComponent},
     { path: 'userProfile', component: UserProfile},
     { path: 'admin', component: AdminComponent},
+    { path: 'createNew', component: CreateNewComponent}
     { path: '', redirectTo: 'home', pathMatch: 'full'}
 ]
 
