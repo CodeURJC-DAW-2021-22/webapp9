@@ -19,7 +19,7 @@ const appRoutes = [
     { path: 'videogamecatalog', component: VideogameCatalogComponent },
     { path: 'videogame/:id', component: VideogameDetailComponent },
     { path: 'login', component: LoginComponent},
-    { path: '**', redirectTo: 'home', pathMatch: 'full' }
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ]
 

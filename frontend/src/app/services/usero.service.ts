@@ -68,10 +68,10 @@ export class UseroService {
 		}
 	}
 
-	updateUser(user: Usero) {
+	updateUser(user: Usero) :  Observable<Usero>{
 		return this.http.put(BASE_URL + user.id, user).pipe(
-			catchError((error: any) => this.handleError(error))
-		);
+			//catchError((error: any) => this.handleError(error))
+		)as Observable<Usero>;
 	}
 
 	/*------------------IMAGE METHODS------------------*/

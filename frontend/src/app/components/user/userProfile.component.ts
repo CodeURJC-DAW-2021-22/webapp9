@@ -19,8 +19,8 @@ export class UserProfile {
   file: any;
   removeImage? :boolean;
 
-  constructor(private router: Router,public useroService: UseroService, public loginservice : LoginService) {
-    const id:number = 2;
+  constructor(private router: Router, activatedRoute: ActivatedRoute, public useroService: UseroService, public loginservice : LoginService) {
+    const id = activatedRoute.snapshot.params['id'];
     if (id) {
       useroService.getUser(id).subscribe(
         user => this.user = user as Usero,
@@ -42,6 +42,10 @@ export class UserProfile {
     this.useroService.updateUser(this.user).subscribe(
       (user: any) => this.uploadImage(user),
       (error: string) => alert('Error al guardar los datos: ' + error)
+    );
+    this.useroService.getVideogames(this.user).subscribe(
+      videogame => this.videogame = videogame as Videogame[],
+      error => console.error(error)
     );
   }
   cancel(){
