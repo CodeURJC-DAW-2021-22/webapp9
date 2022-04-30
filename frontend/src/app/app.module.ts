@@ -20,13 +20,14 @@ import { VideogameCardComponent } from './components/videogame/videogame-card.co
 import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { EditNewComponent } from './components/Admin/editNew.component';
 
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent, VideogameCatalogComponent, CarouselComponent],
+  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent, VideogameCatalogComponent, CarouselComponent, EditNewComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule, NgbModule],
   bootstrap: [AppComponent]
 })
