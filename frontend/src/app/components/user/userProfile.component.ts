@@ -28,7 +28,7 @@ export class UserProfile {
       );
   }
   useroService.getVideogames(this.user).subscribe(
-    (videogame: Videogame[]) => videogame = videogame,
+    (videogame) => this.videogame = videogame as Videogame[],
     (error: any) => console.error(error)
   );
 }
