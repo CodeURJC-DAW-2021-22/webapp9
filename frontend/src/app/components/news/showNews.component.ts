@@ -14,6 +14,7 @@ export class ShowNewsComponent{
 
   news!: News;
 
+
   constructor(public newsService: NewsService, public loginService: LoginService, activatedRoute: ActivatedRoute){
 
     const id = activatedRoute.snapshot.params['id'];
@@ -24,6 +25,7 @@ export class ShowNewsComponent{
         );
 
   }
+
 
   isAdmin(){
     return this.loginService.isAdmin();

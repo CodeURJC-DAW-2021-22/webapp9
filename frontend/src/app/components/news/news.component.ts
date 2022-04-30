@@ -13,20 +13,47 @@ export class NewsComponent{
 
   //25: int;
   //25: int;
+  page:number = 0;
   ready: boolean = false;
   news!: News[];
   imagesCarousel = ['assets/images/ diabloIV.jgp', 'assets/images/ overwatch2.jpg', 'assets/images/ marioKart9.jgp']
 
   constructor(private router: Router, public newsService: NewsService, activatedRoute: ActivatedRoute){
 
-    const id = activatedRoute.snapshot.params['id'];
-        this.newsService.getNews().subscribe(
-            (news) => this.news =  news as News[], //casting in ts, es mejor hacerlo en el servicio (as Observable<News>), pero al dar error, hacemos el cast en el component
+
+        this.newsService.findNewsPage(this.page).subscribe(
+            (news) => {var x = news['content'] ;this.news = x as News[];}, //casting in ts, es mejor hacerlo en el servicio (as Observable<News>), pero al dar error, hacemos el cast en el component
             (error: any) => console.error(error)
-
-
         );
 
+  }
+
+  ngOnInit(){
+    this.ready = true;
+  }
+
+  nextpage(){
+    this.changepage(1)
+    this.newsService.findNewsPage(this.page).subscribe(
+      (news) => {var x = news['content'] ;this.news = x as News[];},
+      (error: any) => console.error(error)
+  );
+  }
+
+  prevpage(){
+    this.changepage(-1)
+    this.newsService.findNewsPage(this.page).subscribe(
+      (news) => {var x = news['content'] ;this.news = x as News[];},
+      (error: any) => console.error(error)
+  );
+  }
+
+  changepage(num:number){
+    if (num == -1){
+      this.page -= 1;
+    }else{
+      this.page += 1;
+    }
   }
 
   getNewsImage(news: News){
