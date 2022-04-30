@@ -13,12 +13,12 @@ export class VideogameCatalogComponent{
   
   ids!:number[];
   videogames!:Videogame[];
-  videogamepage!: VideogamePage;
   page:number = 0;
   ready:boolean = false;
+
   constructor(private router: Router, public videogameService: VideogameService){
       videogameService.getVideogamesPage(this.page).subscribe(      
-      data => {var x = data['content']  ;console.log(x);this.videogames= x as Videogame[];}  ,
+      data => {var x = data['content'] ;this.videogames= x as Videogame[];}  ,
       error => console.error(error)
     )
   }
