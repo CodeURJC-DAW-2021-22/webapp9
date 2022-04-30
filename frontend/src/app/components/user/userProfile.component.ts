@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Usero } from './../../models/usero.model';
 import { UseroService } from '../../services/usero.service';
 import { LoginService } from '../../services/login.service';
-import { Videogame } from 'src/app/models/videogame.model';
+import { Videogame } from '../../models/videogame.model';
 
 @Component({
   selector: 'userProfile',
@@ -19,20 +19,24 @@ export class UserProfile {
   file: any;
   removeImage? :boolean;
 
-  constructor(private router: Router, activatedRoute: ActivatedRoute,public useroService: UseroService, public loginservice : LoginService) {
-    const id = activatedRoute.snapshot.params['id'];
+  constructor(private router: Router,public useroService: UseroService, public loginservice : LoginService) {
+    const id:number = 2;
     if (id) {
       useroService.getUser(id).subscribe(
-        (user: Usero) => user = user,
-        (error: any) => console.error(error)
+        user => this.user = user as Usero,
+        error => console.error(error)
       );
   }
-  useroService.getVideogames(this.user).subscribe(
-    (videogame: Videogame[]) => videogame = videogame,
-    (error: any) => console.error(error)
-  );
+
+
 }
 
+  ngOnInit(){
+    this.useroService.getVideogames(this.user).subscribe(
+      videogame => this.videogame = videogame as Videogame[],
+      error => console.error(error)
+    );
+  }
 
   save(){
     this.useroService.updateUser(this.user).subscribe(

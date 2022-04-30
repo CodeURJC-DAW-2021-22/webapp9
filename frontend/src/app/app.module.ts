@@ -24,9 +24,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 
-
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent, CarouselComponent],
+  declarations: [UserProfile,AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent, CarouselComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule, NgbModule],
   bootstrap: [AppComponent]
 })

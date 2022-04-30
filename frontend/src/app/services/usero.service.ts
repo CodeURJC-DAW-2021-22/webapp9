@@ -6,7 +6,7 @@ import { News } from '../models/news.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-const BASE_URL = '/api/users';
+const BASE_URL = '/api/users/';
 
 @Injectable({ providedIn: 'root' })
 export class UseroService {
