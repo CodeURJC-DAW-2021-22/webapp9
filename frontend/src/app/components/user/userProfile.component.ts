@@ -23,7 +23,7 @@ export class UserProfile {
     const id = activatedRoute.snapshot.params['id'];
     if (id) {
       useroService.getUser(id).subscribe(
-        (user: Usero) => user = user,
+        (user: Usero) => {this.user = user},
         (error: any) => console.error(error)
       );
   }
@@ -33,6 +33,9 @@ export class UserProfile {
   );
 }
 
+ngOnInit(){
+  alert(this.user);
+}
 
   save(){
     this.useroService.updateUser(this.user).subscribe(
