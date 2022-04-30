@@ -17,7 +17,7 @@ const appRoutes = [
     { path: 'home', component: HomeComponent },
     { path: 'news', component: NewsComponent },
     { path: 'showNews/:id', component: ShowNewsComponent},
-    { path: 'userProfile/:id', component: UserProfile},
+    { path: 'userProfile', component: UserProfile},
     { path: 'videogamecatalog', component: VideogameCatalogComponent },
     { path: 'videogame/:id', component: VideogameDetailComponent },
     { path: 'about', component: AboutComponent },
