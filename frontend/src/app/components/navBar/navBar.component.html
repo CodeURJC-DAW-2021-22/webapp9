@@ -16,8 +16,8 @@
                 <li class="nav-item"><a class="nav-link" [routerLink]="['/about']">About</a></li>
 
 
-                <p *ngIf="!loginService.isLogged()"><!--/p-->
-                <li class="nav-item dropdown">
+
+                <li *ngIf="! loginService.isLogged()" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sesión</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
                         <li><a class="dropdown-item" [routerLink]="['/login']">Iniciar sesión</a></li>
@@ -25,12 +25,12 @@
                     </ul>
                 </li>
 
-
-                <a ngIf="loginService.isLogged()">
-                    <p ngIf="loginService.isAdmin()"><!--/p-->
+                <a *ngIf="loginService.isLogged()">
+                    <li class="nav-item"><a class="nav-link" [routerLink]="['/userProfile']">Perfil</a></li>
+                    <p *ngIf="loginService.isAdmin()">
                         <li class="nav-item"><a class="nav-link" [routerLink]="['/admin']">Administrador</a></li>
                     </p>
-                    <li class="nav-item"><a class="nav-link" [routerLink]="['/userProfile']">Perfil</a></li>
+                    
                 </a>
             </ul>
         </div>

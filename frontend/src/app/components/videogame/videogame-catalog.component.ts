@@ -13,9 +13,9 @@ export class VideogameCatalogComponent{
   
   ids!:number[];
   videogames!:Videogame[];
-  videogamepage!: VideogamePage;
   page:number = 0;
   ready:boolean = false;
+
   constructor(private router: Router, public videogameService: VideogameService){
       videogameService.getVideogamesPage(this.page).subscribe(      
       data => {var x = data['content'] ;this.videogames= x as Videogame[];}  ,
