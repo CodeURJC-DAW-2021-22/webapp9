@@ -18,15 +18,24 @@ import { HomeComponent } from './components/home/home.component';
 import { UserProfile } from './components/user/userProfile.component';
 import { VideogameCardComponent } from './components/videogame/videogame-card.component';
 import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
+<<<<<<< HEAD
+import { NgbdCarouselBasic } from './components/carousel/carousel.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+=======
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './components/carousel/carousel.component';
+>>>>>>> 71ae82320c982a22ae1612a86fac476a34abe738
 
 
 
 
 
 @NgModule({
+<<<<<<< HEAD
+  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent,VideogameCatalogComponent, NgbdCarouselBasic],
+=======
   declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent, CarouselComponent],
+>>>>>>> 71ae82320c982a22ae1612a86fac476a34abe738
   imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule, NgbModule],
   bootstrap: [AppComponent]
 })
