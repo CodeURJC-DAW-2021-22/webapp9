@@ -17,14 +17,16 @@ import { HomeComponent } from './components/home/home.component';
 import { UserProfile } from './components/user/userProfile.component';
 import { VideogameCardComponent } from './components/videogame/videogame-card.component';
 import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
+import { NgbdCarouselBasic } from './components/carousel/carousel.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule],
+  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent,VideogameCatalogComponent, NgbdCarouselBasic],
+  imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule, NgbModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
