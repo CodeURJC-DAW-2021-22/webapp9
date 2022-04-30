@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import { routing } from './app.routing';
 
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HeadComponent } from './components/head/head.component';
@@ -17,14 +18,16 @@ import { HomeComponent } from './components/home/home.component';
 import { UserProfile } from './components/user/userProfile.component';
 import { VideogameCardComponent } from './components/videogame/videogame-card.component';
 import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule],
+  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent, CarouselComponent],
+  imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule, NgbModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
