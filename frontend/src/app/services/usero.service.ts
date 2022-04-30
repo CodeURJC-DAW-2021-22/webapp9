@@ -17,40 +17,40 @@ export class UseroService {
 
 
 	/*------------------GET METHODS------------------*/
-    getUsers(): Observable<Usero[]> {
+    getUsers(){
 		return this.http.get(BASE_URL).pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<Usero[]>;
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
-    getUser(id: number | string): Observable<Usero> {
+    getUser(id: number | string) {
 		return this.http.get(BASE_URL + id).pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<Usero>;
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
-	getVideogames(user: Usero): Observable<Videogame[]> {
+	getVideogames(user: Usero) {
 		return this.http.get(BASE_URL + '/purchases' + user.id).pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<Videogame[]>;
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
-	getUserReadNews(id: number | string): Observable<News[]> {
+	getUserReadNews(id: number | string) {
 		return this.http.get(BASE_URL + '/purchases' + id).pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<News[]>;
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
-	getRecommended(id: number | string): Observable<Videogame[]> {
+	getRecommended(id: number | string) {
 		return this.http.get(BASE_URL + id + '/recommendations' ).pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<Videogame[]>;
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
-	getMe(): Observable<Usero> {
+	getMe() {
 		return this.http.get(BASE_URL + '/me').pipe(
-			//catchError((error: any) => this.handleError(error))
-		) as Observable<Usero>;
+			catchError((error: any) => this.handleError(error))
+		);
 	}
 
 	/*------------------CREATE METHODS------------------*/

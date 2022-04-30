@@ -23,12 +23,14 @@ export class UserProfile {
     const id = activatedRoute.snapshot.params['id'];
     if (id) {
       useroService.getUser(id).subscribe(
-        user => this.user = user as Usero,
-        error => console.error(error)
+        (user) => this.user = user as Usero,
+        (error: any) => console.error(error)
       );
   }
-
-
+  useroService.getVideogames(this.user).subscribe(
+    (videogame) => this.videogame = videogame as Videogame[],
+    (error: any) => console.error(error)
+  );
 }
 
   ngOnInit(){
