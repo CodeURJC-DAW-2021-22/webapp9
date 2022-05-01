@@ -26,6 +26,10 @@ export class ShowNewsComponent{
 
   }
 
+  editNew() {
+    this.router.navigate(['/new/edit/' + this.news.id]);
+  }
+
   removeNew() {
     const okResponse = window.confirm('Do you want to remove this new?');
     if (okResponse) {
@@ -34,11 +38,8 @@ export class ShowNewsComponent{
             error => console.error(error)
         );
     }
-}     
-
-editNew() {
-  this.router.navigate(['/new/edit/' + this.news.id]);
 }
+
   isAdmin(){
     return this.loginService.isAdmin();
   }
