@@ -30,7 +30,7 @@ import { VideogameRecommendedComponent } from './components/videogame-recommende
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent, VideogameCatalogComponent, CarouselComponent, EditNewComponent, EditNewFormComponent],
+  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent, VideogameCatalogComponent, CarouselComponent, EditNewComponent, EditNewFormComponent, AboutComponent, VideogameRecommendedComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule, NgbModule],
   bootstrap: [AppComponent]
 })
