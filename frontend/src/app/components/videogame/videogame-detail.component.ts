@@ -26,23 +26,19 @@ export class VideogameDetailComponent{
     const okResponse = window.confirm('Do you want to remove this videogame?');
     if (okResponse) {
         this.videogameService.deleteVideogame(this.videogame).subscribe(
-            _ => this.router.navigate(['/videogame/']), //Cambiar a el catalogo de videojuegos
+            _ => this.router.navigate(['/videogamecatalog']), //Cambiar a el catalogo de videojuegos
             error => console.error(error)
         );
     }
 }     
    
-//Forbidden error falta ser admin
     editVideogame() {
         this.router.navigate(['/videogame/edit/' + this.videogame.id]);
     }
 
-    gotovideogamescatalog() {
-        this.router.navigate(['/videogame']);
-    }
-
-    purchasevideogame(){ //falta meter user id
-        this.router.navigate(['/videogame/' + this.videogame.id + '/purchase/' ]);
+    purchasevideogame(){ 
+        var id = this.loginService.currentUser();
+        this.router.navigate(['/videogame/' + this.videogame.id + '/purchase/' + id?.id]);
     }
 
     videogameImage(){
@@ -52,6 +48,11 @@ export class VideogameDetailComponent{
     
     companyImage(){
         return this.videogame.imageCompany? '/api/videogames/'+this.videogame.id+'/companyImage' : '/assets/images/no_image.png';
+    }
+
+    islogged(){
+        var user = this.loginService.currentUser();
+        return user;
     }
 
     isAdmin(){

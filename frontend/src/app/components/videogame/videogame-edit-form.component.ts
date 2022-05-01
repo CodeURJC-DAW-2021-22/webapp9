@@ -45,7 +45,7 @@ export class VideogameEditFormComponent{
   }
 
   uploadImage(videogame: Videogame): void {
-
+    
     const image = this.file.nativeElement.files[0];
     if (image) {
       let formData = new FormData();

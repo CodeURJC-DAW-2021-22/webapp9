@@ -12,7 +12,7 @@
                             <p class="lead fw-normal text-white-50 mb-4" style="color: aliceblue !important;">{{videogame.shortDescription}}</p>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-xxl-3 d-none d-xl-block text-center">
+                    <div  class="col-xl-3 col-xxl-3 d-none d-xl-block text-center" *ngIf="islogged()">
                         <p class="lead fw-normal text-white-50 mb-4"
                             style="color: aliceblue !important; font-size: 2em !important;"> Precio: {{videogame.price}}€</p>
                             <!--Button to pay-->

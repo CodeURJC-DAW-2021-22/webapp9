@@ -20,9 +20,11 @@ import { VideogameCardComponent } from './components/videogame/videogame-card.co
 import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
 import { VideogameEditFormComponent } from './components/videogame/videogame-edit-form.component';
 import { VideogamePurchaseComponent } from './components/videogame/videogame-purchase.component';
+import { VideogameDetailComponent } from './components/videogame/videogame-detail.component';
+
 import { EditNewComponent } from './components/news/editNew.component';
 import { EditNewFormComponent } from './components/news/editNewForm.component';
-
+import { CommonModule } from '@angular/common';  
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -33,8 +35,8 @@ import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
-  declarations: [EditNewFormComponent,EditNewComponent,AboutComponent,CarouselComponent,AppComponent,VideogamePurchaseComponent,VideogameEditFormComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
-  imports: [BrowserModule,NgbModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule],
+  declarations: [EditNewFormComponent,VideogameDetailComponent,EditNewComponent,AboutComponent,CarouselComponent,AppComponent,VideogamePurchaseComponent,VideogameEditFormComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
+  imports: [BrowserModule,NgbModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule,CommonModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -40,4 +40,8 @@ export class VideogamePurchaseComponent{
     this.videogameService.purchasegame(this.videogame.id,this.user.id)
   }
 
+  videogameImage(){
+    return this.videogame.imageVg? '/api/videogames/'+this.videogame.id+'/image' : '/assets/images/no_image.png';
+}
+
 }
