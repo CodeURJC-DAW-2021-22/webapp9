@@ -15,6 +15,14 @@ export class SignUpComponent {
     event.preventDefault();
     var user: Usero = { nick, name, lastName, email, creditCard: "",image: false, roles: ['USERO']}
     this.useroService.createUser(user);
+     
+    if(user.id){
+      alert("Usuario creado exitoso");
+    }else{
+      alert("Error al crear el usuario");
+    }
+   
+   // this.router.navigate(['/login']);
   }
 
 }

@@ -5,6 +5,7 @@ import { Videogame } from '../models/videogame.model';
 import { News } from '../models/news.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 const BASE_URL = '/api/users/';
 
@@ -13,7 +14,7 @@ export class UseroService {
 
     user!: Usero;
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private router: Router) {}
 
 
 	/*------------------GET METHODS------------------*/
@@ -55,12 +56,12 @@ export class UseroService {
 
 	/*------------------CREATE METHODS------------------*/
 	createUser(user: Usero) {
-
 		if (!user.id) {
-			return this.http.post(BASE_URL, user)
-				.pipe(
-					catchError((error: any) => this.handleError(error))
-				);
+			return this.http.post(BASE_URL, user, {withCredentials: true}).subscribe(
+				(response) => this.router.navigate(['login']),
+                (error) => alert('Usuario ya existe, inicie sesión')
+			)
+				
 		} else {
 			return this.http.put(BASE_URL + user.id, user).pipe(
 				catchError((error: any) => this.handleError(error))

@@ -74,7 +74,7 @@ public class UserRestController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Usero> createUser(Usero user, @RequestParam String password) {
 
-        user.setEncodedPassword(passwordEncoder.encode(password));
+        user.setEncodedPassword(password);
         ArrayList<String> list = new ArrayList<>();
         list.add("USERO");
         user.setRoles(list);

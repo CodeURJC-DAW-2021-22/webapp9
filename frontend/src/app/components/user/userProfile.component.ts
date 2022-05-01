@@ -43,6 +43,7 @@ export class UserProfile {
       (user: any) => this.uploadImage(user as Usero),
       (error: string) => alert('Error al guardar los datos: ' + error)
     );
+    this.router.navigate(['/userProfile']);
   }
   cancel() {
     window.history.back();
