@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { News } from 'src/app/models/news.model';
@@ -15,7 +15,8 @@ export class EditNewFormComponent {
 
 
   @Input() news!: News;
-  file: any;
+  @ViewChild("file")
+  file!: any;
 
   constructor(public router: Router, public newsService: NewsService, activatedRoute: ActivatedRoute){
 
@@ -43,6 +44,8 @@ export class EditNewFormComponent {
     }
   }
 
+
+
   private afterUploadImage(news: News){
     this.router.navigate(['/showNews/', news.id]);
   }
@@ -57,6 +60,13 @@ export class EditNewFormComponent {
       (news) => this.uploadImage(news as News),
       (error: string) => alert('Error al guardar los datos: ' + error)
     );
+
+  }
+
+  //(news) => {this.uploadImage(news as News); this.router.navigate(['/showNews/', this.news.id]);},
+
+  cancel() {
+    window.history.back();
   }
 
 }
