@@ -67,11 +67,11 @@ export class VideogameService {
 ////////////////////////////////// GRAFICAS ///////////////////////////////////////
 
 
-    graphic() {
+    graphicGenres() {
         return this.httpClient.get(URL + "stats/genres")
     }
 
-    graphic2() {
+    graphicSales() {
         return this.httpClient.get(URL + "stats/sales")
     }
 /*

@@ -1,10 +1,27 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { Router } from "@angular/router";
+import { VideogameService } from "src/app/services/videogame.service";
 
-@Component ({
+@Component({
     selector: 'admin',
-    template: './admin.component.html'
+    templateUrl: './admin.component.html'
 })
 
 export class AdminComponent {
-    
+
+    vs!: VideogameService;
+
+    constructor(public router: Router) {}
+
+    /*getGraficaGenres() {
+        return this.vs.graphicGenres();
+    }
+
+    getGraficaSales() {
+        return this.vs.graphicSales
+    }*/
+
+    createNew() {
+        this.router.navigate(['/createNew']);
+    }
 }

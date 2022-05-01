@@ -10,32 +10,32 @@ import { LoginService } from 'src/app/services/login.service';
   templateUrl: './showNews.component.html'
 })
 
-export class ShowNewsComponent{
+export class ShowNewsComponent {
 
   news!: News;
 
 
-  constructor(public newsService: NewsService, public loginService: LoginService, activatedRoute: ActivatedRoute){
+  constructor(public newsService: NewsService, public loginService: LoginService, activatedRoute: ActivatedRoute) {
 
     const id = activatedRoute.snapshot.params['id'];
-        this.newsService.getNew(id).subscribe(
-            (news) => this.news =  news as News,
-            (error: any) => console.error(error)
+    this.newsService.getNew(id).subscribe(
+      (news) => this.news = news as News,
+      (error: any) => console.error(error)
 
-        );
+    );
 
   }
 
 
-  isAdmin(){
+  isAdmin() {
     return this.loginService.isAdmin();
   }
 
-  newsImage(){
-    if(this.news){ //We have to put this always. If exist any new...
-      return this.news.image? '/api/news/' + this.news.id + '/image' : '/assets/images/not_foung.png';
+  newsImage() {
+    if (this.news) { //We have to put this always. If exist any new...
+      return this.news.image ? '/api/news/' + this.news.id + '/image' : '/assets/images/not_foung.png';
     } else {
-        return undefined;
+      return undefined;
     }
   }
 

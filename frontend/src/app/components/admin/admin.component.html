@@ -1,4 +1,4 @@
-<section class="bg-light py-5">
+<section>
     <div class="container px-5 my-5">
         <div class="row gx-10 justify-content-center" style="margin-bottom: 5%;">
             <div class="col-md-12 text-center" style="margin-bottom: 5%;">
@@ -28,8 +28,9 @@
                     <div class="card-body p-5">
                         <div class="h2 fw-bolder">Añadir noticias</div>
                         <ul class="list-unstyled mb-4">
-                            <div class="d-grid"><a class="btn btn-outline-primary" [routerLink]="['/createNew']">Crear
-                                    noticia</a>
+                            <div class="d-grid">
+                                <a class="btn btn-outline-primary" [routerLink]="['/createNew']">Crear noticia</a>
+                                <!--<button class="btn btn-outline-primary" (click)="createNew()">Crear noticia</button>-->
                             </div>
                             <li class="mb-2">
                                 <strong>Opciones disponibles en noticias</strong>
@@ -37,8 +38,7 @@
                             <li class="mb-2">
                                 <i class="bi bi-check text-primary"></i>
                                 Modificar cualquier noticia previamente publicada desde la página de noticias
-                                <div class="d-grid"><a class="btn btn-outline-primary" [routerLink]="['/news']">Editar
-                                        noticia</a>
+                                <div class="d-grid"><a class="btn btn-outline-primary" [routerLink]="['/news']">Editar noticia</a>
                                 </div>
                             </li>
                             <li class="mb-2">
@@ -60,25 +60,19 @@
                     <div class="card-body p-5">
                         <div class="h2 fw-bolder">Añadir videojuegos</div>
                         <ul class="list-unstyled mb-4">
-                            <div class="d-grid"><a class="btn btn-outline-primary"
-                                    [routerLink]="['/createVideogame']">Crear
-                                    videojuego</a></div>
+                            <div class="d-grid"><a class="btn btn-outline-primary" [routerLink]="['/createVideogame']">Crear videojuego</a></div>
                             <li class="mb-2">
                                 <strong>Opciones disponibles en videojuegos</strong>
                             </li>
                             <li class="mb-2">
                                 <i class="bi bi-check text-primary"></i>
                                 Modificar cualquier videojuego previamente publicado desde la página del videojuego
-                                <div class="d-grid"><a class="btn btn-outline-primary"
-                                        [routerLink]="['/videogame']">Editar
-                                        videojuego</a></div>
+                                <div class="d-grid"><a class="btn btn-outline-primary" [routerLink]="['/videogamecatalog']">Editar videojuego</a></div>
                             </li>
                             <li class="mb-2">
                                 <i class="bi bi-check text-primary"></i>
                                 Eliminar cualquier videojuego previamente publicado desde la página del videojuego
-                                <div class="d-grid"><a class="btn btn-outline-primary"
-                                        [routerLink]="['/videogame']">Eliminar
-                                        videojuego</a></div>
+                                <div class="d-grid"><a class="btn btn-outline-primary" [routerLink]="['/videogamecatalog']">Eliminar videojuego</a></div>
                             </li>
                         </ul>
                     </div>
@@ -87,8 +81,3 @@
         </div>
     </div>
 </section>
-
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
