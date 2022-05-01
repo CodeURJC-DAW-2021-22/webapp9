@@ -9,10 +9,11 @@ export class LoginService {
 
     //Check these 2 lines, i've added '?' to both of them
     logged: boolean = false;
-    user?: Usero;
+    user: Usero | undefined;
 
     constructor(private http: HttpClient) {
         this.reqIsLogged();
+        this.logged;
     }
 
     reqIsLogged() {

@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Usero } from './../../models/usero.model';
 import { UseroService } from '../../services/usero.service';
 import { LoginService } from '../../services/login.service';
-import { Videogame } from 'src/app/models/videogame.model';
+import { Videogame } from '../../models/videogame.model';
 
 @Component({
   selector: 'userProfile',
@@ -14,33 +14,37 @@ import { Videogame } from 'src/app/models/videogame.model';
 export class UserProfile {
 
   user!: Usero;
-  videogame! : Videogame[];
+  videogame!: Videogame[];
   @ViewChild("file")
   file: any;
-  removeImage? :boolean;
+  removeImage?: boolean;
 
-  constructor(private router: Router, activatedRoute: ActivatedRoute,public useroService: UseroService, public loginservice : LoginService) {
-    const id = activatedRoute.snapshot.params['id'];
+  constructor(private router: Router, activatedRoute: ActivatedRoute, public useroService: UseroService, public loginservice: LoginService) {
+    const id = loginservice.currentUser()?.id;
     if (id) {
-      useroService.getUser(id).subscribe(
+      useroService.getMe().subscribe(
         (user) => this.user = user as Usero,
         (error: any) => console.error(error)
       );
+    }
   }
-  useroService.getVideogames(this.user).subscribe(
-    (videogame) => this.videogame = videogame as Videogame[],
-    (error: any) => console.error(error)
-  );
-}
 
+  ngOnInit() {
+    if (this.loginservice.currentUser()) {
+      this.useroService.getVideogames(this.loginservice.currentUser() as Usero).subscribe(
+        videogame => this.videogame = videogame as Videogame[],
+        error => console.error(error)
+      );
+    }
+  }
 
-  save(){
+  save() {
     this.useroService.updateUser(this.user).subscribe(
-      (user: any) => this.uploadImage(user),
+      (user: any) => this.uploadImage(user as Usero),
       (error: string) => alert('Error al guardar los datos: ' + error)
     );
   }
-  cancel(){
+  cancel() {
     window.history.back();
   }
 
@@ -51,26 +55,26 @@ export class UserProfile {
       formData.append("imageFile", image);
       this.useroService.setUserImage(user, formData).subscribe(
         (_: any) => this.afterUploadImage(),
-        ( error: string) => alert('Error al actualizar o subir la imagen: ' + error)
+        (error: string) => alert('Error al actualizar o subir la imagen: ' + error)
       );
     } else {
       this.afterUploadImage();
     }
   }
 
-  private afterUploadImage(){
+  private afterUploadImage() {
     this.router.navigate(['/userProfile/']);
   }
 
   userImage() {
-    return this.user.image? '/api/users/' + this.user.id + '/image' : '/assets/images/defaultProfilePhoto';
+    return this.user.image ? '/api/users/' + this.user.id + '/image' : '/assets/images/defaultProfilePhoto';
   }
 
   videogameImage(vg: Videogame) {
-    return vg.imageVg? '/api/videogames/' + vg.id + '/image' : '/assets/images/defaultProfilePhoto';
+    return vg.imageVg ? '/api/videogames/' + vg.id + '/image' : '/assets/images/defaultProfilePhoto';
   }
 
-  logOut(){
+  logOut() {
     this.loginservice.logOut();
   }
 }

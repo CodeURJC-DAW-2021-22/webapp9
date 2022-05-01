@@ -6,7 +6,7 @@ import { News } from '../models/news.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-const BASE_URL = '/api/users';
+const BASE_URL = '/api/users/';
 
 @Injectable({ providedIn: 'root' })
 export class UseroService {
@@ -30,13 +30,13 @@ export class UseroService {
 	}
 
 	getVideogames(user: Usero) {
-		return this.http.get(BASE_URL + '/purchases' + user.id).pipe(
+		return this.http.get(BASE_URL + 'purchases/' + user.id).pipe(
 			catchError((error: any) => this.handleError(error))
 		);
 	}
 
 	getUserReadNews(id: number | string) {
-		return this.http.get(BASE_URL + '/purchases' + id).pipe(
+		return this.http.get(BASE_URL + 'purchases/' + id).pipe(
 			catchError((error: any) => this.handleError(error))
 		);
 	}
@@ -48,7 +48,7 @@ export class UseroService {
 	}
 
 	getMe() {
-		return this.http.get(BASE_URL + '/me').pipe(
+		return this.http.get(BASE_URL + 'me').pipe(
 			catchError((error: any) => this.handleError(error))
 		);
 	}
@@ -68,7 +68,7 @@ export class UseroService {
 		}
 	}
 
-	updateUser(user: Usero) {
+	updateUser(user: Usero){
 		return this.http.put(BASE_URL + user.id, user).pipe(
 			catchError((error: any) => this.handleError(error))
 		);
@@ -91,7 +91,7 @@ export class UseroService {
 
 	/*------------------PASSWORD METHODS------------------*/
 	updatePassword(user: Usero) {
-		return this.http.put(BASE_URL + user.id + 'password', user).pipe(
+		return this.http.put(BASE_URL + user.id + '/password', user).pipe(
 			catchError((error: any) => this.handleError(error))
 		);
 	}
