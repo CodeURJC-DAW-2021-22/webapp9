@@ -49,17 +49,17 @@ export class UserProfile {
   }
 
   uploadImage(user: Usero): void {
-    // const image = this.file.nativeElement.files[0];
-    // if (image) {
-    //   let formData = new FormData();
-    //   formData.append("imageFile", image);
-    //   this.useroService.setUserImage(user, formData).subscribe(
-    //     (_: any) => this.afterUploadImage(),
-    //     (error: string) => alert('Error al actualizar o subir la imagen: ' + error)
-    //   );
-    // } else {
-    //   this.afterUploadImage();
-    // }
+    const image = this.file.nativeElement.files[0];
+    if (image) {
+      let formData = new FormData();
+      formData.append("imageFile", image);
+      this.useroService.setUserImage(user, formData).subscribe(
+        (_: any) => this.afterUploadImage(),
+        (error: string) => alert('Error al actualizar o subir la imagen: ' + error)
+      );
+    } else {
+      this.afterUploadImage();
+    }
   }
 
   private afterUploadImage() {

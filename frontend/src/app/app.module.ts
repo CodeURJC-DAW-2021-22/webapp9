@@ -21,12 +21,13 @@ import { VideogameCatalogComponent } from './components/videogame/videogame-cata
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { AboutComponent } from './components/about/about.component';
+import { VideogameRecommendedComponent } from './components/videogame-recommended/videogame-recommended.component';
 
 
 
 
 @NgModule({
-  declarations: [UserProfile,AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent, CarouselComponent, AboutComponent],
+  declarations: [UserProfile,AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent, CarouselComponent, AboutComponent, VideogameRecommendedComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule, NgbModule],
   bootstrap: [AppComponent]
 })
