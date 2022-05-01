@@ -1,5 +1,5 @@
 
-       <table class="es-content-body" width="600" align="center">
+       <table *ngIf="ready" class="es-content-body" width="600" align="center">
             <tbody>
                 <tr>
                     <td class="container px-5" id="confirmPaymentBox1">
@@ -106,7 +106,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="container px-5" id="confirmPaymentBox4y5">
+                    <td class="container px-5" id="confirmPaymentBox2y3">
                         <table width="100%">
                             <tbody>
                                 <tr>
@@ -127,7 +127,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="container px-5" id="confirmPaymentBox4y5" align="center">
+                    <td class="container px-5" id="confirmPaymentBox2y3" align="center">
                         <table width="100%">
                             <tbody>
                                 <tr>
@@ -141,13 +141,14 @@
                             </tbody>
                         </table>
                     </td>
-                </tr> 
-            <tr>
-                <td align="center" id="confirmPaymentFinalBox">
-                    <button onclick="location.href='/'; return false;">Cancelar</button>
-                    <button (onclick)="buygame()">COMPRAR</button>
-                    <button id="generatePDF">Descargar</button>
-                </td>
-            </tr>
+                </tr>        
+
+
         </tbody>
     </table>
+    <p style="align-self: center; text-align: center;">
+        <button class="btn btn-primary btn-lg px-4 me-sm-3 " type="button" (click)="buygame()">COMPRAR</button>
+        <button class="btn btn-primary btn-lg px-4 me-sm-3" type="button" id="generatePDF">Descargar</button>
+        <button class="btn btn-primary btn-lg px-4 me-sm-3" type="button" (click)="cancel()">Cancelar</button>
+    </p>
+

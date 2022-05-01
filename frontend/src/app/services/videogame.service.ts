@@ -69,7 +69,7 @@ export class VideogameService {
         if (id == undefined || idus == undefined){
             return alert("Error al comprar el videojuego, intentelo más tarde.")
         }
-        return this.httpClient.delete(URL + id + '/purchase/' + idus)
+        return this.httpClient.put(URL + id + '/purchase/' + idus, null)
     }
 /*
     addRelatedNew(videogame: Videogame) {
