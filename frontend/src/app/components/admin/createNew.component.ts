@@ -18,7 +18,7 @@ export class CreateNewComponent {
         const id = activatedRoute.snapshot.params['id'];
         this.newsService.getNew(id).subscribe(
             (news) => this.news = news as News,
-            (error: any) => console.error(error)
+            //(error: any) => console.error(error)
         )
     }
 
