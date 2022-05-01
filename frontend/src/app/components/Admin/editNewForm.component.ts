@@ -19,12 +19,12 @@ export class EditNewFormComponent {
 
   constructor(public router: Router, public newsService: NewsService, activatedRoute: ActivatedRoute){
 
-    const id = activatedRoute.snapshot.params['id'];
+    /*const id = activatedRoute.snapshot.params['id'];
         this.newsService.getNew(id).subscribe(
             (news) => this.news =  news as News,
             (error: any) => console.error(error)
 
-        );
+        );*/
 
   }
 
@@ -44,7 +44,7 @@ export class EditNewFormComponent {
   }
 
   private afterUploadImage(news: News){
-    this.router.navigate(['/showNew/', news.id]);
+    this.router.navigate(['/showNews/', news.id]);
   }
 
 
