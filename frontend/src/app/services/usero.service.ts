@@ -55,9 +55,9 @@ export class UseroService {
 	}
 
 	/*------------------CREATE METHODS------------------*/
-	createUser(user: Usero) {
+	createUser(user: Usero, pass : String) {
 		if (!user.id) {
-			return this.http.post(BASE_URL, user, {withCredentials: true}).subscribe(
+			return this.http.post(BASE_URL, {user, pass}, {withCredentials: true}).subscribe(
 				(response) => this.router.navigate(['login']),
                 (error) => alert('Usuario ya existe, inicie sesión')
 			)

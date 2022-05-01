@@ -15,7 +15,7 @@ export class LoginComponent {
     event.preventDefault();
 
     this.loginService.logIn(user, pass);
-    this.router.navigate(['/userProfile']);
+    this.router.navigate(['/home']);
   }
 
   logOut() {

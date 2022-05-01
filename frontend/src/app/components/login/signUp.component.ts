@@ -14,7 +14,7 @@ export class SignUpComponent {
 
     event.preventDefault();
     var user: Usero = { nick, name, lastName, email, creditCard: "",image: false, roles: ['USERO']}
-    this.useroService.createUser(user);
+    this.useroService.createUser(user, pass);
      
     if(user.id){
       alert("Usuario creado exitoso");
