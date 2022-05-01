@@ -72,12 +72,18 @@ public class UserRestController {
     // Creates a user
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Usero> createUser(Usero user, @RequestParam String password) {
+    public ResponseEntity<Usero> createUser(Usero user, @RequestParam String nick,
+    @RequestParam String name, @RequestParam String lastName,
+    @RequestParam String email, @RequestParam String password) {
 
-        user.setEncodedPassword(password);
+        user.setEncodedPassword(passwordEncoder.encode(password));
         ArrayList<String> list = new ArrayList<>();
         list.add("USERO");
         user.setRoles(list);
+        user.setNick(nick);
+        user.setName(name);
+        user.setLastName(lastName);
+        user.setEmail(email);
         us.save(user);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId())
                 .toUri();

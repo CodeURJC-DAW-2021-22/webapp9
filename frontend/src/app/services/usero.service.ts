@@ -55,18 +55,18 @@ export class UseroService {
 	}
 
 	/*------------------CREATE METHODS------------------*/
-	createUser(user: Usero, pass : String) {
-		if (!user.id) {
-			return this.http.post(BASE_URL, {user, pass}, {withCredentials: true}).subscribe(
+	createUser(formData: FormData) {
+		//if (!user.id) {
+			return this.http.post(BASE_URL, formData).subscribe(
 				(response) => this.router.navigate(['login']),
                 (error) => alert('Usuario ya existe, inicie sesión')
 			)
 				
-		} else {
+		/*} else {
 			return this.http.put(BASE_URL + user.id, user).pipe(
 				catchError((error: any) => this.handleError(error))
 			);
-		}
+		}*/
 	}
 
 	updateUser(user: Usero){
