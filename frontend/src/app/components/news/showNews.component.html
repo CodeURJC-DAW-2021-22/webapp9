@@ -18,21 +18,20 @@
 </header>
 
 
-<section class="pt-0 MoreInfo" *ngIf="isAdmin()">
-  <div class="container-fluid my-5">
-    <div class="row justify-content-center" style=" background-color: rgb(27, 31, 31); margin-bottom: 2%;">
-      <div class="col-5 text-center">
-        <p class="lead fw-normal text-white-50 mb-4"
-          style="color: aliceblue !important; font-size: 2em !important; margin-top: 5%;"> Admin Actions :
-          <a class="btn btn-primary btn-lg px-4 me-sm-3" [routerLink]="['/deleteNew/{{news?.id}}']"
-            style="margin-top: auto;">Eliminar</a>
-          <a class="btn btn-outline-light btn-lg px-4" [routerLink]="['/editNew/{{news?.id}}']"
-            style="margin-top: auto;">Editar</a>
-        </p>
+<section  class="pt-0 MoreInfo " *ngIf="isAdmin()">
+  <div class="container-fluid px-5 my-5">
+      <div class="row justify-content-center" style=" background-color: rgb(27, 31, 31); margin-bottom: 2%;">
+          <div class="col-5 text-center" >
+              <p class="lead fw-normal text-white-50 mb-4"
+                  style="color: aliceblue !important; font-size: 2em !important; margin-top: 5%;"> Admin Actions :
+                  <button class="btn btn-primary btn-lg px-4 me-sm-3" (click)="removeNew()" style="margin-top: auto;">Eliminar  </button>
+                  <button class="btn btn-outline-light btn-lg px-4" (click)="editNew()" style="margin-top: auto;">Editar</button>
+              </p>
+
+          </div>
       </div>
-    </div>
   </div>
-</section>
+</section>+
 
 
 

@@ -41,7 +41,7 @@ export class NewsService {
         }
     }
 
-    uptadeNew(news: News) {
+    updateNew(news: News) {
         return this.httpClient.put(URL + news.id, news).pipe(
             catchError((error: any) => this.handleError(error))
         )
