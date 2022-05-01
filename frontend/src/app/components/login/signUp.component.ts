@@ -16,7 +16,7 @@ export class SignUpComponent {
 
     event.preventDefault();
     const formData = new FormData();
-    var user: Usero = { nick, name, lastName, email, creditCard: "",image: false, roles: ['USERO']}
+    var user: Usero = { nick, name, lastName, email, creditCard: "", image: true, roles: ['USERO']}
     formData.append('nick', nick);
     formData.append('name', name);
     formData.append('lastName', lastName);
@@ -24,12 +24,6 @@ export class SignUpComponent {
     formData.append('password', password);
     //this.useroService.createUser(user);
     this.useroService.createUser(formData);
-     
-    if(user.id){
-      alert("Usuario creado exitoso");
-    }else{
-      alert("Error al crear el usuario");
-    }
    
    // this.router.navigate(['/login']);
   }

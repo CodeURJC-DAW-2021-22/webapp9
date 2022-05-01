@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -74,8 +75,11 @@ public class UserRestController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Usero> createUser(Usero user, @RequestParam String nick,
     @RequestParam String name, @RequestParam String lastName,
-    @RequestParam String email, @RequestParam String password) {
+    @RequestParam String email, @RequestParam String password) throws IOException{
 
+        Resource image = new ClassPathResource("/static/Photos/defaultProfilePhoto.jpg");
+        user.setImageFile(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
+        user.setImage(true);
         user.setEncodedPassword(passwordEncoder.encode(password));
         ArrayList<String> list = new ArrayList<>();
         list.add("USERO");
