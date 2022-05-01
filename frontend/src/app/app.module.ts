@@ -20,6 +20,10 @@ import { VideogameCardComponent } from './components/videogame/videogame-card.co
 import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
 import { VideogameEditFormComponent } from './components/videogame/videogame-edit-form.component';
 import { VideogamePurchaseComponent } from './components/videogame/videogame-purchase.component';
+import { EditNewComponent } from './components/news/editNew.component';
+import { EditNewFormComponent } from './components/news/editNewForm.component';
+
+
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './components/carousel/carousel.component';
@@ -29,7 +33,7 @@ import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
-  declarations: [AboutComponent,CarouselComponent,AppComponent,VideogamePurchaseComponent,VideogameEditFormComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
+  declarations: [EditNewFormComponent,EditNewComponent,AboutComponent,CarouselComponent,AppComponent,VideogamePurchaseComponent,VideogameEditFormComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
   imports: [BrowserModule,NgbModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule],
   bootstrap: [AppComponent]
 })

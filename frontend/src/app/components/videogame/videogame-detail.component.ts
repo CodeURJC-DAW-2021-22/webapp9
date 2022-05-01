@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { Videogame } from 'src/app/models/videogame.model';
+import { LoginService } from 'src/app/services/login.service';
 import { VideogameService } from 'src/app/services/videogame.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class VideogameDetailComponent{
 
   videogame!: Videogame;
 
-  constructor(private router: Router, activatedRoute: ActivatedRoute, public videogameService: VideogameService){
+  constructor(private router: Router,public loginService: LoginService, activatedRoute: ActivatedRoute, public videogameService: VideogameService){
     
     const id = activatedRoute.snapshot.params['id'];
     videogameService.getVideogame(id).subscribe(
@@ -20,7 +21,7 @@ export class VideogameDetailComponent{
         error => console.error(error)
     )
   }
-  //Forbidden error falta ser admin
+
   removeVideogame() {
     const okResponse = window.confirm('Do you want to remove this videogame?');
     if (okResponse) {
@@ -29,7 +30,8 @@ export class VideogameDetailComponent{
             error => console.error(error)
         );
     }
-}       
+}     
+   
 //Forbidden error falta ser admin
     editVideogame() {
         this.router.navigate(['/videogame/edit/' + this.videogame.id]);
@@ -52,4 +54,7 @@ export class VideogameDetailComponent{
         return this.videogame.imageCompany? '/api/videogames/'+this.videogame.id+'/companyImage' : '/assets/images/no_image.png';
     }
 
+    isAdmin(){
+        return this.loginService.isAdmin();
+      }
 }

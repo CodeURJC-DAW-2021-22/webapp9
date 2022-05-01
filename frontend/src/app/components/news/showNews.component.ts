@@ -15,7 +15,7 @@ export class ShowNewsComponent{
   news!: News;
 
 
-  constructor(public newsService: NewsService, public loginService: LoginService, activatedRoute: ActivatedRoute){
+  constructor(private router: Router,public newsService: NewsService, public loginService: LoginService, activatedRoute: ActivatedRoute){
 
     const id = activatedRoute.snapshot.params['id'];
         this.newsService.getNew(id).subscribe(
@@ -26,7 +26,19 @@ export class ShowNewsComponent{
 
   }
 
+  removeNew() {
+    const okResponse = window.confirm('Do you want to remove this new?');
+    if (okResponse) {
+        this.newsService.deleteNew(this.news).subscribe(
+            _ => this.router.navigate(['/news']),
+            error => console.error(error)
+        );
+    }
+}     
 
+editNew() {
+  this.router.navigate(['/new/edit/' + this.news.id]);
+}
   isAdmin(){
     return this.loginService.isAdmin();
   }

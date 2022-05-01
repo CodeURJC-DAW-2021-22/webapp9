@@ -29,14 +29,14 @@
                         <div>
                             <label>Company: </label>
                             <p><textarea name="company" placeholder="company"
-                                    style="width: 100%;">{{videogame.company}}</textarea></p>
+                                    style="width: 100%;">[(ngModel)]="videogame.company"</textarea></p>
                         </div>
                     </div>
                     <div class="col-md-4 ">
                         <div>
                             <label>Continent: </label>
                             <p><textarea name="continent" placeholder="continent"
-                                    style="width: 100%;">{{videogame.continent}}</textarea></p>
+                                    style="width: 100%;">[(ngModel)]="videogame.continent"</textarea></p>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         <div>
                             <label>New Genre: </label>
                             <select name="genre" placeholder="genre" style="width: 100%;">
-                                <option value="{{videogame.genre}}" selected>No cambiar</option>
+                                <option value="[(ngModel)]='videogame.genre'" selected>No cambiar</option>
                                 <option value="Estrategia">Estrategia</option>
                                 <option value="Shooter">Shooter</option>
                                 <option value="Accion">Accion</option>
@@ -72,7 +72,7 @@
                         <div>
                             <label style="text-align: left !important;">Game Content: </label>
                             <p><textarea name="description" placeholder="description" rows="10"
-                                    style="width: 100%;">{{videogame.description}}</textarea></p>
+                                    style="width: 100%;">[(ngModel)]='videogame.description''</textarea></p>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                         <div>
                             <label style="text-align: left !important;">Game short description: </label>
                             <p><textarea name="shortDescription" placeholder="shortDescription" rows="10"
-                                    style="width: 100%;">{{videogame.shortDescription}}</textarea></p>
+                                    style="width: 100%;">[(ngModel)]='videogame.shortDescription'</textarea></p>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                         <div>
                             <label style="text-align: left !important;">In game history: </label>
                             <p><textarea name="history" placeholder="history" rows="10"
-                                    style="width: 100%;">{{videogame.history}}</textarea></p>
+                                    style="width: 100%;">[(ngModel)]='videogame.history'</textarea></p>
                         </div>
                     </div>
                 </div>
@@ -103,13 +103,13 @@
                     <div class="col-md-4 ">
                         <div>
                             <label>Cpu recommended: </label>
-                            <p><textarea name="cpuR" placeholder="cpuR" style="width: 100%;">{{videogame.cpuR}}</textarea></p>
+                            <p><textarea name="cpuR" placeholder="cpuR" style="width: 100%;">[(ngModel)]='videogame.cpuR'</textarea></p>
                         </div>
                     </div>
                     <div class="col-md-4 ">
                         <div>
                             <label>Cpu min: </label>
-                            <p><textarea name="cpuM" placeholder="cpuM" style="width: 100%;">{{videogame.cpuM}}</textarea></p>
+                            <p><textarea name="cpuM" placeholder="cpuM" style="width: 100%;">[(ngModel)]='videogame.cpuM'</textarea></p>
                         </div>
                     </div>
                 </div>
@@ -118,13 +118,13 @@
                     <div class="col-md-4 ">
                         <div>
                             <label>Ram recommended: </label>
-                            <p><textarea name="ramR" placeholder="ramR" style="width: 100%;">{{videogame.ramR}}</textarea></p>
+                            <p><textarea name="ramR" placeholder="ramR" style="width: 100%;">[(ngModel)]='videogame.ramR'</textarea></p>
                         </div>
                     </div>
                     <div class="col-md-4 ">
                         <div>
                             <label>Ram min: </label>
-                            <p><textarea name="ramM" placeholder="ramM" style="width: 100%;">{{videogame.ramM}}</textarea></p>
+                            <p><textarea name="ramM" placeholder="ramM" style="width: 100%;">[(ngModel)]='videogame.ramM'</textarea></p>
                         </div>
                     </div>
                 </div>
@@ -133,13 +133,13 @@
                     <div class="col-md-4 ">
                         <div>
                             <label>Operativ system recommended: </label>
-                            <p><textarea name="ssooR" placeholder="ssooR" style="width: 100%;">{{videogame.ssooR}}</textarea></p>
+                            <p><textarea name="ssooR" placeholder="ssooR" style="width: 100%;">[(ngModel)]='videogame.ssooR'</textarea></p>
                         </div>
                     </div>
                     <div class="col-md-4 ">
                         <div>
                             <label>Operativ sistem min: </label>
-                            <p><textarea name="ssooM" placeholder="ssooM" style="width: 100%;">{{videogame.ssooM}}</textarea></p>
+                            <p><textarea name="ssooM" placeholder="ssooM" style="width: 100%;">[(ngModel)]='videogame.ssooM'</textarea></p>
                         </div>
                     </div>
                 </div>
@@ -148,13 +148,13 @@
                     <div class="col-md-4 ">
                         <div>
                             <label>Gpu recommended: </label>
-                            <p><textarea name="gpuR" placeholder="gpuR" style="width: 100%;">{{videogame.gpuR}}</textarea></p>
+                            <p><textarea name="gpuR" placeholder="gpuR" style="width: 100%;">[(ngModel)]='videogame.gpuR'</textarea></p>
                         </div>
                     </div>
                     <div class="col-md-4 ">
                         <div>
                             <label>Gpu min: </label>
-                            <p><textarea name="gpuM" placeholder="gpuM" style="width: 100%;">{{videogame.gpuM}}</textarea></p>
+                            <p><textarea name="gpuM" placeholder="gpuM" style="width: 100%;">[(ngModel)]='videogame.gpuM'</textarea></p>
                         </div>
                     </div>
                 </div>
@@ -164,14 +164,14 @@
                         <div>
                             <label>Storage recommended: </label>
                             <p><textarea name="storageR" placeholder="storageR"
-                                    style="width: 100%;">{{videogame.storageR}}</textarea></p>
+                                    style="width: 100%;">[(ngModel)]='videogame.storageR'</textarea></p>
                         </div>
                     </div>
                     <div class="col-md-4 ">
                         <div>
                             <label>Storage min: </label>
                             <p><textarea name="storageM" placeholder="storageM"
-                                    style="width: 100%;">{{videogame.storageM}}</textarea></p>
+                                    style="width: 100%;">[(ngModel)]='videogame.storageM'</textarea></p>
                         </div>
                     </div>
                 </div>
@@ -192,25 +192,22 @@
                     <div class="col-4 ">
                         <p>Videogame Image: </p>
                         <p>
-                            <input type='file' name='imageField' accept=".jpg, .jpeg .png .svg" />
+                            <input #file type='file' name='imageField' accept=".jpg, .jpeg .png .svg" />
                         </p>
                     </div>
 
                     <div class="col-4 ">
                         <p>Company Image: </p>
                         <p>
-                            <input type='file' name='imageField1' accept=".jpg, .jpeg .png .svg" />
+                            <input #file1 type='file' name='imageField1' accept=".jpg, .jpeg .png .svg" />
                         </p>
                     </div>
                 </div>
 
                 <!-- <input type="hidden" name="_csrf" value="{{token}}" /> -->
-                <p style="text-align: center;">
-                    <input class="btn btn-primary" type="submit" value="Save" />
-                    <!--Boton que ejecutara la función ajax-->
-                    <button class="btn btn-outline-light" style="color: black; border-color: black;"
-                        onclick="location.href='/'; return false;">Cancel</button>
-                    <!--Boton para cancelar la acción-->
+                <p>
+                    <button (click)="cancel()">Cancel</button>
+                    <button (click)="save()">Save</button>
                 </p>
             </div>
         </form>

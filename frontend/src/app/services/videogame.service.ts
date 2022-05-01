@@ -53,6 +53,10 @@ export class VideogameService {
         return this.httpClient.delete(URL + videogame.id).pipe(catchError(error => this.handleError(error)));
     }
 
+    uploadVideogameImage(videogame: Videogame, formData: FormData) {
+		return this.httpClient.post(URL + videogame.id + '/image', formData)
+	}
+
     uploadVideogameCompanyImage(videogame: Videogame, formData: FormData) {
 		return this.httpClient.post(URL + videogame.id + '/companyImage', formData)
 	}
