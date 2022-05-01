@@ -17,7 +17,7 @@ export interface Videogame {
     id?: number;
     imageVg: boolean;
     imageCompany: boolean;
-	  title: string;
+	title: string;
     price:number;
     rating:number;
     genre:string;

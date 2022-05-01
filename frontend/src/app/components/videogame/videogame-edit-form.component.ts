@@ -22,7 +22,7 @@ export class VideogameEditFormComponent{
   constructor(private router: Router, activatedroute:ActivatedRoute, public videogameService: VideogameService){
     const id = activatedroute.snapshot.params['id'];
     videogameService.getVideogame(id).subscribe(      
-      data => {console.log(data);this.videogame= data as Videogame},
+      data => {this.videogame= data as Videogame},
       error => console.error(error)
     )
 
