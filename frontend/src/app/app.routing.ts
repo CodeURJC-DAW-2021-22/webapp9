@@ -10,6 +10,7 @@ import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/login/signUp.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { CreateVideogame } from './components/admin/createVideogame.component';
 
 //aquí tenemos que completar todo lo que queremos que se vaya cargando en el router-outlet
 //ojo, el template no debe llamar al servicio, hay que hacerlo a través del componente
@@ -26,6 +27,7 @@ const appRoutes = [
     { path: 'signUp', component: SignUpComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'createNew', component: CreateNewComponent },
+    { path: 'createVideogame', component: CreateVideogame },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ]

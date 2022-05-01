@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { News } from "src/app/models/news.model";
 import { Videogame } from "src/app/models/videogame.model";
@@ -15,20 +15,51 @@ export class CreateNewFormComponent {
 
     title!: string;
     date!: string;
-    read_time!: string;
+    readTime!: string;
     badge!: string;
-    content!: string;
-    header!: string;
-    image!: boolean;
+    description!: string;
+    argument!: string;
 
-    constructor(public router: Router, public newsService: NewsService, activatedRoute: ActivatedRoute){}
+    @ViewChild("file")
+    file!: any;
 
-    addNew(title: string, date: string, readtime: string, bagde: string, content: string, header: string, image: boolean) {
-        this.news = { title: title, date: date, readTime: readtime, badge: bagde, description: content, argument: header, image: image }
+    constructor(public router: Router, public newsService: NewsService, activatedRoute: ActivatedRoute) { }
+
+    uploadImage(news: News): void {
+
+        const image = this.file.nativeElement.files[0];
+        if (image) {
+            let formData = new FormData();
+            formData.append("imageFile", image);
+            this.newsService.uploadNewImage(news, formData).subscribe(
+                _ => this.afterUploadImage(news),
+                error => alert('Error uploading book image: ' + error)
+            );
+        } else {
+            this.afterUploadImage(news);
+        }
     }
 
-    updateNewImage() {
+    private afterUploadImage(news: News) {
+        this.router.navigate(['/admin']);
+    }
 
+    save() {
+
+        this.news = {
+            title: this.title, date: this.date, readTime: this.readTime,
+            badge: this.badge, description: this.description, argument: this.argument, image: true
+        }
+
+        this.newsService.createNew(this.news).subscribe(
+            (news) => this.uploadImage(news as News),
+            (error: string) => alert('Error al guardar los datos: ' + error)
+        );
+
+    }
+
+    cancel() {
+        window.history.back();
     }
 
 }
