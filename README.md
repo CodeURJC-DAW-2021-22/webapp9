@@ -569,11 +569,11 @@ Por último deberemos hacer ng serve (con el proxy) para lanzar nuestra apliaci�
 5. [Paginación aplicada al home](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/00cae42cec25a387c14c379b39819def760873bc)
 
 ###### Listado de los 5 ficheros en los que más haya participado:
-1. [news.component.ts] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/news.component.ts)
-2. [newsTemplate.component.ts] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/newsTemplate.component.ts)
-3. [showNews.component.ts] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/showNews.component.ts)
-4. [editNewForm.component.html] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/Admin/editNewForm.component.html)
-5. [editNewForm.component.ts] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/Admin/editNewForm.component.ts)
+1. [news.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/news.component.ts)
+2. [newsTemplate.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/newsTemplate.component.ts)
+3. [showNews.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/showNews.component.ts)
+4. [editNewForm.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/Admin/editNewForm.component.html)
+5. [editNewForm.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/Admin/editNewForm.component.ts)
 
 
 
