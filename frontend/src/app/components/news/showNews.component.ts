@@ -12,7 +12,7 @@ import { VideogameService } from 'src/app/services/videogame.service';
   templateUrl: './showNews.component.html'
 })
 
-export class ShowNewsComponent{
+export class ShowNewsComponent {
 
   news!: News;
   videogames!: Videogame[];
@@ -20,11 +20,11 @@ export class ShowNewsComponent{
   constructor(private router: Router,public newsService: NewsService, public loginService: LoginService, activatedRoute: ActivatedRoute, videogameservice:VideogameService){
 
     const id = activatedRoute.snapshot.params['id'];
-        this.newsService.getNew(id).subscribe(
-            (news) => this.news =  news as News,
-            (error: any) => console.error(error)
+    this.newsService.getNew(id).subscribe(
+      (news) => this.news = news as News,
+      (error: any) => console.error(error)
 
-        );
+    );
 
     
 
@@ -44,15 +44,15 @@ export class ShowNewsComponent{
     }
 }
 
-  isAdmin(){
+  isAdmin() {
     return this.loginService.isAdmin();
   }
 
-  newsImage(){
-    if(this.news){ //We have to put this always. If exist any new...
-      return this.news.image? '/api/news/' + this.news.id + '/image' : '/assets/images/not_foung.png';
+  newsImage() {
+    if (this.news) { //We have to put this always. If exist any new...
+      return this.news.image ? '/api/news/' + this.news.id + '/image' : '/assets/images/not_foung.png';
     } else {
-        return undefined;
+      return undefined;
     }
   }
 

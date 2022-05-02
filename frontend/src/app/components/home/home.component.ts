@@ -18,7 +18,7 @@ export class HomeComponent{
   news!: News[];
 
 
-  constructor( public newsService: NewsService, activatedRoute: ActivatedRoute){
+  constructor(public newsService: NewsService, activatedRoute: ActivatedRoute) {
 
     //const id = activatedRoute.snapshot.params['id'];
 

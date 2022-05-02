@@ -32,11 +32,16 @@ import { EditNewFormComponent } from './components/Admin/editNewForm.component'
 import { AboutComponent } from './components/about/about.component';
 import { VideogameRecommendedComponent } from './components/videogame-recommended/videogame-recommended.component';
 
+import { AdminComponent } from './components/admin/admin.component';
+import { CreateNewComponent } from './components/admin/createNew.component';
+import { CreateNewFormComponent } from './components/admin/createNewForm.component'
+import { CreateVideogame } from './components/admin/createVideogame.component';
+import { CreateVideogameForm } from './components/admin/createVideogameForm.component';
 
 
 
 @NgModule({
-  declarations: [VideogameRecommendedComponent,EditNewFormComponent,VideogameDetailComponent,EditNewComponent,AboutComponent,CarouselComponent,AppComponent,VideogamePurchaseComponent,VideogameEditFormComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
+  declarations: [CreateVideogameForm,CreateVideogame,CreateNewFormComponent,CreateNewComponent,AdminComponent,VideogameRecommendedComponent,EditNewFormComponent,VideogameDetailComponent,EditNewComponent,AboutComponent,CarouselComponent,AppComponent,VideogamePurchaseComponent,VideogameEditFormComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
   imports: [BrowserModule,NgbModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule,CommonModule],
   bootstrap: [AppComponent]
 })

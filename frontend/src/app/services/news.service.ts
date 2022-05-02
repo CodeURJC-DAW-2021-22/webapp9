@@ -2,11 +2,11 @@ import { NewsPage } from './../models/news.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { News } from '../models/news.model';
+import { News } from '../models/news.model'
 import { Usero } from '../models/usero.model'
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs'
 
-const URL = '/api/news/';
+const URL = '/api/news/'
 
 @Injectable({ providedIn: 'root' })
 export class NewsService {
@@ -16,7 +16,7 @@ export class NewsService {
     getNews() {
         return this.httpClient.get(URL).pipe(
             catchError((error: any) => this.handleError(error))
-        ) //as Observable<News> es el tipo de objeto que devuelve, un objeto del tipo News
+        )
     }
 
     findNewsPage(page: number): Observable<NewsPage> {
@@ -30,15 +30,9 @@ export class NewsService {
     }
 
     createNew(news: News) {
-        if (!news.id) {
-            return this.httpClient.post(URL, news).pipe(
-                catchError((error: any) => this.handleError(error))
-            )
-        } else {
-            return this.httpClient.put(URL + news.id, news).pipe(
-                catchError((error: any) => this.handleError(error))
-            )
-        }
+        return this.httpClient.post(URL, news).pipe(
+            catchError((error: any) => this.handleError(error))
+        )
     }
 
     updateNew(news: News) {
@@ -54,10 +48,10 @@ export class NewsService {
     }
 
     uploadNewImage(news: News, formData: FormData) {
-		return this.httpClient.post(URL + news.id + '/image', formData).pipe(
+        return this.httpClient.post(URL + news.id + '/image', formData).pipe(
             catchError((error: any) => this.handleError(error))
         )
-	}
+    }
 
     downloadNewImage(news: News) {
         return this.httpClient.get(URL + news.id + '/image').pipe(
@@ -69,14 +63,15 @@ export class NewsService {
         return this.httpClient.delete(URL + news.id + '/image').pipe(
         )
     }
-    /*readNew(news: News, user: Usero) {
-        return this.httpClient.put()
-    }
-*/
+    /*
+        readNew(news: News, user: Usero) {
+            return this.httpClient.put()
+        }
+    */
 
     private handleError(error: any) {
-		console.log("ERROR:");
-		console.error(error);
-		return throwError("Server error (" + error.status + "): " + error.text())
-	}
+        console.log("ERROR:");
+        console.error(error);
+        return throwError("Server error (" + error.status + "): " + error.text())
+    }
 }
