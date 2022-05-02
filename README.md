@@ -519,6 +519,21 @@ El siguiente paso será hacer npm install para que se instale la carpeta node mo
 Como podemos observar, se ha instalado la carpeta node_modules.
 ![](CapturasPantallasWEB/nodeModules.PNG)
 
+Nuestro siguiente paso será crear una carpeta llamada proxy.conf.json, la cual permitirá acceder a nuestro backend desde el frontend para obtener ls datos. Deberemos configurarla adecuadamente con la dirección ip y el puerto que esté configurado en el backend.
+
+![](CapturasPantallasWEB/proxy.PNG)
+
+El siguiente paso será inicializar el backend.
+
+![](CapturasPantallasWEB/inicializarBackend.PNG)
+
+Por último deberemos hacer ng serve (con el proxy) para lanzar nuestra apliación SPA
+
+![](CapturasPantallasWEB/ngServeProxy.PNG)
+
+
+
+
 
 
 
