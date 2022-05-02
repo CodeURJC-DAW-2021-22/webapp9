@@ -6,8 +6,9 @@
           width="150px" [src]="userImage()"><span class="font-weight-bold">"{{user.nick}}"</span><span
           class="text-black-50">"{{user.email}}"</span><span>
         </span>
-        <button (click)="save()">Save</button>
-        <button (click)="cancel()">Cancel</button>
+        <button class="btn btn-primary profile-button m-3" (click)="save()">Save</button>
+        <button class="btn btn-primary profile-button m-3" (click)="cancel()">Cancel</button>
+        <button class="btn btn-primary profile-button m-3" (click)="logOut()" type="button">Log Out</button>
       </div>
     </div>
 
@@ -37,7 +38,7 @@
             </div>
 
             <div class="col-md-12"><label class="labels">Número de tarjeta</label>
-              <input *ngIf="user.creditCard" name="creditCard" type="text" class="form-control" placeholder="123456789A"
+              <input  name="creditCard" type="text" class="form-control" placeholder="123456789A"
                 [(ngModel)]="user.creditCard" value="user.creditCard">
             </div>
 
@@ -75,4 +76,3 @@
     </div>
   </div>
 </div>
-<button class="btn btn-primary profile-button m-3" (click)="logOut()" type="button">Log Out</button>

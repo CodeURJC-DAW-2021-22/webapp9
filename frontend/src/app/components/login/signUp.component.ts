@@ -8,13 +8,22 @@ import { Usero } from './../../models/usero.model';
 })
 export class SignUpComponent {
 
+  password!: string;
+
   constructor(public useroService: UseroService) { }
 
-  createUser(event: any, nick: string, name: string, lastName: string, email: string, pass: String) {
+  createUser(event: any, nick: string, name: string, lastName: string, email: string, password: string) {
 
     event.preventDefault();
-    var user: Usero = { nick, name, lastName, email, creditCard: "",image: false, roles: ['USERO']}
-    this.useroService.createUser(user);
+    const formData = new FormData();
+    formData.append('nick', nick);
+    formData.append('name', name);
+    formData.append('lastName', lastName);
+    formData.append('email', email);
+    formData.append('password', password);
+    this.useroService.createUser(formData);
+   
+   
   }
 
 }
