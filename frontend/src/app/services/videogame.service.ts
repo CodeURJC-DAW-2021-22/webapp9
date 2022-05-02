@@ -51,7 +51,7 @@ export class VideogameService {
     }
 
     uploadVideogameImage(videogame: Videogame, formData: FormData) {
-        return this.httpClient.post(URL + videogame.id + '/image', formData)
+        return this.httpClient.post(URL + videogame.id + '/Image', formData)
     }
 
     uploadVideogameCompanyImage(videogame: Videogame, formData: FormData) {
