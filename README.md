@@ -535,6 +535,27 @@ Por último deberemos hacer ng serve (con el proxy) para lanzar nuestra apliaci�
 
 # Participación de miembros (Fase 4):
 
+### Andrea Patricia Acuña Padrón
+###### Descripción textual de las tareas realizadas en la fase: 
+  - Desarrollo del login en frontend. Así ha desarrollado el componente (html y ts) del login.
+  - Desarrollo del registro en frontend. Así ha desarrollado el componente (html y ts) del registro.
+  - Desarrollo del perfil de usuario en frontend. Así ha desarrollado el componente (html y ts) del signUp.
+  - Subida de imagenes en el perfil del usuario. 
+
+###### Listado de los 5 commits más significativos durante la fase:
+ 1. [User profile + cambios en componentes](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/71cf65ad533a69c2e14dc37d6509adc44da790c0)
+ 2. [arreglar carpetas + signUp componente](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/cf7716f3d4f29b9b8ece6a92b6caeb5bb805bcef)
+ 3. [userProfile avanzado y pequeños cambios](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/a5698edba8cb65efeba1a4e345e93965d9239852)
+ 4. [home component + algunos cambios](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/9f81e242a3411410ab4b5d89b87580cfc8be1734)
+ 5. [login asociado a user profile funciona](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/bad7e16839e1088a5b5284b7de9aa0c4cae96619)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [login.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/login/login.component.ts)
+2. [signUp.component.ts ](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/login/signUp.component.ts)
+3. [userProfile.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/user/userProfile.component.ts)
+4. [userProfile.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/user/userProfile.component.html)
+5. [signUp.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/login/signUp.component.html)
+
 ### Juan Luis Rico Rus
 ###### Descripción textual de las tareas realizadas en la fase:
   - He realizado las tareas correspondientes para la realización de la parte de las noticias de la página web, a su vez que la parte de administrador para la modificación de las noticias.
