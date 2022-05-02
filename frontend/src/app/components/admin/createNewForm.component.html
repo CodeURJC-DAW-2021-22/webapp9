@@ -68,7 +68,9 @@
                 <div class="col-8">
                     <p>Related Videogames: </p>
                     <select name="videogames" multiple style="width: 100%;" ngFor>
-                        <option *ngFor="let vg of videogame">{{ vg.title }}</option>
+                        <option *ngFor="let vg of videogame">
+                            <p>{{ vg.title }}</p>
+                        </option>
                     </select>
                 </div>
             </div>

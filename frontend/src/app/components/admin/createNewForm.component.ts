@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { News } from "src/app/models/news.model";
 import { Videogame } from "src/app/models/videogame.model";
 import { NewsService } from "src/app/services/news.service";
+import { VideogameService } from "src/app/services/videogame.service";
 
 @Component({
     selector: 'createNewForm',
@@ -23,7 +24,14 @@ export class CreateNewFormComponent {
     @ViewChild("file")
     file!: any;
 
-    constructor(public router: Router, public newsService: NewsService, activatedRoute: ActivatedRoute) { }
+    constructor(public router: Router, public newsService: NewsService, activatedRoute: ActivatedRoute, private vs: VideogameService) { }
+
+    ngOnInit() {
+        this.vs.getVideogames().subscribe(
+            videogame => this.videogame = videogame,
+            error => console.log(error)
+        );
+    }
 
     uploadImage(news: News): void {
 
