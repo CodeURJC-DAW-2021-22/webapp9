@@ -63,7 +63,7 @@ public class GamelinkWebController {
 		}
 	}
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String home(Model model, HttpSession session) {
         Page<News> news = ns.findAll(PageRequest.of(0, 3)); 
     

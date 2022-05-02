@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { News } from 'src/app/models/news.model';
 import { NewsService } from 'src/app/services/news.service';
 import { LoginService } from 'src/app/services/login.service';
+import { Videogame } from 'src/app/models/videogame.model';
+import { VideogameService } from 'src/app/services/videogame.service';
 '../../services/usero.service';
 
 @Component({
@@ -13,9 +15,9 @@ import { LoginService } from 'src/app/services/login.service';
 export class ShowNewsComponent{
 
   news!: News;
+  videogames!: Videogame[];
 
-
-  constructor(private router: Router,public newsService: NewsService, public loginService: LoginService, activatedRoute: ActivatedRoute){
+  constructor(private router: Router,public newsService: NewsService, public loginService: LoginService, activatedRoute: ActivatedRoute, videogameservice:VideogameService){
 
     const id = activatedRoute.snapshot.params['id'];
         this.newsService.getNew(id).subscribe(
@@ -23,6 +25,8 @@ export class ShowNewsComponent{
             (error: any) => console.error(error)
 
         );
+
+    
 
   }
 
