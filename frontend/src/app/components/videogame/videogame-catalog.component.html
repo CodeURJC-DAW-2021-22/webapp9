@@ -1,0 +1,25 @@
+
+<section class="py-5">
+    <div class="container px-5">
+        <h2 class="fw-bolder fs-5 mb-4">Videojuegos</h2>
+        <div *ngIf="ready"   id="moreImages" class="row gx-5">    
+            <videogame-card class="col-lg-4 mb-5" *ngFor="let videogame of videogames;let i = index" [videogame]="videogame"></videogame-card>
+        </div>
+        <div *ngIf="videogames.length == 9"  class="text-end mb-5 mb-xl-0">
+            <a class="text-decoration-none">
+                <button class="btn btn-secondary button" (click)="nextpage()" >
+                    <i class="fa fa-eye"></i> Pagina siguiente
+                </button>
+                <div id="loader"></div>
+            </a>
+        </div>
+        <div *ngIf="page > 0" class="text-end mb-5 mb-xl-0">
+            <a class="text-decoration-none">
+                <button class="btn btn-secondary button" (click)="prevpage()" >
+                    <i class="fa fa-eye"></i>  Pagina anterior
+                </button>
+                <div id="loader"></div>
+            </a>
+        </div>
+    </div>
+</section>

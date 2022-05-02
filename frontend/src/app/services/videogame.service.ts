@@ -1,34 +1,42 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import { News } from "../models/news.model"
-import { Videogame } from "../models/videogame.model";
-import { Observable } from "rxjs";
-import { Usero } from "../models/usero.model";
+import { Videogame,VideogamePage } from "../models/videogame.model";
+import { Observable,throwError  } from "rxjs";
+import { catchError } from 'rxjs/operators';
 
 const URL = '/api/videogames/';
 
-/////////////////////////////////////////////////////////////////////
-// FALTA REVISAR Q FUNCIONE BIEN, Y DOS FUNCIONES MAS ABAJO
-/////////////////////////////////////////////////////////////////////
 
 @Injectable({ providedIn: 'root' })
 export class VideogameService {
 
+
     constructor(private httpClient: HttpClient) {}
 
-    getVideogames(): Observable<Videogame> {
-        return this.httpClient.get(URL).pipe() as Observable<Videogame>
+    getVideogames(): Observable<Videogame[]> {
+        var videogame = this.httpClient.get(URL).pipe() as Observable<Videogame[]>
+        return videogame
     }
 
-    findVideogamePage() {
-        return this.httpClient.get(URL + "pages")
+    getVideogamesPage(page: number): Observable<VideogamePage>{
+        
+        var videogames= this.httpClient.get(URL + "pages?page=" + page).pipe() as Observable<VideogamePage>
+        return videogames
     }
 
-    getVideogame(id: number) {
-        return this.httpClient.get(URL + id)
+    getVideogame(id: number | string    ): Observable<any>  {
+        return this.httpClient.get(URL + id).pipe(
+			catchError(error => this.handleError(error))
+		) as Observable<any>;
     }
 
+	private handleError(error: any) {
+		console.log("ERROR:");
+		console.error(error);
+		return throwError("Server error (" + error.status + "): " + error.text())
+	}
+    
     createVideogame(videogame: Videogame) {
         if (!videogame.id) {
             return this.httpClient.post(URL, videogame)
@@ -42,19 +50,26 @@ export class VideogameService {
     }
 
     deleteVideogame(videogame: Videogame) {
-        return this.httpClient.delete(URL + videogame.id)
+        return this.httpClient.delete(URL + videogame.id).pipe(catchError(error => this.handleError(error)));
     }
+
+    uploadVideogameImage(videogame: Videogame, formData: FormData) {
+		return this.httpClient.post(URL + videogame.id + '/image', formData)
+	}
 
     uploadVideogameCompanyImage(videogame: Videogame, formData: FormData) {
 		return this.httpClient.post(URL + videogame.id + '/companyImage', formData)
 	}
 
-    downloadVideogameCompanyImage(videogame: Videogame) {
-        return this.httpClient.get(URL + videogame.id + '/companyImage')
-    }
-
     deleteVideogameCompanyImage(videogame: Videogame) {
         return this.httpClient.delete(URL + videogame.id + '/companyImage')
+    }
+
+    purchasegame(id: number | undefined, idus: number | undefined) {
+        if (id == undefined || idus == undefined){
+            return alert("Error al comprar el videojuego, intentelo más tarde.")
+        }
+        return this.httpClient.put(URL + id + '/purchase/' + idus, null)
     }
 /*
     addRelatedNew(videogame: Videogame) {

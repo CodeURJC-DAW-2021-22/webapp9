@@ -14,10 +14,8 @@ import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,7 +63,7 @@ public class GamelinkWebController {
 		}
 	}
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String home(Model model, HttpSession session) {
         Page<News> news = ns.findAll(PageRequest.of(0, 3)); 
     

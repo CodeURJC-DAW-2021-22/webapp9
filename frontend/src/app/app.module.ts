@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule, Component } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 import { routing } from './app.routing';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -14,13 +16,28 @@ import { NewsTemplateComponent } from './components/news/newsTemplate.component'
 import { ShowNewsComponent } from './components/news/showNews.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserProfile } from './components/user/userProfile.component';
+import { VideogameCardComponent } from './components/videogame/videogame-card.component';
+import { VideogameCatalogComponent } from './components/videogame/videogame-catalog.component';
+import { VideogameEditFormComponent } from './components/videogame/videogame-edit-form.component';
+import { VideogamePurchaseComponent } from './components/videogame/videogame-purchase.component';
+import { VideogameDetailComponent } from './components/videogame/videogame-detail.component';
+import { CommonModule } from '@angular/common';  
+
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { EditNewComponent } from './components/Admin/editNew.component';
+import { EditNewFormComponent } from './components/Admin/editNewForm.component'
+
+import { AboutComponent } from './components/about/about.component';
+import { VideogameRecommendedComponent } from './components/videogame-recommended/videogame-recommended.component';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent, ShowNewsComponent, HomeComponent, UserProfile],
-  imports: [BrowserModule, FormsModule, HttpClientModule, routing, FormsModule],
+  declarations: [VideogameRecommendedComponent,EditNewFormComponent,VideogameDetailComponent,EditNewComponent,AboutComponent,CarouselComponent,AppComponent,VideogamePurchaseComponent,VideogameEditFormComponent, LoginComponent, HeadComponent, NewsComponent, NavBarComponent, FooterComponent, NewsTemplateComponent,VideogameCatalogComponent, ShowNewsComponent, HomeComponent, UserProfile,VideogameCardComponent],
+  imports: [BrowserModule,NgbModule, FormsModule, HttpClientModule, routing, FormsModule,RouterModule,CommonModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
