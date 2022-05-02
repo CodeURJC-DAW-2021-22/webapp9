@@ -2,6 +2,8 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { Videogame } from 'src/app/models/videogame.model';
 import { VideogameService } from 'src/app/services/videogame.service';
+import { News } from 'src/app/models/news.model';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'videogame-edit-form',
@@ -13,16 +15,23 @@ export class VideogameEditFormComponent{
   videogame!: Videogame;
   ready:boolean = false;
 
+  news!: News[];
+
   @ViewChild("file")
   file: any;
 
   @ViewChild("file1")
   file1: any;
 
-  constructor(private router: Router, activatedroute:ActivatedRoute, public videogameService: VideogameService){
+  constructor(private router: Router, activatedroute:ActivatedRoute, public videogameService: VideogameService, newsService: NewsService){
     const id = activatedroute.snapshot.params['id'];
-    videogameService.getVideogame(id).subscribe(      
+    videogameService.getVideogame(id).subscribe(
       data => {this.videogame= data as Videogame},
+      error => console.error(error)
+    )
+
+    newsService.getNews().subscribe(
+      data => {this.news = data as News[]},
       error => console.error(error)
     )
 
@@ -32,7 +41,7 @@ export class VideogameEditFormComponent{
   ngOnInit(){
     this.ready = true;
   }
-  
+
   cancel() {
     window.history.back();
   }
@@ -45,7 +54,7 @@ export class VideogameEditFormComponent{
   }
 
   uploadImage(videogame: Videogame): void {
-    
+
     const image = this.file.nativeElement.files[0];
     if (image) {
       let formData = new FormData();
@@ -58,7 +67,7 @@ export class VideogameEditFormComponent{
       this.afterUploadImage(videogame);
     }
   }
-  
+
   private afterUploadImage(videogame: Videogame){
     this.router.navigate(['/videogame/', videogame.id]);
   }

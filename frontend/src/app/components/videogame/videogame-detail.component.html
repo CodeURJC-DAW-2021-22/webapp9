@@ -95,8 +95,7 @@
             <div class="container px-5 my-5" style="margin-bottom: 0px !important ;">
                 <div class="row gx-5 justify-content-center">
 
-                    <!-- {{>newsTemplate}}  FALTA AÑADIR -->
-                    <!--<newsTemplate [news]="news"></newsTemplate>-->
+                  <newsTemplate class="col-lg-4 mb-5" *ngFor="let ng of news" [news]="ng"></newsTemplate>
 
                 </div>
             </div>
