@@ -27,11 +27,11 @@ const appRoutes = [
     { path: 'login', component: LoginComponent },
     { path: 'signUp', component: SignUpComponent },
     { path: 'videogameRecommended', component: VideogameRecommendedComponent },
-    { path: '**', redirectTo: 'home' },
     { path: 'admin', component: AdminComponent },
     { path: 'createNew', component: CreateNewComponent },
     { path: 'createVideogame', component: CreateVideogame },
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '**', redirectTo: 'home' },
 
 ]
 

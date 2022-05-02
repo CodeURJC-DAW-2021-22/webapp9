@@ -17,7 +17,6 @@ export class CreateVideogame {
         const id = activatedRoute.snapshot.params['id'];
         this.newsService.getVideogame(id).subscribe(
             (videogame) => this.videogame = videogame as Videogame,
-            //(error: any) => console.error(error)
         )
     }
 }

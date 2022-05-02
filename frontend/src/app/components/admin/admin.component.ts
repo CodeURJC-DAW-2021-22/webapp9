@@ -20,8 +20,4 @@ export class AdminComponent {
     getGraficaSales() {
         return this.vs.graphicSales
     }*/
-
-    createNew() {
-        this.router.navigate(['/createNew']);
-    }
 }

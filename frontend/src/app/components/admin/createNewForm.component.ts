@@ -32,7 +32,7 @@ export class CreateNewFormComponent {
             let formData = new FormData();
             formData.append("imageFile", image);
             this.newsService.uploadNewImage(news, formData).subscribe(
-                _ => this.afterUploadImage(news),
+                (_: any) => this.afterUploadImage(news),
                 error => alert('Error uploading book image: ' + error)
             );
         } else {
@@ -48,14 +48,14 @@ export class CreateNewFormComponent {
 
         this.news = {
             title: this.title, date: this.date, readTime: this.readTime,
-            badge: this.badge, description: this.description, argument: this.argument, image: true
+            badge: this.badge, description: this.description, argument: this.argument, image: false
         }
 
         this.newsService.createNew(this.news).subscribe(
             (news) => this.uploadImage(news as News),
             (error: string) => alert('Error al guardar los datos: ' + error)
         );
-
+        this.router.navigate(['/news']);
     }
 
     cancel() {
