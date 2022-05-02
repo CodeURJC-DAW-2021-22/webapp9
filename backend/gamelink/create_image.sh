@@ -1,15 +1,17 @@
 #!/bin/bash
 
 cd ../../frontend
+
 npm install
+
 ng build --base-href="/new/"
 
-cp dist/frontend/* ../backend/gamelink/src/main/resources/static/new
+cp -r dist/frontend/* ../backend/gamelink/src/main/resources/static/new
 
 cd ../backend/gamelink
 
-docker build -t juanurjc/gamelink .
+docker build -t gamelink_web .
 
-docker push juanurjc/gamelink
+docker push gamelink_web
 
-docker pull juanurjc/gamelink:latest
+docker pull gamelink_web:latest
