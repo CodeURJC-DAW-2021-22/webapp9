@@ -177,9 +177,9 @@
                     <div class="col-md-8">
                         <p>Related News: </p>
                         <select name="notices" multiple style="width: 100%;">
-                            <!-- {{#news}}
-                            <option value="{{ id }}">{{ title }}</option>
-                            {{/news}} -->
+
+                            <option *ngFor="let ng of news" value="{{ ng.id }}">{{ ng.title }}</option>
+
                         </select>
                     </div>
                 </div>

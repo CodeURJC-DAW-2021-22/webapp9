@@ -90,35 +90,7 @@
 
               <!-- The slideshow/carousel -->
 
-              <a *ngIf="imagesCarousel">
-                <ng-template ngbSlide>
-                  <div class="picsum-img-wrapper">
-                    <img [src]="imagesCarousel[0]" alt="Random first slide">
-                  </div>
-                  <div class="carousel-caption">
-                    <h3>Diablo 4</h3>
-                    <p>Fecha de lanzamiento revelada</p>
-                  </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                  <div class="picsum-img-wrapper">
-                    <img [src]="imagesCarousel[1]" alt="Random second slide">
-                  </div>
-                  <div class="carousel-caption">
-                    <h3>Overwatch 2</h3>
-                    <p>Se cancela definitivamente</p>
-                  </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                  <div class="picsum-img-wrapper">
-                    <img [src]="imagesCarousel[2]" alt="Random third slide">
-                  </div>
-                  <div class="carousel-caption">
-                    <h3>Mario kart 9</h3>
-                    <p>Ya es una realidad, no te lo pierdas</p>
-                  </div>
-                </ng-template>
-              </a>
+              <app-carousel></app-carousel>
 
             </div>
           </div>
