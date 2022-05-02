@@ -531,6 +531,8 @@ Por √∫ltimo deberemos hacer ng serve (con el proxy) para lanzar nuestra apliaci√
 
 ![](CapturasPantallasWEB/ngServeProxy.PNG)
 
+![](CapturasPantallasWEB/ejecucion.PNG)
+
 
 
 
