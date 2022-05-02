@@ -2,6 +2,7 @@ import { Component, Input, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { News } from "src/app/models/news.model";
 import { Videogame } from "src/app/models/videogame.model";
+import { NewsService } from "src/app/services/news.service";
 import { VideogameService } from "src/app/services/videogame.service";
 
 @Component({
@@ -58,7 +59,7 @@ export class CreateVideogameForm {
     }
 
     save() {
-        
+
         this.videogame = {
             title: this.title, price: this.price, company: this.company,
             continent: this.continent, genre: this.genre, description: this.description,
