@@ -21,7 +21,7 @@ import { VideogameCatalogComponent } from './components/videogame/videogame-cata
 import { VideogameEditFormComponent } from './components/videogame/videogame-edit-form.component';
 import { VideogamePurchaseComponent } from './components/videogame/videogame-purchase.component';
 import { VideogameDetailComponent } from './components/videogame/videogame-detail.component';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
