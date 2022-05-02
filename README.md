@@ -533,6 +533,25 @@ Por último deberemos hacer ng serve (con el proxy) para lanzar nuestra apliaci�
 
 ![](CapturasPantallasWEB/ejecucion.PNG)
 
+# Participación de miembros (Fase 4):
+
+### Juan Luis Rico Rus
+###### Descripción textual de las tareas realizadas en la fase:
+  - He realizado las tareas correspondientes para la realización de la parte de las noticias de la página web, a su vez que la parte de administrador para la modificación de las noticias.
+  - He realizado tareas menores, como ayudar a mis compañeros en lo que necesitasen o adecuar las direciones en app.routing, app.module, etc
+
+###### Listado de los 5 ficheros en los que más haya participado:
+1. [news.component.ts] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/news.component.ts)
+2. [newsTemplate.component.ts] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/newsTemplate.component.ts)
+3. [showNews.component.ts] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/showNews.component.ts)
+4. [editNewForm.component.html] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/Admin/editNewForm.component.html)
+5. [editNewForm.component.ts] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/Admin/editNewForm.component.ts)
+
+
+
+
+
+
 
 
 
