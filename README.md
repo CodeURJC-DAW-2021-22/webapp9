@@ -604,14 +604,26 @@ Por último deberemos hacer ng serve (con el proxy) para lanzar nuestra apliaci�
 4. [videogame-card.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/videogame/videogame-card.component.html)
 5. [videogame-detail.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/videogame/videogame-detail.component.html)
 
+### Carlos Fuentes Díaz
+###### Descripción textual de las tareas realizadas en la fase:
+ 
+- Implementacion de los servicios (videogame y news)
+- Desarrollo de la creacion de noticias y videojuegos
+- desarrollo de administrador
+- Arreglos menores
 
+###### Listado de los 5 commits más significativos durante la fase:
 
+1. [createNew y createVideogame funcionan (excepto imagenes)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/ad1b1d513815256e72c71016dd7d4cad333829b5)
+2. [createNew -> no funka](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4c6343638f17c62bc80232261a2824aac413f6e6)
+3. [createNew.component 1ºparte](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/26f9073937b84f537fe55044ae4fe21e56d9e3e9)
+4. [admin hecho](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/2d0219ef9a875ddb88a6cabb1a06c27e9ee4eb56)
+5. [videogame.service a medio crear](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/a82a7913a6742fce37fe15faf7b0dbb780db5bc7)
 
+###### Listado de los 5 ficheros en los que más haya participado:
 
-
-
-
-
-
-
-
+1. [news.service.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/services/news.service.ts)
+2. [videogame.service.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/services/videogame.service.ts)
+3. [admin.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/admin/admin.component.html)
+4. [createNewForm.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/admin/createNewForm.component.ts)
+5. [createVideogameForm.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/admin/createVideogameForm.component.ts)
