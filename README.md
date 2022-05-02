@@ -579,7 +579,30 @@ Por último deberemos hacer ng serve (con el proxy) para lanzar nuestra apliaci�
 4. [editNewForm.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/Admin/editNewForm.component.html)
 5. [editNewForm.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/Admin/editNewForm.component.ts)
 
+### Mani Victor Patel Bentz
+###### Descripción textual de las tareas realizadas en la fase:
+ 
+- Desarrollado los componentes y servicios de los videojuegos.
+- Implementado los modelos.
+- Implementado editar y eliminar videojuegos.
+- Controladore SPA
+- Arreglos menores.
 
+###### Listado de los 5 commits más significativos durante la fase:
+
+1. [Frontend included in the backend server done](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/c9ef9323768060a3fde5a863eabce5f240ba96e9)
+2. [Added juans](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/4d7083d6f3f3bd52ab504a5a1a108738acdd60a8)
+3. [a]( https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/9246af595a9a841f3e54f9f6c1da0cb87d0202e3)
+4. [Pagination added](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/36679bdeaeb22b00e40909443fb247912fd9a8a1)
+5. [Added the card catalog compoenents](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/8c67588fa54358ff4f6eaa4fda9fa59298e9a8cc)
+
+###### Listado de los 5 ficheros en los que más haya participado:
+
+1. [videogame-catalog.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/videogame/videogame-catalog.component.ts)
+2. [videogame-catalog.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/videogame/videogame-catalog.component.html)
+3. [videogame-card.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/videogame/videogame-card.component.ts)
+4. [videogame-card.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/videogame/videogame-card.component.html)
+5. [videogame-detail.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/videogame/videogame-detail.component.html)
 
 
 
