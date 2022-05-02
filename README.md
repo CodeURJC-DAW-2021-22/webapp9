@@ -535,7 +535,7 @@ Por último deberemos hacer ng serve (con el proxy) para lanzar nuestra apliaci�
 
 
 # Diagrama de clases y templates de la SPA
-![](CapturasPantallasWEB/ImagenUMLAngular.PNG)
+![](CapturasPantallasWEB/ImagenUMLAngular.png)
 
 # Participación de miembros (Fase 4):
 
