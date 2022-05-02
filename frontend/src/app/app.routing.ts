@@ -9,7 +9,7 @@ import { CreateNewComponent } from './components/admin/createNew.component';
 import { NewsComponent } from './components/news/news.component';
 import { ShowNewsComponent } from './components/news/showNews.component';
 import { UserProfile } from './components/user/userProfile.component';
-import { EditNewComponent } from './components/Admin/editNew.component';
+import { EditNewComponent } from './components/admin/editNew.component';
 import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/login/signUp.component';
