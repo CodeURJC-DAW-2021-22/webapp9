@@ -16,16 +16,14 @@ export class SignUpComponent {
 
     event.preventDefault();
     const formData = new FormData();
-    var user: Usero = { nick, name, lastName, email, creditCard: "", image: true, roles: ['USERO']}
     formData.append('nick', nick);
     formData.append('name', name);
     formData.append('lastName', lastName);
     formData.append('email', email);
     formData.append('password', password);
-    //this.useroService.createUser(user);
     this.useroService.createUser(formData);
    
-   // this.router.navigate(['/login']);
+   
   }
 
 }

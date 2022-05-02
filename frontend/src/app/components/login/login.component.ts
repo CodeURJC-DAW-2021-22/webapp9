@@ -20,6 +20,7 @@ export class LoginComponent {
 
   logOut() {
     this.loginService.logOut();
+    this.router.navigate(['/home']);
   }
 
 }

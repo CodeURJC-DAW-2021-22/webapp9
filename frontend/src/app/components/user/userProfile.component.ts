@@ -77,5 +77,6 @@ export class UserProfile {
 
   logOut() {
     this.loginservice.logOut();
+    this.router.navigate(['/home']);
   }
 }
