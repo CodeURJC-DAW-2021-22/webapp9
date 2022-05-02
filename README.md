@@ -540,6 +540,17 @@ Por último deberemos hacer ng serve (con el proxy) para lanzar nuestra apliaci�
   - He realizado las tareas correspondientes para la realización de la parte de las noticias de la página web, a su vez que la parte de administrador para la modificación de las noticias.
   - He realizado tareas menores, como ayudar a mis compañeros en lo que necesitasen o adecuar las direciones en app.routing, app.module, etc
 
+###### Listado de los 5 commits más significativos durante la fase:
+1. [editNew y editNewForm acabados](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/7803980f8d09f93d4baa18ed2dda8b72ded9f343) 
+2. [News, news template y showvideogame (sin la parte de mani) y sin pagi… 
+
+…nacion completa](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/0ffa4b161fb353b29d2817e826360e8e4048d77d)
+3. [showNews a la espera del tempalte de mani. Head component, no header … 
+
+…(fallo mio)](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/06339c46342e54e2af8578ca4bb552dbd17d3127)
+4. [newsTemplate a priori completado con Carlos Fuentes](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/f2e24605df9f24b7a29c1dd1393c8b04295a6fdd)
+5. [Paginación aplicada al home](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/00cae42cec25a387c14c379b39819def760873bc)
+
 ###### Listado de los 5 ficheros en los que más haya participado:
 1. [news.component.ts] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/news.component.ts)
 2. [newsTemplate.component.ts] (https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/JuanFase4/frontend/src/app/components/news/newsTemplate.component.ts)
