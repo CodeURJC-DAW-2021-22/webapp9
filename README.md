@@ -510,6 +510,9 @@ A continuación nos saldrá la factura y podremos descargarla. La imágen siguie
 Lo primero que debemos hacer, será instalar Node en nuestro dispositivo. Para ello, nos dirigiremos a la aplación de Node y la descargaremos.
 ![](CapturasPantallasWEB/DescargaNode.PNG)
 
+A continuación, deberemos instalar @angular/cli
+![](CapturasPantallasWEB/AngularCli.PNG)
+
 
 
 
