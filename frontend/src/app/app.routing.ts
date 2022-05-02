@@ -8,7 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CreateNewComponent } from './components/admin/createNew.component';
 import { NewsComponent } from './components/news/news.component';
 import { ShowNewsComponent } from './components/news/showNews.component';
-import { UserProfile } from './components/user/userProfile.component';
+import { UserProfile } from './com./components/admin/editNew.component
 import { EditNewComponent } from './components/Admin/editNew.component';
 import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';

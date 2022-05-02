@@ -26,8 +26,8 @@ import { CommonModule } from '@angular/common';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import { EditNewComponent } from './components/Admin/editNew.component';
-import { EditNewFormComponent } from './components/Admin/editNewForm.component'
+import { EditNewComponent } from './components/admin/editNew.component';
+import { EditNewFormComponent } from './components/admin/editNewForm.component'
 
 import { AboutComponent } from './components/about/about.component';
 import { VideogameRecommendedComponent } from './components/videogame-recommended/videogame-recommended.component';
