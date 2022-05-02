@@ -35,11 +35,6 @@ EXPOSE 8443
 # Command that is executed when doing docker run
 CMD [ "java", "-jar", "gamelink-0.0.1-SNAPSHOT.jar" ]
 
-#################################################
-# Base image for the application container
-#################################################
-
-#Primera Etapa
 FROM node:10-alpine as build-step
 
 RUN mkdir -p /app
@@ -57,4 +52,6 @@ RUN npm run build --prod
 #Segunda Etapa
 FROM nginx:1.17.1-alpine
 	#Si estas utilizando otra aplicacion cambia PokeApp por el nombre de tu app
-COPY --from=build-step /app/dist/PokeApp /usr/share/nginx/html
+COPY --from=build-step /app/dist/gamelink /usr/share/nginx/html
+
+
