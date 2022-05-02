@@ -503,4 +503,13 @@ Una vez se haya seleccionado un videojuego, se deberá pulsar la opción de comp
 A continuación nos saldrá la factura y podremos descargarla. La imágen siguiente muestra el PDF de la factura una vez se realiza la descarga.
 ![](CapturasPantallasWEB/PDFDownloaded.PNG)
 
+# Implementación de la web con arquitectura SPA (Fase 4)
+
+## Instrucciones para ejecutar la aplicacion SPA
+
+Lo primero que debemos hacer, será instalar Node en nuestro dispositivo. Para ello, nos dirigiremos a la aplación de Node y la descargaremos.
+![](CapturasPantallasWEB/DescargaNode.PNG)
+
+
+
 
