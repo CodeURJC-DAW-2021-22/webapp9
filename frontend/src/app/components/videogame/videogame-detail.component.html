@@ -17,7 +17,7 @@
                             style="color: aliceblue !important; font-size: 2em !important;"> Precio: {{videogame.price}}€</p>
                             <!--Button to pay-->
                             <button class="btn btn-primary btn-lg px-4 me-sm-3" id="payButton" (click)="purchasevideogame()">
-                                Comprar ya 
+                                Comprar ya
                                 <span style="color: grey;">{{videogame.price}}€</span>
                             </button>
                     </div>
@@ -33,7 +33,7 @@
                     <div class="col-5 text-center" >
                         <p class="lead fw-normal text-white-50 mb-4"
                             style="color: aliceblue !important; font-size: 2em !important; margin-top: 5%;"> Admin Actions :
-                            <button class="btn btn-primary btn-lg px-4 me-sm-3" (click)="removeVideogame()" style="margin-top: auto;">Eliminar  </button>               
+                            <button class="btn btn-primary btn-lg px-4 me-sm-3" (click)="removeVideogame()" style="margin-top: auto;">Eliminar  </button>
                             <button class="btn btn-outline-light btn-lg px-4" (click)="editVideogame()" style="margin-top: auto;">Editar</button>
                         </p>
 
@@ -96,6 +96,7 @@
                 <div class="row gx-5 justify-content-center">
 
                     <!-- {{>newsTemplate}}  FALTA AÑADIR -->
+                    <!--<newsTemplate [news]="news"></newsTemplate>-->
 
                 </div>
             </div>
