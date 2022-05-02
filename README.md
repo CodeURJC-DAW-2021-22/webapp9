@@ -513,6 +513,14 @@ Lo primero que debemos hacer, será instalar Node en nuestro dispositivo. Para e
 A continuación, deberemos instalar @angular/cli
 ![](CapturasPantallasWEB/AngularCli.PNG)
 
+El siguiente paso será hacer npm install para que se instale la carpeta node modules, el cual tiene las dependencias necesarias para que nuestra apliación SPA funcione correctamente. Deberemos hacer este comando en nuestra carpeta frontend (previamente creada).
+![](CapturasPantallasWEB/npmInstall.PNG)
+
+Como podemos observar, se ha instalado la carpeta node_modules.
+![](CapturasPantallasWEB/nodeModules.PNG)
+
+
+
 
 
 
