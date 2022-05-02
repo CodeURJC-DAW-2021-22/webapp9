@@ -16,7 +16,7 @@ export class VideogameEditFormComponent{
   @ViewChild("file")
   file: any;
 
-  @ViewChild("file1")
+  @ViewChild("filea")
   file1: any;
 
   constructor(private router: Router, activatedroute:ActivatedRoute, public videogameService: VideogameService){
@@ -47,16 +47,26 @@ export class VideogameEditFormComponent{
   uploadImage(videogame: Videogame): void {
     
     const image = this.file.nativeElement.files[0];
+    const image1 = this.file1.nativeElement.files[0];
+
+    if (image1){
+      let formData = new FormData();
+      formData.append("imageFile", image);
+      this.videogameService.uploadVideogameCompanyImage(videogame, formData).subscribe(
+        _ => undefined,
+        error => alert('Error uploading book company image: ' + error)
+      );
+    }
     if (image) {
       let formData = new FormData();
       formData.append("imageFile", image);
       this.videogameService.uploadVideogameImage(videogame, formData).subscribe(
-        _ => this.afterUploadImage(videogame),
+        _ => undefined ,
         error => alert('Error uploading book image: ' + error)
       );
-    } else {
-      this.afterUploadImage(videogame);
-    }
+    } 
+    this.afterUploadImage(videogame);
+
   }
   
   private afterUploadImage(videogame: Videogame){
