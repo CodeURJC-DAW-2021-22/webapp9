@@ -4,7 +4,7 @@ cd ../../frontend
 
 npm install
 
-ng build --base-href="/new/"
+MSYS2_ARG_CONV_EXCL="--base-href" npm run build -- --base-href="/new/"
 
 cp -r dist/frontend/* ../backend/gamelink/src/main/resources/static/new
 
