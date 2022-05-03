@@ -628,26 +628,27 @@ Por último deberemos hacer ng serve (con el proxy) para lanzar nuestra apliaci�
 4. [createNewForm.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/admin/createNewForm.component.ts)
 5. [createVideogameForm.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/admin/createVideogameForm.component.ts)
 
-### Jhostin David Ortiz Moreno
+### Jhostin Davis Ortiz Moreno
 ###### Descripción textual de las tareas realizadas en la fase:
  
-- 
+- Registro y login de frontend, docker.
 
 ###### Listado de los 5 commits más significativos durante la fase:
 
-1. []()
-2. []()
-3. []()
-4. []()
-5. []()
+1. [Registro usuario funciona (fix backend + servicio user)
+ main](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/6d1c8409952bd8d432842b05170c06737209598d)
+2. [videogames recommendations working](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/5326ceb9b76e8cf80fe1ecdf216c811dd535b8e5)
+3. [navBar fixed + login + signup fixed](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/d99504ae430c18b487c3026375e6863cfb66367e)
+4. [usero service finished](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/fddcc560694b7654e7b92b1e2a90ad5c352676f5)
+5. [fixed recursion in home.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/commit/ee1f96c7e0e93fafc2518fc5b39fa24250d26478)
 
 ###### Listado de los 5 ficheros en los que más haya participado:
 
-1. []()
-2. []()
-3. []()
-4. []()
-5. []()
+1. [usero.service.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/services/usero.service.ts)
+2. [videogame-recommended.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/videogame-recommended/videogame-recommended.component.ts)
+3. [userProfile.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/user/userProfile.component.ts)
+4. [signUp.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/login/signUp.component.ts)
+5. [login.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/login/login.component.ts)
 
 # Video explicatorio de la web:
 [enlace al video](https://youtu.be/ZdLNaKrbSrQ)
