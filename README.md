@@ -627,3 +627,27 @@ Por último deberemos hacer ng serve (con el proxy) para lanzar nuestra apliaci�
 3. [admin.component.html](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/admin/admin.component.html)
 4. [createNewForm.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/admin/createNewForm.component.ts)
 5. [createVideogameForm.component.ts](https://github.com/CodeURJC-DAW-2021-22/webapp9/blob/main/frontend/src/app/components/admin/createVideogameForm.component.ts)
+
+### Jhostin David Ortiz Moreno
+###### Descripción textual de las tareas realizadas en la fase:
+ 
+- 
+
+###### Listado de los 5 commits más significativos durante la fase:
+
+1. []()
+2. []()
+3. []()
+4. []()
+5. []()
+
+###### Listado de los 5 ficheros en los que más haya participado:
+
+1. []()
+2. []()
+3. []()
+4. []()
+5. []()
+
+# Video explicatorio de la web:
+[enlace al video](https://youtu.be/ZdLNaKrbSrQ)
